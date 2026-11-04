@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version-file: .fvmrc
+          cache: true
+      - run: flutter pub get
+      # The generated API client must match api/openapi.json (docs/SETUP.md).
+      - name: Generated code is committed
+        run: |
+          dart run swagger_parser
+          dart run build_runner build -d
+          git diff --exit-code -- lib/api || (echo "lib/api is stale: run the codegen steps in docs/SETUP.md" && exit 1)
+      - run: dart format --output=none --set-exit-if-changed lib/app lib/core lib/features lib/main.dart lib/main_dev.dart lib/main_staging.dart lib/main_prod.dart test tool
+      - run: flutter analyze
+      - run: flutter test

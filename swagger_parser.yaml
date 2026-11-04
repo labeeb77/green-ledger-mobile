@@ -1,0 +1,15 @@
+# Generates the API client from the backend contract (docs/SETUP.md "Code generation").
+swagger_parser:
+  schema_path: api/openapi.json
+  output_directory: lib/api/generated
+  name: wm
+  language: dart
+  json_serializer: freezed
+  use_freezed3: true
+  root_client: true
+  root_client_name: WmApi
+  put_clients_in_folder: true
+  enums_to_json: true
+  unknown_enum_value: true
+  mark_files_as_generated: true
+  original_http_response: false
