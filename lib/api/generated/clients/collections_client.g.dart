@@ -390,14 +390,15 @@ class _CollectionsClient implements CollectionsClient {
   @override
   Future<HandoverDtoOutput> cashHandoversControllerCreate({
     required String idempotencyKey,
-    required CreateHandoverDto body,
+    CreateHandoverDto? body,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Idempotency-Key': idempotencyKey};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(body.toJson());
+    _data.addAll(body?.toJson() ?? <String, dynamic>{});
     final _options = _setStreamType<HandoverDtoOutput>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(

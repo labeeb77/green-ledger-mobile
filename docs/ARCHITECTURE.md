@@ -8,7 +8,7 @@ The Wholesale Manager mobile app for agents, the godown and owners/managers (spe
 | --- | --- |
 | Features and business rules | `green-ledger/docs/phase-1-development-specification.md` (sections 5, 7, 8) |
 | Screens, flows, states, wording | `green-ledger/docs/mobile/ux-design.md` |
-| API contract | `api/openapi.json`, copied from `green-ledger/backend/openapi.json` (see [SETUP.md](SETUP.md)) |
+| API contract | `api/openapi.json`, copied from `green-ledger/backend-go/openapi.json` (see [SETUP.md](SETUP.md)) |
 | Colours, type, components | [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) |
 | What is built and what comes next | [ROADMAP.md](ROADMAP.md) |
 

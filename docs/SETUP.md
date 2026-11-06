@@ -31,7 +31,7 @@ fvm flutter run --flavor dev -t lib/main_dev.dart --dart-define-from-file=env/de
 
 ## Running against the local backend
 
-1. In `../green-ledger`: `docker compose up -d`, then `pnpm dev:backend` (Node on port 3000). On the `feat/go-migration` branch the Go server fronts Node; point `API_BASE_URL` at whichever port serves `/api/v1`.
+1. In `../green-ledger`: `docker compose up -d`, `make -C backend-go migrate seed`, then `make -C backend-go dev` (Go API on port 3000); add `cd backend-go && go run ./cmd/worker` for PDFs.
 2. `env/dev.json` uses `http://10.0.2.2:3000`, the host machine as seen from the **Android emulator**. For the **iOS simulator** use `http://localhost:3000`; for a **real phone** use the computer's LAN IP (same Wi-Fi). Keep personal changes out of commits.
 3. Seed logins (password `Demo@12345`): owner `9000000001`, manager `9000000002`, billing `9000000003`, godown `9000000004`, agent `9000000005`.
 
@@ -41,7 +41,7 @@ The API client in `lib/api/generated/` is generated from `api/openapi.json` and 
 
 ```sh
 # 1. When the backend contract changed: copy it in (fixes boolean enums the generator can't express)
-fvm dart run tool/sync_openapi.dart            # default source: ../green-ledger/backend/openapi.json
+fvm dart run tool/sync_openapi.dart            # default source: ../green-ledger/backend-go/openapi.json
 # 2. Generate the Retrofit clients and freezed models
 fvm dart run swagger_parser
 fvm dart run build_runner build -d
@@ -49,7 +49,7 @@ fvm dart run build_runner build -d
 
 - Config: `swagger_parser.yaml` (freezed 3 syntax), `build.yaml` (freezed → json_serializable → retrofit order).
 - Inline objects get numbered names (`Account5`, `CreatedBy8`); they never leave the data layer, so map them to domain entities there.
-- On the backend side, an API change is exported with `pnpm --filter backend openapi:export`; then run step 1 here.
+- On the backend side, an API change is exported with `make -C backend-go openapi`; then run step 1 here.
 
 ## Checks
 

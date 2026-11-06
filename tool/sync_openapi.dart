@@ -1,6 +1,6 @@
 // Copies the backend contract into api/openapi.json, the input of swagger_parser.
 //
-//   fvm dart run tool/sync_openapi.dart [path/to/backend/openapi.json]
+//   fvm dart run tool/sync_openapi.dart [path/to/backend-go/openapi.json]
 //
 // Fixes applied (the generator can't express them):
 // - boolean enums (`{ok: true}` responses) become plain booleans.
@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'dart:io';
 
 void main(List<String> args) {
-  final source = File(args.isNotEmpty ? args.first : '../green-ledger/backend/openapi.json');
+  final source = File(args.isNotEmpty ? args.first : '../green-ledger/backend-go/openapi.json');
   if (!source.existsSync()) {
     stderr.writeln('Not found: ${source.path}');
     exit(1);

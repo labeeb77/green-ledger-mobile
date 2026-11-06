@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Allocations3 {
 
- String get billId; int get amount;
+ String get billId;/// Amount in paise (₹1 = 100)
+ int get amount;
 /// Create a copy of Allocations3
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -220,6 +221,7 @@ class _Allocations3 implements Allocations3 {
   factory _Allocations3.fromJson(Map<String, dynamic> json) => _$Allocations3FromJson(json);
 
 @override final  String billId;
+/// Amount in paise (₹1 = 100)
 @override final  int amount;
 
 /// Create a copy of Allocations3

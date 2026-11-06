@@ -151,11 +151,11 @@ return variant2(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( SalesBillSummaryDtoOutputIssuesUnionVariant1Type type,  int lineNo,  String product,  int rate,  int minimum)?  variant1,TResult Function( SalesBillSummaryDtoOutputIssuesUnionVariant2Type type,  int outstanding,  int newCredit,  int limit)?  variant2,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int lineNo,  int minimum,  String product,  int rate,  SalesBillSummaryDtoOutputIssuesUnionVariant1Type type)?  variant1,TResult Function( int limit,  int newCredit,  int outstanding,  SalesBillSummaryDtoOutputIssuesUnionVariant2Type type)?  variant2,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case SalesBillSummaryDtoOutputIssuesUnionVariant1() when variant1 != null:
-return variant1(_that.type,_that.lineNo,_that.product,_that.rate,_that.minimum);case SalesBillSummaryDtoOutputIssuesUnionVariant2() when variant2 != null:
-return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);case _:
+return variant1(_that.lineNo,_that.minimum,_that.product,_that.rate,_that.type);case SalesBillSummaryDtoOutputIssuesUnionVariant2() when variant2 != null:
+return variant2(_that.limit,_that.newCredit,_that.outstanding,_that.type);case _:
   return orElse();
 
 }
@@ -173,11 +173,11 @@ return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( SalesBillSummaryDtoOutputIssuesUnionVariant1Type type,  int lineNo,  String product,  int rate,  int minimum)  variant1,required TResult Function( SalesBillSummaryDtoOutputIssuesUnionVariant2Type type,  int outstanding,  int newCredit,  int limit)  variant2,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int lineNo,  int minimum,  String product,  int rate,  SalesBillSummaryDtoOutputIssuesUnionVariant1Type type)  variant1,required TResult Function( int limit,  int newCredit,  int outstanding,  SalesBillSummaryDtoOutputIssuesUnionVariant2Type type)  variant2,}) {final _that = this;
 switch (_that) {
 case SalesBillSummaryDtoOutputIssuesUnionVariant1():
-return variant1(_that.type,_that.lineNo,_that.product,_that.rate,_that.minimum);case SalesBillSummaryDtoOutputIssuesUnionVariant2():
-return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);}
+return variant1(_that.lineNo,_that.minimum,_that.product,_that.rate,_that.type);case SalesBillSummaryDtoOutputIssuesUnionVariant2():
+return variant2(_that.limit,_that.newCredit,_that.outstanding,_that.type);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -191,11 +191,11 @@ return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( SalesBillSummaryDtoOutputIssuesUnionVariant1Type type,  int lineNo,  String product,  int rate,  int minimum)?  variant1,TResult? Function( SalesBillSummaryDtoOutputIssuesUnionVariant2Type type,  int outstanding,  int newCredit,  int limit)?  variant2,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int lineNo,  int minimum,  String product,  int rate,  SalesBillSummaryDtoOutputIssuesUnionVariant1Type type)?  variant1,TResult? Function( int limit,  int newCredit,  int outstanding,  SalesBillSummaryDtoOutputIssuesUnionVariant2Type type)?  variant2,}) {final _that = this;
 switch (_that) {
 case SalesBillSummaryDtoOutputIssuesUnionVariant1() when variant1 != null:
-return variant1(_that.type,_that.lineNo,_that.product,_that.rate,_that.minimum);case SalesBillSummaryDtoOutputIssuesUnionVariant2() when variant2 != null:
-return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);case _:
+return variant1(_that.lineNo,_that.minimum,_that.product,_that.rate,_that.type);case SalesBillSummaryDtoOutputIssuesUnionVariant2() when variant2 != null:
+return variant2(_that.limit,_that.newCredit,_that.outstanding,_that.type);case _:
   return null;
 
 }
@@ -207,14 +207,14 @@ return variant2(_that.type,_that.outstanding,_that.newCredit,_that.limit);case _
 
 @JsonSerializable()
 class SalesBillSummaryDtoOutputIssuesUnionVariant1 implements SalesBillSummaryDtoOutputIssuesUnion {
-  const SalesBillSummaryDtoOutputIssuesUnionVariant1({required this.type, required this.lineNo, required this.product, required this.rate, required this.minimum,  String? $type}): $type = $type ?? 'variant1';
+  const SalesBillSummaryDtoOutputIssuesUnionVariant1({required this.lineNo, required this.minimum, required this.product, required this.rate, required this.type,  String? $type}): $type = $type ?? 'variant1';
   factory SalesBillSummaryDtoOutputIssuesUnionVariant1.fromJson(Map<String, dynamic> json) => _$SalesBillSummaryDtoOutputIssuesUnionVariant1FromJson(json);
 
-@override final  SalesBillSummaryDtoOutputIssuesUnionVariant1Type type;
  final  int lineNo;
+ final  int minimum;
  final  String product;
  final  int rate;
- final  int minimum;
+@override final  SalesBillSummaryDtoOutputIssuesUnionVariant1Type type;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -233,18 +233,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillSummaryDtoOutputIssuesUnionVariant1&&(identical(other.type, type) || other.type == type)&&(identical(other.lineNo, lineNo) || other.lineNo == lineNo)&&(identical(other.product, product) || other.product == product)&&(identical(other.rate, rate) || other.rate == rate)&&(identical(other.minimum, minimum) || other.minimum == minimum));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillSummaryDtoOutputIssuesUnionVariant1&&(identical(other.lineNo, lineNo) || other.lineNo == lineNo)&&(identical(other.minimum, minimum) || other.minimum == minimum)&&(identical(other.product, product) || other.product == product)&&(identical(other.rate, rate) || other.rate == rate)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,type,lineNo,product,rate,minimum);
+    return Object.hash(runtimeType,lineNo,minimum,product,rate,type);
 }
 
 @override
 String toString() {
-    return 'SalesBillSummaryDtoOutputIssuesUnion.variant1(type: $type, lineNo: $lineNo, product: $product, rate: $rate, minimum: $minimum)';
+    return 'SalesBillSummaryDtoOutputIssuesUnion.variant1(lineNo: $lineNo, minimum: $minimum, product: $product, rate: $rate, type: $type)';
 }
 
 
@@ -255,7 +255,7 @@ abstract mixin class $SalesBillSummaryDtoOutputIssuesUnionVariant1CopyWith<$Res>
   factory $SalesBillSummaryDtoOutputIssuesUnionVariant1CopyWith(SalesBillSummaryDtoOutputIssuesUnionVariant1 value, $Res Function(SalesBillSummaryDtoOutputIssuesUnionVariant1) _then) = _$SalesBillSummaryDtoOutputIssuesUnionVariant1CopyWithImpl;
 @useResult
 $Res call({
- SalesBillSummaryDtoOutputIssuesUnionVariant1Type type, int lineNo, String product, int rate, int minimum
+ int lineNo, int minimum, String product, int rate, SalesBillSummaryDtoOutputIssuesUnionVariant1Type type
 });
 
 
@@ -272,14 +272,14 @@ class _$SalesBillSummaryDtoOutputIssuesUnionVariant1CopyWithImpl<$Res>
 
 /// Create a copy of SalesBillSummaryDtoOutputIssuesUnion
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? lineNo = null,Object? product = null,Object? rate = null,Object? minimum = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? lineNo = null,Object? minimum = null,Object? product = null,Object? rate = null,Object? type = null,}) {
   return _then(SalesBillSummaryDtoOutputIssuesUnionVariant1(
-type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as SalesBillSummaryDtoOutputIssuesUnionVariant1Type,lineNo: null == lineNo ? _self.lineNo : lineNo // ignore: cast_nullable_to_non_nullable
+lineNo: null == lineNo ? _self.lineNo : lineNo // ignore: cast_nullable_to_non_nullable
+as int,minimum: null == minimum ? _self.minimum : minimum // ignore: cast_nullable_to_non_nullable
 as int,product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as String,rate: null == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
-as int,minimum: null == minimum ? _self.minimum : minimum // ignore: cast_nullable_to_non_nullable
-as int,
+as int,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as SalesBillSummaryDtoOutputIssuesUnionVariant1Type,
   ));
 }
 
@@ -290,13 +290,13 @@ as int,
 
 @JsonSerializable()
 class SalesBillSummaryDtoOutputIssuesUnionVariant2 implements SalesBillSummaryDtoOutputIssuesUnion {
-  const SalesBillSummaryDtoOutputIssuesUnionVariant2({required this.type, required this.outstanding, required this.newCredit, required this.limit,  String? $type}): $type = $type ?? 'variant2';
+  const SalesBillSummaryDtoOutputIssuesUnionVariant2({required this.limit, required this.newCredit, required this.outstanding, required this.type,  String? $type}): $type = $type ?? 'variant2';
   factory SalesBillSummaryDtoOutputIssuesUnionVariant2.fromJson(Map<String, dynamic> json) => _$SalesBillSummaryDtoOutputIssuesUnionVariant2FromJson(json);
 
-@override final  SalesBillSummaryDtoOutputIssuesUnionVariant2Type type;
- final  int outstanding;
- final  int newCredit;
  final  int limit;
+ final  int newCredit;
+ final  int outstanding;
+@override final  SalesBillSummaryDtoOutputIssuesUnionVariant2Type type;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -315,18 +315,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillSummaryDtoOutputIssuesUnionVariant2&&(identical(other.type, type) || other.type == type)&&(identical(other.outstanding, outstanding) || other.outstanding == outstanding)&&(identical(other.newCredit, newCredit) || other.newCredit == newCredit)&&(identical(other.limit, limit) || other.limit == limit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillSummaryDtoOutputIssuesUnionVariant2&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.newCredit, newCredit) || other.newCredit == newCredit)&&(identical(other.outstanding, outstanding) || other.outstanding == outstanding)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,type,outstanding,newCredit,limit);
+    return Object.hash(runtimeType,limit,newCredit,outstanding,type);
 }
 
 @override
 String toString() {
-    return 'SalesBillSummaryDtoOutputIssuesUnion.variant2(type: $type, outstanding: $outstanding, newCredit: $newCredit, limit: $limit)';
+    return 'SalesBillSummaryDtoOutputIssuesUnion.variant2(limit: $limit, newCredit: $newCredit, outstanding: $outstanding, type: $type)';
 }
 
 
@@ -337,7 +337,7 @@ abstract mixin class $SalesBillSummaryDtoOutputIssuesUnionVariant2CopyWith<$Res>
   factory $SalesBillSummaryDtoOutputIssuesUnionVariant2CopyWith(SalesBillSummaryDtoOutputIssuesUnionVariant2 value, $Res Function(SalesBillSummaryDtoOutputIssuesUnionVariant2) _then) = _$SalesBillSummaryDtoOutputIssuesUnionVariant2CopyWithImpl;
 @useResult
 $Res call({
- SalesBillSummaryDtoOutputIssuesUnionVariant2Type type, int outstanding, int newCredit, int limit
+ int limit, int newCredit, int outstanding, SalesBillSummaryDtoOutputIssuesUnionVariant2Type type
 });
 
 
@@ -354,13 +354,13 @@ class _$SalesBillSummaryDtoOutputIssuesUnionVariant2CopyWithImpl<$Res>
 
 /// Create a copy of SalesBillSummaryDtoOutputIssuesUnion
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? outstanding = null,Object? newCredit = null,Object? limit = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? newCredit = null,Object? outstanding = null,Object? type = null,}) {
   return _then(SalesBillSummaryDtoOutputIssuesUnionVariant2(
-type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as SalesBillSummaryDtoOutputIssuesUnionVariant2Type,outstanding: null == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,newCredit: null == newCredit ? _self.newCredit : newCredit // ignore: cast_nullable_to_non_nullable
-as int,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
-as int,
+as int,outstanding: null == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
+as int,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as SalesBillSummaryDtoOutputIssuesUnionVariant2Type,
   ));
 }
 

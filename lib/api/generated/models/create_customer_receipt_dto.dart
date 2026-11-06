@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'allocations8.dart';
+import 'allocations7.dart';
 import 'splits4.dart';
 
 part 'create_customer_receipt_dto.freezed.dart';
@@ -17,7 +17,7 @@ abstract class CreateCustomerReceiptDto with _$CreateCustomerReceiptDto {
     required List<Splits4> splits,
     DateTime? receiptDate,
     String? notes,
-    List<Allocations8>? allocations,
+    List<Allocations7>? allocations,
   }) = _CreateCustomerReceiptDto;
   
   factory CreateCustomerReceiptDto.fromJson(Map<String, Object?> json) => _$CreateCustomerReceiptDtoFromJson(json);

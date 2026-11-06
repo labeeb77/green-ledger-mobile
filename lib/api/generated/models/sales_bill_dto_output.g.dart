@@ -13,9 +13,6 @@ _SalesBillDtoOutput _$SalesBillDtoOutputFromJson(Map<String, dynamic> json) =>
       billDate: DateTime.parse(json['billDate'] as String),
       dueDate: DateTime.parse(json['dueDate'] as String),
       customer: Customer2.fromJson(json['customer'] as Map<String, dynamic>),
-      lines: (json['lines'] as List<dynamic>)
-          .map((e) => Lines13.fromJson(e as Map<String, dynamic>))
-          .toList(),
       subtotal: (json['subtotal'] as num).toInt(),
       rounding: (json['rounding'] as num).toInt(),
       total: (json['total'] as num).toInt(),
@@ -33,15 +30,18 @@ _SalesBillDtoOutput _$SalesBillDtoOutputFromJson(Map<String, dynamic> json) =>
           )
           .toList(),
       approvalId: json['approvalId'] as String?,
-      allocations: (json['allocations'] as List<dynamic>)
-          .map((e) => Allocations5.fromJson(e as Map<String, dynamic>))
-          .toList(),
       notes: json['notes'] as String?,
       createdBy: json['createdBy'] == null
           ? null
           : CreatedBy5.fromJson(json['createdBy'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       cancelReason: json['cancelReason'] as String?,
+      lines: (json['lines'] as List<dynamic>)
+          .map((e) => Lines13.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      allocations: (json['allocations'] as List<dynamic>)
+          .map((e) => Allocations5.fromJson(e as Map<String, dynamic>))
+          .toList(),
       warnings: (json['warnings'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -54,7 +54,6 @@ Map<String, dynamic> _$SalesBillDtoOutputToJson(_SalesBillDtoOutput instance) =>
       'billDate': instance.billDate.toIso8601String(),
       'dueDate': instance.dueDate.toIso8601String(),
       'customer': instance.customer,
-      'lines': instance.lines,
       'subtotal': instance.subtotal,
       'rounding': instance.rounding,
       'total': instance.total,
@@ -64,10 +63,11 @@ Map<String, dynamic> _$SalesBillDtoOutputToJson(_SalesBillDtoOutput instance) =>
       'status': instance.status,
       'issues': instance.issues,
       'approvalId': instance.approvalId,
-      'allocations': instance.allocations,
       'notes': instance.notes,
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt.toIso8601String(),
       'cancelReason': instance.cancelReason,
+      'lines': instance.lines,
+      'allocations': instance.allocations,
       'warnings': instance.warnings,
     };

@@ -18,7 +18,7 @@ _CreateSupplierPaymentDto _$CreateSupplierPaymentDtoFromJson(
       : DateTime.parse(json['paymentDate'] as String),
   notes: json['notes'] as String?,
   allocations: (json['allocations'] as List<dynamic>?)
-      ?.map((e) => Allocations4.fromJson(e as Map<String, dynamic>))
+      ?.map((e) => Allocations3.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 

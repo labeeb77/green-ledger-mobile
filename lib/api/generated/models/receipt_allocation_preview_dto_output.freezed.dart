@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ReceiptAllocationPreviewDtoOutput {
 
- List<OpenBills2> get openBills; List<Allocations7> get allocations; int get advance; int get existingAdvance;
+ List<OpenBills2> get openBills; List<Allocations8> get allocations; int get advance; int get existingAdvance;
 /// Create a copy of ReceiptAllocationPreviewDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $ReceiptAllocationPreviewDtoOutputCopyWith<$Res>  {
   factory $ReceiptAllocationPreviewDtoOutputCopyWith(ReceiptAllocationPreviewDtoOutput value, $Res Function(ReceiptAllocationPreviewDtoOutput) _then) = _$ReceiptAllocationPreviewDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- List<OpenBills2> openBills, List<Allocations7> allocations, int advance, int existingAdvance
+ List<OpenBills2> openBills, List<Allocations8> allocations, int advance, int existingAdvance
 });
 
 
@@ -75,7 +75,7 @@ class _$ReceiptAllocationPreviewDtoOutputCopyWithImpl<$Res>
   return _then(ReceiptAllocationPreviewDtoOutput(
 openBills: null == openBills ? _self.openBills : openBills // ignore: cast_nullable_to_non_nullable
 as List<OpenBills2>,allocations: null == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations7>,advance: null == advance ? _self.advance : advance // ignore: cast_nullable_to_non_nullable
+as List<Allocations8>,advance: null == advance ? _self.advance : advance // ignore: cast_nullable_to_non_nullable
 as int,existingAdvance: null == existingAdvance ? _self.existingAdvance : existingAdvance // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<OpenBills2> openBills,  List<Allocations7> allocations,  int advance,  int existingAdvance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<OpenBills2> openBills,  List<Allocations8> allocations,  int advance,  int existingAdvance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReceiptAllocationPreviewDtoOutput() when $default != null:
 return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAdvance);case _:
@@ -183,7 +183,7 @@ return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAd
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<OpenBills2> openBills,  List<Allocations7> allocations,  int advance,  int existingAdvance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<OpenBills2> openBills,  List<Allocations8> allocations,  int advance,  int existingAdvance)  $default,) {final _that = this;
 switch (_that) {
 case _ReceiptAllocationPreviewDtoOutput():
 return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAdvance);case _:
@@ -203,7 +203,7 @@ return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAd
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<OpenBills2> openBills,  List<Allocations7> allocations,  int advance,  int existingAdvance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<OpenBills2> openBills,  List<Allocations8> allocations,  int advance,  int existingAdvance)?  $default,) {final _that = this;
 switch (_that) {
 case _ReceiptAllocationPreviewDtoOutput() when $default != null:
 return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAdvance);case _:
@@ -218,7 +218,7 @@ return $default(_that.openBills,_that.allocations,_that.advance,_that.existingAd
 @JsonSerializable()
 
 class _ReceiptAllocationPreviewDtoOutput implements ReceiptAllocationPreviewDtoOutput {
-  const _ReceiptAllocationPreviewDtoOutput({required  List<OpenBills2> openBills, required  List<Allocations7> allocations, required this.advance, required this.existingAdvance}): _openBills = openBills,_allocations = allocations;
+  const _ReceiptAllocationPreviewDtoOutput({required  List<OpenBills2> openBills, required  List<Allocations8> allocations, required this.advance, required this.existingAdvance}): _openBills = openBills,_allocations = allocations;
   factory _ReceiptAllocationPreviewDtoOutput.fromJson(Map<String, dynamic> json) => _$ReceiptAllocationPreviewDtoOutputFromJson(json);
 
  final  List<OpenBills2> _openBills;
@@ -228,8 +228,8 @@ class _ReceiptAllocationPreviewDtoOutput implements ReceiptAllocationPreviewDtoO
   return EqualUnmodifiableListView(_openBills);
 }
 
- final  List<Allocations7> _allocations;
-@override List<Allocations7> get allocations {
+ final  List<Allocations8> _allocations;
+@override List<Allocations8> get allocations {
   if (_allocations is EqualUnmodifiableListView) return _allocations;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_allocations);
@@ -273,7 +273,7 @@ abstract mixin class _$ReceiptAllocationPreviewDtoOutputCopyWith<$Res> implement
   factory _$ReceiptAllocationPreviewDtoOutputCopyWith(_ReceiptAllocationPreviewDtoOutput value, $Res Function(_ReceiptAllocationPreviewDtoOutput) _then) = __$ReceiptAllocationPreviewDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- List<OpenBills2> openBills, List<Allocations7> allocations, int advance, int existingAdvance
+ List<OpenBills2> openBills, List<Allocations8> allocations, int advance, int existingAdvance
 });
 
 
@@ -294,7 +294,7 @@ class __$ReceiptAllocationPreviewDtoOutputCopyWithImpl<$Res>
   return _then(_ReceiptAllocationPreviewDtoOutput(
 openBills: null == openBills ? _self._openBills : openBills // ignore: cast_nullable_to_non_nullable
 as List<OpenBills2>,allocations: null == allocations ? _self._allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations7>,advance: null == advance ? _self.advance : advance // ignore: cast_nullable_to_non_nullable
+as List<Allocations8>,advance: null == advance ? _self.advance : advance // ignore: cast_nullable_to_non_nullable
 as int,existingAdvance: null == existingAdvance ? _self.existingAdvance : existingAdvance // ignore: cast_nullable_to_non_nullable
 as int,
   ));

@@ -24,14 +24,14 @@ _PurchaseBillDtoOutput _$PurchaseBillDtoOutputFromJson(
   ),
   status: PurchaseBillDtoOutputStatus.fromJson(json['status'] as String),
   notes: json['notes'] as String?,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  cancelReason: json['cancelReason'] as String?,
   lines: (json['lines'] as List<dynamic>)
       .map((e) => Lines4.fromJson(e as Map<String, dynamic>))
       .toList(),
   allocations: (json['allocations'] as List<dynamic>)
       .map((e) => Allocations.fromJson(e as Map<String, dynamic>))
       .toList(),
-  createdAt: DateTime.parse(json['createdAt'] as String),
-  cancelReason: json['cancelReason'] as String?,
 );
 
 Map<String, dynamic> _$PurchaseBillDtoOutputToJson(
@@ -50,8 +50,8 @@ Map<String, dynamic> _$PurchaseBillDtoOutputToJson(
   'paymentStatus': instance.paymentStatus,
   'status': instance.status,
   'notes': instance.notes,
-  'lines': instance.lines,
-  'allocations': instance.allocations,
   'createdAt': instance.createdAt.toIso8601String(),
   'cancelReason': instance.cancelReason,
+  'lines': instance.lines,
+  'allocations': instance.allocations,
 };

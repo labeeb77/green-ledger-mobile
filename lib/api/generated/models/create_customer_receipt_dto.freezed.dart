@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateCustomerReceiptDto {
 
- String get customerId; List<Splits4> get splits; DateTime? get receiptDate; String? get notes; List<Allocations8>? get allocations;
+ String get customerId; List<Splits4> get splits; DateTime? get receiptDate; String? get notes; List<Allocations7>? get allocations;
 /// Create a copy of CreateCustomerReceiptDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateCustomerReceiptDtoCopyWith<$Res>  {
   factory $CreateCustomerReceiptDtoCopyWith(CreateCustomerReceiptDto value, $Res Function(CreateCustomerReceiptDto) _then) = _$CreateCustomerReceiptDtoCopyWithImpl;
 @useResult
 $Res call({
- String customerId, List<Splits4> splits, DateTime? receiptDate, String? notes, List<Allocations8>? allocations
+ String customerId, List<Splits4> splits, DateTime? receiptDate, String? notes, List<Allocations7>? allocations
 });
 
 
@@ -78,7 +78,7 @@ as String,splits: null == splits ? _self.splits : splits // ignore: cast_nullabl
 as List<Splits4>,receiptDate: freezed == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,allocations: freezed == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations8>?,
+as List<Allocations7>?,
   ));
 }
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations8>? allocations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations7>? allocations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateCustomerReceiptDto() when $default != null:
 return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_that.allocations);case _:
@@ -184,7 +184,7 @@ return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations8>? allocations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations7>? allocations)  $default,) {final _that = this;
 switch (_that) {
 case _CreateCustomerReceiptDto():
 return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_that.allocations);case _:
@@ -204,7 +204,7 @@ return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations8>? allocations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Splits4> splits,  DateTime? receiptDate,  String? notes,  List<Allocations7>? allocations)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateCustomerReceiptDto() when $default != null:
 return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_that.allocations);case _:
@@ -219,7 +219,7 @@ return $default(_that.customerId,_that.splits,_that.receiptDate,_that.notes,_tha
 @JsonSerializable()
 
 class _CreateCustomerReceiptDto implements CreateCustomerReceiptDto {
-  const _CreateCustomerReceiptDto({required this.customerId, required  List<Splits4> splits, this.receiptDate, this.notes,  List<Allocations8>? allocations}): _splits = splits,_allocations = allocations;
+  const _CreateCustomerReceiptDto({required this.customerId, required  List<Splits4> splits, this.receiptDate, this.notes,  List<Allocations7>? allocations}): _splits = splits,_allocations = allocations;
   factory _CreateCustomerReceiptDto.fromJson(Map<String, dynamic> json) => _$CreateCustomerReceiptDtoFromJson(json);
 
 @override final  String customerId;
@@ -232,8 +232,8 @@ class _CreateCustomerReceiptDto implements CreateCustomerReceiptDto {
 
 @override final  DateTime? receiptDate;
 @override final  String? notes;
- final  List<Allocations8>? _allocations;
-@override List<Allocations8>? get allocations {
+ final  List<Allocations7>? _allocations;
+@override List<Allocations7>? get allocations {
   final value = _allocations;
   if (value == null) return null;
   if (_allocations is EqualUnmodifiableListView) return _allocations;
@@ -277,7 +277,7 @@ abstract mixin class _$CreateCustomerReceiptDtoCopyWith<$Res> implements $Create
   factory _$CreateCustomerReceiptDtoCopyWith(_CreateCustomerReceiptDto value, $Res Function(_CreateCustomerReceiptDto) _then) = __$CreateCustomerReceiptDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String customerId, List<Splits4> splits, DateTime? receiptDate, String? notes, List<Allocations8>? allocations
+ String customerId, List<Splits4> splits, DateTime? receiptDate, String? notes, List<Allocations7>? allocations
 });
 
 
@@ -301,7 +301,7 @@ as String,splits: null == splits ? _self._splits : splits // ignore: cast_nullab
 as List<Splits4>,receiptDate: freezed == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,allocations: freezed == allocations ? _self._allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations8>?,
+as List<Allocations7>?,
   ));
 }
 

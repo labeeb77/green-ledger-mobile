@@ -75,7 +75,7 @@ Project setup and the shell every feature plugs into.
 
 ## Backend gaps
 
-These screens need backend work first. Node is feature-frozen until the Go cut-over (`green-ledger/docs/go-migration.md`), so they are built in Go after it, or the screens wait:
+These screens need backend work first (in the Go API, `green-ledger/backend-go`; the Node backend was removed at the 2026-11-04 cut-over):
 
 | Gap | Needed by |
 | --- | --- |

@@ -13,7 +13,7 @@ _ReceiptAllocationPreviewDtoOutput _$ReceiptAllocationPreviewDtoOutputFromJson(
       .map((e) => OpenBills2.fromJson(e as Map<String, dynamic>))
       .toList(),
   allocations: (json['allocations'] as List<dynamic>)
-      .map((e) => Allocations7.fromJson(e as Map<String, dynamic>))
+      .map((e) => Allocations8.fromJson(e as Map<String, dynamic>))
       .toList(),
   advance: (json['advance'] as num).toInt(),
   existingAdvance: (json['existingAdvance'] as num).toInt(),

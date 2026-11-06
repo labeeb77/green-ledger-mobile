@@ -15,19 +15,19 @@ part 'sales_bill_dto_output_issues_union.g.dart';
 sealed class SalesBillDtoOutputIssuesUnion with _$SalesBillDtoOutputIssuesUnion {
   @JsonSerializable()
   const factory SalesBillDtoOutputIssuesUnion.variant1({
-    required SalesBillDtoOutputIssuesUnionVariant1Type type,
     required int lineNo,
+    required int minimum,
     required String product,
     required int rate,
-    required int minimum,
+    required SalesBillDtoOutputIssuesUnionVariant1Type type,
   }) = SalesBillDtoOutputIssuesUnionVariant1;
   
   @JsonSerializable()
   const factory SalesBillDtoOutputIssuesUnion.variant2({
-    required SalesBillDtoOutputIssuesUnionVariant2Type type,
-    required int outstanding,
-    required int newCredit,
     required int limit,
+    required int newCredit,
+    required int outstanding,
+    required SalesBillDtoOutputIssuesUnionVariant2Type type,
   }) = SalesBillDtoOutputIssuesUnionVariant2;
   
 

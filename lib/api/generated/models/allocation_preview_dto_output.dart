@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'allocations3.dart';
+import 'allocations4.dart';
 import 'open_bills.dart';
 
 part 'allocation_preview_dto_output.freezed.dart';
@@ -14,7 +14,7 @@ part 'allocation_preview_dto_output.g.dart';
 abstract class AllocationPreviewDtoOutput with _$AllocationPreviewDtoOutput {
   const factory AllocationPreviewDtoOutput({
     required List<OpenBills> openBills,
-    required List<Allocations3> allocations,
+    required List<Allocations4> allocations,
     required int advance,
     required int existingAdvance,
   }) = _AllocationPreviewDtoOutput;

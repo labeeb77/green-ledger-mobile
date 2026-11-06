@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'allocations7.dart';
+import 'allocations8.dart';
 import 'open_bills2.dart';
 
 part 'receipt_allocation_preview_dto_output.freezed.dart';
@@ -14,7 +14,7 @@ part 'receipt_allocation_preview_dto_output.g.dart';
 abstract class ReceiptAllocationPreviewDtoOutput with _$ReceiptAllocationPreviewDtoOutput {
   const factory ReceiptAllocationPreviewDtoOutput({
     required List<OpenBills2> openBills,
-    required List<Allocations7> allocations,
+    required List<Allocations8> allocations,
     required int advance,
     required int existingAdvance,
   }) = _ReceiptAllocationPreviewDtoOutput;

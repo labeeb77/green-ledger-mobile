@@ -12,6 +12,7 @@ part 'record_payment_dto.g.dart';
 @Freezed()
 abstract class RecordPaymentDto with _$RecordPaymentDto {
   const factory RecordPaymentDto({
+    /// Amount in paise (₹1 = 100)
     required int amount,
     required RecordPaymentDtoMethod method,
     DateTime? paidOn,

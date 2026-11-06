@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SalesBillDtoOutput {
 
- String get id; String? get number; DateTime get billDate; DateTime get dueDate; Customer2 get customer; List<Lines13> get lines; int get subtotal; int get rounding; int get total; int get paid; int get open; SalesBillDtoOutputPaymentStatus get paymentStatus; SalesBillDtoOutputStatus get status; List<SalesBillDtoOutputIssuesUnion> get issues; String? get approvalId; List<Allocations5> get allocations; String? get notes; CreatedBy5? get createdBy; DateTime get createdAt; String? get cancelReason; List<String> get warnings;
+ String get id; String? get number; DateTime get billDate; DateTime get dueDate; Customer2 get customer; int get subtotal; int get rounding; int get total; int get paid; int get open; SalesBillDtoOutputPaymentStatus get paymentStatus; SalesBillDtoOutputStatus get status; List<SalesBillDtoOutputIssuesUnion> get issues; String? get approvalId; String? get notes; CreatedBy5? get createdBy; DateTime get createdAt; String? get cancelReason; List<Lines13> get lines; List<Allocations5> get allocations; List<String> get warnings;
 /// Create a copy of SalesBillDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $SalesBillDtoOutputCopyWith<SalesBillDtoOutput> get copyWith => _$SalesBillDtoOu
 @override
 bool operator ==(Object other) {
   final _this = this as SalesBillDtoOutput;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillDtoOutput&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.number, _this.number) || other.number == _this.number)&&(identical(other.billDate, _this.billDate) || other.billDate == _this.billDate)&&(identical(other.dueDate, _this.dueDate) || other.dueDate == _this.dueDate)&&(identical(other.customer, _this.customer) || other.customer == _this.customer)&&const DeepCollectionEquality().equals(other.lines, _this.lines)&&(identical(other.subtotal, _this.subtotal) || other.subtotal == _this.subtotal)&&(identical(other.rounding, _this.rounding) || other.rounding == _this.rounding)&&(identical(other.total, _this.total) || other.total == _this.total)&&(identical(other.paid, _this.paid) || other.paid == _this.paid)&&(identical(other.open, _this.open) || other.open == _this.open)&&(identical(other.paymentStatus, _this.paymentStatus) || other.paymentStatus == _this.paymentStatus)&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.issues, _this.issues)&&(identical(other.approvalId, _this.approvalId) || other.approvalId == _this.approvalId)&&const DeepCollectionEquality().equals(other.allocations, _this.allocations)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.createdBy, _this.createdBy) || other.createdBy == _this.createdBy)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.cancelReason, _this.cancelReason) || other.cancelReason == _this.cancelReason)&&const DeepCollectionEquality().equals(other.warnings, _this.warnings));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SalesBillDtoOutput&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.number, _this.number) || other.number == _this.number)&&(identical(other.billDate, _this.billDate) || other.billDate == _this.billDate)&&(identical(other.dueDate, _this.dueDate) || other.dueDate == _this.dueDate)&&(identical(other.customer, _this.customer) || other.customer == _this.customer)&&(identical(other.subtotal, _this.subtotal) || other.subtotal == _this.subtotal)&&(identical(other.rounding, _this.rounding) || other.rounding == _this.rounding)&&(identical(other.total, _this.total) || other.total == _this.total)&&(identical(other.paid, _this.paid) || other.paid == _this.paid)&&(identical(other.open, _this.open) || other.open == _this.open)&&(identical(other.paymentStatus, _this.paymentStatus) || other.paymentStatus == _this.paymentStatus)&&(identical(other.status, _this.status) || other.status == _this.status)&&const DeepCollectionEquality().equals(other.issues, _this.issues)&&(identical(other.approvalId, _this.approvalId) || other.approvalId == _this.approvalId)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.createdBy, _this.createdBy) || other.createdBy == _this.createdBy)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.cancelReason, _this.cancelReason) || other.cancelReason == _this.cancelReason)&&const DeepCollectionEquality().equals(other.lines, _this.lines)&&const DeepCollectionEquality().equals(other.allocations, _this.allocations)&&const DeepCollectionEquality().equals(other.warnings, _this.warnings));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as SalesBillDtoOutput;
-  return Object.hashAll([runtimeType,_this.id,_this.number,_this.billDate,_this.dueDate,_this.customer,const DeepCollectionEquality().hash(_this.lines),_this.subtotal,_this.rounding,_this.total,_this.paid,_this.open,_this.paymentStatus,_this.status,const DeepCollectionEquality().hash(_this.issues),_this.approvalId,const DeepCollectionEquality().hash(_this.allocations),_this.notes,_this.createdBy,_this.createdAt,_this.cancelReason,const DeepCollectionEquality().hash(_this.warnings)]);
+  return Object.hashAll([runtimeType,_this.id,_this.number,_this.billDate,_this.dueDate,_this.customer,_this.subtotal,_this.rounding,_this.total,_this.paid,_this.open,_this.paymentStatus,_this.status,const DeepCollectionEquality().hash(_this.issues),_this.approvalId,_this.notes,_this.createdBy,_this.createdAt,_this.cancelReason,const DeepCollectionEquality().hash(_this.lines),const DeepCollectionEquality().hash(_this.allocations),const DeepCollectionEquality().hash(_this.warnings)]);
 }
 
 @override
 String toString() {
   final _this = this as SalesBillDtoOutput;
-  return 'SalesBillDtoOutput(id: ${_this.id}, number: ${_this.number}, billDate: ${_this.billDate}, dueDate: ${_this.dueDate}, customer: ${_this.customer}, lines: ${_this.lines}, subtotal: ${_this.subtotal}, rounding: ${_this.rounding}, total: ${_this.total}, paid: ${_this.paid}, open: ${_this.open}, paymentStatus: ${_this.paymentStatus}, status: ${_this.status}, issues: ${_this.issues}, approvalId: ${_this.approvalId}, allocations: ${_this.allocations}, notes: ${_this.notes}, createdBy: ${_this.createdBy}, createdAt: ${_this.createdAt}, cancelReason: ${_this.cancelReason}, warnings: ${_this.warnings})';
+  return 'SalesBillDtoOutput(id: ${_this.id}, number: ${_this.number}, billDate: ${_this.billDate}, dueDate: ${_this.dueDate}, customer: ${_this.customer}, subtotal: ${_this.subtotal}, rounding: ${_this.rounding}, total: ${_this.total}, paid: ${_this.paid}, open: ${_this.open}, paymentStatus: ${_this.paymentStatus}, status: ${_this.status}, issues: ${_this.issues}, approvalId: ${_this.approvalId}, notes: ${_this.notes}, createdBy: ${_this.createdBy}, createdAt: ${_this.createdAt}, cancelReason: ${_this.cancelReason}, lines: ${_this.lines}, allocations: ${_this.allocations}, warnings: ${_this.warnings})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $SalesBillDtoOutputCopyWith<$Res>  {
   factory $SalesBillDtoOutputCopyWith(SalesBillDtoOutput value, $Res Function(SalesBillDtoOutput) _then) = _$SalesBillDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String? number, DateTime billDate, DateTime dueDate, Customer2 customer, List<Lines13> lines, int subtotal, int rounding, int total, int paid, int open, SalesBillDtoOutputPaymentStatus paymentStatus, SalesBillDtoOutputStatus status, List<SalesBillDtoOutputIssuesUnion> issues, String? approvalId, List<Allocations5> allocations, String? notes, CreatedBy5? createdBy, DateTime createdAt, String? cancelReason, List<String> warnings
+ String id, String? number, DateTime billDate, DateTime dueDate, Customer2 customer, int subtotal, int rounding, int total, int paid, int open, SalesBillDtoOutputPaymentStatus paymentStatus, SalesBillDtoOutputStatus status, List<SalesBillDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy5? createdBy, DateTime createdAt, String? cancelReason, List<Lines13> lines, List<Allocations5> allocations, List<String> warnings
 });
 
 
@@ -71,15 +71,14 @@ class _$SalesBillDtoOutputCopyWithImpl<$Res>
 
 /// Create a copy of SalesBillDtoOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? number = freezed,Object? billDate = null,Object? dueDate = null,Object? customer = null,Object? lines = null,Object? subtotal = null,Object? rounding = null,Object? total = null,Object? paid = null,Object? open = null,Object? paymentStatus = null,Object? status = null,Object? issues = null,Object? approvalId = freezed,Object? allocations = null,Object? notes = freezed,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,Object? warnings = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? number = freezed,Object? billDate = null,Object? dueDate = null,Object? customer = null,Object? subtotal = null,Object? rounding = null,Object? total = null,Object? paid = null,Object? open = null,Object? paymentStatus = null,Object? status = null,Object? issues = null,Object? approvalId = freezed,Object? notes = freezed,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,Object? lines = null,Object? allocations = null,Object? warnings = null,}) {
   return _then(SalesBillDtoOutput(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
 as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
 as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
-as Customer2,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
-as List<Lines13>,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
+as Customer2,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
 as int,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,paid: null == paid ? _self.paid : paid // ignore: cast_nullable_to_non_nullable
@@ -88,12 +87,13 @@ as int,paymentStatus: null == paymentStatus ? _self.paymentStatus : paymentStatu
 as SalesBillDtoOutputPaymentStatus,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as SalesBillDtoOutputStatus,issues: null == issues ? _self.issues : issues // ignore: cast_nullable_to_non_nullable
 as List<SalesBillDtoOutputIssuesUnion>,approvalId: freezed == approvalId ? _self.approvalId : approvalId // ignore: cast_nullable_to_non_nullable
-as String?,allocations: null == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations5>,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as CreatedBy5?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
-as String?,warnings: null == warnings ? _self.warnings : warnings // ignore: cast_nullable_to_non_nullable
+as String?,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
+as List<Lines13>,allocations: null == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
+as List<Allocations5>,warnings: null == warnings ? _self.warnings : warnings // ignore: cast_nullable_to_non_nullable
 as List<String>,
   ));
 }
@@ -200,10 +200,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  List<Lines13> lines,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  List<Allocations5> allocations,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<String> warnings)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<Lines13> lines,  List<Allocations5> allocations,  List<String> warnings)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SalesBillDtoOutput() when $default != null:
-return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.lines,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.allocations,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.warnings);case _:
+return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations,_that.warnings);case _:
   return orElse();
 
 }
@@ -221,10 +221,10 @@ return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.custome
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  List<Lines13> lines,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  List<Allocations5> allocations,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<String> warnings)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<Lines13> lines,  List<Allocations5> allocations,  List<String> warnings)  $default,) {final _that = this;
 switch (_that) {
 case _SalesBillDtoOutput():
-return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.lines,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.allocations,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.warnings);case _:
+return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations,_that.warnings);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -241,10 +241,10 @@ return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.custome
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  List<Lines13> lines,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  List<Allocations5> allocations,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<String> warnings)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer2 customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillDtoOutputPaymentStatus paymentStatus,  SalesBillDtoOutputStatus status,  List<SalesBillDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy5? createdBy,  DateTime createdAt,  String? cancelReason,  List<Lines13> lines,  List<Allocations5> allocations,  List<String> warnings)?  $default,) {final _that = this;
 switch (_that) {
 case _SalesBillDtoOutput() when $default != null:
-return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.lines,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.allocations,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.warnings);case _:
+return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations,_that.warnings);case _:
   return null;
 
 }
@@ -256,7 +256,7 @@ return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.custome
 @JsonSerializable()
 
 class _SalesBillDtoOutput implements SalesBillDtoOutput {
-  const _SalesBillDtoOutput({required this.id, required this.number, required this.billDate, required this.dueDate, required this.customer, required  List<Lines13> lines, required this.subtotal, required this.rounding, required this.total, required this.paid, required this.open, required this.paymentStatus, required this.status, required  List<SalesBillDtoOutputIssuesUnion> issues, required this.approvalId, required  List<Allocations5> allocations, required this.notes, required this.createdBy, required this.createdAt, required this.cancelReason, required  List<String> warnings}): _lines = lines,_issues = issues,_allocations = allocations,_warnings = warnings;
+  const _SalesBillDtoOutput({required this.id, required this.number, required this.billDate, required this.dueDate, required this.customer, required this.subtotal, required this.rounding, required this.total, required this.paid, required this.open, required this.paymentStatus, required this.status, required  List<SalesBillDtoOutputIssuesUnion> issues, required this.approvalId, required this.notes, required this.createdBy, required this.createdAt, required this.cancelReason, required  List<Lines13> lines, required  List<Allocations5> allocations, required  List<String> warnings}): _issues = issues,_lines = lines,_allocations = allocations,_warnings = warnings;
   factory _SalesBillDtoOutput.fromJson(Map<String, dynamic> json) => _$SalesBillDtoOutputFromJson(json);
 
 @override final  String id;
@@ -264,13 +264,6 @@ class _SalesBillDtoOutput implements SalesBillDtoOutput {
 @override final  DateTime billDate;
 @override final  DateTime dueDate;
 @override final  Customer2 customer;
- final  List<Lines13> _lines;
-@override List<Lines13> get lines {
-  if (_lines is EqualUnmodifiableListView) return _lines;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_lines);
-}
-
 @override final  int subtotal;
 @override final  int rounding;
 @override final  int total;
@@ -286,6 +279,17 @@ class _SalesBillDtoOutput implements SalesBillDtoOutput {
 }
 
 @override final  String? approvalId;
+@override final  String? notes;
+@override final  CreatedBy5? createdBy;
+@override final  DateTime createdAt;
+@override final  String? cancelReason;
+ final  List<Lines13> _lines;
+@override List<Lines13> get lines {
+  if (_lines is EqualUnmodifiableListView) return _lines;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_lines);
+}
+
  final  List<Allocations5> _allocations;
 @override List<Allocations5> get allocations {
   if (_allocations is EqualUnmodifiableListView) return _allocations;
@@ -293,10 +297,6 @@ class _SalesBillDtoOutput implements SalesBillDtoOutput {
   return EqualUnmodifiableListView(_allocations);
 }
 
-@override final  String? notes;
-@override final  CreatedBy5? createdBy;
-@override final  DateTime createdAt;
-@override final  String? cancelReason;
  final  List<String> _warnings;
 @override List<String> get warnings {
   if (_warnings is EqualUnmodifiableListView) return _warnings;
@@ -318,18 +318,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SalesBillDtoOutput&&(identical(other.id, id) || other.id == id)&&(identical(other.number, number) || other.number == number)&&(identical(other.billDate, billDate) || other.billDate == billDate)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.customer, customer) || other.customer == customer)&&const DeepCollectionEquality().equals(other.lines, _lines)&&(identical(other.subtotal, subtotal) || other.subtotal == subtotal)&&(identical(other.rounding, rounding) || other.rounding == rounding)&&(identical(other.total, total) || other.total == total)&&(identical(other.paid, paid) || other.paid == paid)&&(identical(other.open, open) || other.open == open)&&(identical(other.paymentStatus, paymentStatus) || other.paymentStatus == paymentStatus)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.issues, _issues)&&(identical(other.approvalId, approvalId) || other.approvalId == approvalId)&&const DeepCollectionEquality().equals(other.allocations, _allocations)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.cancelReason, cancelReason) || other.cancelReason == cancelReason)&&const DeepCollectionEquality().equals(other.warnings, _warnings));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SalesBillDtoOutput&&(identical(other.id, id) || other.id == id)&&(identical(other.number, number) || other.number == number)&&(identical(other.billDate, billDate) || other.billDate == billDate)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.customer, customer) || other.customer == customer)&&(identical(other.subtotal, subtotal) || other.subtotal == subtotal)&&(identical(other.rounding, rounding) || other.rounding == rounding)&&(identical(other.total, total) || other.total == total)&&(identical(other.paid, paid) || other.paid == paid)&&(identical(other.open, open) || other.open == open)&&(identical(other.paymentStatus, paymentStatus) || other.paymentStatus == paymentStatus)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.issues, _issues)&&(identical(other.approvalId, approvalId) || other.approvalId == approvalId)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.cancelReason, cancelReason) || other.cancelReason == cancelReason)&&const DeepCollectionEquality().equals(other.lines, _lines)&&const DeepCollectionEquality().equals(other.allocations, _allocations)&&const DeepCollectionEquality().equals(other.warnings, _warnings));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hashAll([runtimeType,id,number,billDate,dueDate,customer,const DeepCollectionEquality().hash(_lines),subtotal,rounding,total,paid,open,paymentStatus,status,const DeepCollectionEquality().hash(_issues),approvalId,const DeepCollectionEquality().hash(_allocations),notes,createdBy,createdAt,cancelReason,const DeepCollectionEquality().hash(_warnings)]);
+    return Object.hashAll([runtimeType,id,number,billDate,dueDate,customer,subtotal,rounding,total,paid,open,paymentStatus,status,const DeepCollectionEquality().hash(_issues),approvalId,notes,createdBy,createdAt,cancelReason,const DeepCollectionEquality().hash(_lines),const DeepCollectionEquality().hash(_allocations),const DeepCollectionEquality().hash(_warnings)]);
 }
 
 @override
 String toString() {
-    return 'SalesBillDtoOutput(id: $id, number: $number, billDate: $billDate, dueDate: $dueDate, customer: $customer, lines: $lines, subtotal: $subtotal, rounding: $rounding, total: $total, paid: $paid, open: $open, paymentStatus: $paymentStatus, status: $status, issues: $issues, approvalId: $approvalId, allocations: $allocations, notes: $notes, createdBy: $createdBy, createdAt: $createdAt, cancelReason: $cancelReason, warnings: $warnings)';
+    return 'SalesBillDtoOutput(id: $id, number: $number, billDate: $billDate, dueDate: $dueDate, customer: $customer, subtotal: $subtotal, rounding: $rounding, total: $total, paid: $paid, open: $open, paymentStatus: $paymentStatus, status: $status, issues: $issues, approvalId: $approvalId, notes: $notes, createdBy: $createdBy, createdAt: $createdAt, cancelReason: $cancelReason, lines: $lines, allocations: $allocations, warnings: $warnings)';
 }
 
 
@@ -340,7 +340,7 @@ abstract mixin class _$SalesBillDtoOutputCopyWith<$Res> implements $SalesBillDto
   factory _$SalesBillDtoOutputCopyWith(_SalesBillDtoOutput value, $Res Function(_SalesBillDtoOutput) _then) = __$SalesBillDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? number, DateTime billDate, DateTime dueDate, Customer2 customer, List<Lines13> lines, int subtotal, int rounding, int total, int paid, int open, SalesBillDtoOutputPaymentStatus paymentStatus, SalesBillDtoOutputStatus status, List<SalesBillDtoOutputIssuesUnion> issues, String? approvalId, List<Allocations5> allocations, String? notes, CreatedBy5? createdBy, DateTime createdAt, String? cancelReason, List<String> warnings
+ String id, String? number, DateTime billDate, DateTime dueDate, Customer2 customer, int subtotal, int rounding, int total, int paid, int open, SalesBillDtoOutputPaymentStatus paymentStatus, SalesBillDtoOutputStatus status, List<SalesBillDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy5? createdBy, DateTime createdAt, String? cancelReason, List<Lines13> lines, List<Allocations5> allocations, List<String> warnings
 });
 
 
@@ -357,15 +357,14 @@ class __$SalesBillDtoOutputCopyWithImpl<$Res>
 
 /// Create a copy of SalesBillDtoOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? number = freezed,Object? billDate = null,Object? dueDate = null,Object? customer = null,Object? lines = null,Object? subtotal = null,Object? rounding = null,Object? total = null,Object? paid = null,Object? open = null,Object? paymentStatus = null,Object? status = null,Object? issues = null,Object? approvalId = freezed,Object? allocations = null,Object? notes = freezed,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,Object? warnings = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? number = freezed,Object? billDate = null,Object? dueDate = null,Object? customer = null,Object? subtotal = null,Object? rounding = null,Object? total = null,Object? paid = null,Object? open = null,Object? paymentStatus = null,Object? status = null,Object? issues = null,Object? approvalId = freezed,Object? notes = freezed,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,Object? lines = null,Object? allocations = null,Object? warnings = null,}) {
   return _then(_SalesBillDtoOutput(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
 as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
 as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
-as Customer2,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
-as List<Lines13>,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
+as Customer2,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
 as int,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,paid: null == paid ? _self.paid : paid // ignore: cast_nullable_to_non_nullable
@@ -374,12 +373,13 @@ as int,paymentStatus: null == paymentStatus ? _self.paymentStatus : paymentStatu
 as SalesBillDtoOutputPaymentStatus,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as SalesBillDtoOutputStatus,issues: null == issues ? _self._issues : issues // ignore: cast_nullable_to_non_nullable
 as List<SalesBillDtoOutputIssuesUnion>,approvalId: freezed == approvalId ? _self.approvalId : approvalId // ignore: cast_nullable_to_non_nullable
-as String?,allocations: null == allocations ? _self._allocations : allocations // ignore: cast_nullable_to_non_nullable
-as List<Allocations5>,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as CreatedBy5?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
-as String?,warnings: null == warnings ? _self._warnings : warnings // ignore: cast_nullable_to_non_nullable
+as String?,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
+as List<Lines13>,allocations: null == allocations ? _self._allocations : allocations // ignore: cast_nullable_to_non_nullable
+as List<Allocations5>,warnings: null == warnings ? _self._warnings : warnings // ignore: cast_nullable_to_non_nullable
 as List<String>,
   ));
 }

@@ -18,7 +18,7 @@ _CreateCustomerReceiptDto _$CreateCustomerReceiptDtoFromJson(
       : DateTime.parse(json['receiptDate'] as String),
   notes: json['notes'] as String?,
   allocations: (json['allocations'] as List<dynamic>?)
-      ?.map((e) => Allocations8.fromJson(e as Map<String, dynamic>))
+      ?.map((e) => Allocations7.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 

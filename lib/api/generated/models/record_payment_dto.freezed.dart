@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecordPaymentDto {
 
+/// Amount in paise (₹1 = 100)
  int get amount; RecordPaymentDtoMethod get method; DateTime? get paidOn; String? get reference; String? get notes; DateTime? get extendTo;
 /// Create a copy of RecordPaymentDto
 /// with the given fields replaced by the non-null parameter values.
@@ -223,6 +224,7 @@ class _RecordPaymentDto implements RecordPaymentDto {
   const _RecordPaymentDto({required this.amount, required this.method, this.paidOn, this.reference, this.notes, this.extendTo});
   factory _RecordPaymentDto.fromJson(Map<String, dynamic> json) => _$RecordPaymentDtoFromJson(json);
 
+/// Amount in paise (₹1 = 100)
 @override final  int amount;
 @override final  RecordPaymentDtoMethod method;
 @override final  DateTime? paidOn;

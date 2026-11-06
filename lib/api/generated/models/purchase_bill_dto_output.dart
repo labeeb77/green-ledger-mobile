@@ -29,10 +29,10 @@ abstract class PurchaseBillDtoOutput with _$PurchaseBillDtoOutput {
     required PurchaseBillDtoOutputPaymentStatus paymentStatus,
     required PurchaseBillDtoOutputStatus status,
     required String? notes,
-    required List<Lines4> lines,
-    required List<Allocations> allocations,
     required DateTime createdAt,
     required String? cancelReason,
+    required List<Lines4> lines,
+    required List<Allocations> allocations,
   }) = _PurchaseBillDtoOutput;
   
   factory PurchaseBillDtoOutput.fromJson(Map<String, Object?> json) => _$PurchaseBillDtoOutputFromJson(json);

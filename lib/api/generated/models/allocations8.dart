@@ -11,8 +11,6 @@ part 'allocations8.g.dart';
 abstract class Allocations8 with _$Allocations8 {
   const factory Allocations8({
     required String billId,
-
-    /// Amount in paise (₹1 = 100)
     required int amount,
   }) = _Allocations8;
   

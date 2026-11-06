@@ -12,10 +12,10 @@ enum MoneyAccountDtoOutputType {
   bank('bank'),
   @JsonValue('upi')
   upi('upi'),
-  @JsonValue('agent_cash')
-  agentCash('agent_cash'),
   @JsonValue('cheques_in_hand')
   chequesInHand('cheques_in_hand'),
+  @JsonValue('agent_cash')
+  agentCash('agent_cash'),
   /// Default value for all unparsed values, allows backward compatibility when adding new values on the backend.
   $unknown(null);
 

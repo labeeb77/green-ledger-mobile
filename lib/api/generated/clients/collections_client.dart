@@ -103,7 +103,7 @@ abstract class CollectionsClient {
   @POST('/api/v1/cash-handovers')
   Future<HandoverDtoOutput> cashHandoversControllerCreate({
     @Header('Idempotency-Key') required String idempotencyKey,
-    @Body() required CreateHandoverDto body,
+    @Body() CreateHandoverDto? body,
   });
 
   @GET('/api/v1/cash-handovers/my-bag')

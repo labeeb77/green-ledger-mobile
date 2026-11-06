@@ -23,7 +23,6 @@ abstract class SalesBillDtoOutput with _$SalesBillDtoOutput {
     required DateTime billDate,
     required DateTime dueDate,
     required Customer2 customer,
-    required List<Lines13> lines,
     required int subtotal,
     required int rounding,
     required int total,
@@ -33,11 +32,12 @@ abstract class SalesBillDtoOutput with _$SalesBillDtoOutput {
     required SalesBillDtoOutputStatus status,
     required List<SalesBillDtoOutputIssuesUnion> issues,
     required String? approvalId,
-    required List<Allocations5> allocations,
     required String? notes,
     required CreatedBy5? createdBy,
     required DateTime createdAt,
     required String? cancelReason,
+    required List<Lines13> lines,
+    required List<Allocations5> allocations,
     required List<String> warnings,
   }) = _SalesBillDtoOutput;
   
