@@ -16,7 +16,28 @@ class HomeRepositoryImpl implements HomeRepository {
       return Err(AppFailure.from(e));
     }
   }
+
+  @override
+  Future<Result<GodownHome>> godownHome() async {
+    try {
+      return Ok(godownHomeFromDto(await _client.homeControllerGodown()));
+    } on Object catch (e) {
+      return Err(AppFailure.from(e));
+    }
+  }
 }
+
+GodownHome godownHomeFromDto(api.GodownHomeDtoOutput h) => GodownHome(
+  toDispatch: h.toDispatch,
+  arrivalsToday: h.arrivalsToday,
+  lowStock: [
+    for (final l in h.lowStock)
+      LowStockItem(name: l.name, unit: l.stockUnit, quantity: l.quantity, level: l.lowStockLevel),
+  ],
+  wastageToday: {for (final w in h.wastageToday.byUnit) w.unit.json ?? '': w.quantity},
+  wastagePending: h.wastageToday.pendingApproval,
+  returnsToInspect: h.returnsToInspect,
+);
 
 AgentHome agentHomeFromDto(api.AgentHomeDtoOutput h) => AgentHome(
   dueOnMyShops: h.dueOnMyShops,

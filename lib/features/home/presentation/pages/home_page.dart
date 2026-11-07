@@ -9,8 +9,10 @@ import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
 import 'package:green_ledger_mobile/features/home/presentation/bloc/agent_home_cubit.dart';
+import 'package:green_ledger_mobile/features/home/presentation/bloc/godown_home_cubit.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/agent_home_card.dart';
+import 'package:green_ledger_mobile/features/home/presentation/widgets/godown_home_card.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/top_bar.dart';
 
 /// Home is built from permission cards (ux-design section 3). Each milestone fills its
@@ -25,34 +27,56 @@ class HomePage extends StatelessWidget {
     final session = auth.session;
     final firstName = session.user.name.split(' ').first;
     final text = Theme.of(context).textTheme;
+    final cards = homeCardsFor(session);
     final agent = session.user.role == Role.agent;
-    Widget list(BuildContext context) => ListView(
-      padding: const EdgeInsets.all(Space.lg),
-      children: [
-        Text(session.businessName, style: text.bodySmall),
-        const SizedBox(height: Space.lg),
-        for (final card in homeCardsFor(session)) ...[
-          if (card == HomeCard.agent && agent) const AgentHomeCard() else _HomeCardTile(card),
-          const SizedBox(height: Space.md),
-        ],
-      ],
-    );
+    final godown = cards.contains(HomeCard.godown);
+    Future<void> refresh(BuildContext context) => Future.wait([
+      if (agent) context.read<AgentHomeCubit>().load(),
+      if (godown) context.read<GodownHomeCubit>().load(),
+    ]);
     final scaffold = Scaffold(
       appBar: TopBar(title: 'Hi $firstName'),
-      body: agent
-          ? Builder(
-              builder: (context) =>
-                  RefreshIndicator(onRefresh: context.read<AgentHomeCubit>().load, child: list(context)),
-            )
-          : list(context),
+      body: Builder(
+        builder: (context) => RefreshIndicator(
+          onRefresh: () => refresh(context),
+          child: ListView(
+            padding: const EdgeInsets.all(Space.lg),
+            children: [
+              Text(session.businessName, style: text.bodySmall),
+              const SizedBox(height: Space.lg),
+              for (final card in cards) ...[
+                switch (card) {
+                  HomeCard.agent when agent => const AgentHomeCard(),
+                  HomeCard.godown => const GodownHomeCard(),
+                  _ => _HomeCardTile(card),
+                },
+                const SizedBox(height: Space.md),
+              ],
+            ],
+          ),
+        ),
+      ),
     );
-    if (!agent) return scaffold;
-    return BlocProvider(
-      create: (context) {
-        final cubit = AgentHomeCubit(context.read<HomeRepository>());
-        unawaited(cubit.load());
-        return cubit;
-      },
+    if (!agent && !godown) return scaffold;
+    return MultiBlocProvider(
+      providers: [
+        if (agent)
+          BlocProvider(
+            create: (context) {
+              final cubit = AgentHomeCubit(context.read<HomeRepository>());
+              unawaited(cubit.load());
+              return cubit;
+            },
+          ),
+        if (godown)
+          BlocProvider(
+            create: (context) {
+              final cubit = GodownHomeCubit(context.read<HomeRepository>());
+              unawaited(cubit.load());
+              return cubit;
+            },
+          ),
+      ],
       child: scaffold,
     );
   }

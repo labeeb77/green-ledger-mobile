@@ -66,6 +66,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<!-- Dev and device tests reach the API on the computer's LAN IP over http; public hosts still need https. -->
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Connect to the Wholesale Manager server on this network.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a photo of a UPI payment or a supplier slip.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

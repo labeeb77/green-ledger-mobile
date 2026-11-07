@@ -14,6 +14,9 @@ import 'package:green_ledger_mobile/features/cash/presentation/pages/cash_page.d
 import 'package:green_ledger_mobile/features/cash/presentation/pages/handovers_page.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
 import 'package:green_ledger_mobile/features/collect/presentation/pages/collect_page.dart';
+import 'package:green_ledger_mobile/features/dispatch/domain/dispatch.dart';
+import 'package:green_ledger_mobile/features/dispatch/presentation/pages/dispatch_order_page.dart';
+import 'package:green_ledger_mobile/features/dispatch/presentation/pages/dispatch_page.dart';
 import 'package:green_ledger_mobile/features/drafts/presentation/pages/drafts_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/coming_soon_page.dart';
@@ -21,9 +24,16 @@ import 'package:green_ledger_mobile/features/home/presentation/pages/home_page.d
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_shell.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/no_mobile_access_page.dart';
 import 'package:green_ledger_mobile/features/more/presentation/more_page.dart';
+import 'package:green_ledger_mobile/features/orders/domain/order.dart';
+import 'package:green_ledger_mobile/features/orders/presentation/pages/order_page.dart';
+import 'package:green_ledger_mobile/features/receive/presentation/pages/receive_page.dart';
+import 'package:green_ledger_mobile/features/returns/domain/returns.dart';
+import 'package:green_ledger_mobile/features/returns/presentation/pages/returns_pages.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shop_detail_page.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shops_page.dart';
+import 'package:green_ledger_mobile/features/stock/presentation/pages/stock_page.dart';
 import 'package:green_ledger_mobile/features/visits/presentation/pages/visit_page.dart';
+import 'package:green_ledger_mobile/features/wastage/presentation/pages/wastage_page.dart';
 
 /// All routes. Redirects follow the [AuthBloc] (see [redirectFor]); each tab is a branch
 /// of one [StatefulShellRoute] so it keeps its own navigation stack.
@@ -56,13 +66,37 @@ Widget _tabPage(AppTab tab) => switch (tab) {
   AppTab.cash => const CashPage(),
   AppTab.approvals => const ApprovalsPage(),
   AppTab.customers => const ComingSoonPage(title: 'Customers', milestone: 'M4'),
-  AppTab.stock => const ComingSoonPage(title: 'Stock', milestone: 'M3'),
+  AppTab.stock => const StockPage(),
 };
 
 /// Screens pushed inside a tab, so the bottom bar stays.
 List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
   // Opened from the Home card "Cash handovers" (owner/manager).
-  AppTab.home => [GoRoute(path: 'handovers', builder: (_, _) => const HandoversPage())],
+  AppTab.home => [
+    GoRoute(path: 'handovers', builder: (_, _) => const HandoversPage()),
+    GoRoute(path: 'receive', builder: (_, _) => const ReceivePage()),
+    GoRoute(
+      path: 'dispatch',
+      builder: (_, _) => const DispatchPage(),
+      routes: [
+        GoRoute(
+          path: 'order',
+          builder: (_, state) => DispatchOrderPage(order: state.extra! as DispatchOrder),
+        ),
+      ],
+    ),
+    GoRoute(path: 'wastage', builder: (_, _) => const WastagePage()),
+    GoRoute(
+      path: 'returns',
+      builder: (_, _) => const ReturnsPage(),
+      routes: [
+        GoRoute(
+          path: 'inspect',
+          builder: (_, state) => InspectPage(ret: state.extra! as ReturnToInspect),
+        ),
+      ],
+    ),
+  ],
   AppTab.shops => [
     GoRoute(
       path: ':id',
@@ -71,13 +105,13 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
         // Opened from the shop detail, which passes the shop as `extra`.
         GoRoute(
           path: 'collect',
-          builder: (context, state) => CollectPage(
-            target: state.extra! as CollectTarget,
-            canChangeAllocation: switch (context.read<AuthBloc>().state) {
-              AuthSignedIn(:final session) => session.user.role == Role.owner || session.user.role == Role.manager,
-              _ => false,
-            },
-          ),
+          builder: (context, state) =>
+              CollectPage(target: state.extra! as CollectTarget, canChangeAllocation: _ownerOrManager(context)),
+        ),
+        GoRoute(
+          path: 'order',
+          builder: (context, state) =>
+              OrderPage(target: state.extra! as OrderTarget, canEditRate: _ownerOrManager(context)),
         ),
         // `extra` is the shop name.
         GoRoute(
@@ -88,6 +122,11 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
     ),
   ],
   _ => const [],
+};
+
+bool _ownerOrManager(BuildContext context) => switch (context.read<AuthBloc>().state) {
+  AuthSignedIn(:final session) => session.user.role == Role.owner || session.user.role == Role.manager,
+  _ => false,
 };
 
 /// Re-runs redirects whenever the auth state changes.

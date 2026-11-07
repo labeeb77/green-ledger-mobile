@@ -24,6 +24,15 @@ class _MockAuth extends Mock implements AuthRepository;
 
 const _offline = AppFailure(kind: FailureKind.network, message: 'No internet');
 
+const godownHome = GodownHome(
+  toDispatch: 6,
+  arrivalsToday: 3,
+  lowStock: [LowStockItem(name: 'Garlic', unit: 'kg', quantity: '8.000', level: '20.000')],
+  wastageToday: {'kg': '12.000'},
+  wastagePending: 1,
+  returnsToInspect: 2,
+);
+
 const _home = AgentHome(
   dueOnMyShops: 12450000,
   collectedToday: CollectedToday(total: 1800000, cash: 1000000, upi: 800000, bankTransfer: 0, cheque: 0),
@@ -46,6 +55,7 @@ const _home = AgentHome(
 Future<_MockHome> _pumpHome(WidgetTester tester, Role role, {Result<AgentHome> result = const Ok(_home)}) async {
   final home = _MockHome();
   when(home.agentHome).thenAnswer((_) async => result);
+  when(home.godownHome).thenAnswer((_) async => const Ok(godownHome));
   final authRepository = _MockAuth();
   when(() => authRepository.sessionExpired).thenAnswer((_) => const Stream.empty());
   final auth = AuthBloc(authRepository)..emit(AuthSignedIn(sessionFor(role)));
@@ -148,5 +158,42 @@ void main() {
     final home = await _pumpHome(tester, Role.owner);
     verifyNever(home.agentHome);
     expect(find.text('Soon'), findsWidgets);
+  });
+
+  testWidgets('godown: to dispatch, arrivals, low stock, wastage and the four actions; no prices', (tester) async {
+    final home = await _pumpHome(tester, Role.godown);
+    verifyNever(home.agentHome);
+    expect(find.text('6 orders'), findsOneWidget);
+    expect(find.text('3'), findsOneWidget);
+    expect(find.text('1 item'), findsOneWidget);
+    expect(find.text('12 kg · 1 waiting'), findsOneWidget);
+    expect(find.text('Returns to inspect'), findsOneWidget);
+    for (final action in ['RECEIVE', 'DISPATCH', 'WASTAGE', 'RETURNS']) {
+      expect(find.text(action), findsOneWidget);
+    }
+    expect(find.textContaining('₹'), findsNothing);
+  });
+
+  test('maps the godown Home', () {
+    final h = godownHomeFromDto(
+      api.GodownHomeDtoOutput.fromJson({
+        'date': '2026-11-07',
+        'toDispatch': 6,
+        'arrivalsToday': 3,
+        'lowStock': [
+          {'productId': 'p1', 'name': 'Garlic', 'stockUnit': 'kg', 'quantity': '8.000', 'lowStockLevel': '20.000'},
+        ],
+        'wastageToday': {
+          'byUnit': [
+            {'unit': 'kg', 'quantity': '12.000'},
+          ],
+          'pendingApproval': 1,
+        },
+        'returnsToInspect': null,
+      }),
+    );
+    expect(h.wastageToday, {'kg': '12.000'});
+    expect(h.lowStock.single.name, 'Garlic');
+    expect(h.returnsToInspect, isNull);
   });
 }

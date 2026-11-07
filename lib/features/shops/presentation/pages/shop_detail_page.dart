@@ -13,6 +13,7 @@ import 'package:green_ledger_mobile/core/widgets/states.dart';
 import 'package:green_ledger_mobile/core/widgets/status_chip.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/orders/domain/order.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shop.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/bloc/shop_detail_cubit.dart';
@@ -66,38 +67,51 @@ class ShopDetailPage extends StatelessWidget {
                 ),
             ],
           ),
-          bottomNavigationBar: _canCollect(context) || _canVisit(context)
+          bottomNavigationBar: _canCollect(context) || _canVisit(context) || _canOrder(context)
               ? BottomActionBar(
-                  child: Row(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (_canVisit(context))
-                        Expanded(
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(Touch.mainButton)),
-                            onPressed: () async {
-                              final cubit = context.read<ShopDetailCubit>();
-                              final saved = await context.push<bool>('/shops/${shop.id}/visit', extra: shop.name);
-                              if (saved ?? false) await cubit.load();
-                            },
-                            child: const Text('VISIT'),
-                          ),
-                        ),
-                      if (_canCollect(context) && _canVisit(context)) const SizedBox(width: Space.sm),
                       if (_canCollect(context))
-                        Expanded(
-                          flex: 2,
-                          child: MainButton(
-                            label: 'COLLECT',
-                            onPressed: () async {
-                              final cubit = context.read<ShopDetailCubit>();
-                              final saved = await context.push<bool>(
-                                '/shops/${shop.id}/collect',
-                                extra: CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
-                              );
-                              if (saved ?? false) await cubit.load();
-                            },
+                        MainButton(
+                          label: 'COLLECT',
+                          onPressed: () => _open(
+                            context,
+                            '/shops/${shop.id}/collect',
+                            CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
                           ),
                         ),
+                      if (_canOrder(context) || _canVisit(context)) ...[
+                        if (_canCollect(context)) const SizedBox(height: Space.sm),
+                        Row(
+                          children: [
+                            if (_canOrder(context))
+                              Expanded(
+                                child: _SecondaryButton(
+                                  'ORDER',
+                                  () => _open(
+                                    context,
+                                    '/shops/${shop.id}/order',
+                                    OrderTarget(
+                                      customerId: shop.id,
+                                      name: shop.name,
+                                      outstanding: shop.outstanding,
+                                      creditLimit: shop.creditLimit,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (_canOrder(context) && _canVisit(context)) const SizedBox(width: Space.sm),
+                            if (_canVisit(context))
+                              Expanded(
+                                child: _SecondaryButton(
+                                  'VISIT',
+                                  () => _open(context, '/shops/${shop.id}/visit', shop.name),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
                     ],
                   ),
                 )
@@ -124,6 +138,33 @@ class ShopDetailPage extends StatelessWidget {
     ),
   );
 }
+
+/// Opens a flow on the shop; a saved entry reloads the shop.
+Future<void> _open(BuildContext context, String path, Object extra) async {
+  final cubit = context.read<ShopDetailCubit>();
+  final saved = await context.push<bool>(path, extra: extra);
+  if (saved ?? false) await cubit.load();
+}
+
+class _SecondaryButton extends StatelessWidget {
+  const _SecondaryButton(this.label, this.onPressed);
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => OutlinedButton(
+    style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(Touch.mainButton)),
+    onPressed: onPressed,
+    child: Text(label),
+  );
+}
+
+/// Orders are for users who may write sales (agents: their own shops).
+bool _canOrder(BuildContext context) => switch (context.read<AuthBloc>().state) {
+  AuthSignedIn(:final session) => session.permissions.canWrite('sales') && !session.readOnly,
+  _ => false,
+};
 
 /// Collect is for users who may record collections while entries aren't paused.
 bool _canCollect(BuildContext context) => switch (context.read<AuthBloc>().state) {

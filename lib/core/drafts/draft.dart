@@ -8,7 +8,7 @@ const AppFailure draftKept = AppFailure(kind: FailureKind.network, message: 'No 
 AppFailure keptIfOffline(AppFailure failure) => failure.kind == FailureKind.network ? draftKept : failure;
 
 /// What a draft is; each kind is sent by its own feature's repository.
-enum DraftKind { receipt, visit }
+enum DraftKind { receipt, visit, order, goodsReceipt, dispatch, wastage, inspection }
 
 /// An entry whose save failed for lack of network (ux-design section 7: "No internet.
 /// Your entry is kept."). [id] is its idempotency key, so SEND AGAIN never posts twice.

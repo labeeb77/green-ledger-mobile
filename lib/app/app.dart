@@ -14,10 +14,16 @@ import 'package:green_ledger_mobile/features/auth/domain/auth_repository.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/cash/domain/cash.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/dispatch/domain/dispatch.dart';
 import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
+import 'package:green_ledger_mobile/features/orders/domain/order.dart';
+import 'package:green_ledger_mobile/features/receive/domain/receive.dart';
+import 'package:green_ledger_mobile/features/returns/domain/returns.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
+import 'package:green_ledger_mobile/features/stock/domain/stock.dart';
 import 'package:green_ledger_mobile/features/visits/domain/visit.dart';
+import 'package:green_ledger_mobile/features/wastage/domain/wastage.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -61,10 +67,16 @@ class _AppState extends State<App> {
       RepositoryProvider<ApprovalsRepository>.value(value: getIt<ApprovalsRepository>()),
       RepositoryProvider<CashRepository>.value(value: getIt<CashRepository>()),
       RepositoryProvider<CollectRepository>.value(value: getIt<CollectRepository>()),
+      RepositoryProvider<DispatchRepository>.value(value: getIt<DispatchRepository>()),
       RepositoryProvider<DocumentsRepository>.value(value: getIt<DocumentsRepository>()),
       RepositoryProvider<HomeRepository>.value(value: getIt<HomeRepository>()),
+      RepositoryProvider<OrdersRepository>.value(value: getIt<OrdersRepository>()),
+      RepositoryProvider<ReceiveRepository>.value(value: getIt<ReceiveRepository>()),
+      RepositoryProvider<ReturnsRepository>.value(value: getIt<ReturnsRepository>()),
       RepositoryProvider<ShopsRepository>.value(value: getIt<ShopsRepository>()),
+      RepositoryProvider<StockRepository>.value(value: getIt<StockRepository>()),
       RepositoryProvider<VisitRepository>.value(value: getIt<VisitRepository>()),
+      RepositoryProvider<WastageRepository>.value(value: getIt<WastageRepository>()),
     ],
     child: MultiBlocProvider(
       providers: [

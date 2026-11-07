@@ -15,14 +15,26 @@ import 'package:green_ledger_mobile/features/cash/data/cash_repository_impl.dart
 import 'package:green_ledger_mobile/features/cash/domain/cash.dart';
 import 'package:green_ledger_mobile/features/collect/data/collect_repository_impl.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/dispatch/data/dispatch_repository_impl.dart';
+import 'package:green_ledger_mobile/features/dispatch/domain/dispatch.dart';
 import 'package:green_ledger_mobile/features/documents/data/documents_repository_impl.dart';
 import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
 import 'package:green_ledger_mobile/features/home/data/home_repository_impl.dart';
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
+import 'package:green_ledger_mobile/features/orders/data/orders_repository_impl.dart';
+import 'package:green_ledger_mobile/features/orders/domain/order.dart';
+import 'package:green_ledger_mobile/features/receive/data/receive_repository_impl.dart';
+import 'package:green_ledger_mobile/features/receive/domain/receive.dart';
+import 'package:green_ledger_mobile/features/returns/data/returns_repository_impl.dart';
+import 'package:green_ledger_mobile/features/returns/domain/returns.dart';
 import 'package:green_ledger_mobile/features/shops/data/shops_repository_impl.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
+import 'package:green_ledger_mobile/features/stock/data/stock_repository_impl.dart';
+import 'package:green_ledger_mobile/features/stock/domain/stock.dart';
 import 'package:green_ledger_mobile/features/visits/data/visit_repository_impl.dart';
 import 'package:green_ledger_mobile/features/visits/domain/visit.dart';
+import 'package:green_ledger_mobile/features/wastage/data/wastage_repository_impl.dart';
+import 'package:green_ledger_mobile/features/wastage/domain/wastage.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -49,6 +61,27 @@ void configureDependencies(FlavorConfig config) {
     drafts: drafts,
   );
   final visits = VisitRepositoryImpl(client.api.visitNotes, drafts);
+  final receive = ReceiveRepositoryImpl(
+    purchases: client.api.purchases,
+    suppliers: client.api.suppliers,
+    products: client.api.products,
+    files: client.api.files,
+    drafts: drafts,
+  );
+  final dispatch = DispatchRepositoryImpl(orders: client.api.orders, products: client.api.products, drafts: drafts);
+  final wastage = WastageRepositoryImpl(
+    stock: client.api.stock,
+    products: client.api.products,
+    files: client.api.files,
+    drafts: drafts,
+  );
+  final returns = ReturnsRepositoryImpl(client.api.sales, drafts);
+  final orders = OrdersRepositoryImpl(
+    orders: client.api.orders,
+    products: client.api.products,
+    pricing: client.api.pricing,
+    drafts: drafts,
+  );
 
   getIt
     ..registerSingleton(config)
@@ -62,6 +95,11 @@ void configureDependencies(FlavorConfig config) {
     ..registerSingleton<Map<DraftKind, DraftSender>>({
       DraftKind.receipt: collect.sendDraft,
       DraftKind.visit: visits.sendDraft,
+      DraftKind.order: orders.sendDraft,
+      DraftKind.goodsReceipt: receive.sendDraft,
+      DraftKind.dispatch: dispatch.sendDraft,
+      DraftKind.wastage: wastage.sendDraft,
+      DraftKind.inspection: returns.sendDraft,
     })
     ..registerSingleton<CollectRepository>(collect)
     ..registerSingleton<ApprovalsRepository>(ApprovalsRepositoryImpl(client.api.approvals))
@@ -76,5 +114,11 @@ void configureDependencies(FlavorConfig config) {
         cache: ReadCache(db, user),
       ),
     )
-    ..registerSingleton<VisitRepository>(visits);
+    ..registerSingleton<DispatchRepository>(dispatch)
+    ..registerSingleton<OrdersRepository>(orders)
+    ..registerSingleton<ReceiveRepository>(receive)
+    ..registerSingleton<ReturnsRepository>(returns)
+    ..registerSingleton<StockRepository>(StockRepositoryImpl(client.api.stock))
+    ..registerSingleton<VisitRepository>(visits)
+    ..registerSingleton<WastageRepository>(wastage);
 }

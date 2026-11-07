@@ -1,4 +1,7 @@
 import 'package:green_ledger_mobile/core/result.dart';
+import 'package:green_ledger_mobile/features/home/domain/godown_home.dart';
+
+export 'godown_home.dart';
 
 /// Money collected today, by method (paise).
 class CollectedToday {
@@ -60,4 +63,7 @@ class AgentHome {
 abstract interface class HomeRepository {
   /// The signed-in agent's Home (agents only).
   Future<Result<AgentHome>> agentHome();
+
+  /// The godown's Home (users who receive goods).
+  Future<Result<GodownHome>> godownHome();
 }
