@@ -20,11 +20,13 @@ abstract class ExpensesClient {
 
   @GET('/api/v1/expenses')
   Future<ExpenseListDtoOutput> expensesControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('categoryId') String? categoryId,
     @Query('accountId') String? accountId,
     @Query('status') Status3? status,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.

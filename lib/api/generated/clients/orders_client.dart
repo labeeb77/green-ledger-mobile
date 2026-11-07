@@ -10,6 +10,7 @@ import '../models/create_dispatch_dto.dart';
 import '../models/create_order_dto.dart';
 import '../models/dispatch_result_dto_output.dart';
 import '../models/order_dto_output.dart';
+import '../models/order_page_dto_output.dart';
 import '../models/status5.dart';
 
 part 'orders_client.g.dart';
@@ -19,11 +20,13 @@ abstract class OrdersClient {
   factory OrdersClient(Dio dio, {String? baseUrl}) = _OrdersClient;
 
   @GET('/api/v1/orders')
-  Future<List<OrderDtoOutput>> ordersControllerList({
+  Future<OrderPageDtoOutput> ordersControllerList({
+    @Query('limit') int? limit = 50,
     @Query('status') Status5? status,
     @Query('customerId') String? customerId,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.

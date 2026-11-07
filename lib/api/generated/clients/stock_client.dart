@@ -13,7 +13,9 @@ import '../models/create_wastage_dto.dart';
 import '../models/movements_dto_output.dart';
 import '../models/status3.dart';
 import '../models/stock_count_dto_output.dart';
+import '../models/stock_count_page_dto_output.dart';
 import '../models/stock_entry_dto_output.dart';
+import '../models/stock_entry_page_dto_output.dart';
 import '../models/stock_row_dto_output.dart';
 import '../models/type2.dart';
 import '../models/update_count_dto.dart';
@@ -28,11 +30,13 @@ abstract class StockClient {
   Future<List<StockRowDtoOutput>> stockControllerOnHand();
 
   @GET('/api/v1/stock/entries')
-  Future<List<StockEntryDtoOutput>> stockControllerListEntries({
+  Future<StockEntryPageDtoOutput> stockControllerListEntries({
+    @Query('limit') int? limit = 50,
     @Query('type') Type2? type,
     @Query('status') Status3? status,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -63,7 +67,10 @@ abstract class StockClient {
   });
 
   @GET('/api/v1/stock/counts')
-  Future<List<StockCountDtoOutput>> stockControllerListCounts();
+  Future<StockCountPageDtoOutput> stockControllerListCounts({
+    @Query('limit') int? limit = 50,
+    @Query('cursor') String? cursor,
+  });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/stock/counts')

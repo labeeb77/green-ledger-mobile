@@ -21,23 +21,27 @@ class _SalesClient implements SalesClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<SalesBillSummaryDtoOutput>> salesBillsControllerList({
+  Future<SalesBillSummaryPageDtoOutput> salesBillsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? customerId,
     Status3? status,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'customerId': customerId,
       r'status': status?.toJson(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<SalesBillSummaryDtoOutput>>(
+    final _options = _setStreamType<SalesBillSummaryPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -47,15 +51,10 @@ class _SalesClient implements SalesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<SalesBillSummaryDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late SalesBillSummaryPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                SalesBillSummaryDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = SalesBillSummaryPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -158,23 +157,27 @@ class _SalesClient implements SalesClient {
   }
 
   @override
-  Future<List<CustomerReturnDtoOutput>> customerReturnsControllerList({
+  Future<CustomerReturnPageDtoOutput> customerReturnsControllerList({
+    int? limit = 50,
     String? customerId,
     Status3? status,
     DateTime? from,
     DateTime? to,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'customerId': customerId,
       r'status': status?.toJson(),
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<CustomerReturnDtoOutput>>(
+    final _options = _setStreamType<CustomerReturnPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -184,15 +187,10 @@ class _SalesClient implements SalesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<CustomerReturnDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late CustomerReturnPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                CustomerReturnDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = CustomerReturnPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

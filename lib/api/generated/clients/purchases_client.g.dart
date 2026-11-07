@@ -21,23 +21,27 @@ class _PurchasesClient implements PurchasesClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<GoodsReceiptDtoOutput>> goodsReceiptsControllerList({
+  Future<GoodsReceiptPageDtoOutput> goodsReceiptsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? supplierId,
+    String? cursor,
     Billed? billed,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'supplierId': supplierId,
+      r'cursor': cursor,
       r'billed': billed?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<GoodsReceiptDtoOutput>>(
+    final _options = _setStreamType<GoodsReceiptPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -47,15 +51,10 @@ class _PurchasesClient implements PurchasesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<GoodsReceiptDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late GoodsReceiptPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                GoodsReceiptDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = GoodsReceiptPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -192,21 +191,25 @@ class _PurchasesClient implements PurchasesClient {
   }
 
   @override
-  Future<List<PurchaseBillSummaryDtoOutput>> purchaseBillsControllerList({
+  Future<PurchaseBillSummaryPageDtoOutput> purchaseBillsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? supplierId,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'supplierId': supplierId,
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<PurchaseBillSummaryDtoOutput>>(
+    final _options = _setStreamType<PurchaseBillSummaryPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -216,16 +219,10 @@ class _PurchasesClient implements PurchasesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<PurchaseBillSummaryDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late PurchaseBillSummaryPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) => PurchaseBillSummaryDtoOutput.fromJson(
-              i as Map<String, dynamic>,
-            ),
-          )
-          .toList();
+      _value = PurchaseBillSummaryPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -328,21 +325,25 @@ class _PurchasesClient implements PurchasesClient {
   }
 
   @override
-  Future<List<SupplierPaymentDtoOutput>> supplierPaymentsControllerList({
+  Future<SupplierPaymentPageDtoOutput> supplierPaymentsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? supplierId,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'supplierId': supplierId,
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<SupplierPaymentDtoOutput>>(
+    final _options = _setStreamType<SupplierPaymentPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -352,15 +353,10 @@ class _PurchasesClient implements PurchasesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<SupplierPaymentDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late SupplierPaymentPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                SupplierPaymentDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = SupplierPaymentPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -496,21 +492,25 @@ class _PurchasesClient implements PurchasesClient {
   }
 
   @override
-  Future<List<SupplierReturnDtoOutput>> supplierReturnsControllerList({
+  Future<SupplierReturnPageDtoOutput> supplierReturnsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? supplierId,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'supplierId': supplierId,
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<SupplierReturnDtoOutput>>(
+    final _options = _setStreamType<SupplierReturnPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -520,15 +520,10 @@ class _PurchasesClient implements PurchasesClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<SupplierReturnDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late SupplierReturnPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                SupplierReturnDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = SupplierReturnPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

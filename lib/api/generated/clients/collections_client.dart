@@ -7,13 +7,15 @@ import 'package:retrofit/retrofit.dart';
 
 import '../models/bounce_cheque_dto.dart';
 import '../models/cancel_result_dto_output.dart';
-import '../models/cheque_dto_output.dart';
+import '../models/cheque_page_dto_output.dart';
 import '../models/clear_cheque_dto.dart';
 import '../models/confirm_handover_dto.dart';
 import '../models/create_customer_receipt_dto.dart';
 import '../models/create_handover_dto.dart';
 import '../models/customer_receipt_dto_output.dart';
+import '../models/customer_receipt_page_dto_output.dart';
 import '../models/handover_dto_output.dart';
+import '../models/handover_page_dto_output.dart';
 import '../models/my_bag_dto_output.dart';
 import '../models/ok_result_dto_output.dart';
 import '../models/receipt_allocation_preview_dto_output.dart';
@@ -21,7 +23,7 @@ import '../models/sales_cancel_dto.dart';
 import '../models/status3.dart';
 import '../models/status4.dart';
 import '../models/status6.dart';
-import '../models/unverified_split_dto_output.dart';
+import '../models/unverified_split_page_dto_output.dart';
 
 part 'collections_client.g.dart';
 
@@ -30,11 +32,13 @@ abstract class CollectionsClient {
   factory CollectionsClient(Dio dio, {String? baseUrl}) = _CollectionsClient;
 
   @GET('/api/v1/customer-receipts')
-  Future<List<CustomerReceiptDtoOutput>> customerReceiptsControllerList({
+  Future<CustomerReceiptPageDtoOutput> customerReceiptsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -51,7 +55,10 @@ abstract class CollectionsClient {
   });
 
   @GET('/api/v1/customer-receipts/unverified')
-  Future<List<UnverifiedSplitDtoOutput>> customerReceiptsControllerUnverified();
+  Future<UnverifiedSplitPageDtoOutput> customerReceiptsControllerUnverified({
+    @Query('limit') int? limit = 50,
+    @Query('cursor') String? cursor,
+  });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/customer-receipts/splits/{splitId}/verify')
@@ -74,8 +81,10 @@ abstract class CollectionsClient {
   });
 
   @GET('/api/v1/cheques')
-  Future<List<ChequeDtoOutput>> chequesControllerList({
+  Future<ChequePageDtoOutput> chequesControllerList({
+    @Query('limit') int? limit = 50,
     @Query('status') Status4? status,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -95,8 +104,10 @@ abstract class CollectionsClient {
   });
 
   @GET('/api/v1/cash-handovers')
-  Future<List<HandoverDtoOutput>> cashHandoversControllerList({
+  Future<HandoverPageDtoOutput> cashHandoversControllerList({
+    @Query('limit') int? limit = 50,
     @Query('status') Status6? status,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.

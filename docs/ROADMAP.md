@@ -6,12 +6,14 @@ Milestones for the Phase 1 mobile app (spec section 5, flows in `green-ledger/do
 
 | Milestone | Status |
 | --- | --- |
-| M0 Foundation | In progress (code and tests done; device run pending) |
+| M0 Foundation | Done 2026-11-07 (iOS simulator run against the local backend: role tabs, forced password change, "No internet") |
 | M1 Agent collections | Not started |
 | M2 Orders, approvals, cash | Not started |
 | M3 Godown | Not started |
 | M4 Owner, search, lock, push | Not started |
 | M5 Store readiness | Not started |
+
+**Order (agreed 2026-11-06):** M0–M5 are built first without third-party services; FCM push (M4), crash reporting and store setup (M5) come last, together with the AWS deploy. Each backend gap below is filled just before the milestone that needs it (task list in `green-ledger/docs/HANDOFF.md`).
 
 ## M0 Foundation
 

@@ -7,6 +7,7 @@ import 'package:retrofit/retrofit.dart';
 
 import '../models/approval_count_dto_output.dart';
 import '../models/approval_dto_output.dart';
+import '../models/approval_page_dto_output.dart';
 import '../models/decide_dto.dart';
 import '../models/status.dart';
 import '../models/type.dart';
@@ -18,18 +19,22 @@ abstract class ApprovalsClient {
   factory ApprovalsClient(Dio dio, {String? baseUrl}) = _ApprovalsClient;
 
   @GET('/api/v1/approvals')
-  Future<List<ApprovalDtoOutput>> approvalsControllerList({
+  Future<ApprovalPageDtoOutput> approvalsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('status') Status? status,
     @Query('type') Type? type,
+    @Query('cursor') String? cursor,
   });
 
   @GET('/api/v1/approvals/count')
   Future<ApprovalCountDtoOutput> approvalsControllerCount();
 
   @GET('/api/v1/approvals/mine')
-  Future<List<ApprovalDtoOutput>> approvalsControllerMine({
+  Future<ApprovalPageDtoOutput> approvalsControllerMine({
+    @Query('limit') int? limit = 50,
     @Query('status') Status? status,
     @Query('type') Type? type,
+    @Query('cursor') String? cursor,
   });
 
   @GET('/api/v1/approvals/{id}')

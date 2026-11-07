@@ -4,9 +4,9 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'account5.dart';
-import 'category2.dart';
-import 'created_by8.dart';
+import 'account4.dart';
+import 'category.dart';
+import 'created_by7.dart';
 import 'expense_dto_output_status.dart';
 
 part 'expense_dto_output.freezed.dart';
@@ -18,13 +18,13 @@ abstract class ExpenseDtoOutput with _$ExpenseDtoOutput {
     required String id,
     required String number,
     required DateTime expenseDate,
-    required Category2 category,
-    required Account5 account,
+    required Category category,
+    required Account4 account,
     required int amount,
     required String? reference,
     required String? notes,
     required ExpenseDtoOutputStatus status,
-    required CreatedBy8? createdBy,
+    required CreatedBy7? createdBy,
     required DateTime createdAt,
     required String? cancelReason,
   }) = _ExpenseDtoOutput;

@@ -11,7 +11,7 @@ _NotificationListDtoOutput _$NotificationListDtoOutputFromJson(
 ) => _NotificationListDtoOutput(
   unread: (json['unread'] as num).toInt(),
   items: (json['items'] as List<dynamic>)
-      .map((e) => Items3.fromJson(e as Map<String, dynamic>))
+      .map((e) => Items2.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 

@@ -22,19 +22,23 @@ class _ExpensesClient implements ExpensesClient {
 
   @override
   Future<ExpenseListDtoOutput> expensesControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? categoryId,
     String? accountId,
     Status3? status,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'categoryId': categoryId,
       r'accountId': accountId,
       r'status': status?.toJson(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

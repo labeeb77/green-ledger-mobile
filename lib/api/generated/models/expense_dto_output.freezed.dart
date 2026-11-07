@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ExpenseDtoOutput {
 
- String get id; String get number; DateTime get expenseDate; Category2 get category; Account5 get account; int get amount; String? get reference; String? get notes; ExpenseDtoOutputStatus get status; CreatedBy8? get createdBy; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; DateTime get expenseDate; Category get category; Account4 get account; int get amount; String? get reference; String? get notes; ExpenseDtoOutputStatus get status; CreatedBy7? get createdBy; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,11 +54,11 @@ abstract mixin class $ExpenseDtoOutputCopyWith<$Res>  {
   factory $ExpenseDtoOutputCopyWith(ExpenseDtoOutput value, $Res Function(ExpenseDtoOutput) _then) = _$ExpenseDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category2 category, Account5 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy8? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
-$Category2CopyWith<$Res> get category;$Account5CopyWith<$Res> get account;$CreatedBy8CopyWith<$Res>? get createdBy;
+$CategoryCopyWith<$Res> get category;$Account4CopyWith<$Res> get account;$CreatedBy7CopyWith<$Res>? get createdBy;
 
 }
 /// @nodoc
@@ -77,13 +77,13 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
 as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as Category2,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
-as Account5,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
+as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ExpenseDtoOutputStatus,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
-as CreatedBy8?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as CreatedBy7?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -92,30 +92,30 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$Category2CopyWith<$Res> get category {
+$CategoryCopyWith<$Res> get category {
   
-  return $Category2CopyWith<$Res>(_self.category, (value) {
+  return $CategoryCopyWith<$Res>(_self.category, (value) {
     return _then(_self.copyWith(category: value));
   });
 }/// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$Account5CopyWith<$Res> get account {
+$Account4CopyWith<$Res> get account {
   
-  return $Account5CopyWith<$Res>(_self.account, (value) {
+  return $Account4CopyWith<$Res>(_self.account, (value) {
     return _then(_self.copyWith(account: value));
   });
 }/// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CreatedBy8CopyWith<$Res>? get createdBy {
+$CreatedBy7CopyWith<$Res>? get createdBy {
     if (_self.createdBy == null) {
     return null;
   }
 
-  return $CreatedBy8CopyWith<$Res>(_self.createdBy!, (value) {
+  return $CreatedBy7CopyWith<$Res>(_self.createdBy!, (value) {
     return _then(_self.copyWith(createdBy: value));
   });
 }
@@ -200,7 +200,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category2 category,  Account5 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy8? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -221,7 +221,7 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category2 category,  Account5 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy8? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput():
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -241,7 +241,7 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime expenseDate,  Category2 category,  Account5 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy8? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -262,13 +262,13 @@ class _ExpenseDtoOutput implements ExpenseDtoOutput {
 @override final  String id;
 @override final  String number;
 @override final  DateTime expenseDate;
-@override final  Category2 category;
-@override final  Account5 account;
+@override final  Category category;
+@override final  Account4 account;
 @override final  int amount;
 @override final  String? reference;
 @override final  String? notes;
 @override final  ExpenseDtoOutputStatus status;
-@override final  CreatedBy8? createdBy;
+@override final  CreatedBy7? createdBy;
 @override final  DateTime createdAt;
 @override final  String? cancelReason;
 
@@ -307,11 +307,11 @@ abstract mixin class _$ExpenseDtoOutputCopyWith<$Res> implements $ExpenseDtoOutp
   factory _$ExpenseDtoOutputCopyWith(_ExpenseDtoOutput value, $Res Function(_ExpenseDtoOutput) _then) = __$ExpenseDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category2 category, Account5 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy8? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
-@override $Category2CopyWith<$Res> get category;@override $Account5CopyWith<$Res> get account;@override $CreatedBy8CopyWith<$Res>? get createdBy;
+@override $CategoryCopyWith<$Res> get category;@override $Account4CopyWith<$Res> get account;@override $CreatedBy7CopyWith<$Res>? get createdBy;
 
 }
 /// @nodoc
@@ -330,13 +330,13 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
 as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as Category2,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
-as Account5,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
+as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ExpenseDtoOutputStatus,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
-as CreatedBy8?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as CreatedBy7?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -346,30 +346,30 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$Category2CopyWith<$Res> get category {
+$CategoryCopyWith<$Res> get category {
   
-  return $Category2CopyWith<$Res>(_self.category, (value) {
+  return $CategoryCopyWith<$Res>(_self.category, (value) {
     return _then(_self.copyWith(category: value));
   });
 }/// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$Account5CopyWith<$Res> get account {
+$Account4CopyWith<$Res> get account {
   
-  return $Account5CopyWith<$Res>(_self.account, (value) {
+  return $Account4CopyWith<$Res>(_self.account, (value) {
     return _then(_self.copyWith(account: value));
   });
 }/// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CreatedBy8CopyWith<$Res>? get createdBy {
+$CreatedBy7CopyWith<$Res>? get createdBy {
     if (_self.createdBy == null) {
     return null;
   }
 
-  return $CreatedBy8CopyWith<$Res>(_self.createdBy!, (value) {
+  return $CreatedBy7CopyWith<$Res>(_self.createdBy!, (value) {
     return _then(_self.copyWith(createdBy: value));
   });
 }

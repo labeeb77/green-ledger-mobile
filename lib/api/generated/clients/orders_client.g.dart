@@ -21,23 +21,27 @@ class _OrdersClient implements OrdersClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<OrderDtoOutput>> ordersControllerList({
+  Future<OrderPageDtoOutput> ordersControllerList({
+    int? limit = 50,
     Status5? status,
     String? customerId,
     DateTime? from,
     DateTime? to,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'status': status?.toJson(),
       r'customerId': customerId,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<OrderDtoOutput>>(
+    final _options = _setStreamType<OrderPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -47,14 +51,10 @@ class _OrdersClient implements OrdersClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<OrderDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late OrderPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) => OrderDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = OrderPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'items2.dart';
+import 'expense_dto_output.dart';
 
 part 'expense_list_dto_output.freezed.dart';
 part 'expense_list_dto_output.g.dart';
@@ -12,8 +12,9 @@ part 'expense_list_dto_output.g.dart';
 @Freezed()
 abstract class ExpenseListDtoOutput with _$ExpenseListDtoOutput {
   const factory ExpenseListDtoOutput({
-    required List<Items2> items,
+    required List<ExpenseDtoOutput> items,
     required int total,
+    required String? nextCursor,
   }) = _ExpenseListDtoOutput;
   
   factory ExpenseListDtoOutput.fromJson(Map<String, Object?> json) => _$ExpenseListDtoOutputFromJson(json);

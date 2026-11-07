@@ -179,6 +179,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -186,10 +206,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ApprovalDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/ApprovalPageDto_Output"
                 }
               }
             },
@@ -286,6 +303,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -293,10 +330,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ApprovalDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/ApprovalPageDto_Output"
                 }
               }
             },
@@ -3595,6 +3629,26 @@
           {
             "explode": false,
             "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
             "name": "billed",
             "schema": {
               "enum": [
@@ -3611,10 +3665,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/GoodsReceiptDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/GoodsReceiptPageDto_Output"
                 }
               }
             },
@@ -3888,6 +3939,26 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -3895,10 +3966,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/PurchaseBillSummaryDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/PurchaseBillSummaryPageDto_Output"
                 }
               }
             },
@@ -4122,6 +4190,26 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -4129,10 +4217,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/SupplierPaymentDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/SupplierPaymentPageDto_Output"
                 }
               }
             },
@@ -4413,6 +4498,26 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -4420,10 +4525,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/SupplierReturnDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/SupplierReturnPageDto_Output"
                 }
               }
             },
@@ -4703,6 +4805,26 @@
               "format": "date",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -4710,10 +4832,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/StockEntryDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/StockEntryPageDto_Output"
                 }
               }
             },
@@ -4969,15 +5088,34 @@
     "/api/v1/stock/counts": {
       "get": {
         "operationId": "StockController_listCounts",
+        "parameters": [
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/StockCountDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/StockCountPageDto_Output"
                 }
               }
             },
@@ -5446,6 +5584,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -5453,10 +5611,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/SalesBillSummaryDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/SalesBillSummaryPageDto_Output"
                 }
               }
             },
@@ -5695,6 +5850,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -5702,10 +5877,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/CustomerReceiptDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/CustomerReceiptPageDto_Output"
                 }
               }
             },
@@ -5847,15 +6019,34 @@
     "/api/v1/customer-receipts/unverified": {
       "get": {
         "operationId": "CustomerReceiptsController_unverified",
+        "parameters": [
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/UnverifiedSplitDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/UnverifiedSplitPageDto_Output"
                 }
               }
             },
@@ -6066,6 +6257,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -6073,10 +6284,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/ChequeDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/ChequePageDto_Output"
                 }
               }
             },
@@ -6281,6 +6489,26 @@
               "format": "date",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -6288,10 +6516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/OrderDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/OrderPageDto_Output"
                 }
               }
             },
@@ -6596,6 +6821,26 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -6603,10 +6848,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/HandoverDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/HandoverPageDto_Output"
                 }
               }
             },
@@ -6833,6 +7075,26 @@
               "format": "date",
               "type": "string"
             }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -6840,10 +7102,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/CustomerReturnDto_Output"
-                  },
-                  "type": "array"
+                  "$ref": "#/components/schemas/CustomerReturnPageDto_Output"
                 }
               }
             },
@@ -7492,6 +7751,26 @@
                 "rejected"
               ],
               "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
@@ -8967,6 +9246,26 @@
                 "summary"
               ],
               "type": "object"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
+      "ApprovalPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ApprovalDto_Output"
             },
             "type": "array"
           },
@@ -11524,6 +11823,26 @@
         },
         "type": "object"
       },
+      "GoodsReceiptPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/GoodsReceiptDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "GoodsReceiptDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -11968,6 +12287,26 @@
         ],
         "type": "object"
       },
+      "PurchaseBillSummaryPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PurchaseBillSummaryDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "PurchaseBillSummaryDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -12341,6 +12680,26 @@
         ],
         "type": "object"
       },
+      "SupplierPaymentPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SupplierPaymentDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "SupplierPaymentDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -12672,6 +13031,26 @@
         ],
         "type": "object"
       },
+      "SupplierReturnPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SupplierReturnDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "SupplierReturnDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -12975,6 +13354,26 @@
           "lowStockLevel",
           "lowStock",
           "wastageToday"
+        ],
+        "type": "object"
+      },
+      "StockEntryPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StockEntryDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -13315,6 +13714,26 @@
         ],
         "type": "object"
       },
+      "StockCountPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StockCountDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "StockCountDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -13640,6 +14059,30 @@
           "opening",
           "entries",
           "closing"
+        ],
+        "type": "object"
+      },
+      "SalesBillSummaryPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SalesBillSummaryDto_Output"
+            },
+            "type": "array"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "total",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -14321,6 +14764,30 @@
         ],
         "type": "object"
       },
+      "CustomerReceiptPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerReceiptDto_Output"
+            },
+            "type": "array"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "total",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "CustomerReceiptDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -14725,6 +15192,26 @@
         ],
         "type": "object"
       },
+      "UnverifiedSplitPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/UnverifiedSplitDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "UnverifiedSplitDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -14817,6 +15304,26 @@
         },
         "required": [
           "ok"
+        ],
+        "type": "object"
+      },
+      "ChequePageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ChequeDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -14954,6 +15461,26 @@
         },
         "required": [
           "reason"
+        ],
+        "type": "object"
+      },
+      "OrderPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -15361,6 +15888,26 @@
         ],
         "type": "object"
       },
+      "HandoverPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/HandoverDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
       "HandoverDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -15631,6 +16178,26 @@
         },
         "required": [
           "countedAmount"
+        ],
+        "type": "object"
+      },
+      "CustomerReturnPageDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerReturnDto_Output"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -16224,166 +16791,22 @@
         "properties": {
           "items": {
             "items": {
-              "additionalProperties": false,
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                "number": {
-                  "type": "string"
-                },
-                "expenseDate": {
-                  "format": "date",
-                  "type": "string",
-                  "example": "2026-10-18"
-                },
-                "category": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "type": "object"
-                },
-                "account": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "type": "object"
-                },
-                "amount": {
-                  "type": "integer"
-                },
-                "reference": {
-                  "type": "string",
-                  "nullable": true
-                },
-                "notes": {
-                  "type": "string",
-                  "nullable": true
-                },
-                "status": {
-                  "enum": [
-                    "posted",
-                    "pending_cancellation",
-                    "cancelled",
-                    "pending_approval",
-                    "rejected"
-                  ],
-                  "type": "string"
-                },
-                "createdBy": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name"
-                  ],
-                  "type": "object",
-                  "nullable": true
-                },
-                "createdAt": {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "cancelReason": {
-                  "type": "string",
-                  "nullable": true
-                }
-              },
-              "required": [
-                "id",
-                "number",
-                "expenseDate",
-                "category",
-                "account",
-                "amount",
-                "reference",
-                "notes",
-                "status",
-                "createdBy",
-                "createdAt",
-                "cancelReason"
-              ],
-              "type": "object"
+              "$ref": "#/components/schemas/ExpenseDto_Output"
             },
             "type": "array"
           },
           "total": {
             "type": "integer"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
           }
         },
         "required": [
           "items",
-          "total"
-        ],
-        "type": "object"
-      },
-      "CreateExpenseDto": {
-        "additionalProperties": false,
-        "properties": {
-          "expenseDate": {
-            "format": "date",
-            "type": "string",
-            "example": "2026-10-18"
-          },
-          "categoryId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "accountId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "amount": {
-            "exclusiveMinimum": 0,
-            "maximum": 10000000000,
-            "type": "integer"
-          },
-          "reference": {
-            "maxLength": 100,
-            "type": "string",
-            "nullable": true
-          },
-          "notes": {
-            "maxLength": 500,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "required": [
-          "categoryId",
-          "accountId",
-          "amount"
+          "total",
+          "nextCursor"
         ],
         "type": "object"
       },
@@ -16497,6 +16920,45 @@
           "createdBy",
           "createdAt",
           "cancelReason"
+        ],
+        "type": "object"
+      },
+      "CreateExpenseDto": {
+        "additionalProperties": false,
+        "properties": {
+          "expenseDate": {
+            "format": "date",
+            "type": "string",
+            "example": "2026-10-18"
+          },
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "accountId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "exclusiveMinimum": 0,
+            "maximum": 10000000000,
+            "type": "integer"
+          },
+          "reference": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "categoryId",
+          "accountId",
+          "amount"
         ],
         "type": "object"
       },

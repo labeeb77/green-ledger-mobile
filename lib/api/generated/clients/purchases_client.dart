@@ -13,11 +13,14 @@ import '../models/create_purchase_bill_dto.dart';
 import '../models/create_supplier_payment_dto.dart';
 import '../models/create_supplier_return_dto.dart';
 import '../models/goods_receipt_dto_output.dart';
+import '../models/goods_receipt_page_dto_output.dart';
 import '../models/purchase_bill_dto_output.dart';
-import '../models/purchase_bill_summary_dto_output.dart';
+import '../models/purchase_bill_summary_page_dto_output.dart';
 import '../models/purchase_cancel_dto.dart';
 import '../models/supplier_payment_dto_output.dart';
+import '../models/supplier_payment_page_dto_output.dart';
 import '../models/supplier_return_dto_output.dart';
+import '../models/supplier_return_page_dto_output.dart';
 import '../models/unbilled_line_dto_output.dart';
 
 part 'purchases_client.g.dart';
@@ -27,10 +30,12 @@ abstract class PurchasesClient {
   factory PurchasesClient(Dio dio, {String? baseUrl}) = _PurchasesClient;
 
   @GET('/api/v1/goods-receipts')
-  Future<List<GoodsReceiptDtoOutput>> goodsReceiptsControllerList({
+  Future<GoodsReceiptPageDtoOutput> goodsReceiptsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('supplierId') String? supplierId,
+    @Query('cursor') String? cursor,
     @Query('billed') Billed? billed,
   });
 
@@ -60,10 +65,12 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/purchase-bills')
-  Future<List<PurchaseBillSummaryDtoOutput>> purchaseBillsControllerList({
+  Future<PurchaseBillSummaryPageDtoOutput> purchaseBillsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('supplierId') String? supplierId,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -87,10 +94,12 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/supplier-payments')
-  Future<List<SupplierPaymentDtoOutput>> supplierPaymentsControllerList({
+  Future<SupplierPaymentPageDtoOutput> supplierPaymentsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('supplierId') String? supplierId,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -120,10 +129,12 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/supplier-returns')
-  Future<List<SupplierReturnDtoOutput>> supplierReturnsControllerList({
+  Future<SupplierReturnPageDtoOutput> supplierReturnsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('supplierId') String? supplierId,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.

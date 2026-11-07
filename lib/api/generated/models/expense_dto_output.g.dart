@@ -11,15 +11,15 @@ _ExpenseDtoOutput _$ExpenseDtoOutputFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       number: json['number'] as String,
       expenseDate: DateTime.parse(json['expenseDate'] as String),
-      category: Category2.fromJson(json['category'] as Map<String, dynamic>),
-      account: Account5.fromJson(json['account'] as Map<String, dynamic>),
+      category: Category.fromJson(json['category'] as Map<String, dynamic>),
+      account: Account4.fromJson(json['account'] as Map<String, dynamic>),
       amount: (json['amount'] as num).toInt(),
       reference: json['reference'] as String?,
       notes: json['notes'] as String?,
       status: ExpenseDtoOutputStatus.fromJson(json['status'] as String),
       createdBy: json['createdBy'] == null
           ? null
-          : CreatedBy8.fromJson(json['createdBy'] as Map<String, dynamic>),
+          : CreatedBy7.fromJson(json['createdBy'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       cancelReason: json['cancelReason'] as String?,
     );

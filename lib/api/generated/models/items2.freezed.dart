@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Items2 {
 
- String get id; String get number; DateTime get expenseDate; Category get category; Account4 get account; int get amount; String? get reference; String? get notes; Status3 get status; CreatedBy7? get createdBy; DateTime get createdAt; String? get cancelReason;
+ String get id; String get type; String get title; String? get body; String? get link; bool get read; DateTime get createdAt;
 /// Create a copy of Items2
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $Items2CopyWith<Items2> get copyWith => _$Items2CopyWithImpl<Items2>(this as Ite
 @override
 bool operator ==(Object other) {
   final _this = this as Items2;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Items2&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.number, _this.number) || other.number == _this.number)&&(identical(other.expenseDate, _this.expenseDate) || other.expenseDate == _this.expenseDate)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.account, _this.account) || other.account == _this.account)&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&(identical(other.reference, _this.reference) || other.reference == _this.reference)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.createdBy, _this.createdBy) || other.createdBy == _this.createdBy)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.cancelReason, _this.cancelReason) || other.cancelReason == _this.cancelReason));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Items2&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.body, _this.body) || other.body == _this.body)&&(identical(other.link, _this.link) || other.link == _this.link)&&(identical(other.read, _this.read) || other.read == _this.read)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as Items2;
-  return Object.hash(runtimeType,_this.id,_this.number,_this.expenseDate,_this.category,_this.account,_this.amount,_this.reference,_this.notes,_this.status,_this.createdBy,_this.createdAt,_this.cancelReason);
+  return Object.hash(runtimeType,_this.id,_this.type,_this.title,_this.body,_this.link,_this.read,_this.createdAt);
 }
 
 @override
 String toString() {
   final _this = this as Items2;
-  return 'Items2(id: ${_this.id}, number: ${_this.number}, expenseDate: ${_this.expenseDate}, category: ${_this.category}, account: ${_this.account}, amount: ${_this.amount}, reference: ${_this.reference}, notes: ${_this.notes}, status: ${_this.status}, createdBy: ${_this.createdBy}, createdAt: ${_this.createdAt}, cancelReason: ${_this.cancelReason})';
+  return 'Items2(id: ${_this.id}, type: ${_this.type}, title: ${_this.title}, body: ${_this.body}, link: ${_this.link}, read: ${_this.read}, createdAt: ${_this.createdAt})';
 }
 
 
@@ -54,11 +54,11 @@ abstract mixin class $Items2CopyWith<$Res>  {
   factory $Items2CopyWith(Items2 value, $Res Function(Items2) _then) = _$Items2CopyWithImpl;
 @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, Status3 status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
+ String id, String type, String title, String? body, String? link, bool read, DateTime createdAt
 });
 
 
-$CategoryCopyWith<$Res> get category;$Account4CopyWith<$Res> get account;$CreatedBy7CopyWith<$Res>? get createdBy;
+
 
 }
 /// @nodoc
@@ -71,54 +71,19 @@ class _$Items2CopyWithImpl<$Res>
 
 /// Create a copy of Items2
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? number = null,Object? expenseDate = null,Object? category = null,Object? account = null,Object? amount = null,Object? reference = freezed,Object? notes = freezed,Object? status = null,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? type = null,Object? title = null,Object? body = freezed,Object? link = freezed,Object? read = null,Object? createdAt = null,}) {
   return _then(Items2(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
-as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
-as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
-as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
-as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status3,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
-as CreatedBy7?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
-as String?,
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,body: freezed == body ? _self.body : body // ignore: cast_nullable_to_non_nullable
+as String?,link: freezed == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
+as String?,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
-/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$CategoryCopyWith<$Res> get category {
-  
-  return $CategoryCopyWith<$Res>(_self.category, (value) {
-    return _then(_self.copyWith(category: value));
-  });
-}/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$Account4CopyWith<$Res> get account {
-  
-  return $Account4CopyWith<$Res>(_self.account, (value) {
-    return _then(_self.copyWith(account: value));
-  });
-}/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$CreatedBy7CopyWith<$Res>? get createdBy {
-    if (_self.createdBy == null) {
-    return null;
-  }
 
-  return $CreatedBy7CopyWith<$Res>(_self.createdBy!, (value) {
-    return _then(_self.copyWith(createdBy: value));
-  });
-}
 }
 
 
@@ -200,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  Status3 status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String type,  String title,  String? body,  String? link,  bool read,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Items2() when $default != null:
-return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
+return $default(_that.id,_that.type,_that.title,_that.body,_that.link,_that.read,_that.createdAt);case _:
   return orElse();
 
 }
@@ -221,10 +186,10 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  Status3 status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String type,  String title,  String? body,  String? link,  bool read,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _Items2():
-return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
+return $default(_that.id,_that.type,_that.title,_that.body,_that.link,_that.read,_that.createdAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -241,10 +206,10 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  Status3 status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String type,  String title,  String? body,  String? link,  bool read,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _Items2() when $default != null:
-return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
+return $default(_that.id,_that.type,_that.title,_that.body,_that.link,_that.read,_that.createdAt);case _:
   return null;
 
 }
@@ -256,21 +221,16 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 @JsonSerializable()
 
 class _Items2 implements Items2 {
-  const _Items2({required this.id, required this.number, required this.expenseDate, required this.category, required this.account, required this.amount, required this.reference, required this.notes, required this.status, required this.createdBy, required this.createdAt, required this.cancelReason});
+  const _Items2({required this.id, required this.type, required this.title, required this.body, required this.link, required this.read, required this.createdAt});
   factory _Items2.fromJson(Map<String, dynamic> json) => _$Items2FromJson(json);
 
 @override final  String id;
-@override final  String number;
-@override final  DateTime expenseDate;
-@override final  Category category;
-@override final  Account4 account;
-@override final  int amount;
-@override final  String? reference;
-@override final  String? notes;
-@override final  Status3 status;
-@override final  CreatedBy7? createdBy;
+@override final  String type;
+@override final  String title;
+@override final  String? body;
+@override final  String? link;
+@override final  bool read;
 @override final  DateTime createdAt;
-@override final  String? cancelReason;
 
 /// Create a copy of Items2
 /// with the given fields replaced by the non-null parameter values.
@@ -285,18 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Items2&&(identical(other.id, id) || other.id == id)&&(identical(other.number, number) || other.number == number)&&(identical(other.expenseDate, expenseDate) || other.expenseDate == expenseDate)&&(identical(other.category, category) || other.category == category)&&(identical(other.account, account) || other.account == account)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.reference, reference) || other.reference == reference)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdBy, createdBy) || other.createdBy == createdBy)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.cancelReason, cancelReason) || other.cancelReason == cancelReason));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Items2&&(identical(other.id, id) || other.id == id)&&(identical(other.type, type) || other.type == type)&&(identical(other.title, title) || other.title == title)&&(identical(other.body, body) || other.body == body)&&(identical(other.link, link) || other.link == link)&&(identical(other.read, read) || other.read == read)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,number,expenseDate,category,account,amount,reference,notes,status,createdBy,createdAt,cancelReason);
+    return Object.hash(runtimeType,id,type,title,body,link,read,createdAt);
 }
 
 @override
 String toString() {
-    return 'Items2(id: $id, number: $number, expenseDate: $expenseDate, category: $category, account: $account, amount: $amount, reference: $reference, notes: $notes, status: $status, createdBy: $createdBy, createdAt: $createdAt, cancelReason: $cancelReason)';
+    return 'Items2(id: $id, type: $type, title: $title, body: $body, link: $link, read: $read, createdAt: $createdAt)';
 }
 
 
@@ -307,11 +267,11 @@ abstract mixin class _$Items2CopyWith<$Res> implements $Items2CopyWith<$Res> {
   factory _$Items2CopyWith(_Items2 value, $Res Function(_Items2) _then) = __$Items2CopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, Status3 status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
+ String id, String type, String title, String? body, String? link, bool read, DateTime createdAt
 });
 
 
-@override $CategoryCopyWith<$Res> get category;@override $Account4CopyWith<$Res> get account;@override $CreatedBy7CopyWith<$Res>? get createdBy;
+
 
 }
 /// @nodoc
@@ -324,55 +284,20 @@ class __$Items2CopyWithImpl<$Res>
 
 /// Create a copy of Items2
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? number = null,Object? expenseDate = null,Object? category = null,Object? account = null,Object? amount = null,Object? reference = freezed,Object? notes = freezed,Object? status = null,Object? createdBy = freezed,Object? createdAt = null,Object? cancelReason = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? type = null,Object? title = null,Object? body = freezed,Object? link = freezed,Object? read = null,Object? createdAt = null,}) {
   return _then(_Items2(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
-as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
-as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
-as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
-as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status3,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
-as CreatedBy7?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,cancelReason: freezed == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
-as String?,
+as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,body: freezed == body ? _self.body : body // ignore: cast_nullable_to_non_nullable
+as String?,link: freezed == link ? _self.link : link // ignore: cast_nullable_to_non_nullable
+as String?,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
 
-/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$CategoryCopyWith<$Res> get category {
-  
-  return $CategoryCopyWith<$Res>(_self.category, (value) {
-    return _then(_self.copyWith(category: value));
-  });
-}/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$Account4CopyWith<$Res> get account {
-  
-  return $Account4CopyWith<$Res>(_self.account, (value) {
-    return _then(_self.copyWith(account: value));
-  });
-}/// Create a copy of Items2
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$CreatedBy7CopyWith<$Res>? get createdBy {
-    if (_self.createdBy == null) {
-    return null;
-  }
 
-  return $CreatedBy7CopyWith<$Res>(_self.createdBy!, (value) {
-    return _then(_self.copyWith(createdBy: value));
-  });
-}
 }
 
 // dart format on

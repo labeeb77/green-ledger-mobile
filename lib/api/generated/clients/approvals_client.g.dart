@@ -21,19 +21,23 @@ class _ApprovalsClient implements ApprovalsClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<ApprovalDtoOutput>> approvalsControllerList({
+  Future<ApprovalPageDtoOutput> approvalsControllerList({
+    int? limit = 50,
     Status? status,
     Type? type,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'status': status?.toJson(),
       r'type': type?.toJson(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<ApprovalDtoOutput>>(
+    final _options = _setStreamType<ApprovalPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -43,15 +47,10 @@ class _ApprovalsClient implements ApprovalsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ApprovalDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late ApprovalPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                ApprovalDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = ApprovalPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -87,19 +86,23 @@ class _ApprovalsClient implements ApprovalsClient {
   }
 
   @override
-  Future<List<ApprovalDtoOutput>> approvalsControllerMine({
+  Future<ApprovalPageDtoOutput> approvalsControllerMine({
+    int? limit = 50,
     Status? status,
     Type? type,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'status': status?.toJson(),
       r'type': type?.toJson(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<ApprovalDtoOutput>>(
+    final _options = _setStreamType<ApprovalPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -109,15 +112,10 @@ class _ApprovalsClient implements ApprovalsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ApprovalDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late ApprovalPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                ApprovalDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = ApprovalPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

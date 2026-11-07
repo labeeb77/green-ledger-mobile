@@ -21,23 +21,27 @@ class _CollectionsClient implements CollectionsClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<CustomerReceiptDtoOutput>> customerReceiptsControllerList({
+  Future<CustomerReceiptPageDtoOutput> customerReceiptsControllerList({
+    int? limit = 50,
     DateTime? from,
     DateTime? to,
     String? customerId,
     Status3? status,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
+      r'limit': limit,
       r'from': from?.toIso8601String(),
       r'to': to?.toIso8601String(),
       r'customerId': customerId,
       r'status': status?.toJson(),
+      r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<CustomerReceiptDtoOutput>>(
+    final _options = _setStreamType<CustomerReceiptPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -47,15 +51,10 @@ class _CollectionsClient implements CollectionsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<CustomerReceiptDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late CustomerReceiptPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                CustomerReceiptDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = CustomerReceiptPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -129,13 +128,19 @@ class _CollectionsClient implements CollectionsClient {
   }
 
   @override
-  Future<List<UnverifiedSplitDtoOutput>>
-  customerReceiptsControllerUnverified() async {
+  Future<UnverifiedSplitPageDtoOutput> customerReceiptsControllerUnverified({
+    int? limit = 50,
+    String? cursor,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'cursor': cursor,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<UnverifiedSplitDtoOutput>>(
+    final _options = _setStreamType<UnverifiedSplitPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -145,15 +150,10 @@ class _CollectionsClient implements CollectionsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<UnverifiedSplitDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late UnverifiedSplitPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                UnverifiedSplitDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = UnverifiedSplitPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -255,13 +255,21 @@ class _CollectionsClient implements CollectionsClient {
   }
 
   @override
-  Future<List<ChequeDtoOutput>> chequesControllerList({Status4? status}) async {
+  Future<ChequePageDtoOutput> chequesControllerList({
+    int? limit = 50,
+    Status4? status,
+    String? cursor,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'status': status?.toJson()};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'status': status?.toJson(),
+      r'cursor': cursor,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<ChequeDtoOutput>>(
+    final _options = _setStreamType<ChequePageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -271,14 +279,10 @@ class _CollectionsClient implements CollectionsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ChequeDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late ChequePageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) => ChequeDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = ChequePageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -353,15 +357,21 @@ class _CollectionsClient implements CollectionsClient {
   }
 
   @override
-  Future<List<HandoverDtoOutput>> cashHandoversControllerList({
+  Future<HandoverPageDtoOutput> cashHandoversControllerList({
+    int? limit = 50,
     Status6? status,
+    String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'status': status?.toJson()};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'status': status?.toJson(),
+      r'cursor': cursor,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<HandoverDtoOutput>>(
+    final _options = _setStreamType<HandoverPageDtoOutput>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -371,15 +381,10 @@ class _CollectionsClient implements CollectionsClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<HandoverDtoOutput> _value;
+    final _result = await _dio.fetch<Map<String, Object?>>(_options);
+    late HandoverPageDtoOutput _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) =>
-                HandoverDtoOutput.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = HandoverPageDtoOutput.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

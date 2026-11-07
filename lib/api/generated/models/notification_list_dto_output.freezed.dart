@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotificationListDtoOutput {
 
- int get unread; List<Items3> get items;
+ int get unread; List<Items2> get items;
 /// Create a copy of NotificationListDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $NotificationListDtoOutputCopyWith<$Res>  {
   factory $NotificationListDtoOutputCopyWith(NotificationListDtoOutput value, $Res Function(NotificationListDtoOutput) _then) = _$NotificationListDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- int unread, List<Items3> items
+ int unread, List<Items2> items
 });
 
 
@@ -75,7 +75,7 @@ class _$NotificationListDtoOutputCopyWithImpl<$Res>
   return _then(NotificationListDtoOutput(
 unread: null == unread ? _self.unread : unread // ignore: cast_nullable_to_non_nullable
 as int,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
-as List<Items3>,
+as List<Items2>,
   ));
 }
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int unread,  List<Items3> items)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int unread,  List<Items2> items)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotificationListDtoOutput() when $default != null:
 return $default(_that.unread,_that.items);case _:
@@ -181,7 +181,7 @@ return $default(_that.unread,_that.items);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int unread,  List<Items3> items)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int unread,  List<Items2> items)  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListDtoOutput():
 return $default(_that.unread,_that.items);case _:
@@ -201,7 +201,7 @@ return $default(_that.unread,_that.items);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int unread,  List<Items3> items)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int unread,  List<Items2> items)?  $default,) {final _that = this;
 switch (_that) {
 case _NotificationListDtoOutput() when $default != null:
 return $default(_that.unread,_that.items);case _:
@@ -216,12 +216,12 @@ return $default(_that.unread,_that.items);case _:
 @JsonSerializable()
 
 class _NotificationListDtoOutput implements NotificationListDtoOutput {
-  const _NotificationListDtoOutput({required this.unread, required  List<Items3> items}): _items = items;
+  const _NotificationListDtoOutput({required this.unread, required  List<Items2> items}): _items = items;
   factory _NotificationListDtoOutput.fromJson(Map<String, dynamic> json) => _$NotificationListDtoOutputFromJson(json);
 
 @override final  int unread;
- final  List<Items3> _items;
-@override List<Items3> get items {
+ final  List<Items2> _items;
+@override List<Items2> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_items);
@@ -263,7 +263,7 @@ abstract mixin class _$NotificationListDtoOutputCopyWith<$Res> implements $Notif
   factory _$NotificationListDtoOutputCopyWith(_NotificationListDtoOutput value, $Res Function(_NotificationListDtoOutput) _then) = __$NotificationListDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- int unread, List<Items3> items
+ int unread, List<Items2> items
 });
 
 
@@ -284,7 +284,7 @@ class __$NotificationListDtoOutputCopyWithImpl<$Res>
   return _then(_NotificationListDtoOutput(
 unread: null == unread ? _self.unread : unread // ignore: cast_nullable_to_non_nullable
 as int,items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
-as List<Items3>,
+as List<Items2>,
   ));
 }
 

@@ -10,9 +10,10 @@ import '../models/cancel_result_dto_output.dart';
 import '../models/create_customer_return_dto.dart';
 import '../models/create_sales_bill_dto.dart';
 import '../models/customer_return_dto_output.dart';
+import '../models/customer_return_page_dto_output.dart';
 import '../models/inspect_return_dto.dart';
 import '../models/sales_bill_dto_output.dart';
-import '../models/sales_bill_summary_dto_output.dart';
+import '../models/sales_bill_summary_page_dto_output.dart';
 import '../models/sales_cancel_dto.dart';
 import '../models/status3.dart';
 
@@ -23,11 +24,13 @@ abstract class SalesClient {
   factory SalesClient(Dio dio, {String? baseUrl}) = _SalesClient;
 
   @GET('/api/v1/sales-bills')
-  Future<List<SalesBillSummaryDtoOutput>> salesBillsControllerList({
+  Future<SalesBillSummaryPageDtoOutput> salesBillsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
@@ -51,11 +54,13 @@ abstract class SalesClient {
   });
 
   @GET('/api/v1/customer-returns')
-  Future<List<CustomerReturnDtoOutput>> customerReturnsControllerList({
+  Future<CustomerReturnPageDtoOutput> customerReturnsControllerList({
+    @Query('limit') int? limit = 50,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
     @Query('from') DateTime? from,
     @Query('to') DateTime? to,
+    @Query('cursor') String? cursor,
   });
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
