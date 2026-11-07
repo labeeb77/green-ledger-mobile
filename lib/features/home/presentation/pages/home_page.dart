@@ -10,9 +10,11 @@ import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.da
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
 import 'package:green_ledger_mobile/features/home/presentation/bloc/agent_home_cubit.dart';
 import 'package:green_ledger_mobile/features/home/presentation/bloc/godown_home_cubit.dart';
+import 'package:green_ledger_mobile/features/home/presentation/bloc/owner_home_cubit.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/agent_home_card.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/godown_home_card.dart';
+import 'package:green_ledger_mobile/features/home/presentation/widgets/owner_home_card.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/top_bar.dart';
 
 /// Home is built from permission cards (ux-design section 3). Each milestone fills its
@@ -30,7 +32,10 @@ class HomePage extends StatelessWidget {
     final cards = homeCardsFor(session);
     final agent = session.user.role == Role.agent;
     final godown = cards.contains(HomeCard.godown);
+    final owner = cards.contains(HomeCard.owner);
+    final p = session.permissions;
     Future<void> refresh(BuildContext context) => Future.wait([
+      if (owner) context.read<OwnerHomeCubit>().load(),
       if (agent) context.read<AgentHomeCubit>().load(),
       if (godown) context.read<GodownHomeCubit>().load(),
     ]);
@@ -46,6 +51,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: Space.lg),
               for (final card in cards) ...[
                 switch (card) {
+                  HomeCard.owner => OwnerHomeCard(canSetRates: p.canWrite('products')),
                   HomeCard.agent when agent => const AgentHomeCard(),
                   HomeCard.godown => const GodownHomeCard(),
                   _ => _HomeCardTile(card),
@@ -57,9 +63,21 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
-    if (!agent && !godown) return scaffold;
+    if (!agent && !godown && !owner) return scaffold;
     return MultiBlocProvider(
       providers: [
+        if (owner)
+          BlocProvider(
+            create: (context) {
+              final cubit = OwnerHomeCubit(
+                context.read<HomeRepository>(),
+                approvals: p.canWrite('approvals.decide'),
+                handovers: p.canWrite('cash_handovers.confirm'),
+              );
+              unawaited(cubit.load());
+              return cubit;
+            },
+          ),
         if (agent)
           BlocProvider(
             create: (context) {
@@ -90,6 +108,7 @@ class _HomeCardTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (icon, title, subtitle) = switch (card) {
+      HomeCard.owner => (Icons.today_outlined, 'Today', 'Sales, collections and dues'),
       HomeCard.approvals => (Icons.fact_check_outlined, 'Approvals', 'Orders, sales and entries waiting for you'),
       HomeCard.cash => (Icons.payments_outlined, 'Cash handovers', 'Count and confirm agents’ cash'),
       HomeCard.agent => (Icons.storefront_outlined, 'My shops', 'Due today, collected today, cash to hand over'),
@@ -101,6 +120,7 @@ class _HomeCardTile extends StatelessWidget {
     final path = switch (card) {
       HomeCard.approvals => '/approvals',
       HomeCard.cash => '/home/handovers',
+      HomeCard.rates => '/home/rates',
       _ => null,
     };
     return Card(

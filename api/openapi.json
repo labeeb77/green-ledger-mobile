@@ -1572,6 +1572,44 @@
         ]
       }
     },
+    "/api/v1/users/deletion-requests": {
+      "get": {
+        "operationId": "UsersController_deletionRequests",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PendingDeletion"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "users"
+        ]
+      }
+    },
     "/api/v1/platform/businesses": {
       "get": {
         "operationId": "PlatformController_list",
@@ -1864,6 +1902,110 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SubscriptionPaymentDto_Output"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "platform"
+        ]
+      }
+    },
+    "/api/v1/platform/deletion-requests": {
+      "get": {
+        "operationId": "PlatformController_deletionRequests",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PlatformDeletionRequest"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "platform"
+        ]
+      }
+    },
+    "/api/v1/platform/deletion-requests/{id}/close": {
+      "post": {
+        "operationId": "PlatformController_closeDeletionRequest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated UUID; retries with the same key never post twice.",
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloseDeletionRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletionRequest"
                 }
               }
             },
@@ -9331,6 +9473,161 @@
           "home"
         ]
       }
+    },
+    "/api/v1/home/agents-today": {
+      "get": {
+        "operationId": "HomeController_agentsToday",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentsTodayDto_Output"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "home"
+        ]
+      }
+    },
+    "/api/v1/support": {
+      "get": {
+        "operationId": "AccountController_support",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupportContact"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "tags": [
+          "account"
+        ]
+      }
+    },
+    "/api/v1/account/deletion-request": {
+      "get": {
+        "operationId": "AccountController_myDeletionRequest",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyDeletionRequest"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "account"
+        ]
+      },
+      "post": {
+        "operationId": "AccountController_requestDeletion",
+        "parameters": [
+          {
+            "description": "Client-generated UUID; retries with the same key never post twice.",
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeletionRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletionRequest"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "account"
+        ]
+      }
     }
   },
   "info": {
@@ -10243,6 +10540,29 @@
         ],
         "type": "object"
       },
+      "PendingDeletion": {
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "requestedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "userId",
+          "requestedAt",
+          "reason"
+        ],
+        "type": "object"
+      },
       "BusinessSummaryDto_Output": {
         "additionalProperties": false,
         "properties": {
@@ -10701,6 +11021,154 @@
         "required": [
           "amount",
           "method"
+        ],
+        "type": "object"
+      },
+      "PlatformDeletionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "done",
+              "declined"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "closedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "closedNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "handledBy": {
+            "enum": [
+              "owner",
+              "support"
+            ],
+            "type": "string"
+          },
+          "businessId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "businessName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "businessId",
+          "businessName",
+          "userId",
+          "userName",
+          "phone",
+          "role",
+          "id",
+          "status",
+          "reason",
+          "createdAt",
+          "closedAt",
+          "closedNote",
+          "handledBy"
+        ],
+        "type": "object"
+      },
+      "CloseDeletionRequestBody": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "done",
+              "declined"
+            ],
+            "type": "string"
+          },
+          "note": {
+            "maxLength": 500,
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "DeletionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "done",
+              "declined"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "closedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "closedNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "handledBy": {
+            "enum": [
+              "owner",
+              "support"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "reason",
+          "createdAt",
+          "closedAt",
+          "closedNote",
+          "handledBy"
         ],
         "type": "object"
       },
@@ -18455,6 +18923,184 @@
           "wastageToday",
           "returnsToInspect"
         ],
+        "type": "object"
+      },
+      "AgentsTodayDto_Output": {
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "example": "2026-10-18"
+          },
+          "agents": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "userId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "collected": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "byMethod": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "cash": {
+                          "type": "integer"
+                        },
+                        "upi": {
+                          "type": "integer"
+                        },
+                        "bank_transfer": {
+                          "type": "integer"
+                        },
+                        "cheque": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "cash",
+                        "upi",
+                        "bank_transfer",
+                        "cheque"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "total",
+                    "byMethod"
+                  ],
+                  "type": "object"
+                },
+                "visits": {
+                  "type": "integer"
+                },
+                "cashInBag": {
+                  "type": "integer"
+                },
+                "handoverPending": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "userId",
+                "name",
+                "collected",
+                "visits",
+                "cashInBag",
+                "handoverPending"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "date",
+          "agents"
+        ],
+        "type": "object"
+      },
+      "SupportContact": {
+        "additionalProperties": false,
+        "properties": {
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "whatsapp": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "phone",
+          "whatsapp",
+          "email"
+        ],
+        "type": "object"
+      },
+      "MyDeletionRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "request": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "done",
+                  "declined"
+                ],
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "nullable": true
+              },
+              "createdAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "closedAt": {
+                "format": "date-time",
+                "type": "string",
+                "nullable": true
+              },
+              "closedNote": {
+                "type": "string",
+                "nullable": true
+              },
+              "handledBy": {
+                "enum": [
+                  "owner",
+                  "support"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "reason",
+              "createdAt",
+              "closedAt",
+              "closedNote",
+              "handledBy"
+            ],
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "required": [
+          "request"
+        ],
+        "type": "object"
+      },
+      "DeletionRequestBody": {
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "maxLength": 500,
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "ErrorResponse": {

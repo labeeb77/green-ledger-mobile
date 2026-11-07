@@ -32,6 +32,7 @@ class Shop {
     this.phone,
     this.whatsapp,
     this.lastVisit,
+    this.agentId,
   });
 
   final String id;
@@ -49,6 +50,9 @@ class Shop {
   /// 0 = cash only.
   final int creditLimit;
   final LastVisit? lastVisit;
+
+  /// The agent the shop is assigned to (owners and managers may have shops too).
+  final String? agentId;
 
   /// The number to open in WhatsApp: its own, else the phone.
   String? get whatsappNumber => whatsapp ?? phone;

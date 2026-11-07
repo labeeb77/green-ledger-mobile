@@ -1,7 +1,9 @@
 import 'package:green_ledger_mobile/core/result.dart';
 import 'package:green_ledger_mobile/features/home/domain/godown_home.dart';
+import 'package:green_ledger_mobile/features/home/domain/owner_home.dart';
 
 export 'godown_home.dart';
+export 'owner_home.dart';
 
 /// Money collected today, by method (paise).
 class CollectedToday {
@@ -66,4 +68,10 @@ abstract interface class HomeRepository {
 
   /// The godown's Home (users who receive goods).
   Future<Result<GodownHome>> godownHome();
+
+  /// The owner/manager Home; the counts are asked only when the user may see them.
+  Future<Result<OwnerHome>> ownerHome({required bool approvals, required bool handovers});
+
+  /// Every active agent's day (owner, manager).
+  Future<Result<List<AgentDay>>> agentsToday();
 }

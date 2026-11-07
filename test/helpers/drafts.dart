@@ -4,6 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_ledger_mobile/core/drafts/draft.dart';
 import 'package:green_ledger_mobile/core/drafts/drafts_cubit.dart';
+import 'package:green_ledger_mobile/core/result.dart';
+import 'package:green_ledger_mobile/features/notifications/domain/notifications.dart';
+import 'package:green_ledger_mobile/features/notifications/presentation/bloc/notifications_cubit.dart';
 
 /// Drafts in memory, for tests.
 class MemoryDraftStore implements DraftStore {
@@ -47,12 +50,33 @@ class MemoryDraftStore implements DraftStore {
   }
 }
 
-/// [child] with a [DraftsCubit] above it (the top bar's ⏳ badge reads it).
-Widget withDrafts(Widget child, {DraftStore? store, Map<DraftKind, DraftSender> senders = const {}}) => BlocProvider(
-  create: (_) {
-    final cubit = DraftsCubit(store ?? MemoryDraftStore(), senders);
-    unawaited(cubit.watch());
-    return cubit;
-  },
-  child: child,
-);
+/// An empty inbox, for tests.
+class EmptyInbox implements NotificationsRepository {
+  static const Result<Inbox> _empty = Ok(Inbox(unread: 0, items: []));
+
+  @override
+  Future<Result<Inbox>> inbox() async => _empty;
+
+  @override
+  Future<Result<Inbox>> markRead(String id) async => _empty;
+
+  @override
+  Future<Result<Inbox>> markAllRead() async => _empty;
+}
+
+/// [child] with a [DraftsCubit] and a [NotificationsCubit] above it (the top bar's ⏳
+/// badge and bell read them).
+Widget withDrafts(Widget child, {DraftStore? store, Map<DraftKind, DraftSender> senders = const {}}) =>
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) {
+            final cubit = DraftsCubit(store ?? MemoryDraftStore(), senders);
+            unawaited(cubit.watch());
+            return cubit;
+          },
+        ),
+        BlocProvider(create: (_) => NotificationsCubit(EmptyInbox())),
+      ],
+      child: child,
+    );

@@ -15,6 +15,7 @@ Shop shopFromDto(api.CustomerDtoOutput c) => Shop(
   outstanding: c.outstanding,
   overdue: c.overdue,
   creditLimit: c.creditLimit,
+  agentId: c.agent?.id,
   lastVisit: switch (c.lastVisit) {
     final v? => LastVisit(date: v.visitDate, outcome: _outcome(v.outcome), byName: v.user.name),
     null => null,

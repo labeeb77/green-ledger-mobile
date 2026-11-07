@@ -1,8 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:green_ledger_mobile/core/drafts/drafts_badge.dart';
+import 'dart:async';
 
-/// The top bar of every screen: title, the ⏳ count of unsent entries and search
-/// (ux-design section 3). Search arrives in M4; until then it says so.
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:green_ledger_mobile/app/router/redirect.dart';
+import 'package:green_ledger_mobile/core/drafts/drafts_badge.dart';
+import 'package:green_ledger_mobile/features/notifications/presentation/widgets/notifications_bell.dart';
+
+/// The top bar of every screen: title, the ⏳ count of unsent entries, the bell and search
+/// (ux-design section 3).
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   const TopBar({required this.title, super.key});
 
@@ -16,12 +21,11 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
     title: Text(title),
     actions: [
       const DraftsBadge(),
+      const NotificationsBell(),
       IconButton(
         tooltip: 'Search',
         icon: const Icon(Icons.search),
-        onPressed: () => ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(const SnackBar(content: Text('Search is coming soon.'))),
+        onPressed: () => unawaited(context.push(Paths.search)),
       ),
     ],
   );

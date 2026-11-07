@@ -9,6 +9,12 @@ abstract final class Paths {
 
   /// Entries kept on the phone (the top-bar ⏳); open to every signed-in user.
   static const drafts = '/drafts';
+
+  /// Global search from the top bar; open to every signed-in user with tabs.
+  static const search = '/search';
+
+  /// The notification inbox from the top-bar bell; open to every signed-in user with tabs.
+  static const notifications = '/notifications';
 }
 
 /// Where [location] should go for [auth]; `null` keeps it. Pure, so it is unit tested.
@@ -24,7 +30,7 @@ String? redirectFor(AuthState auth, String location) {
       }
       final tabs = tabsFor(session);
       if (tabs.isEmpty) return location == Paths.noMobileAccess ? null : Paths.noMobileAccess;
-      if (location == Paths.drafts) return null;
+      if (const [Paths.drafts, Paths.search, Paths.notifications].contains(location)) return null;
       final tab = AppTab.values.where((t) => location == t.path || location.startsWith('${t.path}/')).firstOrNull;
       if (tab == null || !tabs.contains(tab)) return AppTab.home.path;
       return null;

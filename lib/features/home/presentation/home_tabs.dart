@@ -37,12 +37,16 @@ List<AppTab> tabsFor(Session session) {
   return [AppTab.home, ...work.take(2), AppTab.more];
 }
 
-/// A Home card, in the fixed order Approvals → Cash → Agent → Godown → Rates.
-enum HomeCard { approvals, cash, agent, godown, rates }
+/// A Home card, in the fixed order Owner → Approvals → Cash → Agent → Godown → Rates.
+/// The owner card (owner, manager) holds approvals, handovers, collect and rates itself.
+enum HomeCard { owner, approvals, cash, agent, godown, rates }
 
 List<HomeCard> homeCardsFor(Session session) {
   final p = session.permissions;
   final role = session.user.role;
+  if (role == Role.owner || role == Role.manager) {
+    return [HomeCard.owner, if (p.canWrite('goods_receipts')) HomeCard.godown];
+  }
   return [
     if (p.canWrite('approvals.decide')) HomeCard.approvals,
     if (p.canWrite('cash_handovers.confirm')) HomeCard.cash,

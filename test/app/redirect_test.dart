@@ -26,13 +26,7 @@ void main() {
   });
 
   test('home cards keep the fixed order and follow permissions', () {
-    expect(homeCardsFor(sessionFor(Role.owner)), [
-      HomeCard.approvals,
-      HomeCard.cash,
-      HomeCard.agent,
-      HomeCard.godown,
-      HomeCard.rates,
-    ]);
+    expect(homeCardsFor(sessionFor(Role.owner)), [HomeCard.owner, HomeCard.godown]);
     expect(homeCardsFor(sessionFor(Role.agent)), [HomeCard.agent]);
     expect(homeCardsFor(sessionFor(Role.godown)), [HomeCard.godown]);
   });
@@ -65,9 +59,10 @@ void main() {
       expect(redirectFor(agent, '/cash'), isNull);
     });
 
-    test('the Drafts screen is open to every signed-in user with tabs', () {
+    test('the Drafts and Search screens are open to every signed-in user with tabs', () {
       for (final role in [Role.agent, Role.owner, Role.godown]) {
         expect(redirectFor(AuthSignedIn(sessionFor(role)), Paths.drafts), isNull);
+        expect(redirectFor(AuthSignedIn(sessionFor(role)), Paths.search), isNull);
       }
       expect(redirectFor(AuthSignedIn(sessionFor(Role.billing)), Paths.drafts), Paths.noMobileAccess);
     });

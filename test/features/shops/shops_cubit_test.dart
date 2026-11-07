@@ -18,6 +18,28 @@ void main() {
   late _MockRepository repository;
   setUp(() => repository = _MockRepository());
 
+  test('"My shops" keeps the owner\'s own shops; the switch shows only when there are some', () async {
+    when(() => repository.shops()).thenAnswer(
+      (_) async => const Ok(
+        ShopList([
+          Shop(id: 'a', name: 'Own Stores', outstanding: 0, overdue: 0, creditLimit: 0, agentId: 'me'),
+          Shop(id: 'b', name: 'Agent Stores', outstanding: 0, overdue: 0, creditLimit: 0, agentId: 'agent'),
+        ]),
+      ),
+    );
+    final cubit = ShopsCubit(repository, myUserId: 'me');
+    await cubit.load();
+    expect((cubit.state as ShopsLoaded).hasOwnShops, isTrue);
+    cubit.showMine(mine: true);
+    await cubit.load();
+    final state = cubit.state as ShopsLoaded;
+    expect(state.groups.single.shops.map((s) => s.name), ['Own Stores']);
+
+    final agentCubit = ShopsCubit(repository);
+    await agentCubit.load();
+    expect((agentCubit.state as ShopsLoaded).hasOwnShops, isFalse);
+  });
+
   blocTest<ShopsCubit, ShopsState>(
     'loads, then filters by name, area or phone on the phone',
     setUp: () => when(() => repository.shops()).thenAnswer(

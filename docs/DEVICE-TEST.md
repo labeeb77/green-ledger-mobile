@@ -60,6 +60,24 @@ Planned 2026-11-07, to run on the iPhone against the local backend. M1 slices A�
 - [ ] **Returns:** record a return in the admin panel → RETURNS → the return → Saleable on one line, leave the other → SAVE; only the saleable line adds stock; the other stays in the list.
 - [ ] Offline: one receipt (with slip photo) and one dispatch in airplane mode → ⏳ → SEND AGAIN once online; each posts once.
 
+## 6b. M4 owner (owner login `9000000001`)
+
+- [ ] First open after updating: asked to set a PIN (type twice), then offered fingerprint / Face ID; YES asks for a scan.
+- [ ] Kill and reopen: the PIN (or the scan) is asked. Background under 5 min: not asked; over 5 min: asked.
+- [ ] 5 wrong PINs: signed out, password needed, then a new PIN is asked. "Forgot PIN?" does the same.
+- [ ] Home: Today figures match the admin dashboard; approvals / handovers counts open their screens; Agents today lists Faisal with collected, visits and cash in bag.
+- [ ] SALE → Customers picker → Take order; COLLECT → picker → Collect; after saving, the Customers tab is a plain list again.
+- [ ] Customers → a shop → share statement (Last month) opens the share sheet with a PDF.
+- [ ] RATES: Copy yesterday's rates, change one, SAVE n RATES; the admin's daily rates match.
+- [ ] 🔔: an agent's below-minimum order shows on the owner's bell; tapping it opens Approvals and the count drops.
+- [ ] More → Theme → Dark switches at once and stays after a restart.
+- [ ] 🔍: "mal" finds Malabar Traders (opens its page); "B-0" lists bills with a share button.
+
+## 6c. M5 account
+
+- [ ] More → Help & support lists only the contacts set in the server `.env`; Call and WhatsApp open the dialer / chat; the app version shows.
+- [ ] Agent: More → Delete account → reason → REQUEST DELETION → confirm: "Request sent". The owner's bell shows it and the admin Users page has the red badge; deactivating the agent signs the phone out.
+
 ## 7. General
 
 - [ ] Light and dark mode; text size at the largest setting (capped at 130%) doesn't cut off the Check and Saved screens.

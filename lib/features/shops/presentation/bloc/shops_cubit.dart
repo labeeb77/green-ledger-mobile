@@ -13,10 +13,17 @@ final class ShopsLoading extends ShopsState {
 }
 
 final class ShopsLoaded extends ShopsState {
-  const ShopsLoaded(this.shops, {this.query = '', this.updatedAt});
+  const ShopsLoaded(this.shops, {this.query = '', this.updatedAt, this.myUserId, this.mineOnly = false});
 
   final List<Shop> shops;
   final String query;
+
+  /// The signed-in user, for "My shops" (owners and managers on the Customers tab).
+  final String? myUserId;
+  final bool mineOnly;
+
+  /// Some shops are assigned to the user, so "My shops / All" makes sense.
+  bool get hasOwnShops => myUserId != null && shops.any((s) => s.agentId == myUserId);
 
   /// Set when the list is the copy kept on the phone ("Updated 10:42").
   final DateTime? updatedAt;
@@ -24,9 +31,15 @@ final class ShopsLoaded extends ShopsState {
   /// Shops matching [query] (name, area or phone), grouped by area.
   List<AreaGroup> get groups {
     final q = query.trim().toLowerCase();
-    if (q.isEmpty) return groupByArea(shops);
+    final shown = mineOnly
+        ? [
+            for (final s in shops)
+              if (s.agentId == myUserId) s,
+          ]
+        : shops;
+    if (q.isEmpty) return groupByArea(shown);
     return groupByArea([
-      for (final s in shops)
+      for (final s in shown)
         if (s.name.toLowerCase().contains(q) ||
             (s.area?.toLowerCase().contains(q) ?? false) ||
             (s.phone?.contains(q) ?? false))
@@ -43,9 +56,12 @@ final class ShopsFailed extends ShopsState {
 
 /// The Shops tab: the user's shops grouped by area, filtered on the phone.
 class ShopsCubit extends Cubit<ShopsState> {
-  ShopsCubit(this._repository) : super(const ShopsLoading());
+  ShopsCubit(this._repository, {this.myUserId}) : super(const ShopsLoading());
 
   final ShopsRepository _repository;
+
+  /// Set on the Customers tab, where "My shops / All" is offered.
+  final String? myUserId;
 
   /// Loads the list; a refresh keeps the current list on screen until it's back.
   Future<void> load() async {
@@ -54,7 +70,13 @@ class ShopsCubit extends Cubit<ShopsState> {
     switch (await _repository.shops()) {
       case Ok(:final value):
         emit(
-          ShopsLoaded(value.shops, query: previous is ShopsLoaded ? previous.query : '', updatedAt: value.updatedAt),
+          ShopsLoaded(
+            value.shops,
+            query: previous is ShopsLoaded ? previous.query : '',
+            updatedAt: value.updatedAt,
+            myUserId: myUserId,
+            mineOnly: previous is ShopsLoaded && previous.mineOnly,
+          ),
         );
       case Err(:final failure):
         if (previous is! ShopsLoaded) emit(ShopsFailed(failure));
@@ -62,8 +84,15 @@ class ShopsCubit extends Cubit<ShopsState> {
   }
 
   void search(String query) {
-    if (state case ShopsLoaded(:final shops, :final updatedAt)) {
-      emit(ShopsLoaded(shops, query: query, updatedAt: updatedAt));
+    if (state case final ShopsLoaded s) {
+      emit(ShopsLoaded(s.shops, query: query, updatedAt: s.updatedAt, myUserId: myUserId, mineOnly: s.mineOnly));
+    }
+  }
+
+  /// "My shops" (true) or "All".
+  void showMine({required bool mine}) {
+    if (state case final ShopsLoaded s) {
+      emit(ShopsLoaded(s.shops, query: s.query, updatedAt: s.updatedAt, myUserId: myUserId, mineOnly: mine));
     }
   }
 }

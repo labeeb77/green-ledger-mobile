@@ -31,6 +31,16 @@ class DocumentsRepositoryImpl implements DocumentsRepository {
   Future<Result<DocumentFile>> receiptPdf(String receiptId) =>
       _pdf(api.RequestPdfDto(template: api.RequestPdfDtoTemplate.receipt, id: receiptId));
 
+  @override
+  Future<Result<DocumentFile>> billPdf(String billId) =>
+      _pdf(api.RequestPdfDto(template: api.RequestPdfDtoTemplate.salesBill, id: billId));
+
+  @override
+  Future<Result<DocumentFile>> customerStatementPdf(String customerId, {required String from, required String to}) =>
+      _pdf(
+        api.RequestPdfDto(template: api.RequestPdfDtoTemplate.customerStatement, id: customerId, from: from, to: to),
+      );
+
   Future<Result<DocumentFile>> _pdf(api.RequestPdfDto request) async {
     try {
       // A PDF request changes nothing on the server, so each tap is its own action.

@@ -25,7 +25,8 @@ final class BackspaceKey extends NumpadKey {
 
 /// Applies [key] to [value]. [decimals] is how many places are allowed after the point
 /// (0 = whole numbers: packs, and amounts unless "Add paise"); [maxLength] caps the digits.
-String applyNumpadKey(String value, NumpadKey key, {int decimals = 0, int maxLength = 10}) {
+/// A [code] (a PIN) keeps a leading zero.
+String applyNumpadKey(String value, NumpadKey key, {int decimals = 0, int maxLength = 10, bool code = false}) {
   switch (key) {
     case BackspaceKey():
       return value.isEmpty ? value : value.substring(0, value.length - 1);
@@ -36,7 +37,7 @@ String applyNumpadKey(String value, NumpadKey key, {int decimals = 0, int maxLen
       final dot = value.indexOf('.');
       if (dot >= 0 && value.length - dot - 1 >= decimals) return value;
       if (value.replaceAll('.', '').length >= maxLength) return value;
-      if (value == '0') return '$digit';
+      if (value == '0' && !code) return '$digit';
       return '$value$digit';
   }
 }
@@ -50,6 +51,8 @@ class AppNumpad extends StatelessWidget {
     this.decimals = 0,
     this.onNext,
     this.nextLabel = 'NEXT',
+    this.maxLength = 10,
+    this.code = false,
     super.key,
   });
 
@@ -58,10 +61,14 @@ class AppNumpad extends StatelessWidget {
   final int decimals;
   final VoidCallback? onNext;
   final String nextLabel;
+  final int maxLength;
+
+  /// Digits of a code (a PIN): a leading zero stays.
+  final bool code;
 
   void _press(NumpadKey key) {
     unawaited(HapticFeedback.selectionClick());
-    onChanged(applyNumpadKey(value, key, decimals: decimals));
+    onChanged(applyNumpadKey(value, key, decimals: decimals, maxLength: maxLength, code: code));
   }
 
   @override

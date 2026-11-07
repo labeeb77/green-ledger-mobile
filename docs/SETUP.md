@@ -45,6 +45,7 @@ fvm dart run tool/sync_openapi.dart            # default source: ../green-ledger
 # 2. Generate the Retrofit clients and freezed models
 fvm dart run swagger_parser
 fvm dart run build_runner build -d
+fvm dart format lib/api lib/core/local   # build_runner ignores page_width 120
 ```
 
 - Config: `swagger_parser.yaml` (freezed 3 syntax), `build.yaml` (freezed → json_serializable → retrofit order).

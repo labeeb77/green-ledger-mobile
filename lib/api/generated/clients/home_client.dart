@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models/agent_home_dto_output.dart';
+import '../models/agents_today_dto_output.dart';
 import '../models/godown_home_dto_output.dart';
 
 part 'home_client.g.dart';
@@ -19,4 +20,7 @@ abstract class HomeClient {
 
   @GET('/api/v1/home/godown')
   Future<GodownHomeDtoOutput> homeControllerGodown();
+
+  @GET('/api/v1/home/agents-today')
+  Future<AgentsTodayDtoOutput> homeControllerAgentsToday();
 }

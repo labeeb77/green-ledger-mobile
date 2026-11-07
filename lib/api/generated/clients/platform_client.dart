@@ -6,9 +6,12 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models/business_summary_dto_output.dart';
+import '../models/close_deletion_request_body.dart';
 import '../models/create_business_dto.dart';
 import '../models/created_business_dto_output.dart';
+import '../models/deletion_request.dart';
 import '../models/owner_password_reset_dto_output.dart';
+import '../models/platform_deletion_request.dart';
 import '../models/platform_report_dto_output.dart';
 import '../models/record_payment_dto.dart';
 import '../models/subscription_payment_dto_output.dart';
@@ -53,6 +56,17 @@ abstract class PlatformClient {
     @Path('id') required String id,
     @Header('Idempotency-Key') required String idempotencyKey,
     @Body() required RecordPaymentDto body,
+  });
+
+  @GET('/api/v1/platform/deletion-requests')
+  Future<List<PlatformDeletionRequest>> platformControllerDeletionRequests();
+
+  /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
+  @POST('/api/v1/platform/deletion-requests/{id}/close')
+  Future<DeletionRequest> platformControllerCloseDeletionRequest({
+    @Path('id') required String id,
+    @Header('Idempotency-Key') required String idempotencyKey,
+    @Body() required CloseDeletionRequestBody body,
   });
 
   @GET('/api/v1/platform/reports')

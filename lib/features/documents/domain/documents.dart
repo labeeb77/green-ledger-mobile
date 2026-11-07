@@ -12,4 +12,9 @@ class DocumentFile {
 /// file and downloads it.
 abstract interface class DocumentsRepository {
   Future<Result<DocumentFile>> receiptPdf(String receiptId);
+
+  Future<Result<DocumentFile>> billPdf(String billId);
+
+  /// A customer's statement from [from] to [to] (Indian dates, `2026-11-07`).
+  Future<Result<DocumentFile>> customerStatementPdf(String customerId, {required String from, required String to});
 }

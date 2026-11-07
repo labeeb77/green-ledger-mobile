@@ -19,13 +19,22 @@ import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart'
 import 'package:green_ledger_mobile/features/shops/presentation/bloc/shop_detail_cubit.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/widgets/last_visit_text.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/widgets/share_receipt_button.dart';
+import 'package:green_ledger_mobile/features/shops/presentation/widgets/share_statement_button.dart';
 
 /// A shop (ux-design 4.1 ①): due, overdue, credit left, last visit, call and WhatsApp,
 /// then recent bills and payments.
 class ShopDetailPage extends StatelessWidget {
-  const ShopDetailPage({required this.shopId, this.launcher = const ContactLauncher(), super.key});
+  const ShopDetailPage({
+    required this.shopId,
+    this.basePath = '/shops',
+    this.launcher = const ContactLauncher(),
+    super.key,
+  });
 
   final String shopId;
+
+  /// `/shops` (agents) or `/customers` (owner, manager): the tab the flows open in.
+  final String basePath;
   final ContactLauncher launcher;
 
   @override
@@ -53,6 +62,8 @@ class ShopDetailPage extends StatelessWidget {
           appBar: AppBar(
             title: Text(shop.name),
             actions: [
+              // Statements are shared from the Customers tab (owner, manager).
+              if (basePath != '/shops') ShareStatementButton(customerId: shop.id, name: shop.name),
               if (shop.phone case final phone?)
                 IconButton(
                   tooltip: 'Call',
@@ -77,7 +88,7 @@ class ShopDetailPage extends StatelessWidget {
                           label: 'COLLECT',
                           onPressed: () => _open(
                             context,
-                            '/shops/${shop.id}/collect',
+                            '$basePath/${shop.id}/collect',
                             CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
                           ),
                         ),
@@ -91,7 +102,7 @@ class ShopDetailPage extends StatelessWidget {
                                   'ORDER',
                                   () => _open(
                                     context,
-                                    '/shops/${shop.id}/order',
+                                    '$basePath/${shop.id}/order',
                                     OrderTarget(
                                       customerId: shop.id,
                                       name: shop.name,
@@ -106,7 +117,7 @@ class ShopDetailPage extends StatelessWidget {
                               Expanded(
                                 child: _SecondaryButton(
                                   'VISIT',
-                                  () => _open(context, '/shops/${shop.id}/visit', shop.name),
+                                  () => _open(context, '$basePath/${shop.id}/visit', shop.name),
                                 ),
                               ),
                           ],

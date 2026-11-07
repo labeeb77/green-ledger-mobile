@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/app/router/redirect.dart';
+import 'package:green_ledger_mobile/features/account/presentation/pages/delete_account_page.dart';
+import 'package:green_ledger_mobile/features/account/presentation/pages/help_page.dart';
 import 'package:green_ledger_mobile/features/approvals/presentation/pages/approvals_page.dart';
 import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
@@ -19,16 +21,19 @@ import 'package:green_ledger_mobile/features/dispatch/presentation/pages/dispatc
 import 'package:green_ledger_mobile/features/dispatch/presentation/pages/dispatch_page.dart';
 import 'package:green_ledger_mobile/features/drafts/presentation/pages/drafts_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
-import 'package:green_ledger_mobile/features/home/presentation/pages/coming_soon_page.dart';
+import 'package:green_ledger_mobile/features/home/presentation/pages/agents_today_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_shell.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/no_mobile_access_page.dart';
 import 'package:green_ledger_mobile/features/more/presentation/more_page.dart';
+import 'package:green_ledger_mobile/features/notifications/presentation/pages/notifications_page.dart';
 import 'package:green_ledger_mobile/features/orders/domain/order.dart';
 import 'package:green_ledger_mobile/features/orders/presentation/pages/order_page.dart';
+import 'package:green_ledger_mobile/features/rates/presentation/pages/rates_page.dart';
 import 'package:green_ledger_mobile/features/receive/presentation/pages/receive_page.dart';
 import 'package:green_ledger_mobile/features/returns/domain/returns.dart';
 import 'package:green_ledger_mobile/features/returns/presentation/pages/returns_pages.dart';
+import 'package:green_ledger_mobile/features/search/presentation/pages/search_page.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shop_detail_page.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shops_page.dart';
 import 'package:green_ledger_mobile/features/stock/presentation/pages/stock_page.dart';
@@ -47,25 +52,42 @@ GoRouter buildRouter(AuthBloc auth) => GoRouter(
     GoRoute(path: Paths.changePassword, builder: (_, _) => const ChangePasswordPage()),
     GoRoute(path: Paths.noMobileAccess, builder: (_, _) => const NoMobileAccessPage()),
     GoRoute(path: Paths.drafts, builder: (_, _) => const DraftsPage()),
+    GoRoute(path: Paths.search, builder: (_, _) => const SearchPage()),
+    GoRoute(path: Paths.notifications, builder: (_, _) => const NotificationsPage()),
     StatefulShellRoute.indexedStack(
       builder: (_, _, shell) => HomeShell(shell: shell),
       branches: [
         for (final tab in AppTab.values)
           StatefulShellBranch(
-            routes: [GoRoute(path: tab.path, builder: (_, _) => _tabPage(tab), routes: _tabRoutes(tab))],
+            routes: [
+              GoRoute(
+                path: tab.path,
+                builder: (context, state) => _tabPage(context, tab, state),
+                routes: _tabRoutes(tab),
+              ),
+            ],
           ),
       ],
     ),
   ],
 );
 
-Widget _tabPage(AppTab tab) => switch (tab) {
+Widget _tabPage(BuildContext context, AppTab tab, GoRouterState state) => switch (tab) {
   AppTab.home => const HomePage(),
   AppTab.more => const MorePage(),
   AppTab.shops => const ShopsPage(),
   AppTab.cash => const CashPage(),
   AppTab.approvals => const ApprovalsPage(),
-  AppTab.customers => const ComingSoonPage(title: 'Customers', milestone: 'M4'),
+  // `?then=order|collect` opens it as a picker (Home SALE / COLLECT).
+  AppTab.customers => ShopsPage(
+    title: 'Customers',
+    basePath: AppTab.customers.path,
+    pick: ShopPick.values.asNameMap()[state.uri.queryParameters['then']],
+    myUserId: switch (context.read<AuthBloc>().state) {
+      AuthSignedIn(:final session) => session.user.id,
+      _ => null,
+    },
+  ),
   AppTab.stock => const StockPage(),
 };
 
@@ -74,6 +96,8 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
   // Opened from the Home card "Cash handovers" (owner/manager).
   AppTab.home => [
     GoRoute(path: 'handovers', builder: (_, _) => const HandoversPage()),
+    GoRoute(path: 'agents', builder: (_, _) => const AgentsTodayPage()),
+    GoRoute(path: 'rates', builder: (_, _) => const RatesPage()),
     GoRoute(path: 'receive', builder: (_, _) => const ReceivePage()),
     GoRoute(
       path: 'dispatch',
@@ -97,32 +121,47 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
       ],
     ),
   ],
-  AppTab.shops => [
+  AppTab.shops || AppTab.customers => _shopRoutes(tab.path),
+  AppTab.more => [
+    GoRoute(path: 'help', builder: (_, _) => const HelpPage()),
     GoRoute(
-      path: ':id',
-      builder: (_, state) => ShopDetailPage(shopId: state.pathParameters['id']!),
-      routes: [
-        // Opened from the shop detail, which passes the shop as `extra`.
-        GoRoute(
-          path: 'collect',
-          builder: (context, state) =>
-              CollectPage(target: state.extra! as CollectTarget, canChangeAllocation: _ownerOrManager(context)),
-        ),
-        GoRoute(
-          path: 'order',
-          builder: (context, state) =>
-              OrderPage(target: state.extra! as OrderTarget, canEditRate: _ownerOrManager(context)),
-        ),
-        // `extra` is the shop name.
-        GoRoute(
-          path: 'visit',
-          builder: (_, state) => VisitPage(customerId: state.pathParameters['id']!, shopName: state.extra! as String),
-        ),
-      ],
+      path: 'delete-account',
+      builder: (context, _) => DeleteAccountPage(
+        isOwner: switch (context.read<AuthBloc>().state) {
+          AuthSignedIn(:final session) => session.user.role == Role.owner,
+          _ => false,
+        },
+      ),
     ),
   ],
   _ => const [],
 };
+
+/// The shop detail and the flows it opens, under `/shops` (agents) or `/customers`.
+List<RouteBase> _shopRoutes(String basePath) => [
+  GoRoute(
+    path: ':id',
+    builder: (_, state) => ShopDetailPage(shopId: state.pathParameters['id']!, basePath: basePath),
+    routes: [
+      // Opened from the shop detail or the Customers picker, which pass the shop as `extra`.
+      GoRoute(
+        path: 'collect',
+        builder: (context, state) =>
+            CollectPage(target: state.extra! as CollectTarget, canChangeAllocation: _ownerOrManager(context)),
+      ),
+      GoRoute(
+        path: 'order',
+        builder: (context, state) =>
+            OrderPage(target: state.extra! as OrderTarget, canEditRate: _ownerOrManager(context)),
+      ),
+      // `extra` is the shop name.
+      GoRoute(
+        path: 'visit',
+        builder: (_, state) => VisitPage(customerId: state.pathParameters['id']!, shopName: state.extra! as String),
+      ),
+    ],
+  ),
+];
 
 bool _ownerOrManager(BuildContext context) => switch (context.read<AuthBloc>().state) {
   AuthSignedIn(:final session) => session.user.role == Role.owner || session.user.role == Role.manager,

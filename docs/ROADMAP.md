@@ -10,8 +10,8 @@ Milestones for the Phase 1 mobile app (spec section 5, flows in `green-ledger/do
 | M1 Agent collections | In progress (2026-11-07, checked on a moto g04s): Shops tab + shop detail, agent Home card, Collect → Check → Saved (acceptance step 5 shape run on the phone: R-0001, ₹5,000 cash + ₹3,000 UPI). Share on WhatsApp (receipt PDF → share sheet) after saving and from each payment on the shop detail. Visit note (VISIT on the shop detail → outcome chips → promise date: Tomorrow / This week = coming Saturday / pick → note → SAVE; no Check step, as ux-design 4.7). Drafts (Drift `core/local/`): a collection or visit that fails for lack of network is kept with its key and body, ⏳ count in the top bar, Not sent screen with SEND AGAIN / Delete; Shops list read cache with "Updated 10:42". Owner/manager "Change" on Check: amount per open bill (opening balance included), Full, Oldest first; sent as `allocations`, the rest stays advance. Visit note, drafts and Change not yet run on a phone. Next: the M1 "Done when" check on the iPhone (airplane-mode draft posts once) |
 | M2 Orders, approvals, cash | Not started |
 | M3 Godown | Not started |
-| M4 Owner, search, lock, push | Not started |
-| M5 Store readiness | Not started |
+| M4 Owner, search, lock, push | Built except push (FCM, last) |
+| M5 Store readiness | In progress (Help & support, Delete account built) |
 
 **Order (agreed 2026-11-06):** M0–M5 are built first without third-party services; FCM push (M4), crash reporting and store setup (M5) come last, together with the AWS deploy. Each backend gap below is filled just before the milestone that needs it (task list in `green-ledger/docs/HANDOFF.md`).
 
@@ -63,6 +63,8 @@ Status (2026-11-07): **Godown Home card** (to dispatch, arrivals today, low stoc
 
 ## M4 Owner, search, lock, push
 
+Status (2026-11-07): **Owner/manager Home** done (today's sales, collected, due + overdue; approvals and handovers waiting; Agents today with collected by method, visits, cash in bag; SALE · COLLECT · RATES). **Customers tab** done (the shops list and detail under `/customers`; SALE/COLLECT open it as a picker; statement share for this month, last month or the last 3 months). **Daily rates** done (yesterday in grey, Copy yesterday's rates, changed rows highlighted until saved). **Search** done (top-bar 🔍: customers open their detail, bills and receipts share their PDF, orders/GRNs/products listed). **PIN lock** done (set after any sign-in without one, fingerprint/Face ID offered; asked at start and after 5 min away; 5 wrong PINs or Forgot PIN → sign in with the password). **Notification inbox** done (bell with unread count; a tap opens Approvals, Cash handovers or Cash) and **theme switch** in More. Not yet run on a phone. Left: push (FCM env, with the AWS deploy), the one-time "?" hints.
+
 - Dashboard for owner/manager (`GET /dashboard`); Customers tab with balance, statement and share (`GET /customers`, statement PDF).
 - Daily rates with yesterday in grey and "Copy yesterday's rates" (`GET/PUT /pricing/daily-rates`).
 - Global search in the top bar: customers, products, bill numbers, recent first (`GET /search`).
@@ -73,6 +75,8 @@ Status (2026-11-07): **Godown Home card** (to dispatch, arrivals today, low stoc
 **Done when:** acceptance steps 10–11 can be checked on the phone; an approval push opens the approval card.
 
 ## M5 Store readiness
+
+Status (2026-11-07): **Help & support** (support phone, WhatsApp, email from `GET /support`; blank ones hidden; app version) and **Delete account** (request with an optional reason after a confirm step; the status shows; staff requests go to the owner, an owner's to support) built. Left: app id/icon/name, signing, crash reporting, release-device tests (third parties, last).
 
 - Final application id, app icon and store name (ux-design section 11 open question).
 - iOS flavour schemes and signing; Android release keystore.
@@ -87,7 +91,7 @@ These screens need backend work first (in the Go API, `green-ledger/backend-go`;
 | --- | --- |
 | Visit notes (outcome, promise date) | M1 shop detail, Collect auto-visit, agent Home |
 | Agent / godown Home summaries, "Agents today" | M1–M4 Home cards |
-| Account deletion request, support contact | M5 |
+| ~~Account deletion request, support contact~~ (done 2026-11-07) | M5 |
 | Shop WhatsApp number (if `phone` doesn't fit) | M1 share |
 | Agent rate lock on the server (ux-design CR 3) | M2 take order |
 | "Report a mistake" for agents (ux-design CR 2) | M2+ |

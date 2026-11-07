@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
+import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shop.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shops_page.dart';
+import 'package:green_ledger_mobile/features/shops/presentation/widgets/share_statement_button.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/drafts.dart';
@@ -51,5 +54,66 @@ void main() {
       Shop(id: 's1', name: 'Malabar Traders', area: 'Palayam', outstanding: 0, overdue: 0, creditLimit: 0),
     ], updatedAt: at);
     expect(find.text(updatedText(at)), findsOneWidget);
+  });
+
+  testWidgets('as a picker (Home COLLECT) a tap goes straight to Collect, then leaves picker mode', (tester) async {
+    final repository = _MockRepository();
+    when(repository.shops).thenAnswer(
+      (_) async => const Ok(
+        ShopList([
+          Shop(id: 's1', name: 'Malabar Traders', area: 'Palayam', outstanding: 1300000, overdue: 0, creditLimit: 0),
+        ]),
+      ),
+    );
+    final router = GoRouter(
+      initialLocation: '/customers?then=collect',
+      routes: [
+        GoRoute(
+          path: '/customers',
+          builder: (_, state) => ShopsPage(
+            title: 'Customers',
+            basePath: '/customers',
+            pick: ShopPick.values.asNameMap()[state.uri.queryParameters['then']],
+          ),
+          routes: [
+            GoRoute(
+              path: ':id/collect',
+              builder: (context, state) {
+                final target = state.extra! as CollectTarget;
+                return Scaffold(
+                  body: TextButton(
+                    onPressed: () => context.pop(true),
+                    child: Text('Collect ${target.name} ${target.due}'),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ],
+    );
+    await tester.pumpWidget(
+      RepositoryProvider<ShopsRepository>.value(
+        value: repository,
+        child: withDrafts(MaterialApp.router(theme: AppTheme.light(), routerConfig: router)),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Pick a customer to collect from'), findsOneWidget);
+
+    await tester.tap(find.text('Malabar Traders'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Collect Malabar Traders 1300000'));
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.toString(), '/customers');
+    expect(find.text('Pick a customer to collect from'), findsNothing);
+  });
+
+  test('statement periods: this month so far, last month, last three months', () {
+    expect(statementPeriods(DateTime.utc(2026, 1, 7)), [
+      (label: 'This month', from: '2026-01-01', to: '2026-01-07'),
+      (label: 'Last month', from: '2025-12-01', to: '2025-12-31'),
+      (label: 'Last 3 months', from: '2025-11-01', to: '2026-01-07'),
+    ]);
   });
 }

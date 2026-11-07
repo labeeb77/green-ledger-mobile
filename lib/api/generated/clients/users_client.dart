@@ -8,6 +8,7 @@ import 'package:retrofit/retrofit.dart';
 import '../models/create_user_dto.dart';
 import '../models/device_dto_output.dart';
 import '../models/ok_dto_output.dart';
+import '../models/pending_deletion.dart';
 import '../models/set_permissions_dto.dart';
 import '../models/update_user_dto.dart';
 import '../models/user_dto_output.dart';
@@ -60,4 +61,7 @@ abstract class UsersClient {
     @Path('id') required String id,
     @Path('sessionId') required String sessionId,
   });
+
+  @GET('/api/v1/users/deletion-requests')
+  Future<List<PendingDeletion>> usersControllerDeletionRequests();
 }
