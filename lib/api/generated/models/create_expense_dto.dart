@@ -13,10 +13,10 @@ abstract class CreateExpenseDto with _$CreateExpenseDto {
     required String categoryId,
     required String accountId,
     required int amount,
-    DateTime? expenseDate,
+    String? expenseDate,
     String? reference,
     String? notes,
   }) = _CreateExpenseDto;
-  
+
   factory CreateExpenseDto.fromJson(Map<String, Object?> json) => _$CreateExpenseDtoFromJson(json);
 }

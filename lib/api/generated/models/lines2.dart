@@ -21,6 +21,6 @@ abstract class Lines2 with _$Lines2 {
     /// Amount in paise (₹1 = 100)
     int? rate,
   }) = _Lines2;
-  
+
   factory Lines2.fromJson(Map<String, Object?> json) => _$Lines2FromJson(json);
 }

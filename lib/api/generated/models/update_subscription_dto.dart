@@ -17,6 +17,6 @@ abstract class UpdateSubscriptionDto with _$UpdateSubscriptionDto {
     int? userLimit,
     String? notes,
   }) = _UpdateSubscriptionDto;
-  
+
   factory UpdateSubscriptionDto.fromJson(Map<String, Object?> json) => _$UpdateSubscriptionDtoFromJson(json);
 }

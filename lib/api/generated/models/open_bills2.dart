@@ -12,11 +12,11 @@ abstract class OpenBills2 with _$OpenBills2 {
   const factory OpenBills2({
     required String id,
     required String number,
-    required DateTime date,
-    required DateTime dueDate,
+    required String date,
+    required String dueDate,
     required int total,
     required int open,
   }) = _OpenBills2;
-  
+
   factory OpenBills2.fromJson(Map<String, Object?> json) => _$OpenBills2FromJson(json);
 }

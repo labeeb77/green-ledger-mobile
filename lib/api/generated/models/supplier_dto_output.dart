@@ -20,6 +20,6 @@ abstract class SupplierDtoOutput with _$SupplierDtoOutput {
     required bool active,
     required DateTime createdAt,
   }) = _SupplierDtoOutput;
-  
+
   factory SupplierDtoOutput.fromJson(Map<String, Object?> json) => _$SupplierDtoOutputFromJson(json);
 }

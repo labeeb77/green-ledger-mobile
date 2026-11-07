@@ -11,10 +11,8 @@ part 'activity_page_dto_output.g.dart';
 
 @Freezed()
 abstract class ActivityPageDtoOutput with _$ActivityPageDtoOutput {
-  const factory ActivityPageDtoOutput({
-    required List<Items> items,
-    required String? nextCursor,
-  }) = _ActivityPageDtoOutput;
-  
+  const factory ActivityPageDtoOutput({required List<Items> items, required String? nextCursor}) =
+      _ActivityPageDtoOutput;
+
   factory ActivityPageDtoOutput.fromJson(Map<String, Object?> json) => _$ActivityPageDtoOutputFromJson(json);
 }

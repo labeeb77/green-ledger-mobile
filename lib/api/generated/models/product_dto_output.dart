@@ -25,6 +25,6 @@ abstract class ProductDtoOutput with _$ProductDtoOutput {
     required List<PackUnits> packUnits,
     required List<Grades> grades,
   }) = _ProductDtoOutput;
-  
+
   factory ProductDtoOutput.fromJson(Map<String, Object?> json) => _$ProductDtoOutputFromJson(json);
 }

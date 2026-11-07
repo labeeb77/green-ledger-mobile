@@ -11,10 +11,9 @@ part 'user_with_temporary_password_dto_output.g.dart';
 
 @Freezed()
 abstract class UserWithTemporaryPasswordDtoOutput with _$UserWithTemporaryPasswordDtoOutput {
-  const factory UserWithTemporaryPasswordDtoOutput({
-    required User3 user,
-    required String temporaryPassword,
-  }) = _UserWithTemporaryPasswordDtoOutput;
-  
-  factory UserWithTemporaryPasswordDtoOutput.fromJson(Map<String, Object?> json) => _$UserWithTemporaryPasswordDtoOutputFromJson(json);
+  const factory UserWithTemporaryPasswordDtoOutput({required User3 user, required String temporaryPassword}) =
+      _UserWithTemporaryPasswordDtoOutput;
+
+  factory UserWithTemporaryPasswordDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$UserWithTemporaryPasswordDtoOutputFromJson(json);
 }

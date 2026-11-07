@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateExpenseDto {
 
- String get categoryId; String get accountId; int get amount; DateTime? get expenseDate; String? get reference; String? get notes;
+ String get categoryId; String get accountId; int get amount; String? get expenseDate; String? get reference; String? get notes;
 /// Create a copy of CreateExpenseDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateExpenseDtoCopyWith<$Res>  {
   factory $CreateExpenseDtoCopyWith(CreateExpenseDto value, $Res Function(CreateExpenseDto) _then) = _$CreateExpenseDtoCopyWithImpl;
 @useResult
 $Res call({
- String categoryId, String accountId, int amount, DateTime? expenseDate, String? reference, String? notes
+ String categoryId, String accountId, int amount, String? expenseDate, String? reference, String? notes
 });
 
 
@@ -77,7 +77,7 @@ categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_n
 as String,accountId: null == accountId ? _self.accountId : accountId // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,expenseDate: freezed == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
+as String?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String categoryId,  String accountId,  int amount,  DateTime? expenseDate,  String? reference,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String categoryId,  String accountId,  int amount,  String? expenseDate,  String? reference,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateExpenseDto() when $default != null:
 return $default(_that.categoryId,_that.accountId,_that.amount,_that.expenseDate,_that.reference,_that.notes);case _:
@@ -185,7 +185,7 @@ return $default(_that.categoryId,_that.accountId,_that.amount,_that.expenseDate,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String categoryId,  String accountId,  int amount,  DateTime? expenseDate,  String? reference,  String? notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String categoryId,  String accountId,  int amount,  String? expenseDate,  String? reference,  String? notes)  $default,) {final _that = this;
 switch (_that) {
 case _CreateExpenseDto():
 return $default(_that.categoryId,_that.accountId,_that.amount,_that.expenseDate,_that.reference,_that.notes);case _:
@@ -205,7 +205,7 @@ return $default(_that.categoryId,_that.accountId,_that.amount,_that.expenseDate,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String categoryId,  String accountId,  int amount,  DateTime? expenseDate,  String? reference,  String? notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String categoryId,  String accountId,  int amount,  String? expenseDate,  String? reference,  String? notes)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateExpenseDto() when $default != null:
 return $default(_that.categoryId,_that.accountId,_that.amount,_that.expenseDate,_that.reference,_that.notes);case _:
@@ -226,7 +226,7 @@ class _CreateExpenseDto implements CreateExpenseDto {
 @override final  String categoryId;
 @override final  String accountId;
 @override final  int amount;
-@override final  DateTime? expenseDate;
+@override final  String? expenseDate;
 @override final  String? reference;
 @override final  String? notes;
 
@@ -265,7 +265,7 @@ abstract mixin class _$CreateExpenseDtoCopyWith<$Res> implements $CreateExpenseD
   factory _$CreateExpenseDtoCopyWith(_CreateExpenseDto value, $Res Function(_CreateExpenseDto) _then) = __$CreateExpenseDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String categoryId, String accountId, int amount, DateTime? expenseDate, String? reference, String? notes
+ String categoryId, String accountId, int amount, String? expenseDate, String? reference, String? notes
 });
 
 
@@ -288,7 +288,7 @@ categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_n
 as String,accountId: null == accountId ? _self.accountId : accountId // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,expenseDate: freezed == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
+as String?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

@@ -15,6 +15,7 @@ abstract class SupplierReturnPageDtoOutput with _$SupplierReturnPageDtoOutput {
     required List<SupplierReturnDtoOutput> items,
     required String? nextCursor,
   }) = _SupplierReturnPageDtoOutput;
-  
-  factory SupplierReturnPageDtoOutput.fromJson(Map<String, Object?> json) => _$SupplierReturnPageDtoOutputFromJson(json);
+
+  factory SupplierReturnPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$SupplierReturnPageDtoOutputFromJson(json);
 }

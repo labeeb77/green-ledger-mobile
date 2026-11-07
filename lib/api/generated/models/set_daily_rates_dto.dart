@@ -11,10 +11,7 @@ part 'set_daily_rates_dto.g.dart';
 
 @Freezed()
 abstract class SetDailyRatesDto with _$SetDailyRatesDto {
-  const factory SetDailyRatesDto({
-    required DateTime date,
-    required List<Rates> rates,
-  }) = _SetDailyRatesDto;
-  
+  const factory SetDailyRatesDto({required String date, required List<Rates> rates}) = _SetDailyRatesDto;
+
   factory SetDailyRatesDto.fromJson(Map<String, Object?> json) => _$SetDailyRatesDtoFromJson(json);
 }

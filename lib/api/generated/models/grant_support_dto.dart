@@ -9,10 +9,7 @@ part 'grant_support_dto.g.dart';
 
 @Freezed()
 abstract class GrantSupportDto with _$GrantSupportDto {
-  const factory GrantSupportDto({
-    @Default(24)
-    int hours,
-  }) = _GrantSupportDto;
-  
+  const factory GrantSupportDto({@Default(24) int hours}) = _GrantSupportDto;
+
   factory GrantSupportDto.fromJson(Map<String, Object?> json) => _$GrantSupportDtoFromJson(json);
 }

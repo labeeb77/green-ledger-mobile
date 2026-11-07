@@ -6,26 +6,18 @@ part of 'create_customer_return_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_CreateCustomerReturnDto _$CreateCustomerReturnDtoFromJson(
-  Map<String, dynamic> json,
-) => _CreateCustomerReturnDto(
+_CreateCustomerReturnDto _$CreateCustomerReturnDtoFromJson(Map<String, dynamic> json) => _CreateCustomerReturnDto(
   customerId: json['customerId'] as String,
-  lines: (json['lines'] as List<dynamic>)
-      .map((e) => Lines18.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  lines: (json['lines'] as List<dynamic>).map((e) => Lines18.fromJson(e as Map<String, dynamic>)).toList(),
   billId: json['billId'] as String?,
-  returnDate: json['returnDate'] == null
-      ? null
-      : DateTime.parse(json['returnDate'] as String),
+  returnDate: json['returnDate'] as String?,
   notes: json['notes'] as String?,
 );
 
-Map<String, dynamic> _$CreateCustomerReturnDtoToJson(
-  _CreateCustomerReturnDto instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$CreateCustomerReturnDtoToJson(_CreateCustomerReturnDto instance) => <String, dynamic>{
   'customerId': instance.customerId,
   'lines': instance.lines,
   'billId': instance.billId,
-  'returnDate': instance.returnDate?.toIso8601String(),
+  'returnDate': instance.returnDate,
   'notes': instance.notes,
 };

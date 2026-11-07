@@ -18,6 +18,7 @@ abstract class ReceiptAllocationPreviewDtoOutput with _$ReceiptAllocationPreview
     required int advance,
     required int existingAdvance,
   }) = _ReceiptAllocationPreviewDtoOutput;
-  
-  factory ReceiptAllocationPreviewDtoOutput.fromJson(Map<String, Object?> json) => _$ReceiptAllocationPreviewDtoOutputFromJson(json);
+
+  factory ReceiptAllocationPreviewDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$ReceiptAllocationPreviewDtoOutputFromJson(json);
 }

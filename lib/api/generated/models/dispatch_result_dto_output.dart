@@ -17,6 +17,6 @@ abstract class DispatchResultDtoOutput with _$DispatchResultDtoOutput {
     required String? billNumber,
     required int? billTotal,
   }) = _DispatchResultDtoOutput;
-  
+
   factory DispatchResultDtoOutput.fromJson(Map<String, Object?> json) => _$DispatchResultDtoOutputFromJson(json);
 }

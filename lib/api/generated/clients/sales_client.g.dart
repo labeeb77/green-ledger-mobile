@@ -23,8 +23,8 @@ class _SalesClient implements SalesClient {
   @override
   Future<SalesBillSummaryPageDtoOutput> salesBillsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? customerId,
     Status3? status,
     String? cursor,
@@ -32,8 +32,8 @@ class _SalesClient implements SalesClient {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'customerId': customerId,
       r'status': status?.toJson(),
       r'cursor': cursor,
@@ -161,8 +161,8 @@ class _SalesClient implements SalesClient {
     int? limit = 50,
     String? customerId,
     Status3? status,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
@@ -170,8 +170,8 @@ class _SalesClient implements SalesClient {
       r'limit': limit,
       r'customerId': customerId,
       r'status': status?.toJson(),
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);

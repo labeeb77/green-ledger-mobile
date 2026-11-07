@@ -8,9 +8,7 @@ part of 'device.dart';
 
 _Device _$DeviceFromJson(Map<String, dynamic> json) => _Device(
   id: json['id'] as String,
-  platform: json['platform'] == null
-      ? Platform.other
-      : Platform.fromJson(json['platform'] as String),
+  platform: json['platform'] == null ? Platform.other : Platform.fromJson(json['platform'] as String),
   name: json['name'] as String?,
 );
 

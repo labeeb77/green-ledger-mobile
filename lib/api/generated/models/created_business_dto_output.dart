@@ -17,6 +17,6 @@ abstract class CreatedBusinessDtoOutput with _$CreatedBusinessDtoOutput {
     required Owner2 owner,
     required String temporaryPassword,
   }) = _CreatedBusinessDtoOutput;
-  
+
   factory CreatedBusinessDtoOutput.fromJson(Map<String, Object?> json) => _$CreatedBusinessDtoOutputFromJson(json);
 }

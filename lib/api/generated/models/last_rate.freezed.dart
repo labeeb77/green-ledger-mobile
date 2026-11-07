@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LastRate {
 
- int get rate; DateTime get date;
+ int get rate; String get date;
 /// Create a copy of LastRate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $LastRateCopyWith<$Res>  {
   factory $LastRateCopyWith(LastRate value, $Res Function(LastRate) _then) = _$LastRateCopyWithImpl;
 @useResult
 $Res call({
- int rate, DateTime date
+ int rate, String date
 });
 
 
@@ -75,7 +75,7 @@ class _$LastRateCopyWithImpl<$Res>
   return _then(LastRate(
 rate: null == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
 as int,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,
   ));
 }
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int rate,  DateTime date)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int rate,  String date)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LastRate() when $default != null:
 return $default(_that.rate,_that.date);case _:
@@ -181,7 +181,7 @@ return $default(_that.rate,_that.date);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int rate,  DateTime date)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int rate,  String date)  $default,) {final _that = this;
 switch (_that) {
 case _LastRate():
 return $default(_that.rate,_that.date);case _:
@@ -201,7 +201,7 @@ return $default(_that.rate,_that.date);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int rate,  DateTime date)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int rate,  String date)?  $default,) {final _that = this;
 switch (_that) {
 case _LastRate() when $default != null:
 return $default(_that.rate,_that.date);case _:
@@ -220,7 +220,7 @@ class _LastRate implements LastRate {
   factory _LastRate.fromJson(Map<String, dynamic> json) => _$LastRateFromJson(json);
 
 @override final  int rate;
-@override final  DateTime date;
+@override final  String date;
 
 /// Create a copy of LastRate
 /// with the given fields replaced by the non-null parameter values.
@@ -257,7 +257,7 @@ abstract mixin class _$LastRateCopyWith<$Res> implements $LastRateCopyWith<$Res>
   factory _$LastRateCopyWith(_LastRate value, $Res Function(_LastRate) _then) = __$LastRateCopyWithImpl;
 @override @useResult
 $Res call({
- int rate, DateTime date
+ int rate, String date
 });
 
 
@@ -278,7 +278,7 @@ class __$LastRateCopyWithImpl<$Res>
   return _then(_LastRate(
 rate: null == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
 as int,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,
   ));
 }
 

@@ -18,7 +18,7 @@ abstract class StockEntryDtoOutput with _$StockEntryDtoOutput {
     required String id,
     required String? number,
     required StockEntryDtoOutputType type,
-    required DateTime entryDate,
+    required String entryDate,
     required StockEntryDtoOutputStatus status,
     required int? value,
     required String? notes,
@@ -30,6 +30,6 @@ abstract class StockEntryDtoOutput with _$StockEntryDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _StockEntryDtoOutput;
-  
+
   factory StockEntryDtoOutput.fromJson(Map<String, Object?> json) => _$StockEntryDtoOutputFromJson(json);
 }

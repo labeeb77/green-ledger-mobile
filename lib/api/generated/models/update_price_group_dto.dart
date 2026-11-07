@@ -17,6 +17,6 @@ abstract class UpdatePriceGroupDto with _$UpdatePriceGroupDto {
     int? value,
     bool? active,
   }) = _UpdatePriceGroupDto;
-  
+
   factory UpdatePriceGroupDto.fromJson(Map<String, Object?> json) => _$UpdatePriceGroupDtoFromJson(json);
 }

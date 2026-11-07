@@ -23,8 +23,8 @@ class _CollectionsClient implements CollectionsClient {
   @override
   Future<CustomerReceiptPageDtoOutput> customerReceiptsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? customerId,
     Status3? status,
     String? cursor,
@@ -32,8 +32,8 @@ class _CollectionsClient implements CollectionsClient {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'customerId': customerId,
       r'status': status?.toJson(),
       r'cursor': cursor,

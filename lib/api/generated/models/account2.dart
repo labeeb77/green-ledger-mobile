@@ -9,10 +9,7 @@ part 'account2.g.dart';
 
 @Freezed()
 abstract class Account2 with _$Account2 {
-  const factory Account2({
-    required String id,
-    required String name,
-  }) = _Account2;
-  
+  const factory Account2({required String id, required String name}) = _Account2;
+
   factory Account2.fromJson(Map<String, Object?> json) => _$Account2FromJson(json);
 }

@@ -21,6 +21,6 @@ abstract class User3 with _$User3 {
     required DateTime? lastLoginAt,
     required DateTime createdAt,
   }) = _User3;
-  
+
   factory User3.fromJson(Map<String, Object?> json) => _$User3FromJson(json);
 }

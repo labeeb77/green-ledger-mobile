@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateAdjustmentDto {
 
- String get notes; List<Lines9> get lines; DateTime? get entryDate;
+ String get notes; List<Lines9> get lines; String? get entryDate;
 /// Create a copy of CreateAdjustmentDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateAdjustmentDtoCopyWith<$Res>  {
   factory $CreateAdjustmentDtoCopyWith(CreateAdjustmentDto value, $Res Function(CreateAdjustmentDto) _then) = _$CreateAdjustmentDtoCopyWithImpl;
 @useResult
 $Res call({
- String notes, List<Lines9> lines, DateTime? entryDate
+ String notes, List<Lines9> lines, String? entryDate
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateAdjustmentDtoCopyWithImpl<$Res>
 notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines9>,entryDate: freezed == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as String?,
   ));
 }
 
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String notes,  List<Lines9> lines,  DateTime? entryDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String notes,  List<Lines9> lines,  String? entryDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateAdjustmentDto() when $default != null:
 return $default(_that.notes,_that.lines,_that.entryDate);case _:
@@ -182,7 +182,7 @@ return $default(_that.notes,_that.lines,_that.entryDate);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String notes,  List<Lines9> lines,  DateTime? entryDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String notes,  List<Lines9> lines,  String? entryDate)  $default,) {final _that = this;
 switch (_that) {
 case _CreateAdjustmentDto():
 return $default(_that.notes,_that.lines,_that.entryDate);case _:
@@ -202,7 +202,7 @@ return $default(_that.notes,_that.lines,_that.entryDate);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String notes,  List<Lines9> lines,  DateTime? entryDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String notes,  List<Lines9> lines,  String? entryDate)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateAdjustmentDto() when $default != null:
 return $default(_that.notes,_that.lines,_that.entryDate);case _:
@@ -228,7 +228,7 @@ class _CreateAdjustmentDto implements CreateAdjustmentDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? entryDate;
+@override final  String? entryDate;
 
 /// Create a copy of CreateAdjustmentDto
 /// with the given fields replaced by the non-null parameter values.
@@ -265,7 +265,7 @@ abstract mixin class _$CreateAdjustmentDtoCopyWith<$Res> implements $CreateAdjus
   factory _$CreateAdjustmentDtoCopyWith(_CreateAdjustmentDto value, $Res Function(_CreateAdjustmentDto) _then) = __$CreateAdjustmentDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String notes, List<Lines9> lines, DateTime? entryDate
+ String notes, List<Lines9> lines, String? entryDate
 });
 
 
@@ -287,7 +287,7 @@ class __$CreateAdjustmentDtoCopyWithImpl<$Res>
 notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines9>,entryDate: freezed == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as String?,
   ));
 }
 

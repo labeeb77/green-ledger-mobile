@@ -21,6 +21,6 @@ abstract class Owner2 with _$Owner2 {
     required DateTime? lastLoginAt,
     required DateTime createdAt,
   }) = _Owner2;
-  
+
   factory Owner2.fromJson(Map<String, Object?> json) => _$Owner2FromJson(json);
 }

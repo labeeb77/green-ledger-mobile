@@ -22,14 +22,11 @@ class _ReportsClient implements ReportsClient {
 
   @override
   Future<DashboardDtoOutput> reportsControllerDashboard({
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
-    };
+    final queryParameters = <String, dynamic>{r'from': from, r'to': to};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
@@ -84,8 +81,8 @@ class _ReportsClient implements ReportsClient {
   @override
   Future<ReportResultDtoOutput> reportsControllerRun({
     required Report report,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     GroupBy? groupBy,
     String? customerId,
     String? agentId,
@@ -93,8 +90,8 @@ class _ReportsClient implements ReportsClient {
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'groupBy': groupBy?.toJson(),
       r'customerId': customerId,
       r'agentId': agentId,
@@ -127,8 +124,8 @@ class _ReportsClient implements ReportsClient {
   @override
   Future<void> reportsControllerExport({
     required Report report,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     GroupBy? groupBy,
     String? customerId,
     String? agentId,
@@ -136,8 +133,8 @@ class _ReportsClient implements ReportsClient {
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'groupBy': groupBy?.toJson(),
       r'customerId': customerId,
       r'agentId': agentId,

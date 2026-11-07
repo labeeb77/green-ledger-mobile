@@ -34,8 +34,8 @@ abstract class StockClient {
     @Query('limit') int? limit = 50,
     @Query('type') Type2? type,
     @Query('status') Status3? status,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('cursor') String? cursor,
   });
 
@@ -54,9 +54,7 @@ abstract class StockClient {
   });
 
   @GET('/api/v1/stock/entries/{id}')
-  Future<StockEntryDtoOutput> stockControllerGetEntry({
-    @Path('id') required String id,
-  });
+  Future<StockEntryDtoOutput> stockControllerGetEntry({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/stock/entries/{id}/cancel')
@@ -80,9 +78,7 @@ abstract class StockClient {
   });
 
   @GET('/api/v1/stock/counts/{id}')
-  Future<StockCountDtoOutput> stockControllerGetCount({
-    @Path('id') required String id,
-  });
+  Future<StockCountDtoOutput> stockControllerGetCount({@Path('id') required String id});
 
   @PUT('/api/v1/stock/counts/{id}')
   Future<StockCountDtoOutput> stockControllerUpdateCount({
@@ -115,7 +111,7 @@ abstract class StockClient {
   @GET('/api/v1/stock/{productId}/movements')
   Future<MovementsDtoOutput> stockControllerMovements({
     @Path('productId') required String productId,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
   });
 }

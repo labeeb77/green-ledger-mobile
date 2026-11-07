@@ -17,6 +17,6 @@ abstract class DueSoon with _$DueSoon {
     required Status7 status,
     required DateTime expiresAt,
   }) = _DueSoon;
-  
+
   factory DueSoon.fromJson(Map<String, Object?> json) => _$DueSoonFromJson(json);
 }

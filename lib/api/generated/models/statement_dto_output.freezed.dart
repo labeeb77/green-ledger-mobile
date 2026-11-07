@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StatementDtoOutput {
 
- DateTime get from; DateTime get to; int get opening; List<Entries> get entries; int get closing;
+ String get from; String get to; int get opening; List<Entries> get entries; int get closing;
 /// Create a copy of StatementDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $StatementDtoOutputCopyWith<$Res>  {
   factory $StatementDtoOutputCopyWith(StatementDtoOutput value, $Res Function(StatementDtoOutput) _then) = _$StatementDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- DateTime from, DateTime to, int opening, List<Entries> entries, int closing
+ String from, String to, int opening, List<Entries> entries, int closing
 });
 
 
@@ -74,8 +74,8 @@ class _$StatementDtoOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? from = null,Object? to = null,Object? opening = null,Object? entries = null,Object? closing = null,}) {
   return _then(StatementDtoOutput(
 from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
 as int,entries: null == entries ? _self.entries : entries // ignore: cast_nullable_to_non_nullable
 as List<Entries>,closing: null == closing ? _self.closing : closing // ignore: cast_nullable_to_non_nullable
 as int,
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime from,  DateTime to,  int opening,  List<Entries> entries,  int closing)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String from,  String to,  int opening,  List<Entries> entries,  int closing)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StatementDtoOutput() when $default != null:
 return $default(_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -184,7 +184,7 @@ return $default(_that.from,_that.to,_that.opening,_that.entries,_that.closing);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime from,  DateTime to,  int opening,  List<Entries> entries,  int closing)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String from,  String to,  int opening,  List<Entries> entries,  int closing)  $default,) {final _that = this;
 switch (_that) {
 case _StatementDtoOutput():
 return $default(_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -204,7 +204,7 @@ return $default(_that.from,_that.to,_that.opening,_that.entries,_that.closing);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime from,  DateTime to,  int opening,  List<Entries> entries,  int closing)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String from,  String to,  int opening,  List<Entries> entries,  int closing)?  $default,) {final _that = this;
 switch (_that) {
 case _StatementDtoOutput() when $default != null:
 return $default(_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -222,8 +222,8 @@ class _StatementDtoOutput implements StatementDtoOutput {
   const _StatementDtoOutput({required this.from, required this.to, required this.opening, required  List<Entries> entries, required this.closing}): _entries = entries;
   factory _StatementDtoOutput.fromJson(Map<String, dynamic> json) => _$StatementDtoOutputFromJson(json);
 
-@override final  DateTime from;
-@override final  DateTime to;
+@override final  String from;
+@override final  String to;
 @override final  int opening;
  final  List<Entries> _entries;
 @override List<Entries> get entries {
@@ -269,7 +269,7 @@ abstract mixin class _$StatementDtoOutputCopyWith<$Res> implements $StatementDto
   factory _$StatementDtoOutputCopyWith(_StatementDtoOutput value, $Res Function(_StatementDtoOutput) _then) = __$StatementDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime from, DateTime to, int opening, List<Entries> entries, int closing
+ String from, String to, int opening, List<Entries> entries, int closing
 });
 
 
@@ -289,8 +289,8 @@ class __$StatementDtoOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? from = null,Object? to = null,Object? opening = null,Object? entries = null,Object? closing = null,}) {
   return _then(_StatementDtoOutput(
 from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
 as int,entries: null == entries ? _self._entries : entries // ignore: cast_nullable_to_non_nullable
 as List<Entries>,closing: null == closing ? _self.closing : closing // ignore: cast_nullable_to_non_nullable
 as int,

@@ -6,11 +6,8 @@ part of 'packs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Packs _$PacksFromJson(Map<String, dynamic> json) => _Packs(
-  packUnitId: json['packUnitId'] as String,
-  name: json['name'] as String,
-  count: json['count'] as String,
-);
+_Packs _$PacksFromJson(Map<String, dynamic> json) =>
+    _Packs(packUnitId: json['packUnitId'] as String, name: json['name'] as String, count: json['count'] as String);
 
 Map<String, dynamic> _$PacksToJson(_Packs instance) => <String, dynamic>{
   'packUnitId': instance.packUnitId,

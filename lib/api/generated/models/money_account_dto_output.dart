@@ -26,6 +26,6 @@ abstract class MoneyAccountDtoOutput with _$MoneyAccountDtoOutput {
     required bool system,
     required bool active,
   }) = _MoneyAccountDtoOutput;
-  
+
   factory MoneyAccountDtoOutput.fromJson(Map<String, Object?> json) => _$MoneyAccountDtoOutputFromJson(json);
 }

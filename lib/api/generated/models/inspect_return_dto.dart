@@ -11,9 +11,7 @@ part 'inspect_return_dto.g.dart';
 
 @Freezed()
 abstract class InspectReturnDto with _$InspectReturnDto {
-  const factory InspectReturnDto({
-    required List<Lines19> lines,
-  }) = _InspectReturnDto;
-  
+  const factory InspectReturnDto({required List<Lines19> lines}) = _InspectReturnDto;
+
   factory InspectReturnDto.fromJson(Map<String, Object?> json) => _$InspectReturnDtoFromJson(json);
 }

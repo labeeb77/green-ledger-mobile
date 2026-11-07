@@ -9,10 +9,7 @@ part 'business3.g.dart';
 
 @Freezed()
 abstract class Business3 with _$Business3 {
-  const factory Business3({
-    required String id,
-    required String name,
-  }) = _Business3;
-  
+  const factory Business3({required String id, required String name}) = _Business3;
+
   factory Business3.fromJson(Map<String, Object?> json) => _$Business3FromJson(json);
 }

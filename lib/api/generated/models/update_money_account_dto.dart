@@ -21,6 +21,6 @@ abstract class UpdateMoneyAccountDto with _$UpdateMoneyAccountDto {
     int? openingBalance,
     bool? active,
   }) = _UpdateMoneyAccountDto;
-  
+
   factory UpdateMoneyAccountDto.fromJson(Map<String, Object?> json) => _$UpdateMoneyAccountDtoFromJson(json);
 }

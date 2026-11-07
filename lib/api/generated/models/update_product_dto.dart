@@ -19,6 +19,6 @@ abstract class UpdateProductDto with _$UpdateProductDto {
     dynamic lowStockLevel,
     bool? active,
   }) = _UpdateProductDto;
-  
+
   factory UpdateProductDto.fromJson(Map<String, Object?> json) => _$UpdateProductDtoFromJson(json);
 }

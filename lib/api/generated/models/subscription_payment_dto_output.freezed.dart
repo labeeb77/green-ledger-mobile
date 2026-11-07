@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SubscriptionPaymentDtoOutput {
 
- String get id; int get amount; DateTime get paidOn; String get method; String? get reference; String? get notes; String? get extendedTo; DateTime get createdAt;
+ String get id; int get amount; String get paidOn; String get method; String? get reference; String? get notes; String? get extendedTo; DateTime get createdAt;
 /// Create a copy of SubscriptionPaymentDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SubscriptionPaymentDtoOutputCopyWith<$Res>  {
   factory $SubscriptionPaymentDtoOutputCopyWith(SubscriptionPaymentDtoOutput value, $Res Function(SubscriptionPaymentDtoOutput) _then) = _$SubscriptionPaymentDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, int amount, DateTime paidOn, String method, String? reference, String? notes, String? extendedTo, DateTime createdAt
+ String id, int amount, String paidOn, String method, String? reference, String? notes, String? extendedTo, DateTime createdAt
 });
 
 
@@ -76,7 +76,7 @@ class _$SubscriptionPaymentDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,paidOn: null == paidOn ? _self.paidOn : paidOn // ignore: cast_nullable_to_non_nullable
-as DateTime,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
+as String,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as String,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,extendedTo: freezed == extendedTo ? _self.extendedTo : extendedTo // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  int amount,  DateTime paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  int amount,  String paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SubscriptionPaymentDtoOutput() when $default != null:
 return $default(_that.id,_that.amount,_that.paidOn,_that.method,_that.reference,_that.notes,_that.extendedTo,_that.createdAt);case _:
@@ -187,7 +187,7 @@ return $default(_that.id,_that.amount,_that.paidOn,_that.method,_that.reference,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  int amount,  DateTime paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  int amount,  String paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _SubscriptionPaymentDtoOutput():
 return $default(_that.id,_that.amount,_that.paidOn,_that.method,_that.reference,_that.notes,_that.extendedTo,_that.createdAt);case _:
@@ -207,7 +207,7 @@ return $default(_that.id,_that.amount,_that.paidOn,_that.method,_that.reference,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  int amount,  DateTime paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  int amount,  String paidOn,  String method,  String? reference,  String? notes,  String? extendedTo,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _SubscriptionPaymentDtoOutput() when $default != null:
 return $default(_that.id,_that.amount,_that.paidOn,_that.method,_that.reference,_that.notes,_that.extendedTo,_that.createdAt);case _:
@@ -227,7 +227,7 @@ class _SubscriptionPaymentDtoOutput implements SubscriptionPaymentDtoOutput {
 
 @override final  String id;
 @override final  int amount;
-@override final  DateTime paidOn;
+@override final  String paidOn;
 @override final  String method;
 @override final  String? reference;
 @override final  String? notes;
@@ -269,7 +269,7 @@ abstract mixin class _$SubscriptionPaymentDtoOutputCopyWith<$Res> implements $Su
   factory _$SubscriptionPaymentDtoOutputCopyWith(_SubscriptionPaymentDtoOutput value, $Res Function(_SubscriptionPaymentDtoOutput) _then) = __$SubscriptionPaymentDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, int amount, DateTime paidOn, String method, String? reference, String? notes, String? extendedTo, DateTime createdAt
+ String id, int amount, String paidOn, String method, String? reference, String? notes, String? extendedTo, DateTime createdAt
 });
 
 
@@ -291,7 +291,7 @@ class __$SubscriptionPaymentDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,paidOn: null == paidOn ? _self.paidOn : paidOn // ignore: cast_nullable_to_non_nullable
-as DateTime,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
+as String,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as String,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,extendedTo: freezed == extendedTo ? _self.extendedTo : extendedTo // ignore: cast_nullable_to_non_nullable

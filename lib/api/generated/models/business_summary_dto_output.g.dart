@@ -6,9 +6,7 @@ part of 'business_summary_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_BusinessSummaryDtoOutput _$BusinessSummaryDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _BusinessSummaryDtoOutput(
+_BusinessSummaryDtoOutput _$BusinessSummaryDtoOutputFromJson(Map<String, dynamic> json) => _BusinessSummaryDtoOutput(
   id: json['id'] as String,
   name: json['name'] as String,
   phone: json['phone'] as String?,
@@ -22,9 +20,7 @@ _BusinessSummaryDtoOutput _$BusinessSummaryDtoOutputFromJson(
   supportAccessUntil: json['supportAccessUntil'] as String?,
 );
 
-Map<String, dynamic> _$BusinessSummaryDtoOutputToJson(
-  _BusinessSummaryDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$BusinessSummaryDtoOutputToJson(_BusinessSummaryDtoOutput instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'phone': instance.phone,

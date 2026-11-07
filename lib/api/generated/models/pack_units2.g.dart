@@ -12,9 +12,8 @@ _PackUnits2 _$PackUnits2FromJson(Map<String, dynamic> json) => _PackUnits2(
   size: json['size'],
 );
 
-Map<String, dynamic> _$PackUnits2ToJson(_PackUnits2 instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'sizeType': instance.sizeType,
-      'size': instance.size,
-    };
+Map<String, dynamic> _$PackUnits2ToJson(_PackUnits2 instance) => <String, dynamic>{
+  'name': instance.name,
+  'sizeType': instance.sizeType,
+  'size': instance.size,
+};

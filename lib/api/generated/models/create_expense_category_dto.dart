@@ -11,11 +11,9 @@ part 'create_expense_category_dto.g.dart';
 abstract class CreateExpenseCategoryDto with _$CreateExpenseCategoryDto {
   const factory CreateExpenseCategoryDto({
     required String name,
-    @Default(false)
-    bool allowedForGodown,
-    @Default(false)
-    bool allowedForAgent,
+    @Default(false) bool allowedForGodown,
+    @Default(false) bool allowedForAgent,
   }) = _CreateExpenseCategoryDto;
-  
+
   factory CreateExpenseCategoryDto.fromJson(Map<String, Object?> json) => _$CreateExpenseCategoryDtoFromJson(json);
 }

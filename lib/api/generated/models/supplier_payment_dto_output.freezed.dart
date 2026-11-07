@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SupplierPaymentDtoOutput {
 
- String get id; String get number; Supplier4 get supplier; DateTime get paymentDate; int get total; SupplierPaymentDtoOutputStatus get status; String? get notes; List<Splits> get splits; List<Allocations2> get allocations; int get unallocated; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; Supplier4 get supplier; String get paymentDate; int get total; SupplierPaymentDtoOutputStatus get status; String? get notes; List<Splits> get splits; List<Allocations2> get allocations; int get unallocated; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of SupplierPaymentDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SupplierPaymentDtoOutputCopyWith<$Res>  {
   factory $SupplierPaymentDtoOutputCopyWith(SupplierPaymentDtoOutput value, $Res Function(SupplierPaymentDtoOutput) _then) = _$SupplierPaymentDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, Supplier4 supplier, DateTime paymentDate, int total, SupplierPaymentDtoOutputStatus status, String? notes, List<Splits> splits, List<Allocations2> allocations, int unallocated, DateTime createdAt, String? cancelReason
+ String id, String number, Supplier4 supplier, String paymentDate, int total, SupplierPaymentDtoOutputStatus status, String? notes, List<Splits> splits, List<Allocations2> allocations, int unallocated, DateTime createdAt, String? cancelReason
 });
 
 
@@ -77,7 +77,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier4,paymentDate: null == paymentDate ? _self.paymentDate : paymentDate // ignore: cast_nullable_to_non_nullable
-as DateTime,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as String,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as SupplierPaymentDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,splits: null == splits ? _self.splits : splits // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier4 supplier,  DateTime paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier4 supplier,  String paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SupplierPaymentDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.paymentDate,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -200,7 +200,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.paymentDate,_that.tot
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier4 supplier,  DateTime paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier4 supplier,  String paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _SupplierPaymentDtoOutput():
 return $default(_that.id,_that.number,_that.supplier,_that.paymentDate,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -220,7 +220,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.paymentDate,_that.tot
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier4 supplier,  DateTime paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier4 supplier,  String paymentDate,  int total,  SupplierPaymentDtoOutputStatus status,  String? notes,  List<Splits> splits,  List<Allocations2> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _SupplierPaymentDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.paymentDate,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -241,7 +241,7 @@ class _SupplierPaymentDtoOutput implements SupplierPaymentDtoOutput {
 @override final  String id;
 @override final  String number;
 @override final  Supplier4 supplier;
-@override final  DateTime paymentDate;
+@override final  String paymentDate;
 @override final  int total;
 @override final  SupplierPaymentDtoOutputStatus status;
 @override final  String? notes;
@@ -298,7 +298,7 @@ abstract mixin class _$SupplierPaymentDtoOutputCopyWith<$Res> implements $Suppli
   factory _$SupplierPaymentDtoOutputCopyWith(_SupplierPaymentDtoOutput value, $Res Function(_SupplierPaymentDtoOutput) _then) = __$SupplierPaymentDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, Supplier4 supplier, DateTime paymentDate, int total, SupplierPaymentDtoOutputStatus status, String? notes, List<Splits> splits, List<Allocations2> allocations, int unallocated, DateTime createdAt, String? cancelReason
+ String id, String number, Supplier4 supplier, String paymentDate, int total, SupplierPaymentDtoOutputStatus status, String? notes, List<Splits> splits, List<Allocations2> allocations, int unallocated, DateTime createdAt, String? cancelReason
 });
 
 
@@ -321,7 +321,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier4,paymentDate: null == paymentDate ? _self.paymentDate : paymentDate // ignore: cast_nullable_to_non_nullable
-as DateTime,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as String,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as SupplierPaymentDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,splits: null == splits ? _self._splits : splits // ignore: cast_nullable_to_non_nullable

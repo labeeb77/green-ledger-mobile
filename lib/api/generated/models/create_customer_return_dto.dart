@@ -15,9 +15,9 @@ abstract class CreateCustomerReturnDto with _$CreateCustomerReturnDto {
     required String customerId,
     required List<Lines18> lines,
     String? billId,
-    DateTime? returnDate,
+    String? returnDate,
     String? notes,
   }) = _CreateCustomerReturnDto;
-  
+
   factory CreateCustomerReturnDto.fromJson(Map<String, Object?> json) => _$CreateCustomerReturnDtoFromJson(json);
 }

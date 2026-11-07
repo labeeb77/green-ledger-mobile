@@ -57,8 +57,8 @@ class _StockClient implements StockClient {
     int? limit = 50,
     Type2? type,
     Status3? status,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
@@ -66,8 +66,8 @@ class _StockClient implements StockClient {
       r'limit': limit,
       r'type': type?.toJson(),
       r'status': status?.toJson(),
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);
@@ -444,14 +444,11 @@ class _StockClient implements StockClient {
   @override
   Future<MovementsDtoOutput> stockControllerMovements({
     required String productId,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
-    };
+    final queryParameters = <String, dynamic>{r'from': from, r'to': to};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreatePurchaseBillDto {
 
- String get supplierId; List<Lines3> get lines; int get adjustment; DateTime? get billDate; DateTime? get dueDate; String? get supplierInvoiceNo; String? get notes;
+ String get supplierId; List<Lines3> get lines; int get adjustment; String? get billDate; String? get dueDate; String? get supplierInvoiceNo; String? get notes;
 /// Create a copy of CreatePurchaseBillDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreatePurchaseBillDtoCopyWith<$Res>  {
   factory $CreatePurchaseBillDtoCopyWith(CreatePurchaseBillDto value, $Res Function(CreatePurchaseBillDto) _then) = _$CreatePurchaseBillDtoCopyWithImpl;
 @useResult
 $Res call({
- String supplierId, List<Lines3> lines, int adjustment, DateTime? billDate, DateTime? dueDate, String? supplierInvoiceNo, String? notes
+ String supplierId, List<Lines3> lines, int adjustment, String? billDate, String? dueDate, String? supplierInvoiceNo, String? notes
 });
 
 
@@ -77,8 +77,8 @@ supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_n
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines3>,adjustment: null == adjustment ? _self.adjustment : adjustment // ignore: cast_nullable_to_non_nullable
 as int,billDate: freezed == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
+as String?,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String?,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -165,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines3> lines,  int adjustment,  DateTime? billDate,  DateTime? dueDate,  String? supplierInvoiceNo,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines3> lines,  int adjustment,  String? billDate,  String? dueDate,  String? supplierInvoiceNo,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreatePurchaseBillDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.adjustment,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.notes);case _:
@@ -186,7 +186,7 @@ return $default(_that.supplierId,_that.lines,_that.adjustment,_that.billDate,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines3> lines,  int adjustment,  DateTime? billDate,  DateTime? dueDate,  String? supplierInvoiceNo,  String? notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines3> lines,  int adjustment,  String? billDate,  String? dueDate,  String? supplierInvoiceNo,  String? notes)  $default,) {final _that = this;
 switch (_that) {
 case _CreatePurchaseBillDto():
 return $default(_that.supplierId,_that.lines,_that.adjustment,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.notes);case _:
@@ -206,7 +206,7 @@ return $default(_that.supplierId,_that.lines,_that.adjustment,_that.billDate,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines3> lines,  int adjustment,  DateTime? billDate,  DateTime? dueDate,  String? supplierInvoiceNo,  String? notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines3> lines,  int adjustment,  String? billDate,  String? dueDate,  String? supplierInvoiceNo,  String? notes)?  $default,) {final _that = this;
 switch (_that) {
 case _CreatePurchaseBillDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.adjustment,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.notes);case _:
@@ -233,8 +233,8 @@ class _CreatePurchaseBillDto implements CreatePurchaseBillDto {
 }
 
 @override@JsonKey() final  int adjustment;
-@override final  DateTime? billDate;
-@override final  DateTime? dueDate;
+@override final  String? billDate;
+@override final  String? dueDate;
 @override final  String? supplierInvoiceNo;
 @override final  String? notes;
 
@@ -273,7 +273,7 @@ abstract mixin class _$CreatePurchaseBillDtoCopyWith<$Res> implements $CreatePur
   factory _$CreatePurchaseBillDtoCopyWith(_CreatePurchaseBillDto value, $Res Function(_CreatePurchaseBillDto) _then) = __$CreatePurchaseBillDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String supplierId, List<Lines3> lines, int adjustment, DateTime? billDate, DateTime? dueDate, String? supplierInvoiceNo, String? notes
+ String supplierId, List<Lines3> lines, int adjustment, String? billDate, String? dueDate, String? supplierInvoiceNo, String? notes
 });
 
 
@@ -296,8 +296,8 @@ supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_n
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines3>,adjustment: null == adjustment ? _self.adjustment : adjustment // ignore: cast_nullable_to_non_nullable
 as int,billDate: freezed == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
+as String?,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String?,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

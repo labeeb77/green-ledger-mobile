@@ -6,9 +6,7 @@ part of 'money_account_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_MoneyAccountDtoOutput _$MoneyAccountDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _MoneyAccountDtoOutput(
+_MoneyAccountDtoOutput _$MoneyAccountDtoOutputFromJson(Map<String, dynamic> json) => _MoneyAccountDtoOutput(
   id: json['id'] as String,
   type: MoneyAccountDtoOutputType.fromJson(json['type'] as String),
   name: json['name'] as String,
@@ -24,9 +22,7 @@ _MoneyAccountDtoOutput _$MoneyAccountDtoOutputFromJson(
   active: json['active'] as bool,
 );
 
-Map<String, dynamic> _$MoneyAccountDtoOutputToJson(
-  _MoneyAccountDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$MoneyAccountDtoOutputToJson(_MoneyAccountDtoOutput instance) => <String, dynamic>{
   'id': instance.id,
   'type': instance.type,
   'name': instance.name,

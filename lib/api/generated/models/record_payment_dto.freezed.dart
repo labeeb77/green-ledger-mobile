@@ -17,7 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$RecordPaymentDto {
 
 /// Amount in paise (₹1 = 100)
- int get amount; RecordPaymentDtoMethod get method; DateTime? get paidOn; String? get reference; String? get notes; DateTime? get extendTo;
+ int get amount; RecordPaymentDtoMethod get method; String? get paidOn; String? get reference; String? get notes; DateTime? get extendTo;
 /// Create a copy of RecordPaymentDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -55,7 +55,7 @@ abstract mixin class $RecordPaymentDtoCopyWith<$Res>  {
   factory $RecordPaymentDtoCopyWith(RecordPaymentDto value, $Res Function(RecordPaymentDto) _then) = _$RecordPaymentDtoCopyWithImpl;
 @useResult
 $Res call({
- int amount, RecordPaymentDtoMethod method, DateTime? paidOn, String? reference, String? notes, DateTime? extendTo
+ int amount, RecordPaymentDtoMethod method, String? paidOn, String? reference, String? notes, DateTime? extendTo
 });
 
 
@@ -77,7 +77,7 @@ class _$RecordPaymentDtoCopyWithImpl<$Res>
 amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as RecordPaymentDtoMethod,paidOn: freezed == paidOn ? _self.paidOn : paidOn // ignore: cast_nullable_to_non_nullable
-as DateTime?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
+as String?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,extendTo: freezed == extendTo ? _self.extendTo : extendTo // ignore: cast_nullable_to_non_nullable
 as DateTime?,
@@ -165,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int amount,  RecordPaymentDtoMethod method,  DateTime? paidOn,  String? reference,  String? notes,  DateTime? extendTo)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int amount,  RecordPaymentDtoMethod method,  String? paidOn,  String? reference,  String? notes,  DateTime? extendTo)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecordPaymentDto() when $default != null:
 return $default(_that.amount,_that.method,_that.paidOn,_that.reference,_that.notes,_that.extendTo);case _:
@@ -186,7 +186,7 @@ return $default(_that.amount,_that.method,_that.paidOn,_that.reference,_that.not
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int amount,  RecordPaymentDtoMethod method,  DateTime? paidOn,  String? reference,  String? notes,  DateTime? extendTo)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int amount,  RecordPaymentDtoMethod method,  String? paidOn,  String? reference,  String? notes,  DateTime? extendTo)  $default,) {final _that = this;
 switch (_that) {
 case _RecordPaymentDto():
 return $default(_that.amount,_that.method,_that.paidOn,_that.reference,_that.notes,_that.extendTo);case _:
@@ -206,7 +206,7 @@ return $default(_that.amount,_that.method,_that.paidOn,_that.reference,_that.not
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int amount,  RecordPaymentDtoMethod method,  DateTime? paidOn,  String? reference,  String? notes,  DateTime? extendTo)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int amount,  RecordPaymentDtoMethod method,  String? paidOn,  String? reference,  String? notes,  DateTime? extendTo)?  $default,) {final _that = this;
 switch (_that) {
 case _RecordPaymentDto() when $default != null:
 return $default(_that.amount,_that.method,_that.paidOn,_that.reference,_that.notes,_that.extendTo);case _:
@@ -227,7 +227,7 @@ class _RecordPaymentDto implements RecordPaymentDto {
 /// Amount in paise (₹1 = 100)
 @override final  int amount;
 @override final  RecordPaymentDtoMethod method;
-@override final  DateTime? paidOn;
+@override final  String? paidOn;
 @override final  String? reference;
 @override final  String? notes;
 @override final  DateTime? extendTo;
@@ -267,7 +267,7 @@ abstract mixin class _$RecordPaymentDtoCopyWith<$Res> implements $RecordPaymentD
   factory _$RecordPaymentDtoCopyWith(_RecordPaymentDto value, $Res Function(_RecordPaymentDto) _then) = __$RecordPaymentDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int amount, RecordPaymentDtoMethod method, DateTime? paidOn, String? reference, String? notes, DateTime? extendTo
+ int amount, RecordPaymentDtoMethod method, String? paidOn, String? reference, String? notes, DateTime? extendTo
 });
 
 
@@ -289,7 +289,7 @@ class __$RecordPaymentDtoCopyWithImpl<$Res>
 amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as RecordPaymentDtoMethod,paidOn: freezed == paidOn ? _self.paidOn : paidOn // ignore: cast_nullable_to_non_nullable
-as DateTime?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
+as String?,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,extendTo: freezed == extendTo ? _self.extendTo : extendTo // ignore: cast_nullable_to_non_nullable
 as DateTime?,

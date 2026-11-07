@@ -9,11 +9,8 @@ part 'allocations5.g.dart';
 
 @Freezed()
 abstract class Allocations5 with _$Allocations5 {
-  const factory Allocations5({
-    required String receiptId,
-    required String receiptNumber,
-    required int amount,
-  }) = _Allocations5;
-  
+  const factory Allocations5({required String receiptId, required String receiptNumber, required int amount}) =
+      _Allocations5;
+
   factory Allocations5.fromJson(Map<String, Object?> json) => _$Allocations5FromJson(json);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateCustomerReturnDto {
 
- String get customerId; List<Lines18> get lines; String? get billId; DateTime? get returnDate; String? get notes;
+ String get customerId; List<Lines18> get lines; String? get billId; String? get returnDate; String? get notes;
 /// Create a copy of CreateCustomerReturnDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateCustomerReturnDtoCopyWith<$Res>  {
   factory $CreateCustomerReturnDtoCopyWith(CreateCustomerReturnDto value, $Res Function(CreateCustomerReturnDto) _then) = _$CreateCustomerReturnDtoCopyWithImpl;
 @useResult
 $Res call({
- String customerId, List<Lines18> lines, String? billId, DateTime? returnDate, String? notes
+ String customerId, List<Lines18> lines, String? billId, String? returnDate, String? notes
 });
 
 
@@ -77,7 +77,7 @@ customerId: null == customerId ? _self.customerId : customerId // ignore: cast_n
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines18>,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
 as String?,returnDate: freezed == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines18> lines,  String? billId,  DateTime? returnDate,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines18> lines,  String? billId,  String? returnDate,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateCustomerReturnDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.billId,_that.returnDate,_that.notes);case _:
@@ -184,7 +184,7 @@ return $default(_that.customerId,_that.lines,_that.billId,_that.returnDate,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines18> lines,  String? billId,  DateTime? returnDate,  String? notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines18> lines,  String? billId,  String? returnDate,  String? notes)  $default,) {final _that = this;
 switch (_that) {
 case _CreateCustomerReturnDto():
 return $default(_that.customerId,_that.lines,_that.billId,_that.returnDate,_that.notes);case _:
@@ -204,7 +204,7 @@ return $default(_that.customerId,_that.lines,_that.billId,_that.returnDate,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines18> lines,  String? billId,  DateTime? returnDate,  String? notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines18> lines,  String? billId,  String? returnDate,  String? notes)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateCustomerReturnDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.billId,_that.returnDate,_that.notes);case _:
@@ -231,7 +231,7 @@ class _CreateCustomerReturnDto implements CreateCustomerReturnDto {
 }
 
 @override final  String? billId;
-@override final  DateTime? returnDate;
+@override final  String? returnDate;
 @override final  String? notes;
 
 /// Create a copy of CreateCustomerReturnDto
@@ -269,7 +269,7 @@ abstract mixin class _$CreateCustomerReturnDtoCopyWith<$Res> implements $CreateC
   factory _$CreateCustomerReturnDtoCopyWith(_CreateCustomerReturnDto value, $Res Function(_CreateCustomerReturnDto) _then) = __$CreateCustomerReturnDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String customerId, List<Lines18> lines, String? billId, DateTime? returnDate, String? notes
+ String customerId, List<Lines18> lines, String? billId, String? returnDate, String? notes
 });
 
 
@@ -292,7 +292,7 @@ customerId: null == customerId ? _self.customerId : customerId // ignore: cast_n
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines18>,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
 as String?,returnDate: freezed == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

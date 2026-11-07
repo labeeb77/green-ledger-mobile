@@ -16,6 +16,7 @@ abstract class CustomerReceiptPageDtoOutput with _$CustomerReceiptPageDtoOutput 
     required int total,
     required String? nextCursor,
   }) = _CustomerReceiptPageDtoOutput;
-  
-  factory CustomerReceiptPageDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerReceiptPageDtoOutputFromJson(json);
+
+  factory CustomerReceiptPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$CustomerReceiptPageDtoOutputFromJson(json);
 }

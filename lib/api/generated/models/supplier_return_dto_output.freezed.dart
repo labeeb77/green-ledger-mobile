@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SupplierReturnDtoOutput {
 
- String get id; String get number; Supplier5 get supplier; DateTime get returnDate; Bill? get bill; int get total; String? get reason; SupplierReturnDtoOutputStatus get status; List<Lines5> get lines; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; Supplier5 get supplier; String get returnDate; Bill? get bill; int get total; String? get reason; SupplierReturnDtoOutputStatus get status; List<Lines5> get lines; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of SupplierReturnDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SupplierReturnDtoOutputCopyWith<$Res>  {
   factory $SupplierReturnDtoOutputCopyWith(SupplierReturnDtoOutput value, $Res Function(SupplierReturnDtoOutput) _then) = _$SupplierReturnDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, Supplier5 supplier, DateTime returnDate, Bill? bill, int total, String? reason, SupplierReturnDtoOutputStatus status, List<Lines5> lines, DateTime createdAt, String? cancelReason
+ String id, String number, Supplier5 supplier, String returnDate, Bill? bill, int total, String? reason, SupplierReturnDtoOutputStatus status, List<Lines5> lines, DateTime createdAt, String? cancelReason
 });
 
 
@@ -77,7 +77,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier5,returnDate: null == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
+as String,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
 as Bill?,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier5 supplier,  DateTime returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier5 supplier,  String returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SupplierReturnDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.returnDate,_that.bill,_that.total,_that.reason,_that.status,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -211,7 +211,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.returnDate,_that.bill
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier5 supplier,  DateTime returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier5 supplier,  String returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _SupplierReturnDtoOutput():
 return $default(_that.id,_that.number,_that.supplier,_that.returnDate,_that.bill,_that.total,_that.reason,_that.status,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -231,7 +231,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.returnDate,_that.bill
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier5 supplier,  DateTime returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier5 supplier,  String returnDate,  Bill? bill,  int total,  String? reason,  SupplierReturnDtoOutputStatus status,  List<Lines5> lines,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _SupplierReturnDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.returnDate,_that.bill,_that.total,_that.reason,_that.status,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -252,7 +252,7 @@ class _SupplierReturnDtoOutput implements SupplierReturnDtoOutput {
 @override final  String id;
 @override final  String number;
 @override final  Supplier5 supplier;
-@override final  DateTime returnDate;
+@override final  String returnDate;
 @override final  Bill? bill;
 @override final  int total;
 @override final  String? reason;
@@ -302,7 +302,7 @@ abstract mixin class _$SupplierReturnDtoOutputCopyWith<$Res> implements $Supplie
   factory _$SupplierReturnDtoOutputCopyWith(_SupplierReturnDtoOutput value, $Res Function(_SupplierReturnDtoOutput) _then) = __$SupplierReturnDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, Supplier5 supplier, DateTime returnDate, Bill? bill, int total, String? reason, SupplierReturnDtoOutputStatus status, List<Lines5> lines, DateTime createdAt, String? cancelReason
+ String id, String number, Supplier5 supplier, String returnDate, Bill? bill, int total, String? reason, SupplierReturnDtoOutputStatus status, List<Lines5> lines, DateTime createdAt, String? cancelReason
 });
 
 
@@ -325,7 +325,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier5,returnDate: null == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
+as String,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
 as Bill?,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable

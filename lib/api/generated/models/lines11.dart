@@ -9,10 +9,7 @@ part 'lines11.g.dart';
 
 @Freezed()
 abstract class Lines11 with _$Lines11 {
-  const factory Lines11({
-    required String productId,
-    required dynamic countedQuantity,
-  }) = _Lines11;
-  
+  const factory Lines11({required String productId, required dynamic countedQuantity}) = _Lines11;
+
   factory Lines11.fromJson(Map<String, Object?> json) => _$Lines11FromJson(json);
 }

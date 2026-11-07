@@ -9,9 +9,7 @@ part 'create_grade_dto.g.dart';
 
 @Freezed()
 abstract class CreateGradeDto with _$CreateGradeDto {
-  const factory CreateGradeDto({
-    required String name,
-  }) = _CreateGradeDto;
-  
+  const factory CreateGradeDto({required String name}) = _CreateGradeDto;
+
   factory CreateGradeDto.fromJson(Map<String, Object?> json) => _$CreateGradeDtoFromJson(json);
 }

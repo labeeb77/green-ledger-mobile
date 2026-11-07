@@ -21,14 +21,10 @@ abstract class PricingClient {
   factory PricingClient(Dio dio, {String? baseUrl}) = _PricingClient;
 
   @GET('/api/v1/pricing/daily-rates')
-  Future<DailyRatesDtoOutput> pricingControllerDailyRates({
-    @Query('date') DateTime? date,
-  });
+  Future<DailyRatesDtoOutput> pricingControllerDailyRates({@Query('date') String? date});
 
   @PUT('/api/v1/pricing/daily-rates')
-  Future<DailyRatesDtoOutput> pricingControllerSetDailyRates({
-    @Body() required SetDailyRatesDto body,
-  });
+  Future<DailyRatesDtoOutput> pricingControllerSetDailyRates({@Body() required SetDailyRatesDto body});
 
   @GET('/api/v1/pricing/price-groups')
   Future<List<PriceGroupDtoOutput>> pricingControllerPriceGroups();
@@ -51,13 +47,11 @@ abstract class PricingClient {
     @Query('productId') required String productId,
     @Query('customerId') String? customerId,
     @Query('packUnitId') String? packUnitId,
-    @Query('date') DateTime? date,
+    @Query('date') String? date,
   });
 
   @GET('/api/v1/customers/{customerId}/rates')
-  Future<List<CustomerRateDtoOutput>> customerRatesControllerList({
-    @Path('customerId') required String customerId,
-  });
+  Future<List<CustomerRateDtoOutput>> customerRatesControllerList({@Path('customerId') required String customerId});
 
   @PUT('/api/v1/customers/{customerId}/rates/{productId}')
   Future<List<CustomerRateDtoOutput>> customerRatesControllerSet({

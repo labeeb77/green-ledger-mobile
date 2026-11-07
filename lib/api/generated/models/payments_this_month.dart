@@ -9,10 +9,7 @@ part 'payments_this_month.g.dart';
 
 @Freezed()
 abstract class PaymentsThisMonth with _$PaymentsThisMonth {
-  const factory PaymentsThisMonth({
-    required int count,
-    required int amount,
-  }) = _PaymentsThisMonth;
-  
+  const factory PaymentsThisMonth({required int count, required int amount}) = _PaymentsThisMonth;
+
   factory PaymentsThisMonth.fromJson(Map<String, Object?> json) => _$PaymentsThisMonthFromJson(json);
 }

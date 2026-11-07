@@ -9,5 +9,7 @@ part of 'confirmed_by.dart';
 _ConfirmedBy _$ConfirmedByFromJson(Map<String, dynamic> json) =>
     _ConfirmedBy(id: json['id'] as String, name: json['name'] as String);
 
-Map<String, dynamic> _$ConfirmedByToJson(_ConfirmedBy instance) =>
-    <String, dynamic>{'id': instance.id, 'name': instance.name};
+Map<String, dynamic> _$ConfirmedByToJson(_ConfirmedBy instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+};

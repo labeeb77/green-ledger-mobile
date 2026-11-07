@@ -27,6 +27,6 @@ abstract class Lines17 with _$Lines17 {
     required InspectedBy? inspectedBy,
     required DateTime? inspectedAt,
   }) = _Lines17;
-  
+
   factory Lines17.fromJson(Map<String, Object?> json) => _$Lines17FromJson(json);
 }

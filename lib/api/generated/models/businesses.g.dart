@@ -14,11 +14,10 @@ _Businesses _$BusinessesFromJson(Map<String, dynamic> json) => _Businesses(
   suspended: (json['suspended'] as num).toInt(),
 );
 
-Map<String, dynamic> _$BusinessesToJson(_Businesses instance) =>
-    <String, dynamic>{
-      'total': instance.total,
-      'active': instance.active,
-      'trial': instance.trial,
-      'expired': instance.expired,
-      'suspended': instance.suspended,
-    };
+Map<String, dynamic> _$BusinessesToJson(_Businesses instance) => <String, dynamic>{
+  'total': instance.total,
+  'active': instance.active,
+  'trial': instance.trial,
+  'expired': instance.expired,
+  'suspended': instance.suspended,
+};

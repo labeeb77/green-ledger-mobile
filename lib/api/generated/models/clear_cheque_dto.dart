@@ -9,10 +9,7 @@ part 'clear_cheque_dto.g.dart';
 
 @Freezed()
 abstract class ClearChequeDto with _$ClearChequeDto {
-  const factory ClearChequeDto({
-    required String accountId,
-    String? note,
-  }) = _ClearChequeDto;
-  
+  const factory ClearChequeDto({required String accountId, String? note}) = _ClearChequeDto;
+
   factory ClearChequeDto.fromJson(Map<String, Object?> json) => _$ClearChequeDtoFromJson(json);
 }

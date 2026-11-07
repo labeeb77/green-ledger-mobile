@@ -11,10 +11,8 @@ part 'order_page_dto_output.g.dart';
 
 @Freezed()
 abstract class OrderPageDtoOutput with _$OrderPageDtoOutput {
-  const factory OrderPageDtoOutput({
-    required List<OrderDtoOutput> items,
-    required String? nextCursor,
-  }) = _OrderPageDtoOutput;
-  
+  const factory OrderPageDtoOutput({required List<OrderDtoOutput> items, required String? nextCursor}) =
+      _OrderPageDtoOutput;
+
   factory OrderPageDtoOutput.fromJson(Map<String, Object?> json) => _$OrderPageDtoOutputFromJson(json);
 }

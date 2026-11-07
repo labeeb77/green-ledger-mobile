@@ -9,9 +9,7 @@ part 'bounce_cheque_dto.g.dart';
 
 @Freezed()
 abstract class BounceChequeDto with _$BounceChequeDto {
-  const factory BounceChequeDto({
-    required String reason,
-  }) = _BounceChequeDto;
-  
+  const factory BounceChequeDto({required String reason}) = _BounceChequeDto;
+
   factory BounceChequeDto.fromJson(Map<String, Object?> json) => _$BounceChequeDtoFromJson(json);
 }

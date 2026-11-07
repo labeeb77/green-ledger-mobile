@@ -19,8 +19,8 @@ abstract class Splits4 with _$Splits4 {
     String? screenshotFileId,
     String? chequeNo,
     String? chequeBank,
-    DateTime? chequeDate,
+    String? chequeDate,
   }) = _Splits4;
-  
+
   factory Splits4.fromJson(Map<String, Object?> json) => _$Splits4FromJson(json);
 }

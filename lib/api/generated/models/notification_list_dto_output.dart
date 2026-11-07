@@ -11,10 +11,8 @@ part 'notification_list_dto_output.g.dart';
 
 @Freezed()
 abstract class NotificationListDtoOutput with _$NotificationListDtoOutput {
-  const factory NotificationListDtoOutput({
-    required int unread,
-    required List<Items2> items,
-  }) = _NotificationListDtoOutput;
-  
+  const factory NotificationListDtoOutput({required int unread, required List<Items2> items}) =
+      _NotificationListDtoOutput;
+
   factory NotificationListDtoOutput.fromJson(Map<String, Object?> json) => _$NotificationListDtoOutputFromJson(json);
 }

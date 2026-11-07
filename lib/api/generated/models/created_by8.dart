@@ -9,10 +9,7 @@ part 'created_by8.g.dart';
 
 @Freezed()
 abstract class CreatedBy8 with _$CreatedBy8 {
-  const factory CreatedBy8({
-    required String id,
-    required String name,
-  }) = _CreatedBy8;
-  
+  const factory CreatedBy8({required String id, required String name}) = _CreatedBy8;
+
   factory CreatedBy8.fromJson(Map<String, Object?> json) => _$CreatedBy8FromJson(json);
 }

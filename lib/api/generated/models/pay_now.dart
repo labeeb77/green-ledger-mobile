@@ -19,8 +19,8 @@ abstract class PayNow with _$PayNow {
     String? screenshotFileId,
     String? chequeNo,
     String? chequeBank,
-    DateTime? chequeDate,
+    String? chequeDate,
   }) = _PayNow;
-  
+
   factory PayNow.fromJson(Map<String, Object?> json) => _$PayNowFromJson(json);
 }

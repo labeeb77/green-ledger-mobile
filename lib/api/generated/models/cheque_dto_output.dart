@@ -27,6 +27,6 @@ abstract class ChequeDtoOutput with _$ChequeDtoOutput {
     required DateTime? decidedAt,
     required String? note,
   }) = _ChequeDtoOutput;
-  
+
   factory ChequeDtoOutput.fromJson(Map<String, Object?> json) => _$ChequeDtoOutputFromJson(json);
 }

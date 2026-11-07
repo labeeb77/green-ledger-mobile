@@ -23,6 +23,6 @@ abstract class Lines7 with _$Lines7 {
     required int? unitCost,
     required int? value,
   }) = _Lines7;
-  
+
   factory Lines7.fromJson(Map<String, Object?> json) => _$Lines7FromJson(json);
 }

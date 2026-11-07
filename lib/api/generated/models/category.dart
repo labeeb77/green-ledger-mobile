@@ -9,10 +9,7 @@ part 'category.g.dart';
 
 @Freezed()
 abstract class Category with _$Category {
-  const factory Category({
-    required String id,
-    required String name,
-  }) = _Category;
-  
+  const factory Category({required String id, required String name}) = _Category;
+
   factory Category.fromJson(Map<String, Object?> json) => _$CategoryFromJson(json);
 }

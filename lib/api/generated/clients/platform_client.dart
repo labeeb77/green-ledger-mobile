@@ -45,9 +45,7 @@ abstract class PlatformClient {
   });
 
   @GET('/api/v1/platform/businesses/{id}/payments')
-  Future<List<SubscriptionPaymentDtoOutput>> platformControllerPayments({
-    @Path('id') required String id,
-  });
+  Future<List<SubscriptionPaymentDtoOutput>> platformControllerPayments({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/platform/businesses/{id}/payments')

@@ -6,9 +6,7 @@ part of 'business_settings_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_BusinessSettingsDtoOutput _$BusinessSettingsDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _BusinessSettingsDtoOutput(
+_BusinessSettingsDtoOutput _$BusinessSettingsDtoOutputFromJson(Map<String, dynamic> json) => _BusinessSettingsDtoOutput(
   businessId: json['businessId'] as String,
   name: json['name'] as String,
   phone: json['phone'] as String?,
@@ -16,18 +14,14 @@ _BusinessSettingsDtoOutput _$BusinessSettingsDtoOutputFromJson(
   billPrefix: json['billPrefix'] as String,
   receiptPrefix: json['receiptPrefix'] as String,
   goodsReceiptPrefix: json['goodsReceiptPrefix'] as String,
-  billFormat: BusinessSettingsDtoOutputBillFormat.fromJson(
-    json['billFormat'] as String,
-  ),
+  billFormat: BusinessSettingsDtoOutputBillFormat.fromJson(json['billFormat'] as String),
   billFooter: json['billFooter'] as String?,
   wastageApprovalThreshold: (json['wastageApprovalThreshold'] as num).toInt(),
   logoFileId: json['logoFileId'] as String?,
   logoUrl: json['logoUrl'] as String?,
 );
 
-Map<String, dynamic> _$BusinessSettingsDtoOutputToJson(
-  _BusinessSettingsDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$BusinessSettingsDtoOutputToJson(_BusinessSettingsDtoOutput instance) => <String, dynamic>{
   'businessId': instance.businessId,
   'name': instance.name,
   'phone': instance.phone,

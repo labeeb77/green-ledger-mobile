@@ -19,6 +19,6 @@ abstract class Allocations with _$Allocations {
     required String billNumber,
     required int amount,
   }) = _Allocations;
-  
+
   factory Allocations.fromJson(Map<String, Object?> json) => _$AllocationsFromJson(json);
 }

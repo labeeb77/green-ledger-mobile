@@ -11,10 +11,7 @@ part 'link3.g.dart';
 
 @Freezed()
 abstract class Link3 with _$Link3 {
-  const factory Link3({
-    required Report report,
-    required String? groupBy,
-  }) = _Link3;
-  
+  const factory Link3({required Report report, required String? groupBy}) = _Link3;
+
   factory Link3.fromJson(Map<String, Object?> json) => _$Link3FromJson(json);
 }

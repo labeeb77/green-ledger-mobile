@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnverifiedSplitDtoOutput {
 
- String get splitId; String get receiptId; String get receiptNumber; DateTime get receiptDate; Customer4 get customer; UnverifiedSplitDtoOutputMethod get method; Account3 get account; int get amount; String? get reference;
+ String get splitId; String get receiptId; String get receiptNumber; String get receiptDate; Customer4 get customer; UnverifiedSplitDtoOutputMethod get method; Account3 get account; int get amount; String? get reference;
 /// Create a copy of UnverifiedSplitDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $UnverifiedSplitDtoOutputCopyWith<$Res>  {
   factory $UnverifiedSplitDtoOutputCopyWith(UnverifiedSplitDtoOutput value, $Res Function(UnverifiedSplitDtoOutput) _then) = _$UnverifiedSplitDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String splitId, String receiptId, String receiptNumber, DateTime receiptDate, Customer4 customer, UnverifiedSplitDtoOutputMethod method, Account3 account, int amount, String? reference
+ String splitId, String receiptId, String receiptNumber, String receiptDate, Customer4 customer, UnverifiedSplitDtoOutputMethod method, Account3 account, int amount, String? reference
 });
 
 
@@ -77,7 +77,7 @@ splitId: null == splitId ? _self.splitId : splitId // ignore: cast_nullable_to_n
 as String,receiptId: null == receiptId ? _self.receiptId : receiptId // ignore: cast_nullable_to_non_nullable
 as String,receiptNumber: null == receiptNumber ? _self.receiptNumber : receiptNumber // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer4,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as UnverifiedSplitDtoOutputMethod,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as Account3,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String splitId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String splitId,  String receiptId,  String receiptNumber,  String receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnverifiedSplitDtoOutput() when $default != null:
 return $default(_that.splitId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.customer,_that.method,_that.account,_that.amount,_that.reference);case _:
@@ -206,7 +206,7 @@ return $default(_that.splitId,_that.receiptId,_that.receiptNumber,_that.receiptD
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String splitId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String splitId,  String receiptId,  String receiptNumber,  String receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)  $default,) {final _that = this;
 switch (_that) {
 case _UnverifiedSplitDtoOutput():
 return $default(_that.splitId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.customer,_that.method,_that.account,_that.amount,_that.reference);case _:
@@ -226,7 +226,7 @@ return $default(_that.splitId,_that.receiptId,_that.receiptNumber,_that.receiptD
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String splitId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String splitId,  String receiptId,  String receiptNumber,  String receiptDate,  Customer4 customer,  UnverifiedSplitDtoOutputMethod method,  Account3 account,  int amount,  String? reference)?  $default,) {final _that = this;
 switch (_that) {
 case _UnverifiedSplitDtoOutput() when $default != null:
 return $default(_that.splitId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.customer,_that.method,_that.account,_that.amount,_that.reference);case _:
@@ -247,7 +247,7 @@ class _UnverifiedSplitDtoOutput implements UnverifiedSplitDtoOutput {
 @override final  String splitId;
 @override final  String receiptId;
 @override final  String receiptNumber;
-@override final  DateTime receiptDate;
+@override final  String receiptDate;
 @override final  Customer4 customer;
 @override final  UnverifiedSplitDtoOutputMethod method;
 @override final  Account3 account;
@@ -289,7 +289,7 @@ abstract mixin class _$UnverifiedSplitDtoOutputCopyWith<$Res> implements $Unveri
   factory _$UnverifiedSplitDtoOutputCopyWith(_UnverifiedSplitDtoOutput value, $Res Function(_UnverifiedSplitDtoOutput) _then) = __$UnverifiedSplitDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String splitId, String receiptId, String receiptNumber, DateTime receiptDate, Customer4 customer, UnverifiedSplitDtoOutputMethod method, Account3 account, int amount, String? reference
+ String splitId, String receiptId, String receiptNumber, String receiptDate, Customer4 customer, UnverifiedSplitDtoOutputMethod method, Account3 account, int amount, String? reference
 });
 
 
@@ -312,7 +312,7 @@ splitId: null == splitId ? _self.splitId : splitId // ignore: cast_nullable_to_n
 as String,receiptId: null == receiptId ? _self.receiptId : receiptId // ignore: cast_nullable_to_non_nullable
 as String,receiptNumber: null == receiptNumber ? _self.receiptNumber : receiptNumber // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer4,method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
 as UnverifiedSplitDtoOutputMethod,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as Account3,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable

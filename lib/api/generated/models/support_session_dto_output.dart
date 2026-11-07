@@ -16,6 +16,6 @@ abstract class SupportSessionDtoOutput with _$SupportSessionDtoOutput {
     required DateTime expiresAt,
     required Business3 business,
   }) = _SupportSessionDtoOutput;
-  
+
   factory SupportSessionDtoOutput.fromJson(Map<String, Object?> json) => _$SupportSessionDtoOutputFromJson(json);
 }

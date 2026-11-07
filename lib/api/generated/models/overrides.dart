@@ -11,10 +11,7 @@ part 'overrides.g.dart';
 
 @Freezed()
 abstract class Overrides with _$Overrides {
-  const factory Overrides({
-    required String permission,
-    required Level level,
-  }) = _Overrides;
-  
+  const factory Overrides({required String permission, required Level level}) = _Overrides;
+
   factory Overrides.fromJson(Map<String, Object?> json) => _$OverridesFromJson(json);
 }

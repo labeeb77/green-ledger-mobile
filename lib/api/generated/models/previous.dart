@@ -9,10 +9,7 @@ part 'previous.g.dart';
 
 @Freezed()
 abstract class Previous with _$Previous {
-  const factory Previous({
-    required int rate,
-    required DateTime date,
-  }) = _Previous;
-  
+  const factory Previous({required int rate, required String date}) = _Previous;
+
   factory Previous.fromJson(Map<String, Object?> json) => _$PreviousFromJson(json);
 }

@@ -9,9 +9,7 @@ part of 'lines14.dart';
 _Lines14 _$Lines14FromJson(Map<String, dynamic> json) => _Lines14(
   id: json['id'] as String,
   product: Product9.fromJson(json['product'] as Map<String, dynamic>),
-  packUnit: json['packUnit'] == null
-      ? null
-      : PackUnit6.fromJson(json['packUnit'] as Map<String, dynamic>),
+  packUnit: json['packUnit'] == null ? null : PackUnit6.fromJson(json['packUnit'] as Map<String, dynamic>),
   packCount: json['packCount'] as String?,
   quantity: json['quantity'] as String,
   dispatchedQuantity: json['dispatchedQuantity'] as String,

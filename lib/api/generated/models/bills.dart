@@ -9,11 +9,7 @@ part 'bills.g.dart';
 
 @Freezed()
 abstract class Bills with _$Bills {
-  const factory Bills({
-    required String id,
-    required String? number,
-    required int? total,
-  }) = _Bills;
-  
+  const factory Bills({required String id, required String? number, required int? total}) = _Bills;
+
   factory Bills.fromJson(Map<String, Object?> json) => _$BillsFromJson(json);
 }

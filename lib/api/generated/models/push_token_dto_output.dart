@@ -9,9 +9,7 @@ part 'push_token_dto_output.g.dart';
 
 @Freezed()
 abstract class PushTokenDtoOutput with _$PushTokenDtoOutput {
-  const factory PushTokenDtoOutput({
-    required String id,
-  }) = _PushTokenDtoOutput;
-  
+  const factory PushTokenDtoOutput({required String id}) = _PushTokenDtoOutput;
+
   factory PushTokenDtoOutput.fromJson(Map<String, Object?> json) => _$PushTokenDtoOutputFromJson(json);
 }

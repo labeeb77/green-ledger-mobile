@@ -11,10 +11,8 @@ part 'cancel_result_dto_output.g.dart';
 
 @Freezed()
 abstract class CancelResultDtoOutput with _$CancelResultDtoOutput {
-  const factory CancelResultDtoOutput({
-    required CancelResultDtoOutputStatus status,
-    String? approvalId,
-  }) = _CancelResultDtoOutput;
-  
+  const factory CancelResultDtoOutput({required CancelResultDtoOutputStatus status, String? approvalId}) =
+      _CancelResultDtoOutput;
+
   factory CancelResultDtoOutput.fromJson(Map<String, Object?> json) => _$CancelResultDtoOutputFromJson(json);
 }

@@ -9,9 +9,7 @@ part 'approval_count_dto_output.g.dart';
 
 @Freezed()
 abstract class ApprovalCountDtoOutput with _$ApprovalCountDtoOutput {
-  const factory ApprovalCountDtoOutput({
-    required int pending,
-  }) = _ApprovalCountDtoOutput;
-  
+  const factory ApprovalCountDtoOutput({required int pending}) = _ApprovalCountDtoOutput;
+
   factory ApprovalCountDtoOutput.fromJson(Map<String, Object?> json) => _$ApprovalCountDtoOutputFromJson(json);
 }

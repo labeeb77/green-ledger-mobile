@@ -54,20 +54,13 @@ abstract class AuthClient {
 
   /// [xClient] - Send "web" to receive the refresh token as an httpOnly cookie
   @GET('/api/v1/auth/me')
-  Future<MeDtoOutput> authControllerMe({
-    @Header('X-Client') String? xClient,
-  });
+  Future<MeDtoOutput> authControllerMe({@Header('X-Client') String? xClient});
 
   /// [xClient] - Send "web" to receive the refresh token as an httpOnly cookie
   @GET('/api/v1/auth/devices')
-  Future<List<DeviceDtoOutput>> authControllerDevices({
-    @Header('X-Client') String? xClient,
-  });
+  Future<List<DeviceDtoOutput>> authControllerDevices({@Header('X-Client') String? xClient});
 
   /// [xClient] - Send "web" to receive the refresh token as an httpOnly cookie
   @DELETE('/api/v1/auth/devices/{id}')
-  Future<OkDtoOutput> authControllerRevokeDevice({
-    @Path('id') required String id,
-    @Header('X-Client') String? xClient,
-  });
+  Future<OkDtoOutput> authControllerRevokeDevice({@Path('id') required String id, @Header('X-Client') String? xClient});
 }

@@ -12,13 +12,14 @@ abstract class SubscriptionPaymentDtoOutput with _$SubscriptionPaymentDtoOutput 
   const factory SubscriptionPaymentDtoOutput({
     required String id,
     required int amount,
-    required DateTime paidOn,
+    required String paidOn,
     required String method,
     required String? reference,
     required String? notes,
     required String? extendedTo,
     required DateTime createdAt,
   }) = _SubscriptionPaymentDtoOutput;
-  
-  factory SubscriptionPaymentDtoOutput.fromJson(Map<String, Object?> json) => _$SubscriptionPaymentDtoOutputFromJson(json);
+
+  factory SubscriptionPaymentDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$SubscriptionPaymentDtoOutputFromJson(json);
 }

@@ -11,11 +11,7 @@ part 'columns.g.dart';
 
 @Freezed()
 abstract class Columns with _$Columns {
-  const factory Columns({
-    required String key,
-    required String label,
-    required Kind3 kind,
-  }) = _Columns;
-  
+  const factory Columns({required String key, required String label, required Kind3 kind}) = _Columns;
+
   factory Columns.fromJson(Map<String, Object?> json) => _$ColumnsFromJson(json);
 }

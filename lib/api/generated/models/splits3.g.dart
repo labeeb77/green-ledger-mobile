@@ -14,9 +14,7 @@ _Splits3 _$Splits3FromJson(Map<String, dynamic> json) => _Splits3(
   reference: json['reference'] as String?,
   screenshotUrl: json['screenshotUrl'] as String?,
   verified: json['verified'] as bool,
-  cheque: json['cheque'] == null
-      ? null
-      : Cheque.fromJson(json['cheque'] as Map<String, dynamic>),
+  cheque: json['cheque'] == null ? null : Cheque.fromJson(json['cheque'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$Splits3ToJson(_Splits3 instance) => <String, dynamic>{

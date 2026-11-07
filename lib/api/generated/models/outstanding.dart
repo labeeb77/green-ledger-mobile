@@ -11,12 +11,8 @@ part 'outstanding.g.dart';
 
 @Freezed()
 abstract class Outstanding with _$Outstanding {
-  const factory Outstanding({
-    required int total,
-    required int overdue,
-    required int customers,
-    required Link3 link,
-  }) = _Outstanding;
-  
+  const factory Outstanding({required int total, required int overdue, required int customers, required Link3 link}) =
+      _Outstanding;
+
   factory Outstanding.fromJson(Map<String, Object?> json) => _$OutstandingFromJson(json);
 }

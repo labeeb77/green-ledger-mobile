@@ -18,6 +18,6 @@ abstract class Items3 with _$Items3 {
     required bool read,
     required DateTime createdAt,
   }) = _Items3;
-  
+
   factory Items3.fromJson(Map<String, Object?> json) => _$Items3FromJson(json);
 }

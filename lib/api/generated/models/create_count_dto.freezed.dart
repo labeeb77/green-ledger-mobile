@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateCountDto {
 
- DateTime? get countDate; List<String>? get productIds; String? get notes;
+ String? get countDate; List<String>? get productIds; String? get notes;
 /// Create a copy of CreateCountDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateCountDtoCopyWith<$Res>  {
   factory $CreateCountDtoCopyWith(CreateCountDto value, $Res Function(CreateCountDto) _then) = _$CreateCountDtoCopyWithImpl;
 @useResult
 $Res call({
- DateTime? countDate, List<String>? productIds, String? notes
+ String? countDate, List<String>? productIds, String? notes
 });
 
 
@@ -74,7 +74,7 @@ class _$CreateCountDtoCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? countDate = freezed,Object? productIds = freezed,Object? notes = freezed,}) {
   return _then(CreateCountDto(
 countDate: freezed == countDate ? _self.countDate : countDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,productIds: freezed == productIds ? _self.productIds : productIds // ignore: cast_nullable_to_non_nullable
+as String?,productIds: freezed == productIds ? _self.productIds : productIds // ignore: cast_nullable_to_non_nullable
 as List<String>?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime? countDate,  List<String>? productIds,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? countDate,  List<String>? productIds,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateCountDto() when $default != null:
 return $default(_that.countDate,_that.productIds,_that.notes);case _:
@@ -182,7 +182,7 @@ return $default(_that.countDate,_that.productIds,_that.notes);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime? countDate,  List<String>? productIds,  String? notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? countDate,  List<String>? productIds,  String? notes)  $default,) {final _that = this;
 switch (_that) {
 case _CreateCountDto():
 return $default(_that.countDate,_that.productIds,_that.notes);case _:
@@ -202,7 +202,7 @@ return $default(_that.countDate,_that.productIds,_that.notes);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime? countDate,  List<String>? productIds,  String? notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? countDate,  List<String>? productIds,  String? notes)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateCountDto() when $default != null:
 return $default(_that.countDate,_that.productIds,_that.notes);case _:
@@ -220,7 +220,7 @@ class _CreateCountDto implements CreateCountDto {
   const _CreateCountDto({this.countDate,  List<String>? productIds, this.notes}): _productIds = productIds;
   factory _CreateCountDto.fromJson(Map<String, dynamic> json) => _$CreateCountDtoFromJson(json);
 
-@override final  DateTime? countDate;
+@override final  String? countDate;
  final  List<String>? _productIds;
 @override List<String>? get productIds {
   final value = _productIds;
@@ -267,7 +267,7 @@ abstract mixin class _$CreateCountDtoCopyWith<$Res> implements $CreateCountDtoCo
   factory _$CreateCountDtoCopyWith(_CreateCountDto value, $Res Function(_CreateCountDto) _then) = __$CreateCountDtoCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime? countDate, List<String>? productIds, String? notes
+ String? countDate, List<String>? productIds, String? notes
 });
 
 
@@ -287,7 +287,7 @@ class __$CreateCountDtoCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? countDate = freezed,Object? productIds = freezed,Object? notes = freezed,}) {
   return _then(_CreateCountDto(
 countDate: freezed == countDate ? _self.countDate : countDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,productIds: freezed == productIds ? _self._productIds : productIds // ignore: cast_nullable_to_non_nullable
+as String?,productIds: freezed == productIds ? _self._productIds : productIds // ignore: cast_nullable_to_non_nullable
 as List<String>?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

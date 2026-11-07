@@ -11,10 +11,9 @@ part 'owner_password_reset_dto_output.g.dart';
 
 @Freezed()
 abstract class OwnerPasswordResetDtoOutput with _$OwnerPasswordResetDtoOutput {
-  const factory OwnerPasswordResetDtoOutput({
-    required Owner3 owner,
-    required String temporaryPassword,
-  }) = _OwnerPasswordResetDtoOutput;
-  
-  factory OwnerPasswordResetDtoOutput.fromJson(Map<String, Object?> json) => _$OwnerPasswordResetDtoOutputFromJson(json);
+  const factory OwnerPasswordResetDtoOutput({required Owner3 owner, required String temporaryPassword}) =
+      _OwnerPasswordResetDtoOutput;
+
+  factory OwnerPasswordResetDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$OwnerPasswordResetDtoOutputFromJson(json);
 }

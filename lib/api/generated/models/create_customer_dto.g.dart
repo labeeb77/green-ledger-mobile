@@ -6,30 +6,30 @@ part of 'create_customer_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_CreateCustomerDto _$CreateCustomerDtoFromJson(Map<String, dynamic> json) =>
-    _CreateCustomerDto(
-      name: json['name'] as String,
-      phone: json['phone'] as String?,
-      area: json['area'] as String?,
-      address: json['address'] as String?,
-      notes: json['notes'] as String?,
-      priceGroupId: json['priceGroupId'] as String?,
-      creditLimit: (json['creditLimit'] as num?)?.toInt(),
-      creditDays: (json['creditDays'] as num?)?.toInt(),
-      agentUserId: json['agentUserId'] as String?,
-      openingBalance: (json['openingBalance'] as num?)?.toInt(),
-    );
+_CreateCustomerDto _$CreateCustomerDtoFromJson(Map<String, dynamic> json) => _CreateCustomerDto(
+  name: json['name'] as String,
+  phone: json['phone'] as String?,
+  whatsapp: json['whatsapp'] as String?,
+  area: json['area'] as String?,
+  address: json['address'] as String?,
+  notes: json['notes'] as String?,
+  priceGroupId: json['priceGroupId'] as String?,
+  creditLimit: (json['creditLimit'] as num?)?.toInt(),
+  creditDays: (json['creditDays'] as num?)?.toInt(),
+  agentUserId: json['agentUserId'] as String?,
+  openingBalance: (json['openingBalance'] as num?)?.toInt(),
+);
 
-Map<String, dynamic> _$CreateCustomerDtoToJson(_CreateCustomerDto instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'phone': instance.phone,
-      'area': instance.area,
-      'address': instance.address,
-      'notes': instance.notes,
-      'priceGroupId': instance.priceGroupId,
-      'creditLimit': instance.creditLimit,
-      'creditDays': instance.creditDays,
-      'agentUserId': instance.agentUserId,
-      'openingBalance': instance.openingBalance,
-    };
+Map<String, dynamic> _$CreateCustomerDtoToJson(_CreateCustomerDto instance) => <String, dynamic>{
+  'name': instance.name,
+  'phone': instance.phone,
+  'whatsapp': instance.whatsapp,
+  'area': instance.area,
+  'address': instance.address,
+  'notes': instance.notes,
+  'priceGroupId': instance.priceGroupId,
+  'creditLimit': instance.creditLimit,
+  'creditDays': instance.creditDays,
+  'agentUserId': instance.agentUserId,
+  'openingBalance': instance.openingBalance,
+};

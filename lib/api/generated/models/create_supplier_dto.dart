@@ -18,6 +18,6 @@ abstract class CreateSupplierDto with _$CreateSupplierDto {
     /// Amount in paise (₹1 = 100)
     int? openingBalance,
   }) = _CreateSupplierDto;
-  
+
   factory CreateSupplierDto.fromJson(Map<String, Object?> json) => _$CreateSupplierDtoFromJson(json);
 }

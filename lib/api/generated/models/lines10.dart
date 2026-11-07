@@ -18,6 +18,6 @@ abstract class Lines10 with _$Lines10 {
     required String systemQuantity,
     required String? difference,
   }) = _Lines10;
-  
+
   factory Lines10.fromJson(Map<String, Object?> json) => _$Lines10FromJson(json);
 }

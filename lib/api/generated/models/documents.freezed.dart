@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Documents {
 
- String get id; Type4 get type; String get number; DateTime get date; String get party;
+ String get id; Type4 get type; String get number; String get date; String get party;
 /// Create a copy of Documents
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $DocumentsCopyWith<$Res>  {
   factory $DocumentsCopyWith(Documents value, $Res Function(Documents) _then) = _$DocumentsCopyWithImpl;
 @useResult
 $Res call({
- String id, Type4 type, String number, DateTime date, String party
+ String id, Type4 type, String number, String date, String party
 });
 
 
@@ -77,7 +77,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as Type4,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,party: null == party ? _self.party : party // ignore: cast_nullable_to_non_nullable
+as String,party: null == party ? _self.party : party // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Type4 type,  String number,  DateTime date,  String party)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Type4 type,  String number,  String date,  String party)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Documents() when $default != null:
 return $default(_that.id,_that.type,_that.number,_that.date,_that.party);case _:
@@ -184,7 +184,7 @@ return $default(_that.id,_that.type,_that.number,_that.date,_that.party);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Type4 type,  String number,  DateTime date,  String party)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Type4 type,  String number,  String date,  String party)  $default,) {final _that = this;
 switch (_that) {
 case _Documents():
 return $default(_that.id,_that.type,_that.number,_that.date,_that.party);case _:
@@ -204,7 +204,7 @@ return $default(_that.id,_that.type,_that.number,_that.date,_that.party);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Type4 type,  String number,  DateTime date,  String party)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Type4 type,  String number,  String date,  String party)?  $default,) {final _that = this;
 switch (_that) {
 case _Documents() when $default != null:
 return $default(_that.id,_that.type,_that.number,_that.date,_that.party);case _:
@@ -225,7 +225,7 @@ class _Documents implements Documents {
 @override final  String id;
 @override final  Type4 type;
 @override final  String number;
-@override final  DateTime date;
+@override final  String date;
 @override final  String party;
 
 /// Create a copy of Documents
@@ -263,7 +263,7 @@ abstract mixin class _$DocumentsCopyWith<$Res> implements $DocumentsCopyWith<$Re
   factory _$DocumentsCopyWith(_Documents value, $Res Function(_Documents) _then) = __$DocumentsCopyWithImpl;
 @override @useResult
 $Res call({
- String id, Type4 type, String number, DateTime date, String party
+ String id, Type4 type, String number, String date, String party
 });
 
 
@@ -286,7 +286,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as Type4,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,party: null == party ? _self.party : party // ignore: cast_nullable_to_non_nullable
+as String,party: null == party ? _self.party : party // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

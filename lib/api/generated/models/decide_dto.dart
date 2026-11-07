@@ -9,9 +9,7 @@ part 'decide_dto.g.dart';
 
 @Freezed()
 abstract class DecideDto with _$DecideDto {
-  const factory DecideDto({
-    String? note,
-  }) = _DecideDto;
-  
+  const factory DecideDto({String? note}) = _DecideDto;
+
   factory DecideDto.fromJson(Map<String, Object?> json) => _$DecideDtoFromJson(json);
 }

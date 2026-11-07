@@ -11,10 +11,8 @@ part 'handover_page_dto_output.g.dart';
 
 @Freezed()
 abstract class HandoverPageDtoOutput with _$HandoverPageDtoOutput {
-  const factory HandoverPageDtoOutput({
-    required List<HandoverDtoOutput> items,
-    required String? nextCursor,
-  }) = _HandoverPageDtoOutput;
-  
+  const factory HandoverPageDtoOutput({required List<HandoverDtoOutput> items, required String? nextCursor}) =
+      _HandoverPageDtoOutput;
+
   factory HandoverPageDtoOutput.fromJson(Map<String, Object?> json) => _$HandoverPageDtoOutputFromJson(json);
 }

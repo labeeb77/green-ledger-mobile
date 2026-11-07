@@ -25,8 +25,8 @@ class _OrdersClient implements OrdersClient {
     int? limit = 50,
     Status5? status,
     String? customerId,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
@@ -34,8 +34,8 @@ class _OrdersClient implements OrdersClient {
       r'limit': limit,
       r'status': status?.toJson(),
       r'customerId': customerId,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);

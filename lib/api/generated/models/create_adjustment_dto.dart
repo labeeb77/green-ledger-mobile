@@ -11,11 +11,8 @@ part 'create_adjustment_dto.g.dart';
 
 @Freezed()
 abstract class CreateAdjustmentDto with _$CreateAdjustmentDto {
-  const factory CreateAdjustmentDto({
-    required String notes,
-    required List<Lines9> lines,
-    DateTime? entryDate,
-  }) = _CreateAdjustmentDto;
-  
+  const factory CreateAdjustmentDto({required String notes, required List<Lines9> lines, String? entryDate}) =
+      _CreateAdjustmentDto;
+
   factory CreateAdjustmentDto.fromJson(Map<String, Object?> json) => _$CreateAdjustmentDtoFromJson(json);
 }

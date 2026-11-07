@@ -11,11 +11,7 @@ part 'requester.g.dart';
 
 @Freezed()
 abstract class Requester with _$Requester {
-  const factory Requester({
-    required String id,
-    required String name,
-    required Role role,
-  }) = _Requester;
-  
+  const factory Requester({required String id, required String name, required Role role}) = _Requester;
+
   factory Requester.fromJson(Map<String, Object?> json) => _$RequesterFromJson(json);
 }

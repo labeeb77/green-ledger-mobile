@@ -9,10 +9,7 @@ part 'create_handover_dto.g.dart';
 
 @Freezed()
 abstract class CreateHandoverDto with _$CreateHandoverDto {
-  const factory CreateHandoverDto({
-    int? declaredAmount,
-    String? note,
-  }) = _CreateHandoverDto;
-  
+  const factory CreateHandoverDto({int? declaredAmount, String? note}) = _CreateHandoverDto;
+
   factory CreateHandoverDto.fromJson(Map<String, Object?> json) => _$CreateHandoverDtoFromJson(json);
 }

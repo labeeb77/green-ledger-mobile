@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Entries2 {
 
- String get id; DateTime get date; Reason2 get reason; String? get reference; String get sourceType; String get sourceId; User4? get user; String get quantity; String? get packCount; String? get packUnit; String get balance;
+ String get id; String get date; Reason2 get reason; String? get reference; String get sourceType; String get sourceId; User5? get user; String get quantity; String? get packCount; String? get packUnit; String get balance;
 /// Create a copy of Entries2
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,11 +54,11 @@ abstract mixin class $Entries2CopyWith<$Res>  {
   factory $Entries2CopyWith(Entries2 value, $Res Function(Entries2) _then) = _$Entries2CopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime date, Reason2 reason, String? reference, String sourceType, String sourceId, User4? user, String quantity, String? packCount, String? packUnit, String balance
+ String id, String date, Reason2 reason, String? reference, String sourceType, String sourceId, User5? user, String quantity, String? packCount, String? packUnit, String balance
 });
 
 
-$User4CopyWith<$Res>? get user;
+$User5CopyWith<$Res>? get user;
 
 }
 /// @nodoc
@@ -75,12 +75,12 @@ class _$Entries2CopyWithImpl<$Res>
   return _then(Entries2(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as String,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as Reason2,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,sourceType: null == sourceType ? _self.sourceType : sourceType // ignore: cast_nullable_to_non_nullable
 as String,sourceId: null == sourceId ? _self.sourceId : sourceId // ignore: cast_nullable_to_non_nullable
 as String,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as User4?,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
+as User5?,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
 as String,packCount: freezed == packCount ? _self.packCount : packCount // ignore: cast_nullable_to_non_nullable
 as String?,packUnit: freezed == packUnit ? _self.packUnit : packUnit // ignore: cast_nullable_to_non_nullable
 as String?,balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
@@ -91,12 +91,12 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$User4CopyWith<$Res>? get user {
+$User5CopyWith<$Res>? get user {
     if (_self.user == null) {
     return null;
   }
 
-  return $User4CopyWith<$Res>(_self.user!, (value) {
+  return $User5CopyWith<$Res>(_self.user!, (value) {
     return _then(_self.copyWith(user: value));
   });
 }
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User4? user,  String quantity,  String? packCount,  String? packUnit,  String balance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User5? user,  String quantity,  String? packCount,  String? packUnit,  String balance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Entries2() when $default != null:
 return $default(_that.id,_that.date,_that.reason,_that.reference,_that.sourceType,_that.sourceId,_that.user,_that.quantity,_that.packCount,_that.packUnit,_that.balance);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.date,_that.reason,_that.reference,_that.sourceTyp
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User4? user,  String quantity,  String? packCount,  String? packUnit,  String balance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User5? user,  String quantity,  String? packCount,  String? packUnit,  String balance)  $default,) {final _that = this;
 switch (_that) {
 case _Entries2():
 return $default(_that.id,_that.date,_that.reason,_that.reference,_that.sourceType,_that.sourceId,_that.user,_that.quantity,_that.packCount,_that.packUnit,_that.balance);case _:
@@ -222,7 +222,7 @@ return $default(_that.id,_that.date,_that.reason,_that.reference,_that.sourceTyp
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User4? user,  String quantity,  String? packCount,  String? packUnit,  String balance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String date,  Reason2 reason,  String? reference,  String sourceType,  String sourceId,  User5? user,  String quantity,  String? packCount,  String? packUnit,  String balance)?  $default,) {final _that = this;
 switch (_that) {
 case _Entries2() when $default != null:
 return $default(_that.id,_that.date,_that.reason,_that.reference,_that.sourceType,_that.sourceId,_that.user,_that.quantity,_that.packCount,_that.packUnit,_that.balance);case _:
@@ -241,12 +241,12 @@ class _Entries2 implements Entries2 {
   factory _Entries2.fromJson(Map<String, dynamic> json) => _$Entries2FromJson(json);
 
 @override final  String id;
-@override final  DateTime date;
+@override final  String date;
 @override final  Reason2 reason;
 @override final  String? reference;
 @override final  String sourceType;
 @override final  String sourceId;
-@override final  User4? user;
+@override final  User5? user;
 @override final  String quantity;
 @override final  String? packCount;
 @override final  String? packUnit;
@@ -287,11 +287,11 @@ abstract mixin class _$Entries2CopyWith<$Res> implements $Entries2CopyWith<$Res>
   factory _$Entries2CopyWith(_Entries2 value, $Res Function(_Entries2) _then) = __$Entries2CopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime date, Reason2 reason, String? reference, String sourceType, String sourceId, User4? user, String quantity, String? packCount, String? packUnit, String balance
+ String id, String date, Reason2 reason, String? reference, String sourceType, String sourceId, User5? user, String quantity, String? packCount, String? packUnit, String balance
 });
 
 
-@override $User4CopyWith<$Res>? get user;
+@override $User5CopyWith<$Res>? get user;
 
 }
 /// @nodoc
@@ -308,12 +308,12 @@ class __$Entries2CopyWithImpl<$Res>
   return _then(_Entries2(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as String,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as Reason2,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,sourceType: null == sourceType ? _self.sourceType : sourceType // ignore: cast_nullable_to_non_nullable
 as String,sourceId: null == sourceId ? _self.sourceId : sourceId // ignore: cast_nullable_to_non_nullable
 as String,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as User4?,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
+as User5?,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
 as String,packCount: freezed == packCount ? _self.packCount : packCount // ignore: cast_nullable_to_non_nullable
 as String?,packUnit: freezed == packUnit ? _self.packUnit : packUnit // ignore: cast_nullable_to_non_nullable
 as String?,balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
@@ -325,12 +325,12 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$User4CopyWith<$Res>? get user {
+$User5CopyWith<$Res>? get user {
     if (_self.user == null) {
     return null;
   }
 
-  return $User4CopyWith<$Res>(_self.user!, (value) {
+  return $User5CopyWith<$Res>(_self.user!, (value) {
     return _then(_self.copyWith(user: value));
   });
 }

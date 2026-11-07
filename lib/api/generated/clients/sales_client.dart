@@ -26,8 +26,8 @@ abstract class SalesClient {
   @GET('/api/v1/sales-bills')
   Future<SalesBillSummaryPageDtoOutput> salesBillsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
     @Query('cursor') String? cursor,
@@ -41,9 +41,7 @@ abstract class SalesClient {
   });
 
   @GET('/api/v1/sales-bills/{id}')
-  Future<SalesBillDtoOutput> salesBillsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<SalesBillDtoOutput> salesBillsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/sales-bills/{id}/cancel')
@@ -58,8 +56,8 @@ abstract class SalesClient {
     @Query('limit') int? limit = 50,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('cursor') String? cursor,
   });
 
@@ -74,9 +72,7 @@ abstract class SalesClient {
   Future<List<CustomerReturnDtoOutput>> customerReturnsControllerToInspect();
 
   @GET('/api/v1/customer-returns/{id}')
-  Future<CustomerReturnDtoOutput> customerReturnsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<CustomerReturnDtoOutput> customerReturnsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/customer-returns/{id}/inspect')

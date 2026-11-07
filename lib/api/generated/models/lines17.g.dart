@@ -10,20 +10,14 @@ _Lines17 _$Lines17FromJson(Map<String, dynamic> json) => _Lines17(
   id: json['id'] as String,
   billLineId: json['billLineId'] as String?,
   product: Product10.fromJson(json['product'] as Map<String, dynamic>),
-  packUnit: json['packUnit'] == null
-      ? null
-      : PackUnit7.fromJson(json['packUnit'] as Map<String, dynamic>),
+  packUnit: json['packUnit'] == null ? null : PackUnit7.fromJson(json['packUnit'] as Map<String, dynamic>),
   packCount: json['packCount'] as String?,
   quantity: json['quantity'] as String,
   rate: (json['rate'] as num?)?.toInt(),
   amount: (json['amount'] as num?)?.toInt(),
   inspection: Inspection.fromJson(json['inspection'] as String),
-  inspectedBy: json['inspectedBy'] == null
-      ? null
-      : InspectedBy.fromJson(json['inspectedBy'] as Map<String, dynamic>),
-  inspectedAt: json['inspectedAt'] == null
-      ? null
-      : DateTime.parse(json['inspectedAt'] as String),
+  inspectedBy: json['inspectedBy'] == null ? null : InspectedBy.fromJson(json['inspectedBy'] as Map<String, dynamic>),
+  inspectedAt: json['inspectedAt'] == null ? null : DateTime.parse(json['inspectedAt'] as String),
 );
 
 Map<String, dynamic> _$Lines17ToJson(_Lines17 instance) => <String, dynamic>{

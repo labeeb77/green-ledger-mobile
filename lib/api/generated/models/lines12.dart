@@ -16,13 +16,12 @@ abstract class Lines12 with _$Lines12 {
 
     /// Amount in paise (₹1 = 100)
     required int rate,
-    @Default(RatePer.stockUnit)
-    RatePer ratePer,
+    @Default(RatePer.stockUnit) RatePer ratePer,
     String? gradeId,
     String? packUnitId,
     dynamic packCount,
     dynamic quantity,
   }) = _Lines12;
-  
+
   factory Lines12.fromJson(Map<String, Object?> json) => _$Lines12FromJson(json);
 }

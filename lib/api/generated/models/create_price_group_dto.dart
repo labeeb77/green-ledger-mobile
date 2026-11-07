@@ -16,6 +16,6 @@ abstract class CreatePriceGroupDto with _$CreatePriceGroupDto {
     required CreatePriceGroupDtoAdjustmentType adjustmentType,
     required int value,
   }) = _CreatePriceGroupDto;
-  
+
   factory CreatePriceGroupDto.fromJson(Map<String, Object?> json) => _$CreatePriceGroupDtoFromJson(json);
 }

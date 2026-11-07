@@ -11,10 +11,7 @@ part 'set_customer_rate_dto.g.dart';
 
 @Freezed()
 abstract class SetCustomerRateDto with _$SetCustomerRateDto {
-  const factory SetCustomerRateDto({
-    required SetCustomerRateDtoMode mode,
-    required int value,
-  }) = _SetCustomerRateDto;
-  
+  const factory SetCustomerRateDto({required SetCustomerRateDtoMode mode, required int value}) = _SetCustomerRateDto;
+
   factory SetCustomerRateDto.fromJson(Map<String, Object?> json) => _$SetCustomerRateDtoFromJson(json);
 }

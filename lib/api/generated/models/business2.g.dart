@@ -20,15 +20,14 @@ _Business2 _$Business2FromJson(Map<String, dynamic> json) => _Business2(
   supportAccessUntil: json['supportAccessUntil'] as String?,
 );
 
-Map<String, dynamic> _$Business2ToJson(_Business2 instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'phone': instance.phone,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'subscription': instance.subscription,
-      'userCount': instance.userCount,
-      'activeUserCount': instance.activeUserCount,
-      'lastActivityAt': instance.lastActivityAt,
-      'supportAccessUntil': instance.supportAccessUntil,
-    };
+Map<String, dynamic> _$Business2ToJson(_Business2 instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'phone': instance.phone,
+  'createdAt': instance.createdAt.toIso8601String(),
+  'subscription': instance.subscription,
+  'userCount': instance.userCount,
+  'activeUserCount': instance.activeUserCount,
+  'lastActivityAt': instance.lastActivityAt,
+  'supportAccessUntil': instance.supportAccessUntil,
+};

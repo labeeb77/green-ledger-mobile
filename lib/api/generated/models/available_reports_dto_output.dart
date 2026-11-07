@@ -11,10 +11,7 @@ part 'available_reports_dto_output.g.dart';
 
 @Freezed()
 abstract class AvailableReportsDtoOutput with _$AvailableReportsDtoOutput {
-  const factory AvailableReportsDtoOutput({
-    required Report report,
-    required String title,
-  }) = _AvailableReportsDtoOutput;
-  
+  const factory AvailableReportsDtoOutput({required Report report, required String title}) = _AvailableReportsDtoOutput;
+
   factory AvailableReportsDtoOutput.fromJson(Map<String, Object?> json) => _$AvailableReportsDtoOutputFromJson(json);
 }

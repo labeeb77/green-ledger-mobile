@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CustomerReturnDtoOutput {
 
- String get id; String? get number; DateTime get returnDate; Customer7 get customer; Bill2? get bill; int? get total; CustomerReturnDtoOutputStatus get status; String? get notes; CreatedBy6? get createdBy; String? get approvalId; List<Lines17> get lines; DateTime get createdAt; String? get cancelReason;
+ String get id; String? get number; String get returnDate; Customer7 get customer; Bill2? get bill; int? get total; CustomerReturnDtoOutputStatus get status; String? get notes; CreatedBy6? get createdBy; String? get approvalId; List<Lines17> get lines; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of CustomerReturnDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CustomerReturnDtoOutputCopyWith<$Res>  {
   factory $CustomerReturnDtoOutputCopyWith(CustomerReturnDtoOutput value, $Res Function(CustomerReturnDtoOutput) _then) = _$CustomerReturnDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String? number, DateTime returnDate, Customer7 customer, Bill2? bill, int? total, CustomerReturnDtoOutputStatus status, String? notes, CreatedBy6? createdBy, String? approvalId, List<Lines17> lines, DateTime createdAt, String? cancelReason
+ String id, String? number, String returnDate, Customer7 customer, Bill2? bill, int? total, CustomerReturnDtoOutputStatus status, String? notes, CreatedBy6? createdBy, String? approvalId, List<Lines17> lines, DateTime createdAt, String? cancelReason
 });
 
 
@@ -76,7 +76,7 @@ class _$CustomerReturnDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,returnDate: null == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer7,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
 as Bill2?,total: freezed == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  String returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CustomerReturnDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.returnDate,_that.customer,_that.bill,_that.total,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -225,7 +225,7 @@ return $default(_that.id,_that.number,_that.returnDate,_that.customer,_that.bill
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  String returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _CustomerReturnDtoOutput():
 return $default(_that.id,_that.number,_that.returnDate,_that.customer,_that.bill,_that.total,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -245,7 +245,7 @@ return $default(_that.id,_that.number,_that.returnDate,_that.customer,_that.bill
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  DateTime returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  String returnDate,  Customer7 customer,  Bill2? bill,  int? total,  CustomerReturnDtoOutputStatus status,  String? notes,  CreatedBy6? createdBy,  String? approvalId,  List<Lines17> lines,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _CustomerReturnDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.returnDate,_that.customer,_that.bill,_that.total,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.createdAt,_that.cancelReason);case _:
@@ -265,7 +265,7 @@ class _CustomerReturnDtoOutput implements CustomerReturnDtoOutput {
 
 @override final  String id;
 @override final  String? number;
-@override final  DateTime returnDate;
+@override final  String returnDate;
 @override final  Customer7 customer;
 @override final  Bill2? bill;
 @override final  int? total;
@@ -318,7 +318,7 @@ abstract mixin class _$CustomerReturnDtoOutputCopyWith<$Res> implements $Custome
   factory _$CustomerReturnDtoOutputCopyWith(_CustomerReturnDtoOutput value, $Res Function(_CustomerReturnDtoOutput) _then) = __$CustomerReturnDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? number, DateTime returnDate, Customer7 customer, Bill2? bill, int? total, CustomerReturnDtoOutputStatus status, String? notes, CreatedBy6? createdBy, String? approvalId, List<Lines17> lines, DateTime createdAt, String? cancelReason
+ String id, String? number, String returnDate, Customer7 customer, Bill2? bill, int? total, CustomerReturnDtoOutputStatus status, String? notes, CreatedBy6? createdBy, String? approvalId, List<Lines17> lines, DateTime createdAt, String? cancelReason
 });
 
 
@@ -340,7 +340,7 @@ class __$CustomerReturnDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,returnDate: null == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer7,bill: freezed == bill ? _self.bill : bill // ignore: cast_nullable_to_non_nullable
 as Bill2?,total: freezed == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable

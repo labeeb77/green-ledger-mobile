@@ -17,6 +17,6 @@ abstract class OverdueCustomers with _$OverdueCustomers {
     required int outstanding,
     required int overdue,
   }) = _OverdueCustomers;
-  
+
   factory OverdueCustomers.fromJson(Map<String, Object?> json) => _$OverdueCustomersFromJson(json);
 }

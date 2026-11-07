@@ -18,7 +18,7 @@ abstract class OrderDtoOutput with _$OrderDtoOutput {
   const factory OrderDtoOutput({
     required String id,
     required String number,
-    required DateTime orderDate,
+    required String orderDate,
     required Customer6 customer,
     required Agent2? agent,
     required OrderDtoOutputStatus status,
@@ -30,6 +30,6 @@ abstract class OrderDtoOutput with _$OrderDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _OrderDtoOutput;
-  
+
   factory OrderDtoOutput.fromJson(Map<String, Object?> json) => _$OrderDtoOutputFromJson(json);
 }

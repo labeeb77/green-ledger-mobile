@@ -15,6 +15,7 @@ abstract class SupplierPaymentPageDtoOutput with _$SupplierPaymentPageDtoOutput 
     required List<SupplierPaymentDtoOutput> items,
     required String? nextCursor,
   }) = _SupplierPaymentPageDtoOutput;
-  
-  factory SupplierPaymentPageDtoOutput.fromJson(Map<String, Object?> json) => _$SupplierPaymentPageDtoOutputFromJson(json);
+
+  factory SupplierPaymentPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$SupplierPaymentPageDtoOutputFromJson(json);
 }

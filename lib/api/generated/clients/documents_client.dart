@@ -22,7 +22,5 @@ abstract class DocumentsClient {
   });
 
   @GET('/api/v1/documents/pdf/{jobId}')
-  Future<PdfStatusDtoOutput> documentsControllerStatus({
-    @Path('jobId') required String jobId,
-  });
+  Future<PdfStatusDtoOutput> documentsControllerStatus({@Path('jobId') required String jobId});
 }

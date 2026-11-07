@@ -22,6 +22,6 @@ abstract class Business2 with _$Business2 {
     required String? lastActivityAt,
     required String? supportAccessUntil,
   }) = _Business2;
-  
+
   factory Business2.fromJson(Map<String, Object?> json) => _$Business2FromJson(json);
 }

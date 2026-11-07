@@ -11,10 +11,8 @@ part 'approval_page_dto_output.g.dart';
 
 @Freezed()
 abstract class ApprovalPageDtoOutput with _$ApprovalPageDtoOutput {
-  const factory ApprovalPageDtoOutput({
-    required List<ApprovalDtoOutput> items,
-    required String? nextCursor,
-  }) = _ApprovalPageDtoOutput;
-  
+  const factory ApprovalPageDtoOutput({required List<ApprovalDtoOutput> items, required String? nextCursor}) =
+      _ApprovalPageDtoOutput;
+
   factory ApprovalPageDtoOutput.fromJson(Map<String, Object?> json) => _$ApprovalPageDtoOutputFromJson(json);
 }

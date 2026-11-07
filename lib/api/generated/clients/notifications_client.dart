@@ -17,9 +17,7 @@ abstract class NotificationsClient {
   factory NotificationsClient(Dio dio, {String? baseUrl}) = _NotificationsClient;
 
   @GET('/api/v1/notifications')
-  Future<NotificationListDtoOutput> notificationsControllerList({
-    @Query('unread') Unread? unread,
-  });
+  Future<NotificationListDtoOutput> notificationsControllerList({@Query('unread') Unread? unread});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/notifications/read-all')
@@ -42,7 +40,5 @@ abstract class NotificationsClient {
   });
 
   @DELETE('/api/v1/push-tokens/{id}')
-  Future<void> notificationsControllerRemove({
-    @Path('id') required String id,
-  });
+  Future<void> notificationsControllerRemove({@Path('id') required String id});
 }

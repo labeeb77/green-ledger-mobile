@@ -15,6 +15,7 @@ abstract class UnverifiedSplitPageDtoOutput with _$UnverifiedSplitPageDtoOutput 
     required List<UnverifiedSplitDtoOutput> items,
     required String? nextCursor,
   }) = _UnverifiedSplitPageDtoOutput;
-  
-  factory UnverifiedSplitPageDtoOutput.fromJson(Map<String, Object?> json) => _$UnverifiedSplitPageDtoOutputFromJson(json);
+
+  factory UnverifiedSplitPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$UnverifiedSplitPageDtoOutputFromJson(json);
 }

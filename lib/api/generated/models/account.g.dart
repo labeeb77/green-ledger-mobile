@@ -9,7 +9,4 @@ part of 'account.dart';
 _Account _$AccountFromJson(Map<String, dynamic> json) =>
     _Account(id: json['id'] as String, name: json['name'] as String);
 
-Map<String, dynamic> _$AccountToJson(_Account instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-};
+Map<String, dynamic> _$AccountToJson(_Account instance) => <String, dynamic>{'id': instance.id, 'name': instance.name};

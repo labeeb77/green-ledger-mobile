@@ -18,6 +18,6 @@ abstract class AllocationPreviewDtoOutput with _$AllocationPreviewDtoOutput {
     required int advance,
     required int existingAdvance,
   }) = _AllocationPreviewDtoOutput;
-  
+
   factory AllocationPreviewDtoOutput.fromJson(Map<String, Object?> json) => _$AllocationPreviewDtoOutputFromJson(json);
 }

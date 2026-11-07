@@ -9,9 +9,7 @@ part 'ok_result_dto_output.g.dart';
 
 @Freezed()
 abstract class OkResultDtoOutput with _$OkResultDtoOutput {
-  const factory OkResultDtoOutput({
-    required bool ok,
-  }) = _OkResultDtoOutput;
-  
+  const factory OkResultDtoOutput({required bool ok}) = _OkResultDtoOutput;
+
   factory OkResultDtoOutput.fromJson(Map<String, Object?> json) => _$OkResultDtoOutputFromJson(json);
 }

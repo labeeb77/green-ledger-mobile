@@ -14,12 +14,12 @@ part 'movements_dto_output.g.dart';
 abstract class MovementsDtoOutput with _$MovementsDtoOutput {
   const factory MovementsDtoOutput({
     required Product7 product,
-    required DateTime from,
-    required DateTime to,
+    required String from,
+    required String to,
     required String opening,
     required List<Entries2> entries,
     required String closing,
   }) = _MovementsDtoOutput;
-  
+
   factory MovementsDtoOutput.fromJson(Map<String, Object?> json) => _$MovementsDtoOutputFromJson(json);
 }

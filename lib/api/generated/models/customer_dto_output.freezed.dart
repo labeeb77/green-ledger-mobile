@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CustomerDtoOutput {
 
- String get id; String get name; String? get phone; String? get area; String? get address; String? get notes; PriceGroup? get priceGroup; int get creditLimit; int get creditDays; Agent? get agent; int get openingBalance; CustomerDtoOutputStatus get status; int get outstanding; int get overdue; DateTime get createdAt;
+ String get id; String get name; String? get phone; String? get whatsapp; String? get area; String? get address; String? get notes; PriceGroup? get priceGroup; int get creditLimit; int get creditDays; Agent? get agent; int get openingBalance; CustomerDtoOutputStatus get status; int get outstanding; int get overdue; LastVisit? get lastVisit; DateTime get createdAt;
 /// Create a copy of CustomerDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $CustomerDtoOutputCopyWith<CustomerDtoOutput> get copyWith => _$CustomerDtoOutpu
 @override
 bool operator ==(Object other) {
   final _this = this as CustomerDtoOutput;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CustomerDtoOutput&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.area, _this.area) || other.area == _this.area)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.priceGroup, _this.priceGroup) || other.priceGroup == _this.priceGroup)&&(identical(other.creditLimit, _this.creditLimit) || other.creditLimit == _this.creditLimit)&&(identical(other.creditDays, _this.creditDays) || other.creditDays == _this.creditDays)&&(identical(other.agent, _this.agent) || other.agent == _this.agent)&&(identical(other.openingBalance, _this.openingBalance) || other.openingBalance == _this.openingBalance)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.outstanding, _this.outstanding) || other.outstanding == _this.outstanding)&&(identical(other.overdue, _this.overdue) || other.overdue == _this.overdue)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CustomerDtoOutput&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.phone, _this.phone) || other.phone == _this.phone)&&(identical(other.whatsapp, _this.whatsapp) || other.whatsapp == _this.whatsapp)&&(identical(other.area, _this.area) || other.area == _this.area)&&(identical(other.address, _this.address) || other.address == _this.address)&&(identical(other.notes, _this.notes) || other.notes == _this.notes)&&(identical(other.priceGroup, _this.priceGroup) || other.priceGroup == _this.priceGroup)&&(identical(other.creditLimit, _this.creditLimit) || other.creditLimit == _this.creditLimit)&&(identical(other.creditDays, _this.creditDays) || other.creditDays == _this.creditDays)&&(identical(other.agent, _this.agent) || other.agent == _this.agent)&&(identical(other.openingBalance, _this.openingBalance) || other.openingBalance == _this.openingBalance)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.outstanding, _this.outstanding) || other.outstanding == _this.outstanding)&&(identical(other.overdue, _this.overdue) || other.overdue == _this.overdue)&&(identical(other.lastVisit, _this.lastVisit) || other.lastVisit == _this.lastVisit)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as CustomerDtoOutput;
-  return Object.hash(runtimeType,_this.id,_this.name,_this.phone,_this.area,_this.address,_this.notes,_this.priceGroup,_this.creditLimit,_this.creditDays,_this.agent,_this.openingBalance,_this.status,_this.outstanding,_this.overdue,_this.createdAt);
+  return Object.hash(runtimeType,_this.id,_this.name,_this.phone,_this.whatsapp,_this.area,_this.address,_this.notes,_this.priceGroup,_this.creditLimit,_this.creditDays,_this.agent,_this.openingBalance,_this.status,_this.outstanding,_this.overdue,_this.lastVisit,_this.createdAt);
 }
 
 @override
 String toString() {
   final _this = this as CustomerDtoOutput;
-  return 'CustomerDtoOutput(id: ${_this.id}, name: ${_this.name}, phone: ${_this.phone}, area: ${_this.area}, address: ${_this.address}, notes: ${_this.notes}, priceGroup: ${_this.priceGroup}, creditLimit: ${_this.creditLimit}, creditDays: ${_this.creditDays}, agent: ${_this.agent}, openingBalance: ${_this.openingBalance}, status: ${_this.status}, outstanding: ${_this.outstanding}, overdue: ${_this.overdue}, createdAt: ${_this.createdAt})';
+  return 'CustomerDtoOutput(id: ${_this.id}, name: ${_this.name}, phone: ${_this.phone}, whatsapp: ${_this.whatsapp}, area: ${_this.area}, address: ${_this.address}, notes: ${_this.notes}, priceGroup: ${_this.priceGroup}, creditLimit: ${_this.creditLimit}, creditDays: ${_this.creditDays}, agent: ${_this.agent}, openingBalance: ${_this.openingBalance}, status: ${_this.status}, outstanding: ${_this.outstanding}, overdue: ${_this.overdue}, lastVisit: ${_this.lastVisit}, createdAt: ${_this.createdAt})';
 }
 
 
@@ -54,11 +54,11 @@ abstract mixin class $CustomerDtoOutputCopyWith<$Res>  {
   factory $CustomerDtoOutputCopyWith(CustomerDtoOutput value, $Res Function(CustomerDtoOutput) _then) = _$CustomerDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String? phone, String? area, String? address, String? notes, PriceGroup? priceGroup, int creditLimit, int creditDays, Agent? agent, int openingBalance, CustomerDtoOutputStatus status, int outstanding, int overdue, DateTime createdAt
+ String id, String name, String? phone, String? whatsapp, String? area, String? address, String? notes, PriceGroup? priceGroup, int creditLimit, int creditDays, Agent? agent, int openingBalance, CustomerDtoOutputStatus status, int outstanding, int overdue, LastVisit? lastVisit, DateTime createdAt
 });
 
 
-$PriceGroupCopyWith<$Res>? get priceGroup;$AgentCopyWith<$Res>? get agent;
+$PriceGroupCopyWith<$Res>? get priceGroup;$AgentCopyWith<$Res>? get agent;$LastVisitCopyWith<$Res>? get lastVisit;
 
 }
 /// @nodoc
@@ -71,11 +71,12 @@ class _$CustomerDtoOutputCopyWithImpl<$Res>
 
 /// Create a copy of CustomerDtoOutput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? phone = freezed,Object? area = freezed,Object? address = freezed,Object? notes = freezed,Object? priceGroup = freezed,Object? creditLimit = null,Object? creditDays = null,Object? agent = freezed,Object? openingBalance = null,Object? status = null,Object? outstanding = null,Object? overdue = null,Object? createdAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? phone = freezed,Object? whatsapp = freezed,Object? area = freezed,Object? address = freezed,Object? notes = freezed,Object? priceGroup = freezed,Object? creditLimit = null,Object? creditDays = null,Object? agent = freezed,Object? openingBalance = null,Object? status = null,Object? outstanding = null,Object? overdue = null,Object? lastVisit = freezed,Object? createdAt = null,}) {
   return _then(CustomerDtoOutput(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,phone: freezed == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as String?,whatsapp: freezed == whatsapp ? _self.whatsapp : whatsapp // ignore: cast_nullable_to_non_nullable
 as String?,area: freezed == area ? _self.area : area // ignore: cast_nullable_to_non_nullable
 as String?,address: freezed == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
@@ -87,7 +88,8 @@ as Agent?,openingBalance: null == openingBalance ? _self.openingBalance : openin
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as CustomerDtoOutputStatus,outstanding: null == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
 as int,overdue: null == overdue ? _self.overdue : overdue // ignore: cast_nullable_to_non_nullable
-as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,lastVisit: freezed == lastVisit ? _self.lastVisit : lastVisit // ignore: cast_nullable_to_non_nullable
+as LastVisit?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
 }
@@ -114,6 +116,18 @@ $AgentCopyWith<$Res>? get agent {
 
   return $AgentCopyWith<$Res>(_self.agent!, (value) {
     return _then(_self.copyWith(agent: value));
+  });
+}/// Create a copy of CustomerDtoOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LastVisitCopyWith<$Res>? get lastVisit {
+    if (_self.lastVisit == null) {
+    return null;
+  }
+
+  return $LastVisitCopyWith<$Res>(_self.lastVisit!, (value) {
+    return _then(_self.copyWith(lastVisit: value));
   });
 }
 }
@@ -197,10 +211,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String? phone,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String? phone,  String? whatsapp,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  LastVisit? lastVisit,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CustomerDtoOutput() when $default != null:
-return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.phone,_that.whatsapp,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.lastVisit,_that.createdAt);case _:
   return orElse();
 
 }
@@ -218,10 +232,10 @@ return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.n
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String? phone,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String? phone,  String? whatsapp,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  LastVisit? lastVisit,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _CustomerDtoOutput():
-return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.phone,_that.whatsapp,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.lastVisit,_that.createdAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -238,10 +252,10 @@ return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.n
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String? phone,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String? phone,  String? whatsapp,  String? area,  String? address,  String? notes,  PriceGroup? priceGroup,  int creditLimit,  int creditDays,  Agent? agent,  int openingBalance,  CustomerDtoOutputStatus status,  int outstanding,  int overdue,  LastVisit? lastVisit,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _CustomerDtoOutput() when $default != null:
-return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.phone,_that.whatsapp,_that.area,_that.address,_that.notes,_that.priceGroup,_that.creditLimit,_that.creditDays,_that.agent,_that.openingBalance,_that.status,_that.outstanding,_that.overdue,_that.lastVisit,_that.createdAt);case _:
   return null;
 
 }
@@ -253,12 +267,13 @@ return $default(_that.id,_that.name,_that.phone,_that.area,_that.address,_that.n
 @JsonSerializable()
 
 class _CustomerDtoOutput implements CustomerDtoOutput {
-  const _CustomerDtoOutput({required this.id, required this.name, required this.phone, required this.area, required this.address, required this.notes, required this.priceGroup, required this.creditLimit, required this.creditDays, required this.agent, required this.openingBalance, required this.status, required this.outstanding, required this.overdue, required this.createdAt});
+  const _CustomerDtoOutput({required this.id, required this.name, required this.phone, required this.whatsapp, required this.area, required this.address, required this.notes, required this.priceGroup, required this.creditLimit, required this.creditDays, required this.agent, required this.openingBalance, required this.status, required this.outstanding, required this.overdue, required this.lastVisit, required this.createdAt});
   factory _CustomerDtoOutput.fromJson(Map<String, dynamic> json) => _$CustomerDtoOutputFromJson(json);
 
 @override final  String id;
 @override final  String name;
 @override final  String? phone;
+@override final  String? whatsapp;
 @override final  String? area;
 @override final  String? address;
 @override final  String? notes;
@@ -270,6 +285,7 @@ class _CustomerDtoOutput implements CustomerDtoOutput {
 @override final  CustomerDtoOutputStatus status;
 @override final  int outstanding;
 @override final  int overdue;
+@override final  LastVisit? lastVisit;
 @override final  DateTime createdAt;
 
 /// Create a copy of CustomerDtoOutput
@@ -285,18 +301,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CustomerDtoOutput&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.area, area) || other.area == area)&&(identical(other.address, address) || other.address == address)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.priceGroup, priceGroup) || other.priceGroup == priceGroup)&&(identical(other.creditLimit, creditLimit) || other.creditLimit == creditLimit)&&(identical(other.creditDays, creditDays) || other.creditDays == creditDays)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.openingBalance, openingBalance) || other.openingBalance == openingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.outstanding, outstanding) || other.outstanding == outstanding)&&(identical(other.overdue, overdue) || other.overdue == overdue)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CustomerDtoOutput&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.whatsapp, whatsapp) || other.whatsapp == whatsapp)&&(identical(other.area, area) || other.area == area)&&(identical(other.address, address) || other.address == address)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.priceGroup, priceGroup) || other.priceGroup == priceGroup)&&(identical(other.creditLimit, creditLimit) || other.creditLimit == creditLimit)&&(identical(other.creditDays, creditDays) || other.creditDays == creditDays)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.openingBalance, openingBalance) || other.openingBalance == openingBalance)&&(identical(other.status, status) || other.status == status)&&(identical(other.outstanding, outstanding) || other.outstanding == outstanding)&&(identical(other.overdue, overdue) || other.overdue == overdue)&&(identical(other.lastVisit, lastVisit) || other.lastVisit == lastVisit)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,name,phone,area,address,notes,priceGroup,creditLimit,creditDays,agent,openingBalance,status,outstanding,overdue,createdAt);
+    return Object.hash(runtimeType,id,name,phone,whatsapp,area,address,notes,priceGroup,creditLimit,creditDays,agent,openingBalance,status,outstanding,overdue,lastVisit,createdAt);
 }
 
 @override
 String toString() {
-    return 'CustomerDtoOutput(id: $id, name: $name, phone: $phone, area: $area, address: $address, notes: $notes, priceGroup: $priceGroup, creditLimit: $creditLimit, creditDays: $creditDays, agent: $agent, openingBalance: $openingBalance, status: $status, outstanding: $outstanding, overdue: $overdue, createdAt: $createdAt)';
+    return 'CustomerDtoOutput(id: $id, name: $name, phone: $phone, whatsapp: $whatsapp, area: $area, address: $address, notes: $notes, priceGroup: $priceGroup, creditLimit: $creditLimit, creditDays: $creditDays, agent: $agent, openingBalance: $openingBalance, status: $status, outstanding: $outstanding, overdue: $overdue, lastVisit: $lastVisit, createdAt: $createdAt)';
 }
 
 
@@ -307,11 +323,11 @@ abstract mixin class _$CustomerDtoOutputCopyWith<$Res> implements $CustomerDtoOu
   factory _$CustomerDtoOutputCopyWith(_CustomerDtoOutput value, $Res Function(_CustomerDtoOutput) _then) = __$CustomerDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String? phone, String? area, String? address, String? notes, PriceGroup? priceGroup, int creditLimit, int creditDays, Agent? agent, int openingBalance, CustomerDtoOutputStatus status, int outstanding, int overdue, DateTime createdAt
+ String id, String name, String? phone, String? whatsapp, String? area, String? address, String? notes, PriceGroup? priceGroup, int creditLimit, int creditDays, Agent? agent, int openingBalance, CustomerDtoOutputStatus status, int outstanding, int overdue, LastVisit? lastVisit, DateTime createdAt
 });
 
 
-@override $PriceGroupCopyWith<$Res>? get priceGroup;@override $AgentCopyWith<$Res>? get agent;
+@override $PriceGroupCopyWith<$Res>? get priceGroup;@override $AgentCopyWith<$Res>? get agent;@override $LastVisitCopyWith<$Res>? get lastVisit;
 
 }
 /// @nodoc
@@ -324,11 +340,12 @@ class __$CustomerDtoOutputCopyWithImpl<$Res>
 
 /// Create a copy of CustomerDtoOutput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? phone = freezed,Object? area = freezed,Object? address = freezed,Object? notes = freezed,Object? priceGroup = freezed,Object? creditLimit = null,Object? creditDays = null,Object? agent = freezed,Object? openingBalance = null,Object? status = null,Object? outstanding = null,Object? overdue = null,Object? createdAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? phone = freezed,Object? whatsapp = freezed,Object? area = freezed,Object? address = freezed,Object? notes = freezed,Object? priceGroup = freezed,Object? creditLimit = null,Object? creditDays = null,Object? agent = freezed,Object? openingBalance = null,Object? status = null,Object? outstanding = null,Object? overdue = null,Object? lastVisit = freezed,Object? createdAt = null,}) {
   return _then(_CustomerDtoOutput(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,phone: freezed == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as String?,whatsapp: freezed == whatsapp ? _self.whatsapp : whatsapp // ignore: cast_nullable_to_non_nullable
 as String?,area: freezed == area ? _self.area : area // ignore: cast_nullable_to_non_nullable
 as String?,address: freezed == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
@@ -340,7 +357,8 @@ as Agent?,openingBalance: null == openingBalance ? _self.openingBalance : openin
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as CustomerDtoOutputStatus,outstanding: null == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
 as int,overdue: null == overdue ? _self.overdue : overdue // ignore: cast_nullable_to_non_nullable
-as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,lastVisit: freezed == lastVisit ? _self.lastVisit : lastVisit // ignore: cast_nullable_to_non_nullable
+as LastVisit?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
 }
@@ -368,6 +386,18 @@ $AgentCopyWith<$Res>? get agent {
 
   return $AgentCopyWith<$Res>(_self.agent!, (value) {
     return _then(_self.copyWith(agent: value));
+  });
+}/// Create a copy of CustomerDtoOutput
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LastVisitCopyWith<$Res>? get lastVisit {
+    if (_self.lastVisit == null) {
+    return null;
+  }
+
+  return $LastVisitCopyWith<$Res>(_self.lastVisit!, (value) {
+    return _then(_self.copyWith(lastVisit: value));
   });
 }
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RateQuoteDtoOutput {
 
- int? get rate; RateQuoteDtoOutputSource get source; int? get dailyRate; DateTime? get dailyRateDate; int? get minimumRate; bool get belowMinimum; RateQuoteDtoOutputRatePer get ratePer; LastRate? get lastRate;
+ int? get rate; RateQuoteDtoOutputSource get source; int? get dailyRate; String? get dailyRateDate; int? get minimumRate; bool get belowMinimum; RateQuoteDtoOutputRatePer get ratePer; LastRate? get lastRate;
 /// Create a copy of RateQuoteDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $RateQuoteDtoOutputCopyWith<$Res>  {
   factory $RateQuoteDtoOutputCopyWith(RateQuoteDtoOutput value, $Res Function(RateQuoteDtoOutput) _then) = _$RateQuoteDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- int? rate, RateQuoteDtoOutputSource source, int? dailyRate, DateTime? dailyRateDate, int? minimumRate, bool belowMinimum, RateQuoteDtoOutputRatePer ratePer, LastRate? lastRate
+ int? rate, RateQuoteDtoOutputSource source, int? dailyRate, String? dailyRateDate, int? minimumRate, bool belowMinimum, RateQuoteDtoOutputRatePer ratePer, LastRate? lastRate
 });
 
 
@@ -77,7 +77,7 @@ rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullab
 as int?,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as RateQuoteDtoOutputSource,dailyRate: freezed == dailyRate ? _self.dailyRate : dailyRate // ignore: cast_nullable_to_non_nullable
 as int?,dailyRateDate: freezed == dailyRateDate ? _self.dailyRateDate : dailyRateDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,minimumRate: freezed == minimumRate ? _self.minimumRate : minimumRate // ignore: cast_nullable_to_non_nullable
+as String?,minimumRate: freezed == minimumRate ? _self.minimumRate : minimumRate // ignore: cast_nullable_to_non_nullable
 as int?,belowMinimum: null == belowMinimum ? _self.belowMinimum : belowMinimum // ignore: cast_nullable_to_non_nullable
 as bool,ratePer: null == ratePer ? _self.ratePer : ratePer // ignore: cast_nullable_to_non_nullable
 as RateQuoteDtoOutputRatePer,lastRate: freezed == lastRate ? _self.lastRate : lastRate // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  DateTime? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  String? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RateQuoteDtoOutput() when $default != null:
 return $default(_that.rate,_that.source,_that.dailyRate,_that.dailyRateDate,_that.minimumRate,_that.belowMinimum,_that.ratePer,_that.lastRate);case _:
@@ -199,7 +199,7 @@ return $default(_that.rate,_that.source,_that.dailyRate,_that.dailyRateDate,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  DateTime? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  String? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)  $default,) {final _that = this;
 switch (_that) {
 case _RateQuoteDtoOutput():
 return $default(_that.rate,_that.source,_that.dailyRate,_that.dailyRateDate,_that.minimumRate,_that.belowMinimum,_that.ratePer,_that.lastRate);case _:
@@ -219,7 +219,7 @@ return $default(_that.rate,_that.source,_that.dailyRate,_that.dailyRateDate,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  DateTime? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? rate,  RateQuoteDtoOutputSource source,  int? dailyRate,  String? dailyRateDate,  int? minimumRate,  bool belowMinimum,  RateQuoteDtoOutputRatePer ratePer,  LastRate? lastRate)?  $default,) {final _that = this;
 switch (_that) {
 case _RateQuoteDtoOutput() when $default != null:
 return $default(_that.rate,_that.source,_that.dailyRate,_that.dailyRateDate,_that.minimumRate,_that.belowMinimum,_that.ratePer,_that.lastRate);case _:
@@ -240,7 +240,7 @@ class _RateQuoteDtoOutput implements RateQuoteDtoOutput {
 @override final  int? rate;
 @override final  RateQuoteDtoOutputSource source;
 @override final  int? dailyRate;
-@override final  DateTime? dailyRateDate;
+@override final  String? dailyRateDate;
 @override final  int? minimumRate;
 @override final  bool belowMinimum;
 @override final  RateQuoteDtoOutputRatePer ratePer;
@@ -281,7 +281,7 @@ abstract mixin class _$RateQuoteDtoOutputCopyWith<$Res> implements $RateQuoteDto
   factory _$RateQuoteDtoOutputCopyWith(_RateQuoteDtoOutput value, $Res Function(_RateQuoteDtoOutput) _then) = __$RateQuoteDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- int? rate, RateQuoteDtoOutputSource source, int? dailyRate, DateTime? dailyRateDate, int? minimumRate, bool belowMinimum, RateQuoteDtoOutputRatePer ratePer, LastRate? lastRate
+ int? rate, RateQuoteDtoOutputSource source, int? dailyRate, String? dailyRateDate, int? minimumRate, bool belowMinimum, RateQuoteDtoOutputRatePer ratePer, LastRate? lastRate
 });
 
 
@@ -304,7 +304,7 @@ rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullab
 as int?,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as RateQuoteDtoOutputSource,dailyRate: freezed == dailyRate ? _self.dailyRate : dailyRate // ignore: cast_nullable_to_non_nullable
 as int?,dailyRateDate: freezed == dailyRateDate ? _self.dailyRateDate : dailyRateDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,minimumRate: freezed == minimumRate ? _self.minimumRate : minimumRate // ignore: cast_nullable_to_non_nullable
+as String?,minimumRate: freezed == minimumRate ? _self.minimumRate : minimumRate // ignore: cast_nullable_to_non_nullable
 as int?,belowMinimum: null == belowMinimum ? _self.belowMinimum : belowMinimum // ignore: cast_nullable_to_non_nullable
 as bool,ratePer: null == ratePer ? _self.ratePer : ratePer // ignore: cast_nullable_to_non_nullable
 as RateQuoteDtoOutputRatePer,lastRate: freezed == lastRate ? _self.lastRate : lastRate // ignore: cast_nullable_to_non_nullable

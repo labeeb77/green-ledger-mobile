@@ -11,12 +11,8 @@ part 'create_wastage_dto.g.dart';
 
 @Freezed()
 abstract class CreateWastageDto with _$CreateWastageDto {
-  const factory CreateWastageDto({
-    required List<Lines8> lines,
-    DateTime? entryDate,
-    String? notes,
-    String? photoFileId,
-  }) = _CreateWastageDto;
-  
+  const factory CreateWastageDto({required List<Lines8> lines, String? entryDate, String? notes, String? photoFileId}) =
+      _CreateWastageDto;
+
   factory CreateWastageDto.fromJson(Map<String, Object?> json) => _$CreateWastageDtoFromJson(json);
 }

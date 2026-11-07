@@ -19,10 +19,7 @@ abstract class ReportsClient {
   factory ReportsClient(Dio dio, {String? baseUrl}) = _ReportsClient;
 
   @GET('/api/v1/dashboard')
-  Future<DashboardDtoOutput> reportsControllerDashboard({
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
-  });
+  Future<DashboardDtoOutput> reportsControllerDashboard({@Query('from') String? from, @Query('to') String? to});
 
   @GET('/api/v1/reports')
   Future<AvailableReportsDtoOutput> reportsControllerAvailable();
@@ -30,8 +27,8 @@ abstract class ReportsClient {
   @GET('/api/v1/reports/{report}')
   Future<ReportResultDtoOutput> reportsControllerRun({
     @Path('report') required Report report,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('groupBy') GroupBy? groupBy,
     @Query('customerId') String? customerId,
     @Query('agentId') String? agentId,
@@ -41,8 +38,8 @@ abstract class ReportsClient {
   @GET('/api/v1/reports/{report}/export.xlsx')
   Future<void> reportsControllerExport({
     @Path('report') required Report report,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('groupBy') GroupBy? groupBy,
     @Query('customerId') String? customerId,
     @Query('agentId') String? agentId,
@@ -50,7 +47,5 @@ abstract class ReportsClient {
   });
 
   @GET('/api/v1/search')
-  Future<SearchResultDtoOutput> reportsControllerSearch({
-    @Query('q') required String q,
-  });
+  Future<SearchResultDtoOutput> reportsControllerSearch({@Query('q') required String q});
 }

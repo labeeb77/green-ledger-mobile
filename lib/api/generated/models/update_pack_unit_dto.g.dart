@@ -7,10 +7,9 @@ part of 'update_pack_unit_dto.dart';
 // **************************************************************************
 
 _UpdatePackUnitDto _$UpdatePackUnitDtoFromJson(Map<String, dynamic> json) =>
-    _UpdatePackUnitDto(
-      name: json['name'] as String?,
-      active: json['active'] as bool?,
-    );
+    _UpdatePackUnitDto(name: json['name'] as String?, active: json['active'] as bool?);
 
-Map<String, dynamic> _$UpdatePackUnitDtoToJson(_UpdatePackUnitDto instance) =>
-    <String, dynamic>{'name': instance.name, 'active': instance.active};
+Map<String, dynamic> _$UpdatePackUnitDtoToJson(_UpdatePackUnitDto instance) => <String, dynamic>{
+  'name': instance.name,
+  'active': instance.active,
+};

@@ -11,10 +11,7 @@ part 'daily_rates_dto_output.g.dart';
 
 @Freezed()
 abstract class DailyRatesDtoOutput with _$DailyRatesDtoOutput {
-  const factory DailyRatesDtoOutput({
-    required DateTime date,
-    required List<Rows> rows,
-  }) = _DailyRatesDtoOutput;
-  
+  const factory DailyRatesDtoOutput({required String date, required List<Rows> rows}) = _DailyRatesDtoOutput;
+
   factory DailyRatesDtoOutput.fromJson(Map<String, Object?> json) => _$DailyRatesDtoOutputFromJson(json);
 }

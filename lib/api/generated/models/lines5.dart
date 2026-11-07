@@ -20,6 +20,6 @@ abstract class Lines5 with _$Lines5 {
     required int rate,
     required int amount,
   }) = _Lines5;
-  
+
   factory Lines5.fromJson(Map<String, Object?> json) => _$Lines5FromJson(json);
 }

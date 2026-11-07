@@ -11,12 +11,8 @@ part 'splits2.g.dart';
 
 @Freezed()
 abstract class Splits2 with _$Splits2 {
-  const factory Splits2({
-    required Method method,
-    required String accountId,
-    required int amount,
-    String? reference,
-  }) = _Splits2;
-  
+  const factory Splits2({required Method method, required String accountId, required int amount, String? reference}) =
+      _Splits2;
+
   factory Splits2.fromJson(Map<String, Object?> json) => _$Splits2FromJson(json);
 }

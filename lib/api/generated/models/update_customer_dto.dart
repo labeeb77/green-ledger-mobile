@@ -14,6 +14,7 @@ abstract class UpdateCustomerDto with _$UpdateCustomerDto {
   const factory UpdateCustomerDto({
     String? name,
     String? phone,
+    String? whatsapp,
     String? area,
     String? address,
     String? notes,
@@ -28,6 +29,6 @@ abstract class UpdateCustomerDto with _$UpdateCustomerDto {
     int? openingBalance,
     UpdateCustomerDtoStatus? status,
   }) = _UpdateCustomerDto;
-  
+
   factory UpdateCustomerDto.fromJson(Map<String, Object?> json) => _$UpdateCustomerDtoFromJson(json);
 }

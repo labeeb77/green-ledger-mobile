@@ -17,7 +17,7 @@ abstract class ExpenseDtoOutput with _$ExpenseDtoOutput {
   const factory ExpenseDtoOutput({
     required String id,
     required String number,
-    required DateTime expenseDate,
+    required String expenseDate,
     required Category category,
     required Account4 account,
     required int amount,
@@ -28,6 +28,6 @@ abstract class ExpenseDtoOutput with _$ExpenseDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _ExpenseDtoOutput;
-  
+
   factory ExpenseDtoOutput.fromJson(Map<String, Object?> json) => _$ExpenseDtoOutputFromJson(json);
 }

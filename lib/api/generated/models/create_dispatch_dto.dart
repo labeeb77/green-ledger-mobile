@@ -14,9 +14,9 @@ abstract class CreateDispatchDto with _$CreateDispatchDto {
   const factory CreateDispatchDto({
     required String orderId,
     required List<Lines16> lines,
-    DateTime? dispatchDate,
+    String? dispatchDate,
     String? vehicleNo,
   }) = _CreateDispatchDto;
-  
+
   factory CreateDispatchDto.fromJson(Map<String, Object?> json) => _$CreateDispatchDtoFromJson(json);
 }

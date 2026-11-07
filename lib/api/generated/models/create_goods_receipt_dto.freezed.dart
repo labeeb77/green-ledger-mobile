@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateGoodsReceiptDto {
 
- String get supplierId; List<Lines2> get lines; DateTime? get receiptDate; String? get vehicleNo; String? get notes; String? get slipPhotoFileId;
+ String get supplierId; List<Lines2> get lines; String? get receiptDate; String? get vehicleNo; String? get notes; String? get slipPhotoFileId;
 /// Create a copy of CreateGoodsReceiptDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateGoodsReceiptDtoCopyWith<$Res>  {
   factory $CreateGoodsReceiptDtoCopyWith(CreateGoodsReceiptDto value, $Res Function(CreateGoodsReceiptDto) _then) = _$CreateGoodsReceiptDtoCopyWithImpl;
 @useResult
 $Res call({
- String supplierId, List<Lines2> lines, DateTime? receiptDate, String? vehicleNo, String? notes, String? slipPhotoFileId
+ String supplierId, List<Lines2> lines, String? receiptDate, String? vehicleNo, String? notes, String? slipPhotoFileId
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateGoodsReceiptDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines2>,receiptDate: freezed == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
+as String?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,slipPhotoFileId: freezed == slipPhotoFileId ? _self.slipPhotoFileId : slipPhotoFileId // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines2> lines,  DateTime? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines2> lines,  String? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateGoodsReceiptDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.receiptDate,_that.vehicleNo,_that.notes,_that.slipPhotoFileId);case _:
@@ -185,7 +185,7 @@ return $default(_that.supplierId,_that.lines,_that.receiptDate,_that.vehicleNo,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines2> lines,  DateTime? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines2> lines,  String? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)  $default,) {final _that = this;
 switch (_that) {
 case _CreateGoodsReceiptDto():
 return $default(_that.supplierId,_that.lines,_that.receiptDate,_that.vehicleNo,_that.notes,_that.slipPhotoFileId);case _:
@@ -205,7 +205,7 @@ return $default(_that.supplierId,_that.lines,_that.receiptDate,_that.vehicleNo,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines2> lines,  DateTime? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines2> lines,  String? receiptDate,  String? vehicleNo,  String? notes,  String? slipPhotoFileId)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateGoodsReceiptDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.receiptDate,_that.vehicleNo,_that.notes,_that.slipPhotoFileId);case _:
@@ -231,7 +231,7 @@ class _CreateGoodsReceiptDto implements CreateGoodsReceiptDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? receiptDate;
+@override final  String? receiptDate;
 @override final  String? vehicleNo;
 @override final  String? notes;
 @override final  String? slipPhotoFileId;
@@ -271,7 +271,7 @@ abstract mixin class _$CreateGoodsReceiptDtoCopyWith<$Res> implements $CreateGoo
   factory _$CreateGoodsReceiptDtoCopyWith(_CreateGoodsReceiptDto value, $Res Function(_CreateGoodsReceiptDto) _then) = __$CreateGoodsReceiptDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String supplierId, List<Lines2> lines, DateTime? receiptDate, String? vehicleNo, String? notes, String? slipPhotoFileId
+ String supplierId, List<Lines2> lines, String? receiptDate, String? vehicleNo, String? notes, String? slipPhotoFileId
 });
 
 
@@ -293,7 +293,7 @@ class __$CreateGoodsReceiptDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines2>,receiptDate: freezed == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
+as String?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,slipPhotoFileId: freezed == slipPhotoFileId ? _self.slipPhotoFileId : slipPhotoFileId // ignore: cast_nullable_to_non_nullable
 as String?,

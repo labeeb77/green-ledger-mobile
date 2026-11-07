@@ -21,8 +21,8 @@ abstract class ExpensesClient {
   @GET('/api/v1/expenses')
   Future<ExpenseListDtoOutput> expensesControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('categoryId') String? categoryId,
     @Query('accountId') String? accountId,
     @Query('status') Status3? status,
@@ -37,9 +37,7 @@ abstract class ExpensesClient {
   });
 
   @GET('/api/v1/expenses/{id}')
-  Future<ExpenseDtoOutput> expensesControllerGet({
-    @Path('id') required String id,
-  });
+  Future<ExpenseDtoOutput> expensesControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/expenses/{id}/cancel')

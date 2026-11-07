@@ -11,10 +11,7 @@ part 'supplier_dues.g.dart';
 
 @Freezed()
 abstract class SupplierDues with _$SupplierDues {
-  const factory SupplierDues({
-    required int total,
-    required Link4 link,
-  }) = _SupplierDues;
-  
+  const factory SupplierDues({required int total, required Link4 link}) = _SupplierDues;
+
   factory SupplierDues.fromJson(Map<String, Object?> json) => _$SupplierDuesFromJson(json);
 }

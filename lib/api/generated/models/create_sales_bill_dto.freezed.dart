@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateSalesBillDto {
 
- String get customerId; List<Lines12> get lines; int get rounding; DateTime? get billDate; String? get notes; List<PayNow>? get payNow;
+ String get customerId; List<Lines12> get lines; int get rounding; String? get billDate; String? get notes; List<PayNow>? get payNow;
 /// Create a copy of CreateSalesBillDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateSalesBillDtoCopyWith<$Res>  {
   factory $CreateSalesBillDtoCopyWith(CreateSalesBillDto value, $Res Function(CreateSalesBillDto) _then) = _$CreateSalesBillDtoCopyWithImpl;
 @useResult
 $Res call({
- String customerId, List<Lines12> lines, int rounding, DateTime? billDate, String? notes, List<PayNow>? payNow
+ String customerId, List<Lines12> lines, int rounding, String? billDate, String? notes, List<PayNow>? payNow
 });
 
 
@@ -77,7 +77,7 @@ customerId: null == customerId ? _self.customerId : customerId // ignore: cast_n
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines12>,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,billDate: freezed == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,payNow: freezed == payNow ? _self.payNow : payNow // ignore: cast_nullable_to_non_nullable
 as List<PayNow>?,
   ));
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines12> lines,  int rounding,  DateTime? billDate,  String? notes,  List<PayNow>? payNow)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines12> lines,  int rounding,  String? billDate,  String? notes,  List<PayNow>? payNow)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateSalesBillDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.rounding,_that.billDate,_that.notes,_that.payNow);case _:
@@ -185,7 +185,7 @@ return $default(_that.customerId,_that.lines,_that.rounding,_that.billDate,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines12> lines,  int rounding,  DateTime? billDate,  String? notes,  List<PayNow>? payNow)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines12> lines,  int rounding,  String? billDate,  String? notes,  List<PayNow>? payNow)  $default,) {final _that = this;
 switch (_that) {
 case _CreateSalesBillDto():
 return $default(_that.customerId,_that.lines,_that.rounding,_that.billDate,_that.notes,_that.payNow);case _:
@@ -205,7 +205,7 @@ return $default(_that.customerId,_that.lines,_that.rounding,_that.billDate,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines12> lines,  int rounding,  DateTime? billDate,  String? notes,  List<PayNow>? payNow)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines12> lines,  int rounding,  String? billDate,  String? notes,  List<PayNow>? payNow)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateSalesBillDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.rounding,_that.billDate,_that.notes,_that.payNow);case _:
@@ -232,7 +232,7 @@ class _CreateSalesBillDto implements CreateSalesBillDto {
 }
 
 @override@JsonKey() final  int rounding;
-@override final  DateTime? billDate;
+@override final  String? billDate;
 @override final  String? notes;
  final  List<PayNow>? _payNow;
 @override List<PayNow>? get payNow {
@@ -279,7 +279,7 @@ abstract mixin class _$CreateSalesBillDtoCopyWith<$Res> implements $CreateSalesB
   factory _$CreateSalesBillDtoCopyWith(_CreateSalesBillDto value, $Res Function(_CreateSalesBillDto) _then) = __$CreateSalesBillDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String customerId, List<Lines12> lines, int rounding, DateTime? billDate, String? notes, List<PayNow>? payNow
+ String customerId, List<Lines12> lines, int rounding, String? billDate, String? notes, List<PayNow>? payNow
 });
 
 
@@ -302,7 +302,7 @@ customerId: null == customerId ? _self.customerId : customerId // ignore: cast_n
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines12>,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,billDate: freezed == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,payNow: freezed == payNow ? _self._payNow : payNow // ignore: cast_nullable_to_non_nullable
 as List<PayNow>?,
   ));

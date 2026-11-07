@@ -15,6 +15,6 @@ abstract class SupportStatusDtoOutput with _$SupportStatusDtoOutput {
     required String? grantedAt,
     required int views,
   }) = _SupportStatusDtoOutput;
-  
+
   factory SupportStatusDtoOutput.fromJson(Map<String, Object?> json) => _$SupportStatusDtoOutputFromJson(json);
 }

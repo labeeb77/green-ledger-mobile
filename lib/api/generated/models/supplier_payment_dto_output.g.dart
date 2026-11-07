@@ -6,19 +6,15 @@ part of 'supplier_payment_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_SupplierPaymentDtoOutput _$SupplierPaymentDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _SupplierPaymentDtoOutput(
+_SupplierPaymentDtoOutput _$SupplierPaymentDtoOutputFromJson(Map<String, dynamic> json) => _SupplierPaymentDtoOutput(
   id: json['id'] as String,
   number: json['number'] as String,
   supplier: Supplier4.fromJson(json['supplier'] as Map<String, dynamic>),
-  paymentDate: DateTime.parse(json['paymentDate'] as String),
+  paymentDate: json['paymentDate'] as String,
   total: (json['total'] as num).toInt(),
   status: SupplierPaymentDtoOutputStatus.fromJson(json['status'] as String),
   notes: json['notes'] as String?,
-  splits: (json['splits'] as List<dynamic>)
-      .map((e) => Splits.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  splits: (json['splits'] as List<dynamic>).map((e) => Splits.fromJson(e as Map<String, dynamic>)).toList(),
   allocations: (json['allocations'] as List<dynamic>)
       .map((e) => Allocations2.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -27,13 +23,11 @@ _SupplierPaymentDtoOutput _$SupplierPaymentDtoOutputFromJson(
   cancelReason: json['cancelReason'] as String?,
 );
 
-Map<String, dynamic> _$SupplierPaymentDtoOutputToJson(
-  _SupplierPaymentDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$SupplierPaymentDtoOutputToJson(_SupplierPaymentDtoOutput instance) => <String, dynamic>{
   'id': instance.id,
   'number': instance.number,
   'supplier': instance.supplier,
-  'paymentDate': instance.paymentDate.toIso8601String(),
+  'paymentDate': instance.paymentDate,
   'total': instance.total,
   'status': instance.status,
   'notes': instance.notes,

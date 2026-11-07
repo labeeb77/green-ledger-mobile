@@ -25,6 +25,6 @@ abstract class UpdateBusinessSettingsDto with _$UpdateBusinessSettingsDto {
     int? wastageApprovalThreshold,
     String? logoFileId,
   }) = _UpdateBusinessSettingsDto;
-  
+
   factory UpdateBusinessSettingsDto.fromJson(Map<String, Object?> json) => _$UpdateBusinessSettingsDtoFromJson(json);
 }

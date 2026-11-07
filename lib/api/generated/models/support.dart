@@ -9,9 +9,7 @@ part 'support.g.dart';
 
 @Freezed()
 abstract class Support with _$Support {
-  const factory Support({
-    required DateTime expiresAt,
-  }) = _Support;
-  
+  const factory Support({required DateTime expiresAt}) = _Support;
+
   factory Support.fromJson(Map<String, Object?> json) => _$SupportFromJson(json);
 }

@@ -11,10 +11,8 @@ part 'stock_count_page_dto_output.g.dart';
 
 @Freezed()
 abstract class StockCountPageDtoOutput with _$StockCountPageDtoOutput {
-  const factory StockCountPageDtoOutput({
-    required List<StockCountDtoOutput> items,
-    required String? nextCursor,
-  }) = _StockCountPageDtoOutput;
-  
+  const factory StockCountPageDtoOutput({required List<StockCountDtoOutput> items, required String? nextCursor}) =
+      _StockCountPageDtoOutput;
+
   factory StockCountPageDtoOutput.fromJson(Map<String, Object?> json) => _$StockCountPageDtoOutputFromJson(json);
 }

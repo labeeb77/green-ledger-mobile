@@ -9,11 +9,7 @@ part 'create_count_dto.g.dart';
 
 @Freezed()
 abstract class CreateCountDto with _$CreateCountDto {
-  const factory CreateCountDto({
-    DateTime? countDate,
-    List<String>? productIds,
-    String? notes,
-  }) = _CreateCountDto;
-  
+  const factory CreateCountDto({String? countDate, List<String>? productIds, String? notes}) = _CreateCountDto;
+
   factory CreateCountDto.fromJson(Map<String, Object?> json) => _$CreateCountDtoFromJson(json);
 }

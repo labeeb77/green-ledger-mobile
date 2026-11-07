@@ -25,6 +25,6 @@ abstract class Lines with _$Lines {
     required int? rate,
     required bool billed,
   }) = _Lines;
-  
+
   factory Lines.fromJson(Map<String, Object?> json) => _$LinesFromJson(json);
 }

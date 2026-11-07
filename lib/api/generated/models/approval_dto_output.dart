@@ -29,6 +29,6 @@ abstract class ApprovalDtoOutput with _$ApprovalDtoOutput {
     required String? decisionNote,
     required DateTime createdAt,
   }) = _ApprovalDtoOutput;
-  
+
   factory ApprovalDtoOutput.fromJson(Map<String, Object?> json) => _$ApprovalDtoOutputFromJson(json);
 }

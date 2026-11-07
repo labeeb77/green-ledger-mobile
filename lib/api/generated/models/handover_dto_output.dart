@@ -16,7 +16,7 @@ abstract class HandoverDtoOutput with _$HandoverDtoOutput {
   const factory HandoverDtoOutput({
     required String id,
     required Agent3 agent,
-    required DateTime handoverDate,
+    required String handoverDate,
     required int declaredAmount,
     required int? countedAmount,
     required int? difference,
@@ -27,6 +27,6 @@ abstract class HandoverDtoOutput with _$HandoverDtoOutput {
     required DateTime? confirmedAt,
     required DateTime createdAt,
   }) = _HandoverDtoOutput;
-  
+
   factory HandoverDtoOutput.fromJson(Map<String, Object?> json) => _$HandoverDtoOutputFromJson(json);
 }

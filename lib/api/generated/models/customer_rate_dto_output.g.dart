@@ -6,9 +6,7 @@ part of 'customer_rate_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_CustomerRateDtoOutput _$CustomerRateDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _CustomerRateDtoOutput(
+_CustomerRateDtoOutput _$CustomerRateDtoOutputFromJson(Map<String, dynamic> json) => _CustomerRateDtoOutput(
   productId: json['productId'] as String,
   productName: json['productName'] as String,
   stockUnit: json['stockUnit'] as String,
@@ -16,9 +14,7 @@ _CustomerRateDtoOutput _$CustomerRateDtoOutputFromJson(
   value: (json['value'] as num).toInt(),
 );
 
-Map<String, dynamic> _$CustomerRateDtoOutputToJson(
-  _CustomerRateDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$CustomerRateDtoOutputToJson(_CustomerRateDtoOutput instance) => <String, dynamic>{
   'productId': instance.productId,
   'productName': instance.productName,
   'stockUnit': instance.stockUnit,

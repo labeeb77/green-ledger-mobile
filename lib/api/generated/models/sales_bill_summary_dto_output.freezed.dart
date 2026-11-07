@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SalesBillSummaryDtoOutput {
 
- String get id; String? get number; DateTime get billDate; DateTime get dueDate; Customer get customer; int get subtotal; int get rounding; int get total; int get paid; int get open; SalesBillSummaryDtoOutputPaymentStatus get paymentStatus; SalesBillSummaryDtoOutputStatus get status; List<SalesBillSummaryDtoOutputIssuesUnion> get issues; String? get approvalId; String? get notes; CreatedBy4? get createdBy; DateTime get createdAt; String? get cancelReason;
+ String get id; String? get number; String get billDate; String get dueDate; Customer get customer; int get subtotal; int get rounding; int get total; int get paid; int get open; SalesBillSummaryDtoOutputPaymentStatus get paymentStatus; SalesBillSummaryDtoOutputStatus get status; List<SalesBillSummaryDtoOutputIssuesUnion> get issues; String? get approvalId; String? get notes; CreatedBy4? get createdBy; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of SalesBillSummaryDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SalesBillSummaryDtoOutputCopyWith<$Res>  {
   factory $SalesBillSummaryDtoOutputCopyWith(SalesBillSummaryDtoOutput value, $Res Function(SalesBillSummaryDtoOutput) _then) = _$SalesBillSummaryDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String? number, DateTime billDate, DateTime dueDate, Customer customer, int subtotal, int rounding, int total, int paid, int open, SalesBillSummaryDtoOutputPaymentStatus paymentStatus, SalesBillSummaryDtoOutputStatus status, List<SalesBillSummaryDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy4? createdBy, DateTime createdAt, String? cancelReason
+ String id, String? number, String billDate, String dueDate, Customer customer, int subtotal, int rounding, int total, int paid, int open, SalesBillSummaryDtoOutputPaymentStatus paymentStatus, SalesBillSummaryDtoOutputStatus status, List<SalesBillSummaryDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy4? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -76,8 +76,8 @@ class _$SalesBillSummaryDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
 as int,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  String billDate,  String dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SalesBillSummaryDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -218,7 +218,7 @@ return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.custome
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  String billDate,  String dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _SalesBillSummaryDtoOutput():
 return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -238,7 +238,7 @@ return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.custome
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  DateTime billDate,  DateTime dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  String billDate,  String dueDate,  Customer customer,  int subtotal,  int rounding,  int total,  int paid,  int open,  SalesBillSummaryDtoOutputPaymentStatus paymentStatus,  SalesBillSummaryDtoOutputStatus status,  List<SalesBillSummaryDtoOutputIssuesUnion> issues,  String? approvalId,  String? notes,  CreatedBy4? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _SalesBillSummaryDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.billDate,_that.dueDate,_that.customer,_that.subtotal,_that.rounding,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.issues,_that.approvalId,_that.notes,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -258,8 +258,8 @@ class _SalesBillSummaryDtoOutput implements SalesBillSummaryDtoOutput {
 
 @override final  String id;
 @override final  String? number;
-@override final  DateTime billDate;
-@override final  DateTime dueDate;
+@override final  String billDate;
+@override final  String dueDate;
 @override final  Customer customer;
 @override final  int subtotal;
 @override final  int rounding;
@@ -316,7 +316,7 @@ abstract mixin class _$SalesBillSummaryDtoOutputCopyWith<$Res> implements $Sales
   factory _$SalesBillSummaryDtoOutputCopyWith(_SalesBillSummaryDtoOutput value, $Res Function(_SalesBillSummaryDtoOutput) _then) = __$SalesBillSummaryDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? number, DateTime billDate, DateTime dueDate, Customer customer, int subtotal, int rounding, int total, int paid, int open, SalesBillSummaryDtoOutputPaymentStatus paymentStatus, SalesBillSummaryDtoOutputStatus status, List<SalesBillSummaryDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy4? createdBy, DateTime createdAt, String? cancelReason
+ String id, String? number, String billDate, String dueDate, Customer customer, int subtotal, int rounding, int total, int paid, int open, SalesBillSummaryDtoOutputPaymentStatus paymentStatus, SalesBillSummaryDtoOutputStatus status, List<SalesBillSummaryDtoOutputIssuesUnion> issues, String? approvalId, String? notes, CreatedBy4? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -338,8 +338,8 @@ class __$SalesBillSummaryDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer,subtotal: null == subtotal ? _self.subtotal : subtotal // ignore: cast_nullable_to_non_nullable
 as int,rounding: null == rounding ? _self.rounding : rounding // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable

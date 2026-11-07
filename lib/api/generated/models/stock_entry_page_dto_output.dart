@@ -11,10 +11,8 @@ part 'stock_entry_page_dto_output.g.dart';
 
 @Freezed()
 abstract class StockEntryPageDtoOutput with _$StockEntryPageDtoOutput {
-  const factory StockEntryPageDtoOutput({
-    required List<StockEntryDtoOutput> items,
-    required String? nextCursor,
-  }) = _StockEntryPageDtoOutput;
-  
+  const factory StockEntryPageDtoOutput({required List<StockEntryDtoOutput> items, required String? nextCursor}) =
+      _StockEntryPageDtoOutput;
+
   factory StockEntryPageDtoOutput.fromJson(Map<String, Object?> json) => _$StockEntryPageDtoOutputFromJson(json);
 }

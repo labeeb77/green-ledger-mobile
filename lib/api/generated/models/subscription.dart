@@ -18,6 +18,6 @@ abstract class Subscription with _$Subscription {
     required int userLimit,
     required Access access,
   }) = _Subscription;
-  
+
   factory Subscription.fromJson(Map<String, Object?> json) => _$SubscriptionFromJson(json);
 }

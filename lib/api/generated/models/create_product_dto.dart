@@ -15,8 +15,7 @@ abstract class CreateProductDto with _$CreateProductDto {
   const factory CreateProductDto({
     required String nameEn,
     required CreateProductDtoStockUnit stockUnit,
-    @Default([])
-    List<String> grades,
+    @Default([]) List<String> grades,
     String? nameMl,
     String? category,
 
@@ -25,6 +24,6 @@ abstract class CreateProductDto with _$CreateProductDto {
     dynamic lowStockLevel,
     List<PackUnits2>? packUnits,
   }) = _CreateProductDto;
-  
+
   factory CreateProductDto.fromJson(Map<String, Object?> json) => _$CreateProductDtoFromJson(json);
 }

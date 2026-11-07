@@ -34,9 +34,7 @@ abstract class ProductsClient {
   });
 
   @GET('/api/v1/products/{id}')
-  Future<ProductDtoOutput> productsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<ProductDtoOutput> productsControllerGet({@Path('id') required String id});
 
   @PATCH('/api/v1/products/{id}')
   Future<ProductDtoOutput> productsControllerUpdate({

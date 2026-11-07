@@ -19,6 +19,6 @@ abstract class UpdateSupplierDto with _$UpdateSupplierDto {
     int? openingBalance,
     bool? active,
   }) = _UpdateSupplierDto;
-  
+
   factory UpdateSupplierDto.fromJson(Map<String, Object?> json) => _$UpdateSupplierDtoFromJson(json);
 }

@@ -7,10 +7,9 @@ part of 'update_grade_dto.dart';
 // **************************************************************************
 
 _UpdateGradeDto _$UpdateGradeDtoFromJson(Map<String, dynamic> json) =>
-    _UpdateGradeDto(
-      name: json['name'] as String?,
-      active: json['active'] as bool?,
-    );
+    _UpdateGradeDto(name: json['name'] as String?, active: json['active'] as bool?);
 
-Map<String, dynamic> _$UpdateGradeDtoToJson(_UpdateGradeDto instance) =>
-    <String, dynamic>{'name': instance.name, 'active': instance.active};
+Map<String, dynamic> _$UpdateGradeDtoToJson(_UpdateGradeDto instance) => <String, dynamic>{
+  'name': instance.name,
+  'active': instance.active,
+};

@@ -11,12 +11,7 @@ part 'device.g.dart';
 
 @Freezed()
 abstract class Device with _$Device {
-  const factory Device({
-    required String id,
-    @Default(Platform.other)
-    Platform platform,
-    String? name,
-  }) = _Device;
-  
+  const factory Device({required String id, @Default(Platform.other) Platform platform, String? name}) = _Device;
+
   factory Device.fromJson(Map<String, Object?> json) => _$DeviceFromJson(json);
 }

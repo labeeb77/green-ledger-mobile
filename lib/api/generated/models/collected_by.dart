@@ -9,10 +9,7 @@ part 'collected_by.g.dart';
 
 @Freezed()
 abstract class CollectedBy with _$CollectedBy {
-  const factory CollectedBy({
-    required String id,
-    required String name,
-  }) = _CollectedBy;
-  
+  const factory CollectedBy({required String id, required String name}) = _CollectedBy;
+
   factory CollectedBy.fromJson(Map<String, Object?> json) => _$CollectedByFromJson(json);
 }

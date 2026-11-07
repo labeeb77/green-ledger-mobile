@@ -6,9 +6,7 @@ part of 'update_business_settings_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_UpdateBusinessSettingsDto _$UpdateBusinessSettingsDtoFromJson(
-  Map<String, dynamic> json,
-) => _UpdateBusinessSettingsDto(
+_UpdateBusinessSettingsDto _$UpdateBusinessSettingsDtoFromJson(Map<String, dynamic> json) => _UpdateBusinessSettingsDto(
   name: json['name'] as String?,
   phone: json['phone'] as String?,
   address: json['address'] as String?,
@@ -17,17 +15,13 @@ _UpdateBusinessSettingsDto _$UpdateBusinessSettingsDtoFromJson(
   goodsReceiptPrefix: json['goodsReceiptPrefix'] as String?,
   billFormat: json['billFormat'] == null
       ? null
-      : UpdateBusinessSettingsDtoBillFormat.fromJson(
-          json['billFormat'] as String,
-        ),
+      : UpdateBusinessSettingsDtoBillFormat.fromJson(json['billFormat'] as String),
   billFooter: json['billFooter'] as String?,
   wastageApprovalThreshold: (json['wastageApprovalThreshold'] as num?)?.toInt(),
   logoFileId: json['logoFileId'] as String?,
 );
 
-Map<String, dynamic> _$UpdateBusinessSettingsDtoToJson(
-  _UpdateBusinessSettingsDto instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$UpdateBusinessSettingsDtoToJson(_UpdateBusinessSettingsDto instance) => <String, dynamic>{
   'name': instance.name,
   'phone': instance.phone,
   'address': instance.address,

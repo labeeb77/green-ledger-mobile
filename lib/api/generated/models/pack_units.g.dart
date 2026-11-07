@@ -14,11 +14,10 @@ _PackUnits _$PackUnitsFromJson(Map<String, dynamic> json) => _PackUnits(
   active: json['active'] as bool,
 );
 
-Map<String, dynamic> _$PackUnitsToJson(_PackUnits instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'sizeType': instance.sizeType,
-      'size': instance.size,
-      'active': instance.active,
-    };
+Map<String, dynamic> _$PackUnitsToJson(_PackUnits instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'sizeType': instance.sizeType,
+  'size': instance.size,
+  'active': instance.active,
+};

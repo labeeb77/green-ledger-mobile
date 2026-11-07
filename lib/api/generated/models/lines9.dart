@@ -18,6 +18,6 @@ abstract class Lines9 with _$Lines9 {
     String? packUnitId,
     dynamic packCount,
   }) = _Lines9;
-  
+
   factory Lines9.fromJson(Map<String, Object?> json) => _$Lines9FromJson(json);
 }

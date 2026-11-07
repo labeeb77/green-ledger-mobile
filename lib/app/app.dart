@@ -9,6 +9,10 @@ import 'package:green_ledger_mobile/core/connectivity/connectivity_cubit.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/features/auth/domain/auth_repository.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
+import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
+import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -30,7 +34,13 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
-    providers: [RepositoryProvider<AuthRepository>.value(value: getIt<AuthRepository>())],
+    providers: [
+      RepositoryProvider<AuthRepository>.value(value: getIt<AuthRepository>()),
+      RepositoryProvider<CollectRepository>.value(value: getIt<CollectRepository>()),
+      RepositoryProvider<DocumentsRepository>.value(value: getIt<DocumentsRepository>()),
+      RepositoryProvider<HomeRepository>.value(value: getIt<HomeRepository>()),
+      RepositoryProvider<ShopsRepository>.value(value: getIt<ShopsRepository>()),
+    ],
     child: MultiBlocProvider(
       providers: [
         BlocProvider.value(value: _auth),

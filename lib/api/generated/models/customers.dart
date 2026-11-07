@@ -9,11 +9,7 @@ part 'customers.g.dart';
 
 @Freezed()
 abstract class Customers with _$Customers {
-  const factory Customers({
-    required String id,
-    required String name,
-    required String? detail,
-  }) = _Customers;
-  
+  const factory Customers({required String id, required String name, required String? detail}) = _Customers;
+
   factory Customers.fromJson(Map<String, Object?> json) => _$CustomersFromJson(json);
 }

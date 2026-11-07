@@ -18,6 +18,6 @@ abstract class Splits with _$Splits {
     required int amount,
     required String? reference,
   }) = _Splits;
-  
+
   factory Splits.fromJson(Map<String, Object?> json) => _$SplitsFromJson(json);
 }

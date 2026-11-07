@@ -31,15 +31,10 @@ abstract class UsersClient {
   });
 
   @GET('/api/v1/users/{id}')
-  Future<UserDtoOutput> usersControllerGet({
-    @Path('id') required String id,
-  });
+  Future<UserDtoOutput> usersControllerGet({@Path('id') required String id});
 
   @PATCH('/api/v1/users/{id}')
-  Future<UserDtoOutput> usersControllerUpdate({
-    @Path('id') required String id,
-    @Body() required UpdateUserDto body,
-  });
+  Future<UserDtoOutput> usersControllerUpdate({@Path('id') required String id, @Body() required UpdateUserDto body});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/users/{id}/reset-password')
@@ -49,9 +44,7 @@ abstract class UsersClient {
   });
 
   @GET('/api/v1/users/{id}/permissions')
-  Future<UserPermissionsDtoOutput> usersControllerPermissions({
-    @Path('id') required String id,
-  });
+  Future<UserPermissionsDtoOutput> usersControllerPermissions({@Path('id') required String id});
 
   @PUT('/api/v1/users/{id}/permissions')
   Future<UserPermissionsDtoOutput> usersControllerSetPermissions({
@@ -60,9 +53,7 @@ abstract class UsersClient {
   });
 
   @GET('/api/v1/users/{id}/devices')
-  Future<List<DeviceDtoOutput>> usersControllerDevices({
-    @Path('id') required String id,
-  });
+  Future<List<DeviceDtoOutput>> usersControllerDevices({@Path('id') required String id});
 
   @DELETE('/api/v1/users/{id}/devices/{sessionId}')
   Future<OkDtoOutput> usersControllerRevokeDevice({

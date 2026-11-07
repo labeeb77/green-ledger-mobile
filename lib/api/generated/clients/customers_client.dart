@@ -38,9 +38,7 @@ abstract class CustomersClient {
   Future<CustomerAreasDtoOutput> customersControllerAreas();
 
   @GET('/api/v1/customers/{id}')
-  Future<CustomerDtoOutput> customersControllerGet({
-    @Path('id') required String id,
-  });
+  Future<CustomerDtoOutput> customersControllerGet({@Path('id') required String id});
 
   @PATCH('/api/v1/customers/{id}')
   Future<CustomerDtoOutput> customersControllerUpdate({
@@ -51,7 +49,7 @@ abstract class CustomersClient {
   @GET('/api/v1/customers/{id}/statement')
   Future<StatementDtoOutput> customersControllerStatement({
     @Path('id') required String id,
-    @Query('from') required DateTime from,
-    @Query('to') required DateTime to,
+    @Query('from') required String from,
+    @Query('to') required String to,
   });
 }

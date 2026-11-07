@@ -16,7 +16,7 @@ abstract class StockCountDtoOutput with _$StockCountDtoOutput {
   const factory StockCountDtoOutput({
     required String id,
     required String? number,
-    required DateTime countDate,
+    required String countDate,
     required StockCountDtoOutputStatus status,
     required String? notes,
     required CreatedBy3? createdBy,
@@ -25,6 +25,6 @@ abstract class StockCountDtoOutput with _$StockCountDtoOutput {
     required DateTime? postedAt,
     required DateTime createdAt,
   }) = _StockCountDtoOutput;
-  
+
   factory StockCountDtoOutput.fromJson(Map<String, Object?> json) => _$StockCountDtoOutputFromJson(json);
 }

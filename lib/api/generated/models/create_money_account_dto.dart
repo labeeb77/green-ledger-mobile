@@ -23,6 +23,6 @@ abstract class CreateMoneyAccountDto with _$CreateMoneyAccountDto {
     /// Amount in paise (₹1 = 100)
     int? openingBalance,
   }) = _CreateMoneyAccountDto;
-  
+
   factory CreateMoneyAccountDto.fromJson(Map<String, Object?> json) => _$CreateMoneyAccountDtoFromJson(json);
 }

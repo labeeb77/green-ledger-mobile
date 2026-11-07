@@ -19,6 +19,6 @@ abstract class Rows with _$Rows {
     required int? rate,
     required Previous? previous,
   }) = _Rows;
-  
+
   factory Rows.fromJson(Map<String, Object?> json) => _$RowsFromJson(json);
 }

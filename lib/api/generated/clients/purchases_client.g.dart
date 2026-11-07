@@ -23,8 +23,8 @@ class _PurchasesClient implements PurchasesClient {
   @override
   Future<GoodsReceiptPageDtoOutput> goodsReceiptsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? supplierId,
     String? cursor,
     Billed? billed,
@@ -32,8 +32,8 @@ class _PurchasesClient implements PurchasesClient {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'supplierId': supplierId,
       r'cursor': cursor,
       r'billed': billed?.toJson(),
@@ -193,16 +193,16 @@ class _PurchasesClient implements PurchasesClient {
   @override
   Future<PurchaseBillSummaryPageDtoOutput> purchaseBillsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? supplierId,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'supplierId': supplierId,
       r'cursor': cursor,
     };
@@ -327,16 +327,16 @@ class _PurchasesClient implements PurchasesClient {
   @override
   Future<SupplierPaymentPageDtoOutput> supplierPaymentsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? supplierId,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'supplierId': supplierId,
       r'cursor': cursor,
     };
@@ -494,16 +494,16 @@ class _PurchasesClient implements PurchasesClient {
   @override
   Future<SupplierReturnPageDtoOutput> supplierReturnsControllerList({
     int? limit = 50,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? supplierId,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'supplierId': supplierId,
       r'cursor': cursor,
     };

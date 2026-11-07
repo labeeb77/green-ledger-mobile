@@ -34,8 +34,8 @@ abstract class CollectionsClient {
   @GET('/api/v1/customer-receipts')
   Future<CustomerReceiptPageDtoOutput> customerReceiptsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('customerId') String? customerId,
     @Query('status') Status3? status,
     @Query('cursor') String? cursor,
@@ -68,9 +68,7 @@ abstract class CollectionsClient {
   });
 
   @GET('/api/v1/customer-receipts/{id}')
-  Future<CustomerReceiptDtoOutput> customerReceiptsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<CustomerReceiptDtoOutput> customerReceiptsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/customer-receipts/{id}/cancel')

@@ -18,8 +18,8 @@ part 'dashboard_dto_output.g.dart';
 @Freezed()
 abstract class DashboardDtoOutput with _$DashboardDtoOutput {
   const factory DashboardDtoOutput({
-    required DateTime from,
-    required DateTime to,
+    required String from,
+    required String to,
     required Sales? sales,
     required Collections? collections,
     required Outstanding? outstanding,
@@ -28,6 +28,6 @@ abstract class DashboardDtoOutput with _$DashboardDtoOutput {
     required List<LowStock>? lowStock,
     required List<OverdueCustomers>? overdueCustomers,
   }) = _DashboardDtoOutput;
-  
+
   factory DashboardDtoOutput.fromJson(Map<String, Object?> json) => _$DashboardDtoOutputFromJson(json);
 }

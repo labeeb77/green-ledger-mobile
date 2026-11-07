@@ -11,10 +11,7 @@ part 'lines19.g.dart';
 
 @Freezed()
 abstract class Lines19 with _$Lines19 {
-  const factory Lines19({
-    required String lineId,
-    required Result result,
-  }) = _Lines19;
-  
+  const factory Lines19({required String lineId, required Result result}) = _Lines19;
+
   factory Lines19.fromJson(Map<String, Object?> json) => _$Lines19FromJson(json);
 }

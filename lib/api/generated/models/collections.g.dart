@@ -12,9 +12,8 @@ _Collections _$CollectionsFromJson(Map<String, dynamic> json) => _Collections(
   link: Link2.fromJson(json['link'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$CollectionsToJson(_Collections instance) =>
-    <String, dynamic>{
-      'total': instance.total,
-      'byMethod': instance.byMethod,
-      'link': instance.link,
-    };
+Map<String, dynamic> _$CollectionsToJson(_Collections instance) => <String, dynamic>{
+  'total': instance.total,
+  'byMethod': instance.byMethod,
+  'link': instance.link,
+};

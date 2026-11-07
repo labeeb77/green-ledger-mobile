@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'agent.dart';
 import 'customer_dto_output_status.dart';
+import 'last_visit.dart';
 import 'price_group.dart';
 
 part 'customer_dto_output.freezed.dart';
@@ -17,6 +18,7 @@ abstract class CustomerDtoOutput with _$CustomerDtoOutput {
     required String id,
     required String name,
     required String? phone,
+    required String? whatsapp,
     required String? area,
     required String? address,
     required String? notes,
@@ -28,8 +30,9 @@ abstract class CustomerDtoOutput with _$CustomerDtoOutput {
     required CustomerDtoOutputStatus status,
     required int outstanding,
     required int overdue,
+    required LastVisit? lastVisit,
     required DateTime createdAt,
   }) = _CustomerDtoOutput;
-  
+
   factory CustomerDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerDtoOutputFromJson(json);
 }

@@ -21,6 +21,6 @@ abstract class PlatformReportDtoOutput with _$PlatformReportDtoOutput {
     required List<DueSoon> dueSoon,
     required PaymentsThisMonth paymentsThisMonth,
   }) = _PlatformReportDtoOutput;
-  
+
   factory PlatformReportDtoOutput.fromJson(Map<String, Object?> json) => _$PlatformReportDtoOutputFromJson(json);
 }

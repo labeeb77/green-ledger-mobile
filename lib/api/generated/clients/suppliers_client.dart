@@ -31,9 +31,7 @@ abstract class SuppliersClient {
   });
 
   @GET('/api/v1/suppliers/{id}')
-  Future<SupplierDtoOutput> suppliersControllerGet({
-    @Path('id') required String id,
-  });
+  Future<SupplierDtoOutput> suppliersControllerGet({@Path('id') required String id});
 
   @PATCH('/api/v1/suppliers/{id}')
   Future<SupplierDtoOutput> suppliersControllerUpdate({
@@ -44,7 +42,7 @@ abstract class SuppliersClient {
   @GET('/api/v1/suppliers/{id}/statement')
   Future<StatementDtoOutput> suppliersControllerStatement({
     @Path('id') required String id,
-    @Query('from') required DateTime from,
-    @Query('to') required DateTime to,
+    @Query('from') required String from,
+    @Query('to') required String to,
   });
 }

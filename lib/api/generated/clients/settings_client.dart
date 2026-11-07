@@ -20,17 +20,13 @@ abstract class SettingsClient {
   Future<BusinessSettingsDtoOutput> settingsControllerGet();
 
   @PUT('/api/v1/settings/business')
-  Future<BusinessSettingsDtoOutput> settingsControllerUpdate({
-    @Body() required UpdateBusinessSettingsDto body,
-  });
+  Future<BusinessSettingsDtoOutput> settingsControllerUpdate({@Body() required UpdateBusinessSettingsDto body});
 
   @GET('/api/v1/settings/support-access')
   Future<SupportStatusDtoOutput> supportAccessControllerStatus();
 
   @PUT('/api/v1/settings/support-access')
-  Future<SupportStatusDtoOutput> supportAccessControllerGrant({
-    @Body() required GrantSupportDto body,
-  });
+  Future<SupportStatusDtoOutput> supportAccessControllerGrant({@Body() required GrantSupportDto body});
 
   @DELETE('/api/v1/settings/support-access')
   Future<SupportStatusDtoOutput> supportAccessControllerRevoke();

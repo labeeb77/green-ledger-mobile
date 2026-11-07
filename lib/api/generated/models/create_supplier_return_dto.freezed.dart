@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateSupplierReturnDto {
 
- String get supplierId; List<Lines6> get lines; DateTime? get returnDate; String? get billId; String? get reason;
+ String get supplierId; List<Lines6> get lines; String? get returnDate; String? get billId; String? get reason;
 /// Create a copy of CreateSupplierReturnDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateSupplierReturnDtoCopyWith<$Res>  {
   factory $CreateSupplierReturnDtoCopyWith(CreateSupplierReturnDto value, $Res Function(CreateSupplierReturnDto) _then) = _$CreateSupplierReturnDtoCopyWithImpl;
 @useResult
 $Res call({
- String supplierId, List<Lines6> lines, DateTime? returnDate, String? billId, String? reason
+ String supplierId, List<Lines6> lines, String? returnDate, String? billId, String? reason
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateSupplierReturnDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines6>,returnDate: freezed == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
+as String?,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
 as String?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines6> lines,  DateTime? returnDate,  String? billId,  String? reason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Lines6> lines,  String? returnDate,  String? billId,  String? reason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateSupplierReturnDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.returnDate,_that.billId,_that.reason);case _:
@@ -184,7 +184,7 @@ return $default(_that.supplierId,_that.lines,_that.returnDate,_that.billId,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines6> lines,  DateTime? returnDate,  String? billId,  String? reason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Lines6> lines,  String? returnDate,  String? billId,  String? reason)  $default,) {final _that = this;
 switch (_that) {
 case _CreateSupplierReturnDto():
 return $default(_that.supplierId,_that.lines,_that.returnDate,_that.billId,_that.reason);case _:
@@ -204,7 +204,7 @@ return $default(_that.supplierId,_that.lines,_that.returnDate,_that.billId,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines6> lines,  DateTime? returnDate,  String? billId,  String? reason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Lines6> lines,  String? returnDate,  String? billId,  String? reason)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateSupplierReturnDto() when $default != null:
 return $default(_that.supplierId,_that.lines,_that.returnDate,_that.billId,_that.reason);case _:
@@ -230,7 +230,7 @@ class _CreateSupplierReturnDto implements CreateSupplierReturnDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? returnDate;
+@override final  String? returnDate;
 @override final  String? billId;
 @override final  String? reason;
 
@@ -269,7 +269,7 @@ abstract mixin class _$CreateSupplierReturnDtoCopyWith<$Res> implements $CreateS
   factory _$CreateSupplierReturnDtoCopyWith(_CreateSupplierReturnDto value, $Res Function(_CreateSupplierReturnDto) _then) = __$CreateSupplierReturnDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String supplierId, List<Lines6> lines, DateTime? returnDate, String? billId, String? reason
+ String supplierId, List<Lines6> lines, String? returnDate, String? billId, String? reason
 });
 
 
@@ -291,7 +291,7 @@ class __$CreateSupplierReturnDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines6>,returnDate: freezed == returnDate ? _self.returnDate : returnDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
+as String?,billId: freezed == billId ? _self.billId : billId // ignore: cast_nullable_to_non_nullable
 as String?,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

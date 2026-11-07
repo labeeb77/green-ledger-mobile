@@ -16,6 +16,6 @@ abstract class ExpenseListDtoOutput with _$ExpenseListDtoOutput {
     required int total,
     required String? nextCursor,
   }) = _ExpenseListDtoOutput;
-  
+
   factory ExpenseListDtoOutput.fromJson(Map<String, Object?> json) => _$ExpenseListDtoOutputFromJson(json);
 }

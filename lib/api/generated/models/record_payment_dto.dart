@@ -15,11 +15,11 @@ abstract class RecordPaymentDto with _$RecordPaymentDto {
     /// Amount in paise (₹1 = 100)
     required int amount,
     required RecordPaymentDtoMethod method,
-    DateTime? paidOn,
+    String? paidOn,
     String? reference,
     String? notes,
     DateTime? extendTo,
   }) = _RecordPaymentDto;
-  
+
   factory RecordPaymentDto.fromJson(Map<String, Object?> json) => _$RecordPaymentDtoFromJson(json);
 }

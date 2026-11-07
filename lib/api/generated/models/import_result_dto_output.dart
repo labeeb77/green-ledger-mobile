@@ -11,11 +11,8 @@ part 'import_result_dto_output.g.dart';
 
 @Freezed()
 abstract class ImportResultDtoOutput with _$ImportResultDtoOutput {
-  const factory ImportResultDtoOutput({
-    required bool ok,
-    required int imported,
-    required List<Errors> errors,
-  }) = _ImportResultDtoOutput;
-  
+  const factory ImportResultDtoOutput({required bool ok, required int imported, required List<Errors> errors}) =
+      _ImportResultDtoOutput;
+
   factory ImportResultDtoOutput.fromJson(Map<String, Object?> json) => _$ImportResultDtoOutputFromJson(json);
 }

@@ -15,12 +15,11 @@ _Allocations _$AllocationsFromJson(Map<String, dynamic> json) => _Allocations(
   amount: (json['amount'] as num).toInt(),
 );
 
-Map<String, dynamic> _$AllocationsToJson(_Allocations instance) =>
-    <String, dynamic>{
-      'creditType': instance.creditType,
-      'creditId': instance.creditId,
-      'creditNumber': instance.creditNumber,
-      'billId': instance.billId,
-      'billNumber': instance.billNumber,
-      'amount': instance.amount,
-    };
+Map<String, dynamic> _$AllocationsToJson(_Allocations instance) => <String, dynamic>{
+  'creditType': instance.creditType,
+  'creditId': instance.creditId,
+  'creditNumber': instance.creditNumber,
+  'billId': instance.billId,
+  'billNumber': instance.billNumber,
+  'amount': instance.amount,
+};

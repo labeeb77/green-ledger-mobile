@@ -18,6 +18,6 @@ abstract class PdfStatusDtoOutput with _$PdfStatusDtoOutput {
     required String filename,
     required String? error,
   }) = _PdfStatusDtoOutput;
-  
+
   factory PdfStatusDtoOutput.fromJson(Map<String, Object?> json) => _$PdfStatusDtoOutputFromJson(json);
 }

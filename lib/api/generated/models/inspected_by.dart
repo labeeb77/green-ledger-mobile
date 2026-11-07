@@ -9,10 +9,7 @@ part 'inspected_by.g.dart';
 
 @Freezed()
 abstract class InspectedBy with _$InspectedBy {
-  const factory InspectedBy({
-    required String id,
-    required String name,
-  }) = _InspectedBy;
-  
+  const factory InspectedBy({required String id, required String name}) = _InspectedBy;
+
   factory InspectedBy.fromJson(Map<String, Object?> json) => _$InspectedByFromJson(json);
 }

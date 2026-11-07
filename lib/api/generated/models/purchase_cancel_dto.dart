@@ -9,9 +9,7 @@ part 'purchase_cancel_dto.g.dart';
 
 @Freezed()
 abstract class PurchaseCancelDto with _$PurchaseCancelDto {
-  const factory PurchaseCancelDto({
-    required String reason,
-  }) = _PurchaseCancelDto;
-  
+  const factory PurchaseCancelDto({required String reason}) = _PurchaseCancelDto;
+
   factory PurchaseCancelDto.fromJson(Map<String, Object?> json) => _$PurchaseCancelDtoFromJson(json);
 }

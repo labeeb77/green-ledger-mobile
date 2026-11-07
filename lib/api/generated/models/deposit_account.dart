@@ -9,10 +9,7 @@ part 'deposit_account.g.dart';
 
 @Freezed()
 abstract class DepositAccount with _$DepositAccount {
-  const factory DepositAccount({
-    required String id,
-    required String name,
-  }) = _DepositAccount;
-  
+  const factory DepositAccount({required String id, required String name}) = _DepositAccount;
+
   factory DepositAccount.fromJson(Map<String, Object?> json) => _$DepositAccountFromJson(json);
 }

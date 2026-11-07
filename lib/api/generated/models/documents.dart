@@ -15,9 +15,9 @@ abstract class Documents with _$Documents {
     required String id,
     required Type4 type,
     required String number,
-    required DateTime date,
+    required String date,
     required String party,
   }) = _Documents;
-  
+
   factory Documents.fromJson(Map<String, Object?> json) => _$DocumentsFromJson(json);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateWastageDto {
 
- List<Lines8> get lines; DateTime? get entryDate; String? get notes; String? get photoFileId;
+ List<Lines8> get lines; String? get entryDate; String? get notes; String? get photoFileId;
 /// Create a copy of CreateWastageDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateWastageDtoCopyWith<$Res>  {
   factory $CreateWastageDtoCopyWith(CreateWastageDto value, $Res Function(CreateWastageDto) _then) = _$CreateWastageDtoCopyWithImpl;
 @useResult
 $Res call({
- List<Lines8> lines, DateTime? entryDate, String? notes, String? photoFileId
+ List<Lines8> lines, String? entryDate, String? notes, String? photoFileId
 });
 
 
@@ -75,7 +75,7 @@ class _$CreateWastageDtoCopyWithImpl<$Res>
   return _then(CreateWastageDto(
 lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines8>,entryDate: freezed == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,photoFileId: freezed == photoFileId ? _self.photoFileId : photoFileId // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Lines8> lines,  DateTime? entryDate,  String? notes,  String? photoFileId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Lines8> lines,  String? entryDate,  String? notes,  String? photoFileId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateWastageDto() when $default != null:
 return $default(_that.lines,_that.entryDate,_that.notes,_that.photoFileId);case _:
@@ -183,7 +183,7 @@ return $default(_that.lines,_that.entryDate,_that.notes,_that.photoFileId);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Lines8> lines,  DateTime? entryDate,  String? notes,  String? photoFileId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Lines8> lines,  String? entryDate,  String? notes,  String? photoFileId)  $default,) {final _that = this;
 switch (_that) {
 case _CreateWastageDto():
 return $default(_that.lines,_that.entryDate,_that.notes,_that.photoFileId);case _:
@@ -203,7 +203,7 @@ return $default(_that.lines,_that.entryDate,_that.notes,_that.photoFileId);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Lines8> lines,  DateTime? entryDate,  String? notes,  String? photoFileId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Lines8> lines,  String? entryDate,  String? notes,  String? photoFileId)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateWastageDto() when $default != null:
 return $default(_that.lines,_that.entryDate,_that.notes,_that.photoFileId);case _:
@@ -228,7 +228,7 @@ class _CreateWastageDto implements CreateWastageDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? entryDate;
+@override final  String? entryDate;
 @override final  String? notes;
 @override final  String? photoFileId;
 
@@ -267,7 +267,7 @@ abstract mixin class _$CreateWastageDtoCopyWith<$Res> implements $CreateWastageD
   factory _$CreateWastageDtoCopyWith(_CreateWastageDto value, $Res Function(_CreateWastageDto) _then) = __$CreateWastageDtoCopyWithImpl;
 @override @useResult
 $Res call({
- List<Lines8> lines, DateTime? entryDate, String? notes, String? photoFileId
+ List<Lines8> lines, String? entryDate, String? notes, String? photoFileId
 });
 
 
@@ -288,7 +288,7 @@ class __$CreateWastageDtoCopyWithImpl<$Res>
   return _then(_CreateWastageDto(
 lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines8>,entryDate: freezed == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,photoFileId: freezed == photoFileId ? _self.photoFileId : photoFileId // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

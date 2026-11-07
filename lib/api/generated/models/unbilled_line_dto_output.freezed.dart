@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnbilledLineDtoOutput {
 
- String get goodsReceiptLineId; String get receiptId; String get receiptNumber; DateTime get receiptDate; Product2 get product; Grade2? get grade; PackUnit2? get packUnit; String? get packCount; String get net; int? get rate;
+ String get goodsReceiptLineId; String get receiptId; String get receiptNumber; String get receiptDate; Product2 get product; Grade2? get grade; PackUnit2? get packUnit; String? get packCount; String get net; int? get rate;
 /// Create a copy of UnbilledLineDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $UnbilledLineDtoOutputCopyWith<$Res>  {
   factory $UnbilledLineDtoOutputCopyWith(UnbilledLineDtoOutput value, $Res Function(UnbilledLineDtoOutput) _then) = _$UnbilledLineDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String goodsReceiptLineId, String receiptId, String receiptNumber, DateTime receiptDate, Product2 product, Grade2? grade, PackUnit2? packUnit, String? packCount, String net, int? rate
+ String goodsReceiptLineId, String receiptId, String receiptNumber, String receiptDate, Product2 product, Grade2? grade, PackUnit2? packUnit, String? packCount, String net, int? rate
 });
 
 
@@ -77,7 +77,7 @@ goodsReceiptLineId: null == goodsReceiptLineId ? _self.goodsReceiptLineId : good
 as String,receiptId: null == receiptId ? _self.receiptId : receiptId // ignore: cast_nullable_to_non_nullable
 as String,receiptNumber: null == receiptNumber ? _self.receiptNumber : receiptNumber // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
+as String,product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as Product2,grade: freezed == grade ? _self.grade : grade // ignore: cast_nullable_to_non_nullable
 as Grade2?,packUnit: freezed == packUnit ? _self.packUnit : packUnit // ignore: cast_nullable_to_non_nullable
 as PackUnit2?,packCount: freezed == packCount ? _self.packCount : packCount // ignore: cast_nullable_to_non_nullable
@@ -201,7 +201,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  String receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnbilledLineDtoOutput() when $default != null:
 return $default(_that.goodsReceiptLineId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.product,_that.grade,_that.packUnit,_that.packCount,_that.net,_that.rate);case _:
@@ -222,7 +222,7 @@ return $default(_that.goodsReceiptLineId,_that.receiptId,_that.receiptNumber,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  String receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)  $default,) {final _that = this;
 switch (_that) {
 case _UnbilledLineDtoOutput():
 return $default(_that.goodsReceiptLineId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.product,_that.grade,_that.packUnit,_that.packCount,_that.net,_that.rate);case _:
@@ -242,7 +242,7 @@ return $default(_that.goodsReceiptLineId,_that.receiptId,_that.receiptNumber,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  DateTime receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String goodsReceiptLineId,  String receiptId,  String receiptNumber,  String receiptDate,  Product2 product,  Grade2? grade,  PackUnit2? packUnit,  String? packCount,  String net,  int? rate)?  $default,) {final _that = this;
 switch (_that) {
 case _UnbilledLineDtoOutput() when $default != null:
 return $default(_that.goodsReceiptLineId,_that.receiptId,_that.receiptNumber,_that.receiptDate,_that.product,_that.grade,_that.packUnit,_that.packCount,_that.net,_that.rate);case _:
@@ -263,7 +263,7 @@ class _UnbilledLineDtoOutput implements UnbilledLineDtoOutput {
 @override final  String goodsReceiptLineId;
 @override final  String receiptId;
 @override final  String receiptNumber;
-@override final  DateTime receiptDate;
+@override final  String receiptDate;
 @override final  Product2 product;
 @override final  Grade2? grade;
 @override final  PackUnit2? packUnit;
@@ -306,7 +306,7 @@ abstract mixin class _$UnbilledLineDtoOutputCopyWith<$Res> implements $UnbilledL
   factory _$UnbilledLineDtoOutputCopyWith(_UnbilledLineDtoOutput value, $Res Function(_UnbilledLineDtoOutput) _then) = __$UnbilledLineDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String goodsReceiptLineId, String receiptId, String receiptNumber, DateTime receiptDate, Product2 product, Grade2? grade, PackUnit2? packUnit, String? packCount, String net, int? rate
+ String goodsReceiptLineId, String receiptId, String receiptNumber, String receiptDate, Product2 product, Grade2? grade, PackUnit2? packUnit, String? packCount, String net, int? rate
 });
 
 
@@ -329,7 +329,7 @@ goodsReceiptLineId: null == goodsReceiptLineId ? _self.goodsReceiptLineId : good
 as String,receiptId: null == receiptId ? _self.receiptId : receiptId // ignore: cast_nullable_to_non_nullable
 as String,receiptNumber: null == receiptNumber ? _self.receiptNumber : receiptNumber // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
+as String,product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as Product2,grade: freezed == grade ? _self.grade : grade // ignore: cast_nullable_to_non_nullable
 as Grade2?,packUnit: freezed == packUnit ? _self.packUnit : packUnit // ignore: cast_nullable_to_non_nullable
 as PackUnit2?,packCount: freezed == packCount ? _self.packCount : packCount // ignore: cast_nullable_to_non_nullable

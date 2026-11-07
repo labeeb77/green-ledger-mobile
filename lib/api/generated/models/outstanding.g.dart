@@ -13,10 +13,9 @@ _Outstanding _$OutstandingFromJson(Map<String, dynamic> json) => _Outstanding(
   link: Link3.fromJson(json['link'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$OutstandingToJson(_Outstanding instance) =>
-    <String, dynamic>{
-      'total': instance.total,
-      'overdue': instance.overdue,
-      'customers': instance.customers,
-      'link': instance.link,
-    };
+Map<String, dynamic> _$OutstandingToJson(_Outstanding instance) => <String, dynamic>{
+  'total': instance.total,
+  'overdue': instance.overdue,
+  'customers': instance.customers,
+  'link': instance.link,
+};

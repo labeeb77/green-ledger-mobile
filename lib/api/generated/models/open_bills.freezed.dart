@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OpenBills {
 
- String get id; String get number; DateTime get date; DateTime get dueDate; int get total; int get open;
+ String get id; String get number; String get date; String get dueDate; int get total; int get open;
 /// Create a copy of OpenBills
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $OpenBillsCopyWith<$Res>  {
   factory $OpenBillsCopyWith(OpenBills value, $Res Function(OpenBills) _then) = _$OpenBillsCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, DateTime date, DateTime dueDate, int total, int open
+ String id, String number, String date, String dueDate, int total, int open
 });
 
 
@@ -76,8 +76,8 @@ class _$OpenBillsCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,open: null == open ? _self.open : open // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime date,  DateTime dueDate,  int total,  int open)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  String date,  String dueDate,  int total,  int open)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OpenBills() when $default != null:
 return $default(_that.id,_that.number,_that.date,_that.dueDate,_that.total,_that.open);case _:
@@ -185,7 +185,7 @@ return $default(_that.id,_that.number,_that.date,_that.dueDate,_that.total,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime date,  DateTime dueDate,  int total,  int open)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  String date,  String dueDate,  int total,  int open)  $default,) {final _that = this;
 switch (_that) {
 case _OpenBills():
 return $default(_that.id,_that.number,_that.date,_that.dueDate,_that.total,_that.open);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.number,_that.date,_that.dueDate,_that.total,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime date,  DateTime dueDate,  int total,  int open)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  String date,  String dueDate,  int total,  int open)?  $default,) {final _that = this;
 switch (_that) {
 case _OpenBills() when $default != null:
 return $default(_that.id,_that.number,_that.date,_that.dueDate,_that.total,_that.open);case _:
@@ -225,8 +225,8 @@ class _OpenBills implements OpenBills {
 
 @override final  String id;
 @override final  String number;
-@override final  DateTime date;
-@override final  DateTime dueDate;
+@override final  String date;
+@override final  String dueDate;
 @override final  int total;
 @override final  int open;
 
@@ -265,7 +265,7 @@ abstract mixin class _$OpenBillsCopyWith<$Res> implements $OpenBillsCopyWith<$Re
   factory _$OpenBillsCopyWith(_OpenBills value, $Res Function(_OpenBills) _then) = __$OpenBillsCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, DateTime date, DateTime dueDate, int total, int open
+ String id, String number, String date, String dueDate, int total, int open
 });
 
 
@@ -287,8 +287,8 @@ class __$OpenBillsCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,open: null == open ? _self.open : open // ignore: cast_nullable_to_non_nullable
 as int,
   ));

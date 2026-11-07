@@ -21,6 +21,6 @@ abstract class Owner3 with _$Owner3 {
     required DateTime? lastLoginAt,
     required DateTime createdAt,
   }) = _Owner3;
-  
+
   factory Owner3.fromJson(Map<String, Object?> json) => _$Owner3FromJson(json);
 }

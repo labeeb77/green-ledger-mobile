@@ -6,6 +6,14 @@ import 'package:green_ledger_mobile/core/network/token_store.dart';
 import 'package:green_ledger_mobile/core/storage/secure_store.dart';
 import 'package:green_ledger_mobile/features/auth/data/auth_repository_impl.dart';
 import 'package:green_ledger_mobile/features/auth/domain/auth_repository.dart';
+import 'package:green_ledger_mobile/features/collect/data/collect_repository_impl.dart';
+import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/documents/data/documents_repository_impl.dart';
+import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
+import 'package:green_ledger_mobile/features/home/data/home_repository_impl.dart';
+import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
+import 'package:green_ledger_mobile/features/shops/data/shops_repository_impl.dart';
+import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -29,5 +37,21 @@ void configureDependencies(FlavorConfig config) {
     ..registerSingleton(tokens)
     ..registerSingleton(client)
     ..registerSingleton(Connectivity())
-    ..registerSingleton<AuthRepository>(auth);
+    ..registerSingleton<AuthRepository>(auth)
+    ..registerSingleton<CollectRepository>(
+      CollectRepositoryImpl(
+        collections: client.api.collections,
+        accounts: client.api.moneyAccounts,
+        files: client.api.files,
+      ),
+    )
+    ..registerSingleton<DocumentsRepository>(DocumentsRepositoryImpl(client: client.api.documents))
+    ..registerSingleton<HomeRepository>(HomeRepositoryImpl(client.api.home))
+    ..registerSingleton<ShopsRepository>(
+      ShopsRepositoryImpl(
+        customers: client.api.customers,
+        sales: client.api.sales,
+        collections: client.api.collections,
+      ),
+    );
 }

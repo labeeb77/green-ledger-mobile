@@ -38,9 +38,7 @@ abstract class ApprovalsClient {
   });
 
   @GET('/api/v1/approvals/{id}')
-  Future<ApprovalDtoOutput> approvalsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<ApprovalDtoOutput> approvalsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/approvals/{id}/approve')

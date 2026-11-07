@@ -15,10 +15,10 @@ abstract class CreateSupplierPaymentDto with _$CreateSupplierPaymentDto {
   const factory CreateSupplierPaymentDto({
     required String supplierId,
     required List<Splits2> splits,
-    DateTime? paymentDate,
+    String? paymentDate,
     String? notes,
     List<Allocations3>? allocations,
   }) = _CreateSupplierPaymentDto;
-  
+
   factory CreateSupplierPaymentDto.fromJson(Map<String, Object?> json) => _$CreateSupplierPaymentDtoFromJson(json);
 }

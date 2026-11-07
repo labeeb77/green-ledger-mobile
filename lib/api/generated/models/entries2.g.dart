@@ -8,14 +8,12 @@ part of 'entries2.dart';
 
 _Entries2 _$Entries2FromJson(Map<String, dynamic> json) => _Entries2(
   id: json['id'] as String,
-  date: DateTime.parse(json['date'] as String),
+  date: json['date'] as String,
   reason: Reason2.fromJson(json['reason'] as String),
   reference: json['reference'] as String?,
   sourceType: json['sourceType'] as String,
   sourceId: json['sourceId'] as String,
-  user: json['user'] == null
-      ? null
-      : User4.fromJson(json['user'] as Map<String, dynamic>),
+  user: json['user'] == null ? null : User5.fromJson(json['user'] as Map<String, dynamic>),
   quantity: json['quantity'] as String,
   packCount: json['packCount'] as String?,
   packUnit: json['packUnit'] as String?,
@@ -24,7 +22,7 @@ _Entries2 _$Entries2FromJson(Map<String, dynamic> json) => _Entries2(
 
 Map<String, dynamic> _$Entries2ToJson(_Entries2 instance) => <String, dynamic>{
   'id': instance.id,
-  'date': instance.date.toIso8601String(),
+  'date': instance.date,
   'reason': instance.reason,
   'reference': instance.reference,
   'sourceType': instance.sourceType,

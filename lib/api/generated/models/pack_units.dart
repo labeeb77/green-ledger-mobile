@@ -18,6 +18,6 @@ abstract class PackUnits with _$PackUnits {
     required String? size,
     required bool active,
   }) = _PackUnits;
-  
+
   factory PackUnits.fromJson(Map<String, Object?> json) => _$PackUnitsFromJson(json);
 }

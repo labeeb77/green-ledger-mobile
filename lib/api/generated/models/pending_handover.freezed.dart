@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PendingHandover {
 
- String get id; Agent4 get agent; DateTime get handoverDate; int get declaredAmount; int? get countedAmount; int? get difference; Status6 get status; int get bagBalance; String? get note; ConfirmedBy2? get confirmedBy; DateTime? get confirmedAt; DateTime get createdAt;
+ String get id; Agent4 get agent; String get handoverDate; int get declaredAmount; int? get countedAmount; int? get difference; Status6 get status; int get bagBalance; String? get note; ConfirmedBy2? get confirmedBy; DateTime? get confirmedAt; DateTime get createdAt;
 /// Create a copy of PendingHandover
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $PendingHandoverCopyWith<$Res>  {
   factory $PendingHandoverCopyWith(PendingHandover value, $Res Function(PendingHandover) _then) = _$PendingHandoverCopyWithImpl;
 @useResult
 $Res call({
- String id, Agent4 agent, DateTime handoverDate, int declaredAmount, int? countedAmount, int? difference, Status6 status, int bagBalance, String? note, ConfirmedBy2? confirmedBy, DateTime? confirmedAt, DateTime createdAt
+ String id, Agent4 agent, String handoverDate, int declaredAmount, int? countedAmount, int? difference, Status6 status, int bagBalance, String? note, ConfirmedBy2? confirmedBy, DateTime? confirmedAt, DateTime createdAt
 });
 
 
@@ -76,7 +76,7 @@ class _$PendingHandoverCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,agent: null == agent ? _self.agent : agent // ignore: cast_nullable_to_non_nullable
 as Agent4,handoverDate: null == handoverDate ? _self.handoverDate : handoverDate // ignore: cast_nullable_to_non_nullable
-as DateTime,declaredAmount: null == declaredAmount ? _self.declaredAmount : declaredAmount // ignore: cast_nullable_to_non_nullable
+as String,declaredAmount: null == declaredAmount ? _self.declaredAmount : declaredAmount // ignore: cast_nullable_to_non_nullable
 as int,countedAmount: freezed == countedAmount ? _self.countedAmount : countedAmount // ignore: cast_nullable_to_non_nullable
 as int?,difference: freezed == difference ? _self.difference : difference // ignore: cast_nullable_to_non_nullable
 as int?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Agent4 agent,  DateTime handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Agent4 agent,  String handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PendingHandover() when $default != null:
 return $default(_that.id,_that.agent,_that.handoverDate,_that.declaredAmount,_that.countedAmount,_that.difference,_that.status,_that.bagBalance,_that.note,_that.confirmedBy,_that.confirmedAt,_that.createdAt);case _:
@@ -212,7 +212,7 @@ return $default(_that.id,_that.agent,_that.handoverDate,_that.declaredAmount,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Agent4 agent,  DateTime handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Agent4 agent,  String handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _PendingHandover():
 return $default(_that.id,_that.agent,_that.handoverDate,_that.declaredAmount,_that.countedAmount,_that.difference,_that.status,_that.bagBalance,_that.note,_that.confirmedBy,_that.confirmedAt,_that.createdAt);case _:
@@ -232,7 +232,7 @@ return $default(_that.id,_that.agent,_that.handoverDate,_that.declaredAmount,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Agent4 agent,  DateTime handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Agent4 agent,  String handoverDate,  int declaredAmount,  int? countedAmount,  int? difference,  Status6 status,  int bagBalance,  String? note,  ConfirmedBy2? confirmedBy,  DateTime? confirmedAt,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _PendingHandover() when $default != null:
 return $default(_that.id,_that.agent,_that.handoverDate,_that.declaredAmount,_that.countedAmount,_that.difference,_that.status,_that.bagBalance,_that.note,_that.confirmedBy,_that.confirmedAt,_that.createdAt);case _:
@@ -252,7 +252,7 @@ class _PendingHandover implements PendingHandover {
 
 @override final  String id;
 @override final  Agent4 agent;
-@override final  DateTime handoverDate;
+@override final  String handoverDate;
 @override final  int declaredAmount;
 @override final  int? countedAmount;
 @override final  int? difference;
@@ -298,7 +298,7 @@ abstract mixin class _$PendingHandoverCopyWith<$Res> implements $PendingHandover
   factory _$PendingHandoverCopyWith(_PendingHandover value, $Res Function(_PendingHandover) _then) = __$PendingHandoverCopyWithImpl;
 @override @useResult
 $Res call({
- String id, Agent4 agent, DateTime handoverDate, int declaredAmount, int? countedAmount, int? difference, Status6 status, int bagBalance, String? note, ConfirmedBy2? confirmedBy, DateTime? confirmedAt, DateTime createdAt
+ String id, Agent4 agent, String handoverDate, int declaredAmount, int? countedAmount, int? difference, Status6 status, int bagBalance, String? note, ConfirmedBy2? confirmedBy, DateTime? confirmedAt, DateTime createdAt
 });
 
 
@@ -320,7 +320,7 @@ class __$PendingHandoverCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,agent: null == agent ? _self.agent : agent // ignore: cast_nullable_to_non_nullable
 as Agent4,handoverDate: null == handoverDate ? _self.handoverDate : handoverDate // ignore: cast_nullable_to_non_nullable
-as DateTime,declaredAmount: null == declaredAmount ? _self.declaredAmount : declaredAmount // ignore: cast_nullable_to_non_nullable
+as String,declaredAmount: null == declaredAmount ? _self.declaredAmount : declaredAmount // ignore: cast_nullable_to_non_nullable
 as int,countedAmount: freezed == countedAmount ? _self.countedAmount : countedAmount // ignore: cast_nullable_to_non_nullable
 as int?,difference: freezed == difference ? _self.difference : difference // ignore: cast_nullable_to_non_nullable
 as int?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable

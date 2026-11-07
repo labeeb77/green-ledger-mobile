@@ -29,6 +29,8 @@ import 'clients/notifications_client.dart';
 import 'clients/documents_client.dart';
 import 'clients/files_client.dart';
 import 'clients/imports_client.dart';
+import 'clients/visit_notes_client.dart';
+import 'clients/home_client.dart';
 
 /// Wholesale Manager API `v1.0`.
 ///
@@ -39,11 +41,7 @@ import 'clients/imports_client.dart';
 /// - Money is integer paise. Weights are decimal strings with 3 places.
 /// - Errors: `{ "error": { "code", "message", "details"?, "requestId" } }`.
 class WmApi {
-  WmApi(
-    Dio dio, {
-    String? baseUrl,
-  })  : _dio = dio,
-        _baseUrl = baseUrl;
+  WmApi(Dio dio, {String? baseUrl}) : _dio = dio, _baseUrl = baseUrl;
 
   final Dio _dio;
   final String? _baseUrl;
@@ -75,6 +73,8 @@ class WmApi {
   DocumentsClient? _documents;
   FilesClient? _files;
   ImportsClient? _imports;
+  VisitNotesClient? _visitNotes;
+  HomeClient? _home;
 
   HealthClient get health => _health ??= HealthClient(_dio, baseUrl: _baseUrl);
 
@@ -112,7 +112,8 @@ class WmApi {
 
   MoneyAccountsClient get moneyAccounts => _moneyAccounts ??= MoneyAccountsClient(_dio, baseUrl: _baseUrl);
 
-  ExpenseCategoriesClient get expenseCategories => _expenseCategories ??= ExpenseCategoriesClient(_dio, baseUrl: _baseUrl);
+  ExpenseCategoriesClient get expenseCategories =>
+      _expenseCategories ??= ExpenseCategoriesClient(_dio, baseUrl: _baseUrl);
 
   ExpensesClient get expenses => _expenses ??= ExpensesClient(_dio, baseUrl: _baseUrl);
 
@@ -125,4 +126,8 @@ class WmApi {
   FilesClient get files => _files ??= FilesClient(_dio, baseUrl: _baseUrl);
 
   ImportsClient get imports => _imports ??= ImportsClient(_dio, baseUrl: _baseUrl);
+
+  VisitNotesClient get visitNotes => _visitNotes ??= VisitNotesClient(_dio, baseUrl: _baseUrl);
+
+  HomeClient get home => _home ??= HomeClient(_dio, baseUrl: _baseUrl);
 }

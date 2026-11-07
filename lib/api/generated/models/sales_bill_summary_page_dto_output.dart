@@ -16,6 +16,7 @@ abstract class SalesBillSummaryPageDtoOutput with _$SalesBillSummaryPageDtoOutpu
     required int total,
     required String? nextCursor,
   }) = _SalesBillSummaryPageDtoOutput;
-  
-  factory SalesBillSummaryPageDtoOutput.fromJson(Map<String, Object?> json) => _$SalesBillSummaryPageDtoOutputFromJson(json);
+
+  factory SalesBillSummaryPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$SalesBillSummaryPageDtoOutputFromJson(json);
 }

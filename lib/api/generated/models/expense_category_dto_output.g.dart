@@ -6,9 +6,7 @@ part of 'expense_category_dto_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_ExpenseCategoryDtoOutput _$ExpenseCategoryDtoOutputFromJson(
-  Map<String, dynamic> json,
-) => _ExpenseCategoryDtoOutput(
+_ExpenseCategoryDtoOutput _$ExpenseCategoryDtoOutputFromJson(Map<String, dynamic> json) => _ExpenseCategoryDtoOutput(
   id: json['id'] as String,
   name: json['name'] as String,
   allowedForGodown: json['allowedForGodown'] as bool,
@@ -16,9 +14,7 @@ _ExpenseCategoryDtoOutput _$ExpenseCategoryDtoOutputFromJson(
   active: json['active'] as bool,
 );
 
-Map<String, dynamic> _$ExpenseCategoryDtoOutputToJson(
-  _ExpenseCategoryDtoOutput instance,
-) => <String, dynamic>{
+Map<String, dynamic> _$ExpenseCategoryDtoOutputToJson(_ExpenseCategoryDtoOutput instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'allowedForGodown': instance.allowedForGodown,

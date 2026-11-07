@@ -9,10 +9,7 @@ part 'file_link_dto_output.g.dart';
 
 @Freezed()
 abstract class FileLinkDtoOutput with _$FileLinkDtoOutput {
-  const factory FileLinkDtoOutput({
-    required String id,
-    required String url,
-  }) = _FileLinkDtoOutput;
-  
+  const factory FileLinkDtoOutput({required String id, required String url}) = _FileLinkDtoOutput;
+
   factory FileLinkDtoOutput.fromJson(Map<String, Object?> json) => _$FileLinkDtoOutputFromJson(json);
 }

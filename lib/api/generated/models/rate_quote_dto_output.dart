@@ -17,12 +17,12 @@ abstract class RateQuoteDtoOutput with _$RateQuoteDtoOutput {
     required int? rate,
     required RateQuoteDtoOutputSource source,
     required int? dailyRate,
-    required DateTime? dailyRateDate,
+    required String? dailyRateDate,
     required int? minimumRate,
     required bool belowMinimum,
     required RateQuoteDtoOutputRatePer ratePer,
     required LastRate? lastRate,
   }) = _RateQuoteDtoOutput;
-  
+
   factory RateQuoteDtoOutput.fromJson(Map<String, Object?> json) => _$RateQuoteDtoOutputFromJson(json);
 }

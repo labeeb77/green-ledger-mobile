@@ -9,10 +9,7 @@ part 'update_grade_dto.g.dart';
 
 @Freezed()
 abstract class UpdateGradeDto with _$UpdateGradeDto {
-  const factory UpdateGradeDto({
-    String? name,
-    bool? active,
-  }) = _UpdateGradeDto;
-  
+  const factory UpdateGradeDto({String? name, bool? active}) = _UpdateGradeDto;
+
   factory UpdateGradeDto.fromJson(Map<String, Object?> json) => _$UpdateGradeDtoFromJson(json);
 }

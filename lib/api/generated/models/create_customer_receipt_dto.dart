@@ -15,10 +15,10 @@ abstract class CreateCustomerReceiptDto with _$CreateCustomerReceiptDto {
   const factory CreateCustomerReceiptDto({
     required String customerId,
     required List<Splits4> splits,
-    DateTime? receiptDate,
+    String? receiptDate,
     String? notes,
     List<Allocations7>? allocations,
   }) = _CreateCustomerReceiptDto;
-  
+
   factory CreateCustomerReceiptDto.fromJson(Map<String, Object?> json) => _$CreateCustomerReceiptDtoFromJson(json);
 }

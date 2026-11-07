@@ -9,5 +9,7 @@ part of 'pack_unit5.dart';
 _PackUnit5 _$PackUnit5FromJson(Map<String, dynamic> json) =>
     _PackUnit5(id: json['id'] as String, name: json['name'] as String);
 
-Map<String, dynamic> _$PackUnit5ToJson(_PackUnit5 instance) =>
-    <String, dynamic>{'id': instance.id, 'name': instance.name};
+Map<String, dynamic> _$PackUnit5ToJson(_PackUnit5 instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+};

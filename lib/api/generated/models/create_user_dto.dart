@@ -11,11 +11,8 @@ part 'create_user_dto.g.dart';
 
 @Freezed()
 abstract class CreateUserDto with _$CreateUserDto {
-  const factory CreateUserDto({
-    required String name,
-    required String phone,
-    required CreateUserDtoRole role,
-  }) = _CreateUserDto;
-  
+  const factory CreateUserDto({required String name, required String phone, required CreateUserDtoRole role}) =
+      _CreateUserDto;
+
   factory CreateUserDto.fromJson(Map<String, Object?> json) => _$CreateUserDtoFromJson(json);
 }

@@ -9,9 +9,7 @@ part 'refresh_dto.g.dart';
 
 @Freezed()
 abstract class RefreshDto with _$RefreshDto {
-  const factory RefreshDto({
-    String? refreshToken,
-  }) = _RefreshDto;
-  
+  const factory RefreshDto({String? refreshToken}) = _RefreshDto;
+
   factory RefreshDto.fromJson(Map<String, Object?> json) => _$RefreshDtoFromJson(json);
 }

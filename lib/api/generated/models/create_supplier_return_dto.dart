@@ -14,10 +14,10 @@ abstract class CreateSupplierReturnDto with _$CreateSupplierReturnDto {
   const factory CreateSupplierReturnDto({
     required String supplierId,
     required List<Lines6> lines,
-    DateTime? returnDate,
+    String? returnDate,
     String? billId,
     String? reason,
   }) = _CreateSupplierReturnDto;
-  
+
   factory CreateSupplierReturnDto.fromJson(Map<String, Object?> json) => _$CreateSupplierReturnDtoFromJson(json);
 }

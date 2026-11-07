@@ -9,10 +9,7 @@ part 'owner.g.dart';
 
 @Freezed()
 abstract class Owner with _$Owner {
-  const factory Owner({
-    required String name,
-    required String phone,
-  }) = _Owner;
-  
+  const factory Owner({required String name, required String phone}) = _Owner;
+
   factory Owner.fromJson(Map<String, Object?> json) => _$OwnerFromJson(json);
 }

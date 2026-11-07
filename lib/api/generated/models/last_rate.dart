@@ -9,10 +9,7 @@ part 'last_rate.g.dart';
 
 @Freezed()
 abstract class LastRate with _$LastRate {
-  const factory LastRate({
-    required int rate,
-    required DateTime date,
-  }) = _LastRate;
-  
+  const factory LastRate({required int rate, required String date}) = _LastRate;
+
   factory LastRate.fromJson(Map<String, Object?> json) => _$LastRateFromJson(json);
 }

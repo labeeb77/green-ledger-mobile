@@ -19,20 +19,14 @@ abstract class PlatformAuthClient {
   factory PlatformAuthClient(Dio dio, {String? baseUrl}) = _PlatformAuthClient;
 
   @POST('/api/v1/platform/auth/login')
-  Future<AuthTokensDtoOutput> platformAuthControllerLogin({
-    @Body() required LoginDto body,
-  });
+  Future<AuthTokensDtoOutput> platformAuthControllerLogin({@Body() required LoginDto body});
 
   @POST('/api/v1/platform/auth/refresh')
-  Future<AuthTokensDtoOutput> platformAuthControllerRefresh({
-    @Body() required RefreshDto body,
-  });
+  Future<AuthTokensDtoOutput> platformAuthControllerRefresh({@Body() required RefreshDto body});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/platform/auth/logout')
-  Future<OkDtoOutput> platformAuthControllerLogout({
-    @Header('Idempotency-Key') required String idempotencyKey,
-  });
+  Future<OkDtoOutput> platformAuthControllerLogout({@Header('Idempotency-Key') required String idempotencyKey});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/platform/auth/change-password')

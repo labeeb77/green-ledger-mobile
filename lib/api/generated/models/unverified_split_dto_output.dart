@@ -17,13 +17,13 @@ abstract class UnverifiedSplitDtoOutput with _$UnverifiedSplitDtoOutput {
     required String splitId,
     required String receiptId,
     required String receiptNumber,
-    required DateTime receiptDate,
+    required String receiptDate,
     required Customer4 customer,
     required UnverifiedSplitDtoOutputMethod method,
     required Account3 account,
     required int amount,
     required String? reference,
   }) = _UnverifiedSplitDtoOutput;
-  
+
   factory UnverifiedSplitDtoOutput.fromJson(Map<String, Object?> json) => _$UnverifiedSplitDtoOutputFromJson(json);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateOrderDto {
 
- String get customerId; List<Lines15> get lines; DateTime? get orderDate; String? get notes;
+ String get customerId; List<Lines15> get lines; String? get orderDate; String? get notes;
 /// Create a copy of CreateOrderDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateOrderDtoCopyWith<$Res>  {
   factory $CreateOrderDtoCopyWith(CreateOrderDto value, $Res Function(CreateOrderDto) _then) = _$CreateOrderDtoCopyWithImpl;
 @useResult
 $Res call({
- String customerId, List<Lines15> lines, DateTime? orderDate, String? notes
+ String customerId, List<Lines15> lines, String? orderDate, String? notes
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateOrderDtoCopyWithImpl<$Res>
 customerId: null == customerId ? _self.customerId : customerId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines15>,orderDate: freezed == orderDate ? _self.orderDate : orderDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines15> lines,  DateTime? orderDate,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String customerId,  List<Lines15> lines,  String? orderDate,  String? notes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateOrderDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.orderDate,_that.notes);case _:
@@ -183,7 +183,7 @@ return $default(_that.customerId,_that.lines,_that.orderDate,_that.notes);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines15> lines,  DateTime? orderDate,  String? notes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String customerId,  List<Lines15> lines,  String? orderDate,  String? notes)  $default,) {final _that = this;
 switch (_that) {
 case _CreateOrderDto():
 return $default(_that.customerId,_that.lines,_that.orderDate,_that.notes);case _:
@@ -203,7 +203,7 @@ return $default(_that.customerId,_that.lines,_that.orderDate,_that.notes);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines15> lines,  DateTime? orderDate,  String? notes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String customerId,  List<Lines15> lines,  String? orderDate,  String? notes)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateOrderDto() when $default != null:
 return $default(_that.customerId,_that.lines,_that.orderDate,_that.notes);case _:
@@ -229,7 +229,7 @@ class _CreateOrderDto implements CreateOrderDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? orderDate;
+@override final  String? orderDate;
 @override final  String? notes;
 
 /// Create a copy of CreateOrderDto
@@ -267,7 +267,7 @@ abstract mixin class _$CreateOrderDtoCopyWith<$Res> implements $CreateOrderDtoCo
   factory _$CreateOrderDtoCopyWith(_CreateOrderDto value, $Res Function(_CreateOrderDto) _then) = __$CreateOrderDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String customerId, List<Lines15> lines, DateTime? orderDate, String? notes
+ String customerId, List<Lines15> lines, String? orderDate, String? notes
 });
 
 
@@ -289,7 +289,7 @@ class __$CreateOrderDtoCopyWithImpl<$Res>
 customerId: null == customerId ? _self.customerId : customerId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines15>,orderDate: freezed == orderDate ? _self.orderDate : orderDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

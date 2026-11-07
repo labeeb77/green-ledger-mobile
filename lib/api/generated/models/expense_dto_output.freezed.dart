@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ExpenseDtoOutput {
 
- String get id; String get number; DateTime get expenseDate; Category get category; Account4 get account; int get amount; String? get reference; String? get notes; ExpenseDtoOutputStatus get status; CreatedBy7? get createdBy; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; String get expenseDate; Category get category; Account4 get account; int get amount; String? get reference; String? get notes; ExpenseDtoOutputStatus get status; CreatedBy7? get createdBy; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of ExpenseDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $ExpenseDtoOutputCopyWith<$Res>  {
   factory $ExpenseDtoOutputCopyWith(ExpenseDtoOutput value, $Res Function(ExpenseDtoOutput) _then) = _$ExpenseDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, String expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -76,7 +76,7 @@ class _$ExpenseDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
@@ -200,7 +200,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  String expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -221,7 +221,7 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  String expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput():
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -241,7 +241,7 @@ return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.acc
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  String expenseDate,  Category category,  Account4 account,  int amount,  String? reference,  String? notes,  ExpenseDtoOutputStatus status,  CreatedBy7? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _ExpenseDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.expenseDate,_that.category,_that.account,_that.amount,_that.reference,_that.notes,_that.status,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -261,7 +261,7 @@ class _ExpenseDtoOutput implements ExpenseDtoOutput {
 
 @override final  String id;
 @override final  String number;
-@override final  DateTime expenseDate;
+@override final  String expenseDate;
 @override final  Category category;
 @override final  Account4 account;
 @override final  int amount;
@@ -307,7 +307,7 @@ abstract mixin class _$ExpenseDtoOutputCopyWith<$Res> implements $ExpenseDtoOutp
   factory _$ExpenseDtoOutputCopyWith(_ExpenseDtoOutput value, $Res Function(_ExpenseDtoOutput) _then) = __$ExpenseDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, DateTime expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, String expenseDate, Category category, Account4 account, int amount, String? reference, String? notes, ExpenseDtoOutputStatus status, CreatedBy7? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -329,7 +329,7 @@ class __$ExpenseDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,expenseDate: null == expenseDate ? _self.expenseDate : expenseDate // ignore: cast_nullable_to_non_nullable
-as DateTime,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as Category,account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as Account4,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable

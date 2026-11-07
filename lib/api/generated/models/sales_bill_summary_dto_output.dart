@@ -18,8 +18,8 @@ abstract class SalesBillSummaryDtoOutput with _$SalesBillSummaryDtoOutput {
   const factory SalesBillSummaryDtoOutput({
     required String id,
     required String? number,
-    required DateTime billDate,
-    required DateTime dueDate,
+    required String billDate,
+    required String dueDate,
     required Customer customer,
     required int subtotal,
     required int rounding,
@@ -35,6 +35,6 @@ abstract class SalesBillSummaryDtoOutput with _$SalesBillSummaryDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _SalesBillSummaryDtoOutput;
-  
+
   factory SalesBillSummaryDtoOutput.fromJson(Map<String, Object?> json) => _$SalesBillSummaryDtoOutputFromJson(json);
 }

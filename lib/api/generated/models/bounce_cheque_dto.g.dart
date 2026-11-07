@@ -9,5 +9,4 @@ part of 'bounce_cheque_dto.dart';
 _BounceChequeDto _$BounceChequeDtoFromJson(Map<String, dynamic> json) =>
     _BounceChequeDto(reason: json['reason'] as String);
 
-Map<String, dynamic> _$BounceChequeDtoToJson(_BounceChequeDto instance) =>
-    <String, dynamic>{'reason': instance.reason};
+Map<String, dynamic> _$BounceChequeDtoToJson(_BounceChequeDto instance) => <String, dynamic>{'reason': instance.reason};

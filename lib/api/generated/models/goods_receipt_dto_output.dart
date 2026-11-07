@@ -18,7 +18,7 @@ abstract class GoodsReceiptDtoOutput with _$GoodsReceiptDtoOutput {
   const factory GoodsReceiptDtoOutput({
     required String id,
     required String number,
-    required DateTime receiptDate,
+    required String receiptDate,
     required Supplier supplier,
     required String? vehicleNo,
     required String? notes,
@@ -30,6 +30,6 @@ abstract class GoodsReceiptDtoOutput with _$GoodsReceiptDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _GoodsReceiptDtoOutput;
-  
+
   factory GoodsReceiptDtoOutput.fromJson(Map<String, Object?> json) => _$GoodsReceiptDtoOutputFromJson(json);
 }

@@ -8,9 +8,7 @@ part of 'lines5.dart';
 
 _Lines5 _$Lines5FromJson(Map<String, dynamic> json) => _Lines5(
   product: Product4.fromJson(json['product'] as Map<String, dynamic>),
-  packUnit: json['packUnit'] == null
-      ? null
-      : PackUnit3.fromJson(json['packUnit'] as Map<String, dynamic>),
+  packUnit: json['packUnit'] == null ? null : PackUnit3.fromJson(json['packUnit'] as Map<String, dynamic>),
   packCount: json['packCount'] as String?,
   quantity: json['quantity'] as String,
   rate: (json['rate'] as num).toInt(),

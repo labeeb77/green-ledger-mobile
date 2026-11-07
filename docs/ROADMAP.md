@@ -7,7 +7,7 @@ Milestones for the Phase 1 mobile app (spec section 5, flows in `green-ledger/do
 | Milestone | Status |
 | --- | --- |
 | M0 Foundation | Done 2026-11-07 (iOS simulator run against the local backend: role tabs, forced password change, "No internet") |
-| M1 Agent collections | Not started |
+| M1 Agent collections | In progress (2026-11-07, checked on a moto g04s): Shops tab + shop detail, agent Home card, Collect → Check → Saved (acceptance step 5 shape run on the phone: R-0001, ₹5,000 cash + ₹3,000 UPI). Share on WhatsApp (receipt PDF → share sheet) after saving and from each payment on the shop detail. Next: visit note, drafts, owner/manager "Change" allocation |
 | M2 Orders, approvals, cash | Not started |
 | M3 Godown | Not started |
 | M4 Owner, search, lock, push | Not started |

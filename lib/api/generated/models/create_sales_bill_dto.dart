@@ -15,12 +15,11 @@ abstract class CreateSalesBillDto with _$CreateSalesBillDto {
   const factory CreateSalesBillDto({
     required String customerId,
     required List<Lines12> lines,
-    @Default(0)
-    int rounding,
-    DateTime? billDate,
+    @Default(0) int rounding,
+    String? billDate,
     String? notes,
     List<PayNow>? payNow,
   }) = _CreateSalesBillDto;
-  
+
   factory CreateSalesBillDto.fromJson(Map<String, Object?> json) => _$CreateSalesBillDtoFromJson(json);
 }

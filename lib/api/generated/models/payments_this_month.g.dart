@@ -7,10 +7,9 @@ part of 'payments_this_month.dart';
 // **************************************************************************
 
 _PaymentsThisMonth _$PaymentsThisMonthFromJson(Map<String, dynamic> json) =>
-    _PaymentsThisMonth(
-      count: (json['count'] as num).toInt(),
-      amount: (json['amount'] as num).toInt(),
-    );
+    _PaymentsThisMonth(count: (json['count'] as num).toInt(), amount: (json['amount'] as num).toInt());
 
-Map<String, dynamic> _$PaymentsThisMonthToJson(_PaymentsThisMonth instance) =>
-    <String, dynamic>{'count': instance.count, 'amount': instance.amount};
+Map<String, dynamic> _$PaymentsThisMonthToJson(_PaymentsThisMonth instance) => <String, dynamic>{
+  'count': instance.count,
+  'amount': instance.amount,
+};

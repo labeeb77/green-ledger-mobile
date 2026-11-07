@@ -11,8 +11,7 @@ _Overrides2 _$Overrides2FromJson(Map<String, dynamic> json) => _Overrides2(
   level: Level.fromJson(json['level'] as String),
 );
 
-Map<String, dynamic> _$Overrides2ToJson(_Overrides2 instance) =>
-    <String, dynamic>{
-      'permission': instance.permission,
-      'level': instance.level,
-    };
+Map<String, dynamic> _$Overrides2ToJson(_Overrides2 instance) => <String, dynamic>{
+  'permission': instance.permission,
+  'level': instance.level,
+};

@@ -15,6 +15,6 @@ abstract class Allocations3 with _$Allocations3 {
     /// Amount in paise (₹1 = 100)
     required int amount,
   }) = _Allocations3;
-  
+
   factory Allocations3.fromJson(Map<String, Object?> json) => _$Allocations3FromJson(json);
 }

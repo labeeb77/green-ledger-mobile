@@ -14,9 +14,7 @@ _Splits4 _$Splits4FromJson(Map<String, dynamic> json) => _Splits4(
   screenshotFileId: json['screenshotFileId'] as String?,
   chequeNo: json['chequeNo'] as String?,
   chequeBank: json['chequeBank'] as String?,
-  chequeDate: json['chequeDate'] == null
-      ? null
-      : DateTime.parse(json['chequeDate'] as String),
+  chequeDate: json['chequeDate'] as String?,
 );
 
 Map<String, dynamic> _$Splits4ToJson(_Splits4 instance) => <String, dynamic>{
@@ -27,5 +25,5 @@ Map<String, dynamic> _$Splits4ToJson(_Splits4 instance) => <String, dynamic>{
   'screenshotFileId': instance.screenshotFileId,
   'chequeNo': instance.chequeNo,
   'chequeBank': instance.chequeBank,
-  'chequeDate': instance.chequeDate?.toIso8601String(),
+  'chequeDate': instance.chequeDate,
 };

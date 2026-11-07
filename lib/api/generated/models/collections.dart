@@ -12,11 +12,7 @@ part 'collections.g.dart';
 
 @Freezed()
 abstract class Collections with _$Collections {
-  const factory Collections({
-    required int total,
-    required ByMethod byMethod,
-    required Link2 link,
-  }) = _Collections;
-  
+  const factory Collections({required int total, required ByMethod byMethod, required Link2 link}) = _Collections;
+
   factory Collections.fromJson(Map<String, Object?> json) => _$CollectionsFromJson(json);
 }

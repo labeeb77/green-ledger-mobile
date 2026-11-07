@@ -11,9 +11,7 @@ part 'error_response.g.dart';
 
 @Freezed()
 abstract class ErrorResponse with _$ErrorResponse {
-  const factory ErrorResponse({
-    required Error error,
-  }) = _ErrorResponse;
-  
+  const factory ErrorResponse({required Error error}) = _ErrorResponse;
+
   factory ErrorResponse.fromJson(Map<String, Object?> json) => _$ErrorResponseFromJson(json);
 }

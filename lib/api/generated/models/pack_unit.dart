@@ -9,10 +9,7 @@ part 'pack_unit.g.dart';
 
 @Freezed()
 abstract class PackUnit with _$PackUnit {
-  const factory PackUnit({
-    required String id,
-    required String name,
-  }) = _PackUnit;
-  
+  const factory PackUnit({required String id, required String name}) = _PackUnit;
+
   factory PackUnit.fromJson(Map<String, Object?> json) => _$PackUnitFromJson(json);
 }

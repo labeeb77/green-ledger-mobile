@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo of a UPI payment or a supplier slip.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Attach a UPI payment screenshot.</string>
 </dict>
 </plist>

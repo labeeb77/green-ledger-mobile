@@ -22,6 +22,6 @@ abstract class BusinessSummaryDtoOutput with _$BusinessSummaryDtoOutput {
     required String? lastActivityAt,
     required String? supportAccessUntil,
   }) = _BusinessSummaryDtoOutput;
-  
+
   factory BusinessSummaryDtoOutput.fromJson(Map<String, Object?> json) => _$BusinessSummaryDtoOutputFromJson(json);
 }

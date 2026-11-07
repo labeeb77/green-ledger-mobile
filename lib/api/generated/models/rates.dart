@@ -16,6 +16,6 @@ abstract class Rates with _$Rates {
     /// Amount in paise (₹1 = 100)
     required int? rate,
   }) = _Rates;
-  
+
   factory Rates.fromJson(Map<String, Object?> json) => _$RatesFromJson(json);
 }

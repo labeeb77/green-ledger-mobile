@@ -17,6 +17,6 @@ abstract class MyBagDtoOutput with _$MyBagDtoOutput {
     required List<TodayCashReceipts> todayCashReceipts,
     required PendingHandover? pendingHandover,
   }) = _MyBagDtoOutput;
-  
+
   factory MyBagDtoOutput.fromJson(Map<String, Object?> json) => _$MyBagDtoOutputFromJson(json);
 }

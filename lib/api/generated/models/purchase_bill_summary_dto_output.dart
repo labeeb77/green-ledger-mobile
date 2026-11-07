@@ -17,8 +17,8 @@ abstract class PurchaseBillSummaryDtoOutput with _$PurchaseBillSummaryDtoOutput 
     required String id,
     required String number,
     required Supplier2 supplier,
-    required DateTime billDate,
-    required DateTime dueDate,
+    required String billDate,
+    required String dueDate,
     required String? supplierInvoiceNo,
     required int adjustment,
     required int total,
@@ -30,6 +30,7 @@ abstract class PurchaseBillSummaryDtoOutput with _$PurchaseBillSummaryDtoOutput 
     required DateTime createdAt,
     required String? cancelReason,
   }) = _PurchaseBillSummaryDtoOutput;
-  
-  factory PurchaseBillSummaryDtoOutput.fromJson(Map<String, Object?> json) => _$PurchaseBillSummaryDtoOutputFromJson(json);
+
+  factory PurchaseBillSummaryDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$PurchaseBillSummaryDtoOutputFromJson(json);
 }

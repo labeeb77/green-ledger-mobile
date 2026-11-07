@@ -18,6 +18,6 @@ abstract class Cheque with _$Cheque {
     required String? chequeDate,
     required Status4 status,
   }) = _Cheque;
-  
+
   factory Cheque.fromJson(Map<String, Object?> json) => _$ChequeFromJson(json);
 }

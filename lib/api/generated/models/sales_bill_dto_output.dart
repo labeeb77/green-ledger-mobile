@@ -20,8 +20,8 @@ abstract class SalesBillDtoOutput with _$SalesBillDtoOutput {
   const factory SalesBillDtoOutput({
     required String id,
     required String? number,
-    required DateTime billDate,
-    required DateTime dueDate,
+    required String billDate,
+    required String dueDate,
     required Customer2 customer,
     required int subtotal,
     required int rounding,
@@ -40,6 +40,6 @@ abstract class SalesBillDtoOutput with _$SalesBillDtoOutput {
     required List<Allocations5> allocations,
     required List<String> warnings,
   }) = _SalesBillDtoOutput;
-  
+
   factory SalesBillDtoOutput.fromJson(Map<String, Object?> json) => _$SalesBillDtoOutputFromJson(json);
 }

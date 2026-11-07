@@ -21,7 +21,7 @@ sealed class SalesBillDtoOutputIssuesUnion with _$SalesBillDtoOutputIssuesUnion 
     required int rate,
     required SalesBillDtoOutputIssuesUnionVariant1Type type,
   }) = SalesBillDtoOutputIssuesUnionVariant1;
-  
+
   @JsonSerializable()
   const factory SalesBillDtoOutputIssuesUnion.variant2({
     required int limit,
@@ -29,7 +29,6 @@ sealed class SalesBillDtoOutputIssuesUnion with _$SalesBillDtoOutputIssuesUnion 
     required int outstanding,
     required SalesBillDtoOutputIssuesUnionVariant2Type type,
   }) = SalesBillDtoOutputIssuesUnionVariant2;
-  
 
   factory SalesBillDtoOutputIssuesUnion.fromJson(Map<String, Object?> json) =>
       // TODO: No discriminator in OpenAPI spec - you must implement this manually.
@@ -45,5 +44,4 @@ sealed class SalesBillDtoOutputIssuesUnion with _$SalesBillDtoOutputIssuesUnion 
       // IMPORTANT: Keep the => arrow syntax. Converting to a { } body will cause
       // freezed to skip generating toJson/fromJson for this class.
       throw UnimplementedError();
-
 }

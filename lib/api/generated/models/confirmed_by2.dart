@@ -9,10 +9,7 @@ part 'confirmed_by2.g.dart';
 
 @Freezed()
 abstract class ConfirmedBy2 with _$ConfirmedBy2 {
-  const factory ConfirmedBy2({
-    required String id,
-    required String name,
-  }) = _ConfirmedBy2;
-  
+  const factory ConfirmedBy2({required String id, required String name}) = _ConfirmedBy2;
+
   factory ConfirmedBy2.fromJson(Map<String, Object?> json) => _$ConfirmedBy2FromJson(json);
 }

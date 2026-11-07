@@ -9,11 +9,8 @@ part 'today_cash_receipts.g.dart';
 
 @Freezed()
 abstract class TodayCashReceipts with _$TodayCashReceipts {
-  const factory TodayCashReceipts({
-    required String receiptNumber,
-    required String customer,
-    required int amount,
-  }) = _TodayCashReceipts;
-  
+  const factory TodayCashReceipts({required String receiptNumber, required String customer, required int amount}) =
+      _TodayCashReceipts;
+
   factory TodayCashReceipts.fromJson(Map<String, Object?> json) => _$TodayCashReceiptsFromJson(json);
 }

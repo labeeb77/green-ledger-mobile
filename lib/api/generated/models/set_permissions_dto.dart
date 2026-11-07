@@ -11,9 +11,7 @@ part 'set_permissions_dto.g.dart';
 
 @Freezed()
 abstract class SetPermissionsDto with _$SetPermissionsDto {
-  const factory SetPermissionsDto({
-    required List<Overrides2> overrides,
-  }) = _SetPermissionsDto;
-  
+  const factory SetPermissionsDto({required List<Overrides2> overrides}) = _SetPermissionsDto;
+
   factory SetPermissionsDto.fromJson(Map<String, Object?> json) => _$SetPermissionsDtoFromJson(json);
 }

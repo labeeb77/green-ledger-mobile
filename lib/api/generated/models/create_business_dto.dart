@@ -14,13 +14,11 @@ abstract class CreateBusinessDto with _$CreateBusinessDto {
   const factory CreateBusinessDto({
     required String name,
     required Owner owner,
-    @Default(14)
-    int trialDays,
-    @Default(10)
-    int userLimit,
+    @Default(14) int trialDays,
+    @Default(10) int userLimit,
     String? phone,
     String? address,
   }) = _CreateBusinessDto;
-  
+
   factory CreateBusinessDto.fromJson(Map<String, Object?> json) => _$CreateBusinessDtoFromJson(json);
 }

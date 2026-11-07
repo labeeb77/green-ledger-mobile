@@ -19,7 +19,7 @@ abstract class CustomerReceiptDtoOutput with _$CustomerReceiptDtoOutput {
     required String id,
     required String number,
     required Customer3 customer,
-    required DateTime receiptDate,
+    required String receiptDate,
     required CollectedBy collectedBy,
     required int total,
     required CustomerReceiptDtoOutputStatus status,
@@ -30,6 +30,6 @@ abstract class CustomerReceiptDtoOutput with _$CustomerReceiptDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _CustomerReceiptDtoOutput;
-  
+
   factory CustomerReceiptDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerReceiptDtoOutputFromJson(json);
 }

@@ -9,10 +9,7 @@ part 'supplier5.g.dart';
 
 @Freezed()
 abstract class Supplier5 with _$Supplier5 {
-  const factory Supplier5({
-    required String id,
-    required String name,
-  }) = _Supplier5;
-  
+  const factory Supplier5({required String id, required String name}) = _Supplier5;
+
   factory Supplier5.fromJson(Map<String, Object?> json) => _$Supplier5FromJson(json);
 }

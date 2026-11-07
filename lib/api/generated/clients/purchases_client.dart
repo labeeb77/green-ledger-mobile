@@ -32,8 +32,8 @@ abstract class PurchasesClient {
   @GET('/api/v1/goods-receipts')
   Future<GoodsReceiptPageDtoOutput> goodsReceiptsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('supplierId') String? supplierId,
     @Query('cursor') String? cursor,
     @Query('billed') Billed? billed,
@@ -52,9 +52,7 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/goods-receipts/{id}')
-  Future<GoodsReceiptDtoOutput> goodsReceiptsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<GoodsReceiptDtoOutput> goodsReceiptsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/goods-receipts/{id}/cancel')
@@ -67,8 +65,8 @@ abstract class PurchasesClient {
   @GET('/api/v1/purchase-bills')
   Future<PurchaseBillSummaryPageDtoOutput> purchaseBillsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('supplierId') String? supplierId,
     @Query('cursor') String? cursor,
   });
@@ -81,9 +79,7 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/purchase-bills/{id}')
-  Future<PurchaseBillDtoOutput> purchaseBillsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<PurchaseBillDtoOutput> purchaseBillsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/purchase-bills/{id}/cancel')
@@ -96,8 +92,8 @@ abstract class PurchasesClient {
   @GET('/api/v1/supplier-payments')
   Future<SupplierPaymentPageDtoOutput> supplierPaymentsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('supplierId') String? supplierId,
     @Query('cursor') String? cursor,
   });
@@ -116,9 +112,7 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/supplier-payments/{id}')
-  Future<SupplierPaymentDtoOutput> supplierPaymentsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<SupplierPaymentDtoOutput> supplierPaymentsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/supplier-payments/{id}/cancel')
@@ -131,8 +125,8 @@ abstract class PurchasesClient {
   @GET('/api/v1/supplier-returns')
   Future<SupplierReturnPageDtoOutput> supplierReturnsControllerList({
     @Query('limit') int? limit = 50,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('supplierId') String? supplierId,
     @Query('cursor') String? cursor,
   });
@@ -145,9 +139,7 @@ abstract class PurchasesClient {
   });
 
   @GET('/api/v1/supplier-returns/{id}')
-  Future<SupplierReturnDtoOutput> supplierReturnsControllerGet({
-    @Path('id') required String id,
-  });
+  Future<SupplierReturnDtoOutput> supplierReturnsControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/supplier-returns/{id}/cancel')

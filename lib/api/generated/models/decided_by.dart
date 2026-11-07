@@ -11,11 +11,7 @@ part 'decided_by.g.dart';
 
 @Freezed()
 abstract class DecidedBy with _$DecidedBy {
-  const factory DecidedBy({
-    required String id,
-    required String name,
-    required Role role,
-  }) = _DecidedBy;
-  
+  const factory DecidedBy({required String id, required String name, required Role role}) = _DecidedBy;
+
   factory DecidedBy.fromJson(Map<String, Object?> json) => _$DecidedByFromJson(json);
 }

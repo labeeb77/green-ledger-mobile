@@ -23,6 +23,6 @@ abstract class MeDtoOutput with _$MeDtoOutput {
     required Map<String, PermissionsPermissions> permissions,
     required Support? support,
   }) = _MeDtoOutput;
-  
+
   factory MeDtoOutput.fromJson(Map<String, Object?> json) => _$MeDtoOutputFromJson(json);
 }

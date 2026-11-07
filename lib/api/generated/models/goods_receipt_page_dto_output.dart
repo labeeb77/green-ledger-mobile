@@ -11,10 +11,8 @@ part 'goods_receipt_page_dto_output.g.dart';
 
 @Freezed()
 abstract class GoodsReceiptPageDtoOutput with _$GoodsReceiptPageDtoOutput {
-  const factory GoodsReceiptPageDtoOutput({
-    required List<GoodsReceiptDtoOutput> items,
-    required String? nextCursor,
-  }) = _GoodsReceiptPageDtoOutput;
-  
+  const factory GoodsReceiptPageDtoOutput({required List<GoodsReceiptDtoOutput> items, required String? nextCursor}) =
+      _GoodsReceiptPageDtoOutput;
+
   factory GoodsReceiptPageDtoOutput.fromJson(Map<String, Object?> json) => _$GoodsReceiptPageDtoOutputFromJson(json);
 }

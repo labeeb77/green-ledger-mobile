@@ -11,11 +11,8 @@ part 'health_dto_output.g.dart';
 
 @Freezed()
 abstract class HealthDtoOutput with _$HealthDtoOutput {
-  const factory HealthDtoOutput({
-    required HealthDtoOutputStatus status,
-    required bool database,
-    required bool redis,
-  }) = _HealthDtoOutput;
-  
+  const factory HealthDtoOutput({required HealthDtoOutputStatus status, required bool database, required bool redis}) =
+      _HealthDtoOutput;
+
   factory HealthDtoOutput.fromJson(Map<String, Object?> json) => _$HealthDtoOutputFromJson(json);
 }

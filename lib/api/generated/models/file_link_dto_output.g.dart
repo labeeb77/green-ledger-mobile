@@ -9,5 +9,7 @@ part of 'file_link_dto_output.dart';
 _FileLinkDtoOutput _$FileLinkDtoOutputFromJson(Map<String, dynamic> json) =>
     _FileLinkDtoOutput(id: json['id'] as String, url: json['url'] as String);
 
-Map<String, dynamic> _$FileLinkDtoOutputToJson(_FileLinkDtoOutput instance) =>
-    <String, dynamic>{'id': instance.id, 'url': instance.url};
+Map<String, dynamic> _$FileLinkDtoOutputToJson(_FileLinkDtoOutput instance) => <String, dynamic>{
+  'id': instance.id,
+  'url': instance.url,
+};

@@ -15,6 +15,7 @@ abstract class PurchaseBillSummaryPageDtoOutput with _$PurchaseBillSummaryPageDt
     required List<PurchaseBillSummaryDtoOutput> items,
     required String? nextCursor,
   }) = _PurchaseBillSummaryPageDtoOutput;
-  
-  factory PurchaseBillSummaryPageDtoOutput.fromJson(Map<String, Object?> json) => _$PurchaseBillSummaryPageDtoOutputFromJson(json);
+
+  factory PurchaseBillSummaryPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$PurchaseBillSummaryPageDtoOutputFromJson(json);
 }

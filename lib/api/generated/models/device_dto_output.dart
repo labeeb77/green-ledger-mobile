@@ -19,6 +19,6 @@ abstract class DeviceDtoOutput with _$DeviceDtoOutput {
     required bool revoked,
     required bool current,
   }) = _DeviceDtoOutput;
-  
+
   factory DeviceDtoOutput.fromJson(Map<String, Object?> json) => _$DeviceDtoOutputFromJson(json);
 }

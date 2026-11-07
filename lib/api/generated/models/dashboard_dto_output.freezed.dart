@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DashboardDtoOutput {
 
- DateTime get from; DateTime get to; Sales? get sales; Collections? get collections; Outstanding? get outstanding; SupplierDues? get supplierDues; Expenses? get expenses; List<LowStock>? get lowStock; List<OverdueCustomers>? get overdueCustomers;
+ String get from; String get to; Sales? get sales; Collections? get collections; Outstanding? get outstanding; SupplierDues? get supplierDues; Expenses? get expenses; List<LowStock>? get lowStock; List<OverdueCustomers>? get overdueCustomers;
 /// Create a copy of DashboardDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $DashboardDtoOutputCopyWith<$Res>  {
   factory $DashboardDtoOutputCopyWith(DashboardDtoOutput value, $Res Function(DashboardDtoOutput) _then) = _$DashboardDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- DateTime from, DateTime to, Sales? sales, Collections? collections, Outstanding? outstanding, SupplierDues? supplierDues, Expenses? expenses, List<LowStock>? lowStock, List<OverdueCustomers>? overdueCustomers
+ String from, String to, Sales? sales, Collections? collections, Outstanding? outstanding, SupplierDues? supplierDues, Expenses? expenses, List<LowStock>? lowStock, List<OverdueCustomers>? overdueCustomers
 });
 
 
@@ -74,8 +74,8 @@ class _$DashboardDtoOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? from = null,Object? to = null,Object? sales = freezed,Object? collections = freezed,Object? outstanding = freezed,Object? supplierDues = freezed,Object? expenses = freezed,Object? lowStock = freezed,Object? overdueCustomers = freezed,}) {
   return _then(DashboardDtoOutput(
 from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,sales: freezed == sales ? _self.sales : sales // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,sales: freezed == sales ? _self.sales : sales // ignore: cast_nullable_to_non_nullable
 as Sales?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
 as Collections?,outstanding: freezed == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
 as Outstanding?,supplierDues: freezed == supplierDues ? _self.supplierDues : supplierDues // ignore: cast_nullable_to_non_nullable
@@ -227,7 +227,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime from,  DateTime to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String from,  String to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DashboardDtoOutput() when $default != null:
 return $default(_that.from,_that.to,_that.sales,_that.collections,_that.outstanding,_that.supplierDues,_that.expenses,_that.lowStock,_that.overdueCustomers);case _:
@@ -248,7 +248,7 @@ return $default(_that.from,_that.to,_that.sales,_that.collections,_that.outstand
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime from,  DateTime to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String from,  String to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)  $default,) {final _that = this;
 switch (_that) {
 case _DashboardDtoOutput():
 return $default(_that.from,_that.to,_that.sales,_that.collections,_that.outstanding,_that.supplierDues,_that.expenses,_that.lowStock,_that.overdueCustomers);case _:
@@ -268,7 +268,7 @@ return $default(_that.from,_that.to,_that.sales,_that.collections,_that.outstand
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime from,  DateTime to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String from,  String to,  Sales? sales,  Collections? collections,  Outstanding? outstanding,  SupplierDues? supplierDues,  Expenses? expenses,  List<LowStock>? lowStock,  List<OverdueCustomers>? overdueCustomers)?  $default,) {final _that = this;
 switch (_that) {
 case _DashboardDtoOutput() when $default != null:
 return $default(_that.from,_that.to,_that.sales,_that.collections,_that.outstanding,_that.supplierDues,_that.expenses,_that.lowStock,_that.overdueCustomers);case _:
@@ -286,8 +286,8 @@ class _DashboardDtoOutput implements DashboardDtoOutput {
   const _DashboardDtoOutput({required this.from, required this.to, required this.sales, required this.collections, required this.outstanding, required this.supplierDues, required this.expenses, required  List<LowStock>? lowStock, required  List<OverdueCustomers>? overdueCustomers}): _lowStock = lowStock,_overdueCustomers = overdueCustomers;
   factory _DashboardDtoOutput.fromJson(Map<String, dynamic> json) => _$DashboardDtoOutputFromJson(json);
 
-@override final  DateTime from;
-@override final  DateTime to;
+@override final  String from;
+@override final  String to;
 @override final  Sales? sales;
 @override final  Collections? collections;
 @override final  Outstanding? outstanding;
@@ -347,7 +347,7 @@ abstract mixin class _$DashboardDtoOutputCopyWith<$Res> implements $DashboardDto
   factory _$DashboardDtoOutputCopyWith(_DashboardDtoOutput value, $Res Function(_DashboardDtoOutput) _then) = __$DashboardDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime from, DateTime to, Sales? sales, Collections? collections, Outstanding? outstanding, SupplierDues? supplierDues, Expenses? expenses, List<LowStock>? lowStock, List<OverdueCustomers>? overdueCustomers
+ String from, String to, Sales? sales, Collections? collections, Outstanding? outstanding, SupplierDues? supplierDues, Expenses? expenses, List<LowStock>? lowStock, List<OverdueCustomers>? overdueCustomers
 });
 
 
@@ -367,8 +367,8 @@ class __$DashboardDtoOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? from = null,Object? to = null,Object? sales = freezed,Object? collections = freezed,Object? outstanding = freezed,Object? supplierDues = freezed,Object? expenses = freezed,Object? lowStock = freezed,Object? overdueCustomers = freezed,}) {
   return _then(_DashboardDtoOutput(
 from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,sales: freezed == sales ? _self.sales : sales // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,sales: freezed == sales ? _self.sales : sales // ignore: cast_nullable_to_non_nullable
 as Sales?,collections: freezed == collections ? _self.collections : collections // ignore: cast_nullable_to_non_nullable
 as Collections?,outstanding: freezed == outstanding ? _self.outstanding : outstanding // ignore: cast_nullable_to_non_nullable
 as Outstanding?,supplierDues: freezed == supplierDues ? _self.supplierDues : supplierDues // ignore: cast_nullable_to_non_nullable

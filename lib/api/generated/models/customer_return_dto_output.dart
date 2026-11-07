@@ -18,7 +18,7 @@ abstract class CustomerReturnDtoOutput with _$CustomerReturnDtoOutput {
   const factory CustomerReturnDtoOutput({
     required String id,
     required String? number,
-    required DateTime returnDate,
+    required String returnDate,
     required Customer7 customer,
     required Bill2? bill,
     required int? total,
@@ -30,6 +30,6 @@ abstract class CustomerReturnDtoOutput with _$CustomerReturnDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _CustomerReturnDtoOutput;
-  
+
   factory CustomerReturnDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerReturnDtoOutputFromJson(json);
 }

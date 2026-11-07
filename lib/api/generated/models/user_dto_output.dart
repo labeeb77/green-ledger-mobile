@@ -21,6 +21,6 @@ abstract class UserDtoOutput with _$UserDtoOutput {
     required DateTime? lastLoginAt,
     required DateTime createdAt,
   }) = _UserDtoOutput;
-  
+
   factory UserDtoOutput.fromJson(Map<String, Object?> json) => _$UserDtoOutputFromJson(json);
 }

@@ -9,11 +9,7 @@ part 'confirm_handover_dto.g.dart';
 
 @Freezed()
 abstract class ConfirmHandoverDto with _$ConfirmHandoverDto {
-  const factory ConfirmHandoverDto({
-    required int countedAmount,
-    String? accountId,
-    String? note,
-  }) = _ConfirmHandoverDto;
-  
+  const factory ConfirmHandoverDto({required int countedAmount, String? accountId, String? note}) = _ConfirmHandoverDto;
+
   factory ConfirmHandoverDto.fromJson(Map<String, Object?> json) => _$ConfirmHandoverDtoFromJson(json);
 }

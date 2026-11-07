@@ -11,10 +11,7 @@ part 'expenses.g.dart';
 
 @Freezed()
 abstract class Expenses with _$Expenses {
-  const factory Expenses({
-    required int total,
-    required Link5 link,
-  }) = _Expenses;
-  
+  const factory Expenses({required int total, required Link5 link}) = _Expenses;
+
   factory Expenses.fromJson(Map<String, Object?> json) => _$ExpensesFromJson(json);
 }

@@ -14,11 +14,11 @@ abstract class CreateGoodsReceiptDto with _$CreateGoodsReceiptDto {
   const factory CreateGoodsReceiptDto({
     required String supplierId,
     required List<Lines2> lines,
-    DateTime? receiptDate,
+    String? receiptDate,
     String? vehicleNo,
     String? notes,
     String? slipPhotoFileId,
   }) = _CreateGoodsReceiptDto;
-  
+
   factory CreateGoodsReceiptDto.fromJson(Map<String, Object?> json) => _$CreateGoodsReceiptDtoFromJson(json);
 }

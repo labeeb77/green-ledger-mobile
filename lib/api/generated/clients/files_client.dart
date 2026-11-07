@@ -27,7 +27,5 @@ abstract class FilesClient {
   });
 
   @GET('/api/v1/files/{id}')
-  Future<FileLinkDtoOutput> uploadsControllerLink({
-    @Path('id') required String id,
-  });
+  Future<FileLinkDtoOutput> uploadsControllerLink({@Path('id') required String id});
 }

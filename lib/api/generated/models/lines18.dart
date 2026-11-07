@@ -19,6 +19,6 @@ abstract class Lines18 with _$Lines18 {
     /// Amount in paise (₹1 = 100)
     int? rate,
   }) = _Lines18;
-  
+
   factory Lines18.fromJson(Map<String, Object?> json) => _$Lines18FromJson(json);
 }

@@ -11,11 +11,7 @@ part 'pack_units2.g.dart';
 
 @Freezed()
 abstract class PackUnits2 with _$PackUnits2 {
-  const factory PackUnits2({
-    required String name,
-    required SizeType sizeType,
-    dynamic size,
-  }) = _PackUnits2;
-  
+  const factory PackUnits2({required String name, required SizeType sizeType, dynamic size}) = _PackUnits2;
+
   factory PackUnits2.fromJson(Map<String, Object?> json) => _$PackUnits2FromJson(json);
 }

@@ -11,7 +11,7 @@ part 'entries.g.dart';
 abstract class Entries with _$Entries {
   const factory Entries({
     required String id,
-    required DateTime date,
+    required String date,
     required String kind,
     required String description,
     required String? reference,
@@ -21,6 +21,6 @@ abstract class Entries with _$Entries {
     required String? dueDate,
     required int balance,
   }) = _Entries;
-  
+
   factory Entries.fromJson(Map<String, Object?> json) => _$EntriesFromJson(json);
 }

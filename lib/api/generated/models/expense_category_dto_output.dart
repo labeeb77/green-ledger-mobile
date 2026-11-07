@@ -16,6 +16,6 @@ abstract class ExpenseCategoryDtoOutput with _$ExpenseCategoryDtoOutput {
     required bool allowedForAgent,
     required bool active,
   }) = _ExpenseCategoryDtoOutput;
-  
+
   factory ExpenseCategoryDtoOutput.fromJson(Map<String, Object?> json) => _$ExpenseCategoryDtoOutputFromJson(json);
 }

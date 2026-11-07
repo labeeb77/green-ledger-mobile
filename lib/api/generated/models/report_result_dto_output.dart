@@ -20,6 +20,6 @@ abstract class ReportResultDtoOutput with _$ReportResultDtoOutput {
     required List<Map<String, dynamic>> rows,
     required Map<String, dynamic>? totals,
   }) = _ReportResultDtoOutput;
-  
+
   factory ReportResultDtoOutput.fromJson(Map<String, Object?> json) => _$ReportResultDtoOutputFromJson(json);
 }

@@ -14,9 +14,9 @@ abstract class CreateOrderDto with _$CreateOrderDto {
   const factory CreateOrderDto({
     required String customerId,
     required List<Lines15> lines,
-    DateTime? orderDate,
+    String? orderDate,
     String? notes,
   }) = _CreateOrderDto;
-  
+
   factory CreateOrderDto.fromJson(Map<String, Object?> json) => _$CreateOrderDtoFromJson(json);
 }

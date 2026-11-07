@@ -17,7 +17,7 @@ abstract class UnbilledLineDtoOutput with _$UnbilledLineDtoOutput {
     required String goodsReceiptLineId,
     required String receiptId,
     required String receiptNumber,
-    required DateTime receiptDate,
+    required String receiptDate,
     required Product2 product,
     required Grade2? grade,
     required PackUnit2? packUnit,
@@ -25,6 +25,6 @@ abstract class UnbilledLineDtoOutput with _$UnbilledLineDtoOutput {
     required String net,
     required int? rate,
   }) = _UnbilledLineDtoOutput;
-  
+
   factory UnbilledLineDtoOutput.fromJson(Map<String, Object?> json) => _$UnbilledLineDtoOutputFromJson(json);
 }

@@ -18,9 +18,7 @@ abstract class ImportsClient {
   factory ImportsClient(Dio dio, {String? baseUrl}) = _ImportsClient;
 
   @GET('/api/v1/imports/{kind}/template.xlsx')
-  Future<void> importsControllerTemplate({
-    @Path('kind') required Kind2 kind,
-  });
+  Future<void> importsControllerTemplate({@Path('kind') required Kind2 kind});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @MultiPart()

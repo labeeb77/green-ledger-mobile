@@ -18,7 +18,7 @@ abstract class SupplierPaymentDtoOutput with _$SupplierPaymentDtoOutput {
     required String id,
     required String number,
     required Supplier4 supplier,
-    required DateTime paymentDate,
+    required String paymentDate,
     required int total,
     required SupplierPaymentDtoOutputStatus status,
     required String? notes,
@@ -28,6 +28,6 @@ abstract class SupplierPaymentDtoOutput with _$SupplierPaymentDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _SupplierPaymentDtoOutput;
-  
+
   factory SupplierPaymentDtoOutput.fromJson(Map<String, Object?> json) => _$SupplierPaymentDtoOutputFromJson(json);
 }

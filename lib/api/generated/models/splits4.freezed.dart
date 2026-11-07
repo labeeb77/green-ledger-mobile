@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Splits4 {
 
- Method get method; int get amount; String? get accountId; String? get reference; String? get screenshotFileId; String? get chequeNo; String? get chequeBank; DateTime? get chequeDate;
+ Method get method; int get amount; String? get accountId; String? get reference; String? get screenshotFileId; String? get chequeNo; String? get chequeBank; String? get chequeDate;
 /// Create a copy of Splits4
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $Splits4CopyWith<$Res>  {
   factory $Splits4CopyWith(Splits4 value, $Res Function(Splits4) _then) = _$Splits4CopyWithImpl;
 @useResult
 $Res call({
- Method method, int amount, String? accountId, String? reference, String? screenshotFileId, String? chequeNo, String? chequeBank, DateTime? chequeDate
+ Method method, int amount, String? accountId, String? reference, String? screenshotFileId, String? chequeNo, String? chequeBank, String? chequeDate
 });
 
 
@@ -81,7 +81,7 @@ as String?,screenshotFileId: freezed == screenshotFileId ? _self.screenshotFileI
 as String?,chequeNo: freezed == chequeNo ? _self.chequeNo : chequeNo // ignore: cast_nullable_to_non_nullable
 as String?,chequeBank: freezed == chequeBank ? _self.chequeBank : chequeBank // ignore: cast_nullable_to_non_nullable
 as String?,chequeDate: freezed == chequeDate ? _self.chequeDate : chequeDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as String?,
   ));
 }
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  DateTime? chequeDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  String? chequeDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Splits4() when $default != null:
 return $default(_that.method,_that.amount,_that.accountId,_that.reference,_that.screenshotFileId,_that.chequeNo,_that.chequeBank,_that.chequeDate);case _:
@@ -187,7 +187,7 @@ return $default(_that.method,_that.amount,_that.accountId,_that.reference,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  DateTime? chequeDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  String? chequeDate)  $default,) {final _that = this;
 switch (_that) {
 case _Splits4():
 return $default(_that.method,_that.amount,_that.accountId,_that.reference,_that.screenshotFileId,_that.chequeNo,_that.chequeBank,_that.chequeDate);case _:
@@ -207,7 +207,7 @@ return $default(_that.method,_that.amount,_that.accountId,_that.reference,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  DateTime? chequeDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Method method,  int amount,  String? accountId,  String? reference,  String? screenshotFileId,  String? chequeNo,  String? chequeBank,  String? chequeDate)?  $default,) {final _that = this;
 switch (_that) {
 case _Splits4() when $default != null:
 return $default(_that.method,_that.amount,_that.accountId,_that.reference,_that.screenshotFileId,_that.chequeNo,_that.chequeBank,_that.chequeDate);case _:
@@ -232,7 +232,7 @@ class _Splits4 implements Splits4 {
 @override final  String? screenshotFileId;
 @override final  String? chequeNo;
 @override final  String? chequeBank;
-@override final  DateTime? chequeDate;
+@override final  String? chequeDate;
 
 /// Create a copy of Splits4
 /// with the given fields replaced by the non-null parameter values.
@@ -269,7 +269,7 @@ abstract mixin class _$Splits4CopyWith<$Res> implements $Splits4CopyWith<$Res> {
   factory _$Splits4CopyWith(_Splits4 value, $Res Function(_Splits4) _then) = __$Splits4CopyWithImpl;
 @override @useResult
 $Res call({
- Method method, int amount, String? accountId, String? reference, String? screenshotFileId, String? chequeNo, String? chequeBank, DateTime? chequeDate
+ Method method, int amount, String? accountId, String? reference, String? screenshotFileId, String? chequeNo, String? chequeBank, String? chequeDate
 });
 
 
@@ -296,7 +296,7 @@ as String?,screenshotFileId: freezed == screenshotFileId ? _self.screenshotFileI
 as String?,chequeNo: freezed == chequeNo ? _self.chequeNo : chequeNo // ignore: cast_nullable_to_non_nullable
 as String?,chequeBank: freezed == chequeBank ? _self.chequeBank : chequeBank // ignore: cast_nullable_to_non_nullable
 as String?,chequeDate: freezed == chequeDate ? _self.chequeDate : chequeDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,
+as String?,
   ));
 }
 

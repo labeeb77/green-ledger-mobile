@@ -9,5 +9,7 @@ part of 'created_by3.dart';
 _CreatedBy3 _$CreatedBy3FromJson(Map<String, dynamic> json) =>
     _CreatedBy3(id: json['id'] as String, name: json['name'] as String);
 
-Map<String, dynamic> _$CreatedBy3ToJson(_CreatedBy3 instance) =>
-    <String, dynamic>{'id': instance.id, 'name': instance.name};
+Map<String, dynamic> _$CreatedBy3ToJson(_CreatedBy3 instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+};

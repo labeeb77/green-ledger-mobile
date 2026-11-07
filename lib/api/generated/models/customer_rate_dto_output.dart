@@ -18,6 +18,6 @@ abstract class CustomerRateDtoOutput with _$CustomerRateDtoOutput {
     required CustomerRateDtoOutputMode mode,
     required int value,
   }) = _CustomerRateDtoOutput;
-  
+
   factory CustomerRateDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerRateDtoOutputFromJson(json);
 }

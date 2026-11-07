@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateDispatchDto {
 
- String get orderId; List<Lines16> get lines; DateTime? get dispatchDate; String? get vehicleNo;
+ String get orderId; List<Lines16> get lines; String? get dispatchDate; String? get vehicleNo;
 /// Create a copy of CreateDispatchDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateDispatchDtoCopyWith<$Res>  {
   factory $CreateDispatchDtoCopyWith(CreateDispatchDto value, $Res Function(CreateDispatchDto) _then) = _$CreateDispatchDtoCopyWithImpl;
 @useResult
 $Res call({
- String orderId, List<Lines16> lines, DateTime? dispatchDate, String? vehicleNo
+ String orderId, List<Lines16> lines, String? dispatchDate, String? vehicleNo
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateDispatchDtoCopyWithImpl<$Res>
 orderId: null == orderId ? _self.orderId : orderId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines16>,dispatchDate: freezed == dispatchDate ? _self.dispatchDate : dispatchDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
+as String?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String orderId,  List<Lines16> lines,  DateTime? dispatchDate,  String? vehicleNo)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String orderId,  List<Lines16> lines,  String? dispatchDate,  String? vehicleNo)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateDispatchDto() when $default != null:
 return $default(_that.orderId,_that.lines,_that.dispatchDate,_that.vehicleNo);case _:
@@ -183,7 +183,7 @@ return $default(_that.orderId,_that.lines,_that.dispatchDate,_that.vehicleNo);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String orderId,  List<Lines16> lines,  DateTime? dispatchDate,  String? vehicleNo)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String orderId,  List<Lines16> lines,  String? dispatchDate,  String? vehicleNo)  $default,) {final _that = this;
 switch (_that) {
 case _CreateDispatchDto():
 return $default(_that.orderId,_that.lines,_that.dispatchDate,_that.vehicleNo);case _:
@@ -203,7 +203,7 @@ return $default(_that.orderId,_that.lines,_that.dispatchDate,_that.vehicleNo);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String orderId,  List<Lines16> lines,  DateTime? dispatchDate,  String? vehicleNo)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String orderId,  List<Lines16> lines,  String? dispatchDate,  String? vehicleNo)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateDispatchDto() when $default != null:
 return $default(_that.orderId,_that.lines,_that.dispatchDate,_that.vehicleNo);case _:
@@ -229,7 +229,7 @@ class _CreateDispatchDto implements CreateDispatchDto {
   return EqualUnmodifiableListView(_lines);
 }
 
-@override final  DateTime? dispatchDate;
+@override final  String? dispatchDate;
 @override final  String? vehicleNo;
 
 /// Create a copy of CreateDispatchDto
@@ -267,7 +267,7 @@ abstract mixin class _$CreateDispatchDtoCopyWith<$Res> implements $CreateDispatc
   factory _$CreateDispatchDtoCopyWith(_CreateDispatchDto value, $Res Function(_CreateDispatchDto) _then) = __$CreateDispatchDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String orderId, List<Lines16> lines, DateTime? dispatchDate, String? vehicleNo
+ String orderId, List<Lines16> lines, String? dispatchDate, String? vehicleNo
 });
 
 
@@ -289,7 +289,7 @@ class __$CreateDispatchDtoCopyWithImpl<$Res>
 orderId: null == orderId ? _self.orderId : orderId // ignore: cast_nullable_to_non_nullable
 as String,lines: null == lines ? _self._lines : lines // ignore: cast_nullable_to_non_nullable
 as List<Lines16>,dispatchDate: freezed == dispatchDate ? _self.dispatchDate : dispatchDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
+as String?,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

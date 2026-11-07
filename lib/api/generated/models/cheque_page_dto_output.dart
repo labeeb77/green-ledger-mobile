@@ -11,10 +11,8 @@ part 'cheque_page_dto_output.g.dart';
 
 @Freezed()
 abstract class ChequePageDtoOutput with _$ChequePageDtoOutput {
-  const factory ChequePageDtoOutput({
-    required List<ChequeDtoOutput> items,
-    required String? nextCursor,
-  }) = _ChequePageDtoOutput;
-  
+  const factory ChequePageDtoOutput({required List<ChequeDtoOutput> items, required String? nextCursor}) =
+      _ChequePageDtoOutput;
+
   factory ChequePageDtoOutput.fromJson(Map<String, Object?> json) => _$ChequePageDtoOutputFromJson(json);
 }

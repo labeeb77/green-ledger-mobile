@@ -27,8 +27,8 @@ class _ActivityLogClient implements ActivityLogClient {
     String? entityId,
     String? userId,
     String? action,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     String? cursor,
   }) async {
     final _extra = <String, dynamic>{};
@@ -38,8 +38,8 @@ class _ActivityLogClient implements ActivityLogClient {
       r'entityId': entityId,
       r'userId': userId,
       r'action': action,
-      r'from': from?.toIso8601String(),
-      r'to': to?.toIso8601String(),
+      r'from': from,
+      r'to': to,
       r'cursor': cursor,
     };
     queryParameters.removeWhere((k, v) => v == null);

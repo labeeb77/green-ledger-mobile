@@ -20,8 +20,8 @@ abstract class ActivityLogClient {
     @Query('entityId') String? entityId,
     @Query('userId') String? userId,
     @Query('action') String? action,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('cursor') String? cursor,
   });
 }

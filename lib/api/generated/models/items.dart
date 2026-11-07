@@ -22,6 +22,6 @@ abstract class Items with _$Items {
     dynamic before,
     dynamic after,
   }) = _Items;
-  
+
   factory Items.fromJson(Map<String, Object?> json) => _$ItemsFromJson(json);
 }

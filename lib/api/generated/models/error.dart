@@ -9,12 +9,7 @@ part 'error.g.dart';
 
 @Freezed()
 abstract class Error with _$Error {
-  const factory Error({
-    required String code,
-    required String message,
-    dynamic details,
-    String? requestId,
-  }) = _Error;
-  
+  const factory Error({required String code, required String message, dynamic details, String? requestId}) = _Error;
+
   factory Error.fromJson(Map<String, Object?> json) => _$ErrorFromJson(json);
 }

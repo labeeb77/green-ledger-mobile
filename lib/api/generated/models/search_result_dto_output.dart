@@ -18,6 +18,6 @@ abstract class SearchResultDtoOutput with _$SearchResultDtoOutput {
     required List<Products> products,
     required List<Documents> documents,
   }) = _SearchResultDtoOutput;
-  
+
   factory SearchResultDtoOutput.fromJson(Map<String, Object?> json) => _$SearchResultDtoOutputFromJson(json);
 }

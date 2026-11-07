@@ -23,6 +23,6 @@ abstract class Splits3 with _$Splits3 {
     required bool verified,
     required Cheque? cheque,
   }) = _Splits3;
-  
+
   factory Splits3.fromJson(Map<String, Object?> json) => _$Splits3FromJson(json);
 }

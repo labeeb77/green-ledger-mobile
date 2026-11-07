@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SetDailyRatesDto {
 
- DateTime get date; List<Rates> get rates;
+ String get date; List<Rates> get rates;
 /// Create a copy of SetDailyRatesDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SetDailyRatesDtoCopyWith<$Res>  {
   factory $SetDailyRatesDtoCopyWith(SetDailyRatesDto value, $Res Function(SetDailyRatesDto) _then) = _$SetDailyRatesDtoCopyWithImpl;
 @useResult
 $Res call({
- DateTime date, List<Rates> rates
+ String date, List<Rates> rates
 });
 
 
@@ -74,7 +74,7 @@ class _$SetDailyRatesDtoCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? rates = null,}) {
   return _then(SetDailyRatesDto(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,rates: null == rates ? _self.rates : rates // ignore: cast_nullable_to_non_nullable
+as String,rates: null == rates ? _self.rates : rates // ignore: cast_nullable_to_non_nullable
 as List<Rates>,
   ));
 }
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime date,  List<Rates> rates)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  List<Rates> rates)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SetDailyRatesDto() when $default != null:
 return $default(_that.date,_that.rates);case _:
@@ -181,7 +181,7 @@ return $default(_that.date,_that.rates);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime date,  List<Rates> rates)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  List<Rates> rates)  $default,) {final _that = this;
 switch (_that) {
 case _SetDailyRatesDto():
 return $default(_that.date,_that.rates);case _:
@@ -201,7 +201,7 @@ return $default(_that.date,_that.rates);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime date,  List<Rates> rates)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  List<Rates> rates)?  $default,) {final _that = this;
 switch (_that) {
 case _SetDailyRatesDto() when $default != null:
 return $default(_that.date,_that.rates);case _:
@@ -219,7 +219,7 @@ class _SetDailyRatesDto implements SetDailyRatesDto {
   const _SetDailyRatesDto({required this.date, required  List<Rates> rates}): _rates = rates;
   factory _SetDailyRatesDto.fromJson(Map<String, dynamic> json) => _$SetDailyRatesDtoFromJson(json);
 
-@override final  DateTime date;
+@override final  String date;
  final  List<Rates> _rates;
 @override List<Rates> get rates {
   if (_rates is EqualUnmodifiableListView) return _rates;
@@ -263,7 +263,7 @@ abstract mixin class _$SetDailyRatesDtoCopyWith<$Res> implements $SetDailyRatesD
   factory _$SetDailyRatesDtoCopyWith(_SetDailyRatesDto value, $Res Function(_SetDailyRatesDto) _then) = __$SetDailyRatesDtoCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime date, List<Rates> rates
+ String date, List<Rates> rates
 });
 
 
@@ -283,7 +283,7 @@ class __$SetDailyRatesDtoCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? rates = null,}) {
   return _then(_SetDailyRatesDto(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,rates: null == rates ? _self._rates : rates // ignore: cast_nullable_to_non_nullable
+as String,rates: null == rates ? _self._rates : rates // ignore: cast_nullable_to_non_nullable
 as List<Rates>,
   ));
 }

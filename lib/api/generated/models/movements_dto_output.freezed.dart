@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovementsDtoOutput {
 
- Product7 get product; DateTime get from; DateTime get to; String get opening; List<Entries2> get entries; String get closing;
+ Product7 get product; String get from; String get to; String get opening; List<Entries2> get entries; String get closing;
 /// Create a copy of MovementsDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $MovementsDtoOutputCopyWith<$Res>  {
   factory $MovementsDtoOutputCopyWith(MovementsDtoOutput value, $Res Function(MovementsDtoOutput) _then) = _$MovementsDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- Product7 product, DateTime from, DateTime to, String opening, List<Entries2> entries, String closing
+ Product7 product, String from, String to, String opening, List<Entries2> entries, String closing
 });
 
 
@@ -75,8 +75,8 @@ class _$MovementsDtoOutputCopyWithImpl<$Res>
   return _then(MovementsDtoOutput(
 product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as Product7,from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
 as String,entries: null == entries ? _self.entries : entries // ignore: cast_nullable_to_non_nullable
 as List<Entries2>,closing: null == closing ? _self.closing : closing // ignore: cast_nullable_to_non_nullable
 as String,
@@ -173,7 +173,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Product7 product,  DateTime from,  DateTime to,  String opening,  List<Entries2> entries,  String closing)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Product7 product,  String from,  String to,  String opening,  List<Entries2> entries,  String closing)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MovementsDtoOutput() when $default != null:
 return $default(_that.product,_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -194,7 +194,7 @@ return $default(_that.product,_that.from,_that.to,_that.opening,_that.entries,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Product7 product,  DateTime from,  DateTime to,  String opening,  List<Entries2> entries,  String closing)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Product7 product,  String from,  String to,  String opening,  List<Entries2> entries,  String closing)  $default,) {final _that = this;
 switch (_that) {
 case _MovementsDtoOutput():
 return $default(_that.product,_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -214,7 +214,7 @@ return $default(_that.product,_that.from,_that.to,_that.opening,_that.entries,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Product7 product,  DateTime from,  DateTime to,  String opening,  List<Entries2> entries,  String closing)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Product7 product,  String from,  String to,  String opening,  List<Entries2> entries,  String closing)?  $default,) {final _that = this;
 switch (_that) {
 case _MovementsDtoOutput() when $default != null:
 return $default(_that.product,_that.from,_that.to,_that.opening,_that.entries,_that.closing);case _:
@@ -233,8 +233,8 @@ class _MovementsDtoOutput implements MovementsDtoOutput {
   factory _MovementsDtoOutput.fromJson(Map<String, dynamic> json) => _$MovementsDtoOutputFromJson(json);
 
 @override final  Product7 product;
-@override final  DateTime from;
-@override final  DateTime to;
+@override final  String from;
+@override final  String to;
 @override final  String opening;
  final  List<Entries2> _entries;
 @override List<Entries2> get entries {
@@ -280,7 +280,7 @@ abstract mixin class _$MovementsDtoOutputCopyWith<$Res> implements $MovementsDto
   factory _$MovementsDtoOutputCopyWith(_MovementsDtoOutput value, $Res Function(_MovementsDtoOutput) _then) = __$MovementsDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- Product7 product, DateTime from, DateTime to, String opening, List<Entries2> entries, String closing
+ Product7 product, String from, String to, String opening, List<Entries2> entries, String closing
 });
 
 
@@ -301,8 +301,8 @@ class __$MovementsDtoOutputCopyWithImpl<$Res>
   return _then(_MovementsDtoOutput(
 product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as Product7,from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
+as String,to: null == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String,opening: null == opening ? _self.opening : opening // ignore: cast_nullable_to_non_nullable
 as String,entries: null == entries ? _self._entries : entries // ignore: cast_nullable_to_non_nullable
 as List<Entries2>,closing: null == closing ? _self.closing : closing // ignore: cast_nullable_to_non_nullable
 as String,

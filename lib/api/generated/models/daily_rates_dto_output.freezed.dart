@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DailyRatesDtoOutput {
 
- DateTime get date; List<Rows> get rows;
+ String get date; List<Rows> get rows;
 /// Create a copy of DailyRatesDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $DailyRatesDtoOutputCopyWith<$Res>  {
   factory $DailyRatesDtoOutputCopyWith(DailyRatesDtoOutput value, $Res Function(DailyRatesDtoOutput) _then) = _$DailyRatesDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- DateTime date, List<Rows> rows
+ String date, List<Rows> rows
 });
 
 
@@ -74,7 +74,7 @@ class _$DailyRatesDtoOutputCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? rows = null,}) {
   return _then(DailyRatesDtoOutput(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,rows: null == rows ? _self.rows : rows // ignore: cast_nullable_to_non_nullable
+as String,rows: null == rows ? _self.rows : rows // ignore: cast_nullable_to_non_nullable
 as List<Rows>,
   ));
 }
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime date,  List<Rows> rows)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  List<Rows> rows)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DailyRatesDtoOutput() when $default != null:
 return $default(_that.date,_that.rows);case _:
@@ -181,7 +181,7 @@ return $default(_that.date,_that.rows);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime date,  List<Rows> rows)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  List<Rows> rows)  $default,) {final _that = this;
 switch (_that) {
 case _DailyRatesDtoOutput():
 return $default(_that.date,_that.rows);case _:
@@ -201,7 +201,7 @@ return $default(_that.date,_that.rows);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime date,  List<Rows> rows)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  List<Rows> rows)?  $default,) {final _that = this;
 switch (_that) {
 case _DailyRatesDtoOutput() when $default != null:
 return $default(_that.date,_that.rows);case _:
@@ -219,7 +219,7 @@ class _DailyRatesDtoOutput implements DailyRatesDtoOutput {
   const _DailyRatesDtoOutput({required this.date, required  List<Rows> rows}): _rows = rows;
   factory _DailyRatesDtoOutput.fromJson(Map<String, dynamic> json) => _$DailyRatesDtoOutputFromJson(json);
 
-@override final  DateTime date;
+@override final  String date;
  final  List<Rows> _rows;
 @override List<Rows> get rows {
   if (_rows is EqualUnmodifiableListView) return _rows;
@@ -263,7 +263,7 @@ abstract mixin class _$DailyRatesDtoOutputCopyWith<$Res> implements $DailyRatesD
   factory _$DailyRatesDtoOutputCopyWith(_DailyRatesDtoOutput value, $Res Function(_DailyRatesDtoOutput) _then) = __$DailyRatesDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- DateTime date, List<Rows> rows
+ String date, List<Rows> rows
 });
 
 
@@ -283,7 +283,7 @@ class __$DailyRatesDtoOutputCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? rows = null,}) {
   return _then(_DailyRatesDtoOutput(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,rows: null == rows ? _self._rows : rows // ignore: cast_nullable_to_non_nullable
+as String,rows: null == rows ? _self._rows : rows // ignore: cast_nullable_to_non_nullable
 as List<Rows>,
   ));
 }

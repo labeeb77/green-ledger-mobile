@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockCountDtoOutput {
 
- String get id; String? get number; DateTime get countDate; StockCountDtoOutputStatus get status; String? get notes; CreatedBy3? get createdBy; String? get approvalId; List<Lines10> get lines; DateTime? get postedAt; DateTime get createdAt;
+ String get id; String? get number; String get countDate; StockCountDtoOutputStatus get status; String? get notes; CreatedBy3? get createdBy; String? get approvalId; List<Lines10> get lines; DateTime? get postedAt; DateTime get createdAt;
 /// Create a copy of StockCountDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $StockCountDtoOutputCopyWith<$Res>  {
   factory $StockCountDtoOutputCopyWith(StockCountDtoOutput value, $Res Function(StockCountDtoOutput) _then) = _$StockCountDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String? number, DateTime countDate, StockCountDtoOutputStatus status, String? notes, CreatedBy3? createdBy, String? approvalId, List<Lines10> lines, DateTime? postedAt, DateTime createdAt
+ String id, String? number, String countDate, StockCountDtoOutputStatus status, String? notes, CreatedBy3? createdBy, String? approvalId, List<Lines10> lines, DateTime? postedAt, DateTime createdAt
 });
 
 
@@ -76,7 +76,7 @@ class _$StockCountDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,countDate: null == countDate ? _self.countDate : countDate // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StockCountDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as CreatedBy3?,approvalId: freezed == approvalId ? _self.approvalId : approvalId // ignore: cast_nullable_to_non_nullable
@@ -180,7 +180,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  String countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockCountDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.countDate,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.postedAt,_that.createdAt);case _:
@@ -201,7 +201,7 @@ return $default(_that.id,_that.number,_that.countDate,_that.status,_that.notes,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  DateTime countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  String countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _StockCountDtoOutput():
 return $default(_that.id,_that.number,_that.countDate,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.postedAt,_that.createdAt);case _:
@@ -221,7 +221,7 @@ return $default(_that.id,_that.number,_that.countDate,_that.status,_that.notes,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  DateTime countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  String countDate,  StockCountDtoOutputStatus status,  String? notes,  CreatedBy3? createdBy,  String? approvalId,  List<Lines10> lines,  DateTime? postedAt,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _StockCountDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.countDate,_that.status,_that.notes,_that.createdBy,_that.approvalId,_that.lines,_that.postedAt,_that.createdAt);case _:
@@ -241,7 +241,7 @@ class _StockCountDtoOutput implements StockCountDtoOutput {
 
 @override final  String id;
 @override final  String? number;
-@override final  DateTime countDate;
+@override final  String countDate;
 @override final  StockCountDtoOutputStatus status;
 @override final  String? notes;
 @override final  CreatedBy3? createdBy;
@@ -291,7 +291,7 @@ abstract mixin class _$StockCountDtoOutputCopyWith<$Res> implements $StockCountD
   factory _$StockCountDtoOutputCopyWith(_StockCountDtoOutput value, $Res Function(_StockCountDtoOutput) _then) = __$StockCountDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? number, DateTime countDate, StockCountDtoOutputStatus status, String? notes, CreatedBy3? createdBy, String? approvalId, List<Lines10> lines, DateTime? postedAt, DateTime createdAt
+ String id, String? number, String countDate, StockCountDtoOutputStatus status, String? notes, CreatedBy3? createdBy, String? approvalId, List<Lines10> lines, DateTime? postedAt, DateTime createdAt
 });
 
 
@@ -313,7 +313,7 @@ class __$StockCountDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,countDate: null == countDate ? _self.countDate : countDate // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StockCountDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,createdBy: freezed == createdBy ? _self.createdBy : createdBy // ignore: cast_nullable_to_non_nullable
 as CreatedBy3?,approvalId: freezed == approvalId ? _self.approvalId : approvalId // ignore: cast_nullable_to_non_nullable

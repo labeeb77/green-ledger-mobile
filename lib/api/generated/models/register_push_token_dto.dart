@@ -11,10 +11,8 @@ part 'register_push_token_dto.g.dart';
 
 @Freezed()
 abstract class RegisterPushTokenDto with _$RegisterPushTokenDto {
-  const factory RegisterPushTokenDto({
-    required RegisterPushTokenDtoPlatform platform,
-    required String token,
-  }) = _RegisterPushTokenDto;
-  
+  const factory RegisterPushTokenDto({required RegisterPushTokenDtoPlatform platform, required String token}) =
+      _RegisterPushTokenDto;
+
   factory RegisterPushTokenDto.fromJson(Map<String, Object?> json) => _$RegisterPushTokenDtoFromJson(json);
 }

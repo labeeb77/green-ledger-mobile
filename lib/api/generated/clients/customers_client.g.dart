@@ -185,14 +185,11 @@ class _CustomersClient implements CustomersClient {
   @override
   Future<StatementDtoOutput> customersControllerStatement({
     required String id,
-    required DateTime from,
-    required DateTime to,
+    required String from,
+    required String to,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'from': from.toIso8601String(),
-      r'to': to.toIso8601String(),
-    };
+    final queryParameters = <String, dynamic>{r'from': from, r'to': to};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<StatementDtoOutput>(

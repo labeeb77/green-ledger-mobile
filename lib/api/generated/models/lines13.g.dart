@@ -9,12 +9,8 @@ part of 'lines13.dart';
 _Lines13 _$Lines13FromJson(Map<String, dynamic> json) => _Lines13(
   id: json['id'] as String,
   product: Product8.fromJson(json['product'] as Map<String, dynamic>),
-  grade: json['grade'] == null
-      ? null
-      : Grade3.fromJson(json['grade'] as Map<String, dynamic>),
-  packUnit: json['packUnit'] == null
-      ? null
-      : PackUnit5.fromJson(json['packUnit'] as Map<String, dynamic>),
+  grade: json['grade'] == null ? null : Grade3.fromJson(json['grade'] as Map<String, dynamic>),
+  packUnit: json['packUnit'] == null ? null : PackUnit5.fromJson(json['packUnit'] as Map<String, dynamic>),
   packCount: json['packCount'] as String?,
   quantity: json['quantity'] as String,
   ratePer: RatePer.fromJson(json['ratePer'] as String),

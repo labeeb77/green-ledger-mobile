@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockEntryDtoOutput {
 
- String get id; String? get number; StockEntryDtoOutputType get type; DateTime get entryDate; StockEntryDtoOutputStatus get status; int? get value; String? get notes; String? get photoUrl; CreatedBy2? get createdBy; String? get approvalId; List<Lines7> get lines; List<String> get warnings; DateTime get createdAt; String? get cancelReason;
+ String get id; String? get number; StockEntryDtoOutputType get type; String get entryDate; StockEntryDtoOutputStatus get status; int? get value; String? get notes; String? get photoUrl; CreatedBy2? get createdBy; String? get approvalId; List<Lines7> get lines; List<String> get warnings; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of StockEntryDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $StockEntryDtoOutputCopyWith<$Res>  {
   factory $StockEntryDtoOutputCopyWith(StockEntryDtoOutput value, $Res Function(StockEntryDtoOutput) _then) = _$StockEntryDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String? number, StockEntryDtoOutputType type, DateTime entryDate, StockEntryDtoOutputStatus status, int? value, String? notes, String? photoUrl, CreatedBy2? createdBy, String? approvalId, List<Lines7> lines, List<String> warnings, DateTime createdAt, String? cancelReason
+ String id, String? number, StockEntryDtoOutputType type, String entryDate, StockEntryDtoOutputStatus status, int? value, String? notes, String? photoUrl, CreatedBy2? createdBy, String? approvalId, List<Lines7> lines, List<String> warnings, DateTime createdAt, String? cancelReason
 });
 
 
@@ -77,7 +77,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as StockEntryDtoOutputType,entryDate: null == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StockEntryDtoOutputStatus,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as int?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  StockEntryDtoOutputType type,  DateTime entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? number,  StockEntryDtoOutputType type,  String entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockEntryDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.type,_that.entryDate,_that.status,_that.value,_that.notes,_that.photoUrl,_that.createdBy,_that.approvalId,_that.lines,_that.warnings,_that.createdAt,_that.cancelReason);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.number,_that.type,_that.entryDate,_that.status,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  StockEntryDtoOutputType type,  DateTime entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? number,  StockEntryDtoOutputType type,  String entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _StockEntryDtoOutput():
 return $default(_that.id,_that.number,_that.type,_that.entryDate,_that.status,_that.value,_that.notes,_that.photoUrl,_that.createdBy,_that.approvalId,_that.lines,_that.warnings,_that.createdAt,_that.cancelReason);case _:
@@ -225,7 +225,7 @@ return $default(_that.id,_that.number,_that.type,_that.entryDate,_that.status,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  StockEntryDtoOutputType type,  DateTime entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? number,  StockEntryDtoOutputType type,  String entryDate,  StockEntryDtoOutputStatus status,  int? value,  String? notes,  String? photoUrl,  CreatedBy2? createdBy,  String? approvalId,  List<Lines7> lines,  List<String> warnings,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _StockEntryDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.type,_that.entryDate,_that.status,_that.value,_that.notes,_that.photoUrl,_that.createdBy,_that.approvalId,_that.lines,_that.warnings,_that.createdAt,_that.cancelReason);case _:
@@ -246,7 +246,7 @@ class _StockEntryDtoOutput implements StockEntryDtoOutput {
 @override final  String id;
 @override final  String? number;
 @override final  StockEntryDtoOutputType type;
-@override final  DateTime entryDate;
+@override final  String entryDate;
 @override final  StockEntryDtoOutputStatus status;
 @override final  int? value;
 @override final  String? notes;
@@ -305,7 +305,7 @@ abstract mixin class _$StockEntryDtoOutputCopyWith<$Res> implements $StockEntryD
   factory _$StockEntryDtoOutputCopyWith(_StockEntryDtoOutput value, $Res Function(_StockEntryDtoOutput) _then) = __$StockEntryDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? number, StockEntryDtoOutputType type, DateTime entryDate, StockEntryDtoOutputStatus status, int? value, String? notes, String? photoUrl, CreatedBy2? createdBy, String? approvalId, List<Lines7> lines, List<String> warnings, DateTime createdAt, String? cancelReason
+ String id, String? number, StockEntryDtoOutputType type, String entryDate, StockEntryDtoOutputStatus status, int? value, String? notes, String? photoUrl, CreatedBy2? createdBy, String? approvalId, List<Lines7> lines, List<String> warnings, DateTime createdAt, String? cancelReason
 });
 
 
@@ -328,7 +328,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as StockEntryDtoOutputType,entryDate: null == entryDate ? _self.entryDate : entryDate // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StockEntryDtoOutputStatus,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as int?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable

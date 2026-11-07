@@ -22,10 +22,10 @@ class _PricingClient implements PricingClient {
 
   @override
   Future<DailyRatesDtoOutput> pricingControllerDailyRates({
-    DateTime? date,
+    String? date,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'date': date?.toIso8601String()};
+    final queryParameters = <String, dynamic>{r'date': date};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
@@ -180,14 +180,14 @@ class _PricingClient implements PricingClient {
     required String productId,
     String? customerId,
     String? packUnitId,
-    DateTime? date,
+    String? date,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'productId': productId,
       r'customerId': customerId,
       r'packUnitId': packUnitId,
-      r'date': date?.toIso8601String(),
+      r'date': date,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

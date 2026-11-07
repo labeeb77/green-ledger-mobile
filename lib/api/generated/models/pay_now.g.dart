@@ -14,9 +14,7 @@ _PayNow _$PayNowFromJson(Map<String, dynamic> json) => _PayNow(
   screenshotFileId: json['screenshotFileId'] as String?,
   chequeNo: json['chequeNo'] as String?,
   chequeBank: json['chequeBank'] as String?,
-  chequeDate: json['chequeDate'] == null
-      ? null
-      : DateTime.parse(json['chequeDate'] as String),
+  chequeDate: json['chequeDate'] as String?,
 );
 
 Map<String, dynamic> _$PayNowToJson(_PayNow instance) => <String, dynamic>{
@@ -27,5 +25,5 @@ Map<String, dynamic> _$PayNowToJson(_PayNow instance) => <String, dynamic>{
   'screenshotFileId': instance.screenshotFileId,
   'chequeNo': instance.chequeNo,
   'chequeBank': instance.chequeBank,
-  'chequeDate': instance.chequeDate?.toIso8601String(),
+  'chequeDate': instance.chequeDate,
 };

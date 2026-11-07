@@ -12,6 +12,7 @@ abstract class CreateCustomerDto with _$CreateCustomerDto {
   const factory CreateCustomerDto({
     required String name,
     String? phone,
+    String? whatsapp,
     String? area,
     String? address,
     String? notes,
@@ -25,6 +26,6 @@ abstract class CreateCustomerDto with _$CreateCustomerDto {
     /// Amount in paise (₹1 = 100)
     int? openingBalance,
   }) = _CreateCustomerDto;
-  
+
   factory CreateCustomerDto.fromJson(Map<String, Object?> json) => _$CreateCustomerDtoFromJson(json);
 }

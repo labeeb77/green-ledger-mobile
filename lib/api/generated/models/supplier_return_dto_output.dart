@@ -18,7 +18,7 @@ abstract class SupplierReturnDtoOutput with _$SupplierReturnDtoOutput {
     required String id,
     required String number,
     required Supplier5 supplier,
-    required DateTime returnDate,
+    required String returnDate,
     required Bill? bill,
     required int total,
     required String? reason,
@@ -27,6 +27,6 @@ abstract class SupplierReturnDtoOutput with _$SupplierReturnDtoOutput {
     required DateTime createdAt,
     required String? cancelReason,
   }) = _SupplierReturnDtoOutput;
-  
+
   factory SupplierReturnDtoOutput.fromJson(Map<String, Object?> json) => _$SupplierReturnDtoOutputFromJson(json);
 }

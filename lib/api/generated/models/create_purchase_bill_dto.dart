@@ -14,13 +14,12 @@ abstract class CreatePurchaseBillDto with _$CreatePurchaseBillDto {
   const factory CreatePurchaseBillDto({
     required String supplierId,
     required List<Lines3> lines,
-    @Default(0)
-    int adjustment,
-    DateTime? billDate,
-    DateTime? dueDate,
+    @Default(0) int adjustment,
+    String? billDate,
+    String? dueDate,
     String? supplierInvoiceNo,
     String? notes,
   }) = _CreatePurchaseBillDto;
-  
+
   factory CreatePurchaseBillDto.fromJson(Map<String, Object?> json) => _$CreatePurchaseBillDtoFromJson(json);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PurchaseBillDtoOutput {
 
- String get id; String get number; Supplier3 get supplier; DateTime get billDate; DateTime get dueDate; String? get supplierInvoiceNo; int get adjustment; int get total; int get paid; int get open; PurchaseBillDtoOutputPaymentStatus get paymentStatus; PurchaseBillDtoOutputStatus get status; String? get notes; DateTime get createdAt; String? get cancelReason; List<Lines4> get lines; List<Allocations> get allocations;
+ String get id; String get number; Supplier3 get supplier; String get billDate; String get dueDate; String? get supplierInvoiceNo; int get adjustment; int get total; int get paid; int get open; PurchaseBillDtoOutputPaymentStatus get paymentStatus; PurchaseBillDtoOutputStatus get status; String? get notes; DateTime get createdAt; String? get cancelReason; List<Lines4> get lines; List<Allocations> get allocations;
 /// Create a copy of PurchaseBillDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $PurchaseBillDtoOutputCopyWith<$Res>  {
   factory $PurchaseBillDtoOutputCopyWith(PurchaseBillDtoOutput value, $Res Function(PurchaseBillDtoOutput) _then) = _$PurchaseBillDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, Supplier3 supplier, DateTime billDate, DateTime dueDate, String? supplierInvoiceNo, int adjustment, int total, int paid, int open, PurchaseBillDtoOutputPaymentStatus paymentStatus, PurchaseBillDtoOutputStatus status, String? notes, DateTime createdAt, String? cancelReason, List<Lines4> lines, List<Allocations> allocations
+ String id, String number, Supplier3 supplier, String billDate, String dueDate, String? supplierInvoiceNo, int adjustment, int total, int paid, int open, PurchaseBillDtoOutputPaymentStatus paymentStatus, PurchaseBillDtoOutputStatus status, String? notes, DateTime createdAt, String? cancelReason, List<Lines4> lines, List<Allocations> allocations
 });
 
 
@@ -77,8 +77,8 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier3,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
 as String?,adjustment: null == adjustment ? _self.adjustment : adjustment // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,paid: null == paid ? _self.paid : paid // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier3 supplier,  DateTime billDate,  DateTime dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Supplier3 supplier,  String billDate,  String dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PurchaseBillDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.adjustment,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.notes,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.billDate,_that.dueDat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier3 supplier,  DateTime billDate,  DateTime dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Supplier3 supplier,  String billDate,  String dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)  $default,) {final _that = this;
 switch (_that) {
 case _PurchaseBillDtoOutput():
 return $default(_that.id,_that.number,_that.supplier,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.adjustment,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.notes,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations);case _:
@@ -225,7 +225,7 @@ return $default(_that.id,_that.number,_that.supplier,_that.billDate,_that.dueDat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier3 supplier,  DateTime billDate,  DateTime dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Supplier3 supplier,  String billDate,  String dueDate,  String? supplierInvoiceNo,  int adjustment,  int total,  int paid,  int open,  PurchaseBillDtoOutputPaymentStatus paymentStatus,  PurchaseBillDtoOutputStatus status,  String? notes,  DateTime createdAt,  String? cancelReason,  List<Lines4> lines,  List<Allocations> allocations)?  $default,) {final _that = this;
 switch (_that) {
 case _PurchaseBillDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.supplier,_that.billDate,_that.dueDate,_that.supplierInvoiceNo,_that.adjustment,_that.total,_that.paid,_that.open,_that.paymentStatus,_that.status,_that.notes,_that.createdAt,_that.cancelReason,_that.lines,_that.allocations);case _:
@@ -246,8 +246,8 @@ class _PurchaseBillDtoOutput implements PurchaseBillDtoOutput {
 @override final  String id;
 @override final  String number;
 @override final  Supplier3 supplier;
-@override final  DateTime billDate;
-@override final  DateTime dueDate;
+@override final  String billDate;
+@override final  String dueDate;
 @override final  String? supplierInvoiceNo;
 @override final  int adjustment;
 @override final  int total;
@@ -308,7 +308,7 @@ abstract mixin class _$PurchaseBillDtoOutputCopyWith<$Res> implements $PurchaseB
   factory _$PurchaseBillDtoOutputCopyWith(_PurchaseBillDtoOutput value, $Res Function(_PurchaseBillDtoOutput) _then) = __$PurchaseBillDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, Supplier3 supplier, DateTime billDate, DateTime dueDate, String? supplierInvoiceNo, int adjustment, int total, int paid, int open, PurchaseBillDtoOutputPaymentStatus paymentStatus, PurchaseBillDtoOutputStatus status, String? notes, DateTime createdAt, String? cancelReason, List<Lines4> lines, List<Allocations> allocations
+ String id, String number, Supplier3 supplier, String billDate, String dueDate, String? supplierInvoiceNo, int adjustment, int total, int paid, int open, PurchaseBillDtoOutputPaymentStatus paymentStatus, PurchaseBillDtoOutputStatus status, String? notes, DateTime createdAt, String? cancelReason, List<Lines4> lines, List<Allocations> allocations
 });
 
 
@@ -331,8 +331,8 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier3,billDate: null == billDate ? _self.billDate : billDate // ignore: cast_nullable_to_non_nullable
-as DateTime,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
+as String,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as String,supplierInvoiceNo: freezed == supplierInvoiceNo ? _self.supplierInvoiceNo : supplierInvoiceNo // ignore: cast_nullable_to_non_nullable
 as String?,adjustment: null == adjustment ? _self.adjustment : adjustment // ignore: cast_nullable_to_non_nullable
 as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,paid: null == paid ? _self.paid : paid // ignore: cast_nullable_to_non_nullable

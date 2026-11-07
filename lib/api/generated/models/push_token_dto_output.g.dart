@@ -9,5 +9,4 @@ part of 'push_token_dto_output.dart';
 _PushTokenDtoOutput _$PushTokenDtoOutputFromJson(Map<String, dynamic> json) =>
     _PushTokenDtoOutput(id: json['id'] as String);
 
-Map<String, dynamic> _$PushTokenDtoOutputToJson(_PushTokenDtoOutput instance) =>
-    <String, dynamic>{'id': instance.id};
+Map<String, dynamic> _$PushTokenDtoOutputToJson(_PushTokenDtoOutput instance) => <String, dynamic>{'id': instance.id};

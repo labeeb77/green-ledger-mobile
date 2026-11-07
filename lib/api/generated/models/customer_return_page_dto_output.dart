@@ -15,6 +15,7 @@ abstract class CustomerReturnPageDtoOutput with _$CustomerReturnPageDtoOutput {
     required List<CustomerReturnDtoOutput> items,
     required String? nextCursor,
   }) = _CustomerReturnPageDtoOutput;
-  
-  factory CustomerReturnPageDtoOutput.fromJson(Map<String, Object?> json) => _$CustomerReturnPageDtoOutputFromJson(json);
+
+  factory CustomerReturnPageDtoOutput.fromJson(Map<String, Object?> json) =>
+      _$CustomerReturnPageDtoOutputFromJson(json);
 }

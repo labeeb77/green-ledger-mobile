@@ -9,10 +9,7 @@ part 'price_group.g.dart';
 
 @Freezed()
 abstract class PriceGroup with _$PriceGroup {
-  const factory PriceGroup({
-    required String id,
-    required String name,
-  }) = _PriceGroup;
-  
+  const factory PriceGroup({required String id, required String name}) = _PriceGroup;
+
   factory PriceGroup.fromJson(Map<String, Object?> json) => _$PriceGroupFromJson(json);
 }

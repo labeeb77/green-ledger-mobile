@@ -9,11 +9,7 @@ part 'grades.g.dart';
 
 @Freezed()
 abstract class Grades with _$Grades {
-  const factory Grades({
-    required String id,
-    required String name,
-    required bool active,
-  }) = _Grades;
-  
+  const factory Grades({required String id, required String name, required bool active}) = _Grades;
+
   factory Grades.fromJson(Map<String, Object?> json) => _$GradesFromJson(json);
 }

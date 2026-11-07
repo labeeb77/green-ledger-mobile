@@ -12,10 +12,9 @@ abstract class ByMethod with _$ByMethod {
   const factory ByMethod({
     required int cash,
     required int upi,
-    @JsonKey(name: 'bank_transfer')
-    required int bankTransfer,
+    @JsonKey(name: 'bank_transfer') required int bankTransfer,
     required int cheque,
   }) = _ByMethod;
-  
+
   factory ByMethod.fromJson(Map<String, Object?> json) => _$ByMethodFromJson(json);
 }

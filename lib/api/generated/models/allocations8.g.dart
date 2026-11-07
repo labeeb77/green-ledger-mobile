@@ -7,10 +7,9 @@ part of 'allocations8.dart';
 // **************************************************************************
 
 _Allocations8 _$Allocations8FromJson(Map<String, dynamic> json) =>
-    _Allocations8(
-      billId: json['billId'] as String,
-      amount: (json['amount'] as num).toInt(),
-    );
+    _Allocations8(billId: json['billId'] as String, amount: (json['amount'] as num).toInt());
 
-Map<String, dynamic> _$Allocations8ToJson(_Allocations8 instance) =>
-    <String, dynamic>{'billId': instance.billId, 'amount': instance.amount};
+Map<String, dynamic> _$Allocations8ToJson(_Allocations8 instance) => <String, dynamic>{
+  'billId': instance.billId,
+  'amount': instance.amount,
+};

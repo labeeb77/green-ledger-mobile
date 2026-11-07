@@ -18,6 +18,6 @@ abstract class AuthTokensDtoOutput with _$AuthTokensDtoOutput {
     required User user,
     String? refreshToken,
   }) = _AuthTokensDtoOutput;
-  
+
   factory AuthTokensDtoOutput.fromJson(Map<String, Object?> json) => _$AuthTokensDtoOutputFromJson(json);
 }

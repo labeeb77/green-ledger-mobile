@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreateSupplierPaymentDto {
 
- String get supplierId; List<Splits2> get splits; DateTime? get paymentDate; String? get notes; List<Allocations3>? get allocations;
+ String get supplierId; List<Splits2> get splits; String? get paymentDate; String? get notes; List<Allocations3>? get allocations;
 /// Create a copy of CreateSupplierPaymentDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CreateSupplierPaymentDtoCopyWith<$Res>  {
   factory $CreateSupplierPaymentDtoCopyWith(CreateSupplierPaymentDto value, $Res Function(CreateSupplierPaymentDto) _then) = _$CreateSupplierPaymentDtoCopyWithImpl;
 @useResult
 $Res call({
- String supplierId, List<Splits2> splits, DateTime? paymentDate, String? notes, List<Allocations3>? allocations
+ String supplierId, List<Splits2> splits, String? paymentDate, String? notes, List<Allocations3>? allocations
 });
 
 
@@ -76,7 +76,7 @@ class _$CreateSupplierPaymentDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,splits: null == splits ? _self.splits : splits // ignore: cast_nullable_to_non_nullable
 as List<Splits2>,paymentDate: freezed == paymentDate ? _self.paymentDate : paymentDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,allocations: freezed == allocations ? _self.allocations : allocations // ignore: cast_nullable_to_non_nullable
 as List<Allocations3>?,
   ));
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Splits2> splits,  DateTime? paymentDate,  String? notes,  List<Allocations3>? allocations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String supplierId,  List<Splits2> splits,  String? paymentDate,  String? notes,  List<Allocations3>? allocations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateSupplierPaymentDto() when $default != null:
 return $default(_that.supplierId,_that.splits,_that.paymentDate,_that.notes,_that.allocations);case _:
@@ -184,7 +184,7 @@ return $default(_that.supplierId,_that.splits,_that.paymentDate,_that.notes,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Splits2> splits,  DateTime? paymentDate,  String? notes,  List<Allocations3>? allocations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String supplierId,  List<Splits2> splits,  String? paymentDate,  String? notes,  List<Allocations3>? allocations)  $default,) {final _that = this;
 switch (_that) {
 case _CreateSupplierPaymentDto():
 return $default(_that.supplierId,_that.splits,_that.paymentDate,_that.notes,_that.allocations);case _:
@@ -204,7 +204,7 @@ return $default(_that.supplierId,_that.splits,_that.paymentDate,_that.notes,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Splits2> splits,  DateTime? paymentDate,  String? notes,  List<Allocations3>? allocations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String supplierId,  List<Splits2> splits,  String? paymentDate,  String? notes,  List<Allocations3>? allocations)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateSupplierPaymentDto() when $default != null:
 return $default(_that.supplierId,_that.splits,_that.paymentDate,_that.notes,_that.allocations);case _:
@@ -230,7 +230,7 @@ class _CreateSupplierPaymentDto implements CreateSupplierPaymentDto {
   return EqualUnmodifiableListView(_splits);
 }
 
-@override final  DateTime? paymentDate;
+@override final  String? paymentDate;
 @override final  String? notes;
  final  List<Allocations3>? _allocations;
 @override List<Allocations3>? get allocations {
@@ -277,7 +277,7 @@ abstract mixin class _$CreateSupplierPaymentDtoCopyWith<$Res> implements $Create
   factory _$CreateSupplierPaymentDtoCopyWith(_CreateSupplierPaymentDto value, $Res Function(_CreateSupplierPaymentDto) _then) = __$CreateSupplierPaymentDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String supplierId, List<Splits2> splits, DateTime? paymentDate, String? notes, List<Allocations3>? allocations
+ String supplierId, List<Splits2> splits, String? paymentDate, String? notes, List<Allocations3>? allocations
 });
 
 
@@ -299,7 +299,7 @@ class __$CreateSupplierPaymentDtoCopyWithImpl<$Res>
 supplierId: null == supplierId ? _self.supplierId : supplierId // ignore: cast_nullable_to_non_nullable
 as String,splits: null == splits ? _self._splits : splits // ignore: cast_nullable_to_non_nullable
 as List<Splits2>,paymentDate: freezed == paymentDate ? _self.paymentDate : paymentDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,allocations: freezed == allocations ? _self._allocations : allocations // ignore: cast_nullable_to_non_nullable
 as List<Allocations3>?,
   ));

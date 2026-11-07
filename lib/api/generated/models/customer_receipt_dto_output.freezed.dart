@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CustomerReceiptDtoOutput {
 
- String get id; String get number; Customer3 get customer; DateTime get receiptDate; CollectedBy get collectedBy; int get total; CustomerReceiptDtoOutputStatus get status; String? get notes; List<Splits3> get splits; List<Allocations6> get allocations; int get unallocated; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; Customer3 get customer; String get receiptDate; CollectedBy get collectedBy; int get total; CustomerReceiptDtoOutputStatus get status; String? get notes; List<Splits3> get splits; List<Allocations6> get allocations; int get unallocated; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of CustomerReceiptDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $CustomerReceiptDtoOutputCopyWith<$Res>  {
   factory $CustomerReceiptDtoOutputCopyWith(CustomerReceiptDtoOutput value, $Res Function(CustomerReceiptDtoOutput) _then) = _$CustomerReceiptDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, Customer3 customer, DateTime receiptDate, CollectedBy collectedBy, int total, CustomerReceiptDtoOutputStatus status, String? notes, List<Splits3> splits, List<Allocations6> allocations, int unallocated, DateTime createdAt, String? cancelReason
+ String id, String number, Customer3 customer, String receiptDate, CollectedBy collectedBy, int total, CustomerReceiptDtoOutputStatus status, String? notes, List<Splits3> splits, List<Allocations6> allocations, int unallocated, DateTime createdAt, String? cancelReason
 });
 
 
@@ -77,7 +77,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer3,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,collectedBy: null == collectedBy ? _self.collectedBy : collectedBy // ignore: cast_nullable_to_non_nullable
+as String,collectedBy: null == collectedBy ? _self.collectedBy : collectedBy // ignore: cast_nullable_to_non_nullable
 as CollectedBy,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as CustomerReceiptDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Customer3 customer,  DateTime receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  Customer3 customer,  String receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CustomerReceiptDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.customer,_that.receiptDate,_that.collectedBy,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -210,7 +210,7 @@ return $default(_that.id,_that.number,_that.customer,_that.receiptDate,_that.col
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Customer3 customer,  DateTime receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  Customer3 customer,  String receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _CustomerReceiptDtoOutput():
 return $default(_that.id,_that.number,_that.customer,_that.receiptDate,_that.collectedBy,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -230,7 +230,7 @@ return $default(_that.id,_that.number,_that.customer,_that.receiptDate,_that.col
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Customer3 customer,  DateTime receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  Customer3 customer,  String receiptDate,  CollectedBy collectedBy,  int total,  CustomerReceiptDtoOutputStatus status,  String? notes,  List<Splits3> splits,  List<Allocations6> allocations,  int unallocated,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _CustomerReceiptDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.customer,_that.receiptDate,_that.collectedBy,_that.total,_that.status,_that.notes,_that.splits,_that.allocations,_that.unallocated,_that.createdAt,_that.cancelReason);case _:
@@ -251,7 +251,7 @@ class _CustomerReceiptDtoOutput implements CustomerReceiptDtoOutput {
 @override final  String id;
 @override final  String number;
 @override final  Customer3 customer;
-@override final  DateTime receiptDate;
+@override final  String receiptDate;
 @override final  CollectedBy collectedBy;
 @override final  int total;
 @override final  CustomerReceiptDtoOutputStatus status;
@@ -309,7 +309,7 @@ abstract mixin class _$CustomerReceiptDtoOutputCopyWith<$Res> implements $Custom
   factory _$CustomerReceiptDtoOutputCopyWith(_CustomerReceiptDtoOutput value, $Res Function(_CustomerReceiptDtoOutput) _then) = __$CustomerReceiptDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, Customer3 customer, DateTime receiptDate, CollectedBy collectedBy, int total, CustomerReceiptDtoOutputStatus status, String? notes, List<Splits3> splits, List<Allocations6> allocations, int unallocated, DateTime createdAt, String? cancelReason
+ String id, String number, Customer3 customer, String receiptDate, CollectedBy collectedBy, int total, CustomerReceiptDtoOutputStatus status, String? notes, List<Splits3> splits, List<Allocations6> allocations, int unallocated, DateTime createdAt, String? cancelReason
 });
 
 
@@ -332,7 +332,7 @@ id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,customer: null == customer ? _self.customer : customer // ignore: cast_nullable_to_non_nullable
 as Customer3,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,collectedBy: null == collectedBy ? _self.collectedBy : collectedBy // ignore: cast_nullable_to_non_nullable
+as String,collectedBy: null == collectedBy ? _self.collectedBy : collectedBy // ignore: cast_nullable_to_non_nullable
 as CollectedBy,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
 as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as CustomerReceiptDtoOutputStatus,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable

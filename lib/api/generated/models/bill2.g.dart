@@ -9,7 +9,4 @@ part of 'bill2.dart';
 _Bill2 _$Bill2FromJson(Map<String, dynamic> json) =>
     _Bill2(id: json['id'] as String, number: json['number'] as String?);
 
-Map<String, dynamic> _$Bill2ToJson(_Bill2 instance) => <String, dynamic>{
-  'id': instance.id,
-  'number': instance.number,
-};
+Map<String, dynamic> _$Bill2ToJson(_Bill2 instance) => <String, dynamic>{'id': instance.id, 'number': instance.number};

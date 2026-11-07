@@ -16,6 +16,6 @@ abstract class LowStock with _$LowStock {
     required String quantity,
     required String lowStockLevel,
   }) = _LowStock;
-  
+
   factory LowStock.fromJson(Map<String, Object?> json) => _$LowStockFromJson(json);
 }

@@ -24,8 +24,8 @@ abstract class OrdersClient {
     @Query('limit') int? limit = 50,
     @Query('status') Status5? status,
     @Query('customerId') String? customerId,
-    @Query('from') DateTime? from,
-    @Query('to') DateTime? to,
+    @Query('from') String? from,
+    @Query('to') String? to,
     @Query('cursor') String? cursor,
   });
 
@@ -40,9 +40,7 @@ abstract class OrdersClient {
   Future<List<OrderDtoOutput>> ordersControllerToDispatch();
 
   @GET('/api/v1/orders/{id}')
-  Future<OrderDtoOutput> ordersControllerGet({
-    @Path('id') required String id,
-  });
+  Future<OrderDtoOutput> ordersControllerGet({@Path('id') required String id});
 
   /// [idempotencyKey] - Client-generated UUID; retries with the same key never post twice.
   @POST('/api/v1/orders/{id}/cancel')

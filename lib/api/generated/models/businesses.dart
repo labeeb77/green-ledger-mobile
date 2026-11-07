@@ -16,6 +16,6 @@ abstract class Businesses with _$Businesses {
     required int expired,
     required int suspended,
   }) = _Businesses;
-  
+
   factory Businesses.fromJson(Map<String, Object?> json) => _$BusinessesFromJson(json);
 }

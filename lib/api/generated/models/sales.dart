@@ -11,11 +11,7 @@ part 'sales.g.dart';
 
 @Freezed()
 abstract class Sales with _$Sales {
-  const factory Sales({
-    required int total,
-    required int bills,
-    required Link link,
-  }) = _Sales;
-  
+  const factory Sales({required int total, required int bills, required Link link}) = _Sales;
+
   factory Sales.fromJson(Map<String, Object?> json) => _$SalesFromJson(json);
 }

@@ -1,13 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
+import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
+import 'package:green_ledger_mobile/features/home/presentation/bloc/agent_home_cubit.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
+import 'package:green_ledger_mobile/features/home/presentation/widgets/agent_home_card.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/top_bar.dart';
 
-/// Home is built from permission cards (ux-design section 3). The cards are placeholders
-/// in M0; each milestone fills its card with live figures and actions.
+/// Home is built from permission cards (ux-design section 3). Each milestone fills its
+/// card with live figures; the rest are placeholders. Agents get their live card (M1).
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -18,16 +24,35 @@ class HomePage extends StatelessWidget {
     final session = auth.session;
     final firstName = session.user.name.split(' ').first;
     final text = Theme.of(context).textTheme;
-    return Scaffold(
-      appBar: TopBar(title: 'Hi $firstName'),
-      body: ListView(
-        padding: const EdgeInsets.all(Space.lg),
-        children: [
-          Text(session.businessName, style: text.bodySmall),
-          const SizedBox(height: Space.lg),
-          for (final card in homeCardsFor(session)) ...[_HomeCardTile(card), const SizedBox(height: Space.md)],
+    final agent = session.user.role == Role.agent;
+    Widget list(BuildContext context) => ListView(
+      padding: const EdgeInsets.all(Space.lg),
+      children: [
+        Text(session.businessName, style: text.bodySmall),
+        const SizedBox(height: Space.lg),
+        for (final card in homeCardsFor(session)) ...[
+          if (card == HomeCard.agent && agent) const AgentHomeCard() else _HomeCardTile(card),
+          const SizedBox(height: Space.md),
         ],
-      ),
+      ],
+    );
+    final scaffold = Scaffold(
+      appBar: TopBar(title: 'Hi $firstName'),
+      body: agent
+          ? Builder(
+              builder: (context) =>
+                  RefreshIndicator(onRefresh: context.read<AgentHomeCubit>().load, child: list(context)),
+            )
+          : list(context),
+    );
+    if (!agent) return scaffold;
+    return BlocProvider(
+      create: (context) {
+        final cubit = AgentHomeCubit(context.read<HomeRepository>());
+        unawaited(cubit.load());
+        return cubit;
+      },
+      child: scaffold,
     );
   }
 }

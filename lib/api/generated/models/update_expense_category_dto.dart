@@ -9,12 +9,8 @@ part 'update_expense_category_dto.g.dart';
 
 @Freezed()
 abstract class UpdateExpenseCategoryDto with _$UpdateExpenseCategoryDto {
-  const factory UpdateExpenseCategoryDto({
-    String? name,
-    bool? allowedForGodown,
-    bool? allowedForAgent,
-    bool? active,
-  }) = _UpdateExpenseCategoryDto;
-  
+  const factory UpdateExpenseCategoryDto({String? name, bool? allowedForGodown, bool? allowedForAgent, bool? active}) =
+      _UpdateExpenseCategoryDto;
+
   factory UpdateExpenseCategoryDto.fromJson(Map<String, Object?> json) => _$UpdateExpenseCategoryDtoFromJson(json);
 }

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RequestPdfDto {
 
- RequestPdfDtoTemplate get template; String? get id; RequestPdfDtoFormat? get format; DateTime? get from; DateTime? get to; RequestPdfDtoReport? get report; RequestPdfDtoGroupBy? get groupBy;
+ RequestPdfDtoTemplate get template; String? get id; RequestPdfDtoFormat? get format; String? get from; String? get to; RequestPdfDtoReport? get report; RequestPdfDtoGroupBy? get groupBy;
 /// Create a copy of RequestPdfDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $RequestPdfDtoCopyWith<$Res>  {
   factory $RequestPdfDtoCopyWith(RequestPdfDto value, $Res Function(RequestPdfDto) _then) = _$RequestPdfDtoCopyWithImpl;
 @useResult
 $Res call({
- RequestPdfDtoTemplate template, String? id, RequestPdfDtoFormat? format, DateTime? from, DateTime? to, RequestPdfDtoReport? report, RequestPdfDtoGroupBy? groupBy
+ RequestPdfDtoTemplate template, String? id, RequestPdfDtoFormat? format, String? from, String? to, RequestPdfDtoReport? report, RequestPdfDtoGroupBy? groupBy
 });
 
 
@@ -77,8 +77,8 @@ template: null == template ? _self.template : template // ignore: cast_nullable_
 as RequestPdfDtoTemplate,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,format: freezed == format ? _self.format : format // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoFormat?,from: freezed == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
+as String?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoReport?,groupBy: freezed == groupBy ? _self.groupBy : groupBy // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoGroupBy?,
   ));
@@ -165,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  DateTime? from,  DateTime? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  String? from,  String? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RequestPdfDto() when $default != null:
 return $default(_that.template,_that.id,_that.format,_that.from,_that.to,_that.report,_that.groupBy);case _:
@@ -186,7 +186,7 @@ return $default(_that.template,_that.id,_that.format,_that.from,_that.to,_that.r
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  DateTime? from,  DateTime? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  String? from,  String? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)  $default,) {final _that = this;
 switch (_that) {
 case _RequestPdfDto():
 return $default(_that.template,_that.id,_that.format,_that.from,_that.to,_that.report,_that.groupBy);case _:
@@ -206,7 +206,7 @@ return $default(_that.template,_that.id,_that.format,_that.from,_that.to,_that.r
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  DateTime? from,  DateTime? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( RequestPdfDtoTemplate template,  String? id,  RequestPdfDtoFormat? format,  String? from,  String? to,  RequestPdfDtoReport? report,  RequestPdfDtoGroupBy? groupBy)?  $default,) {final _that = this;
 switch (_that) {
 case _RequestPdfDto() when $default != null:
 return $default(_that.template,_that.id,_that.format,_that.from,_that.to,_that.report,_that.groupBy);case _:
@@ -227,8 +227,8 @@ class _RequestPdfDto implements RequestPdfDto {
 @override final  RequestPdfDtoTemplate template;
 @override final  String? id;
 @override final  RequestPdfDtoFormat? format;
-@override final  DateTime? from;
-@override final  DateTime? to;
+@override final  String? from;
+@override final  String? to;
 @override final  RequestPdfDtoReport? report;
 @override final  RequestPdfDtoGroupBy? groupBy;
 
@@ -267,7 +267,7 @@ abstract mixin class _$RequestPdfDtoCopyWith<$Res> implements $RequestPdfDtoCopy
   factory _$RequestPdfDtoCopyWith(_RequestPdfDto value, $Res Function(_RequestPdfDto) _then) = __$RequestPdfDtoCopyWithImpl;
 @override @useResult
 $Res call({
- RequestPdfDtoTemplate template, String? id, RequestPdfDtoFormat? format, DateTime? from, DateTime? to, RequestPdfDtoReport? report, RequestPdfDtoGroupBy? groupBy
+ RequestPdfDtoTemplate template, String? id, RequestPdfDtoFormat? format, String? from, String? to, RequestPdfDtoReport? report, RequestPdfDtoGroupBy? groupBy
 });
 
 
@@ -290,8 +290,8 @@ template: null == template ? _self.template : template // ignore: cast_nullable_
 as RequestPdfDtoTemplate,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,format: freezed == format ? _self.format : format // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoFormat?,from: freezed == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
-as DateTime?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
-as DateTime?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
+as String?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String?,report: freezed == report ? _self.report : report // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoReport?,groupBy: freezed == groupBy ? _self.groupBy : groupBy // ignore: cast_nullable_to_non_nullable
 as RequestPdfDtoGroupBy?,
   ));

@@ -13,9 +13,7 @@ _Owner3 _$Owner3FromJson(Map<String, dynamic> json) => _Owner3(
   role: Role.fromJson(json['role'] as String),
   active: json['active'] as bool,
   mustChangePassword: json['mustChangePassword'] as bool,
-  lastLoginAt: json['lastLoginAt'] == null
-      ? null
-      : DateTime.parse(json['lastLoginAt'] as String),
+  lastLoginAt: json['lastLoginAt'] == null ? null : DateTime.parse(json['lastLoginAt'] as String),
   createdAt: DateTime.parse(json['createdAt'] as String),
 );
 

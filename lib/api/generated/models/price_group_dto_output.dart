@@ -18,6 +18,6 @@ abstract class PriceGroupDtoOutput with _$PriceGroupDtoOutput {
     required int value,
     required bool active,
   }) = _PriceGroupDtoOutput;
-  
+
   factory PriceGroupDtoOutput.fromJson(Map<String, Object?> json) => _$PriceGroupDtoOutputFromJson(json);
 }

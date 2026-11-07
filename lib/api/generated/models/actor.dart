@@ -11,11 +11,7 @@ part 'actor.g.dart';
 
 @Freezed()
 abstract class Actor with _$Actor {
-  const factory Actor({
-    required String? id,
-    required String name,
-    required Type3 type,
-  }) = _Actor;
-  
+  const factory Actor({required String? id, required String name, required Type3 type}) = _Actor;
+
   factory Actor.fromJson(Map<String, Object?> json) => _$ActorFromJson(json);
 }

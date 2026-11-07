@@ -16,7 +16,7 @@ abstract class PendingHandover with _$PendingHandover {
   const factory PendingHandover({
     required String id,
     required Agent4 agent,
-    required DateTime handoverDate,
+    required String handoverDate,
     required int declaredAmount,
     required int? countedAmount,
     required int? difference,
@@ -27,6 +27,6 @@ abstract class PendingHandover with _$PendingHandover {
     required DateTime? confirmedAt,
     required DateTime createdAt,
   }) = _PendingHandover;
-  
+
   factory PendingHandover.fromJson(Map<String, Object?> json) => _$PendingHandoverFromJson(json);
 }

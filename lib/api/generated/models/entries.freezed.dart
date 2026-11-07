@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Entries {
 
- String get id; DateTime get date; String get kind; String get description; String? get reference; String get sourceType; String get sourceId; int get amount; String? get dueDate; int get balance;
+ String get id; String get date; String get kind; String get description; String? get reference; String get sourceType; String get sourceId; int get amount; String? get dueDate; int get balance;
 /// Create a copy of Entries
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $EntriesCopyWith<$Res>  {
   factory $EntriesCopyWith(Entries value, $Res Function(Entries) _then) = _$EntriesCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime date, String kind, String description, String? reference, String sourceType, String sourceId, int amount, String? dueDate, int balance
+ String id, String date, String kind, String description, String? reference, String sourceType, String sourceId, int amount, String? dueDate, int balance
 });
 
 
@@ -75,7 +75,7 @@ class _$EntriesCopyWithImpl<$Res>
   return _then(Entries(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,sourceType: null == sourceType ? _self.sourceType : sourceType // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Entries() when $default != null:
 return $default(_that.id,_that.date,_that.kind,_that.description,_that.reference,_that.sourceType,_that.sourceId,_that.amount,_that.dueDate,_that.balance);case _:
@@ -189,7 +189,7 @@ return $default(_that.id,_that.date,_that.kind,_that.description,_that.reference
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)  $default,) {final _that = this;
 switch (_that) {
 case _Entries():
 return $default(_that.id,_that.date,_that.kind,_that.description,_that.reference,_that.sourceType,_that.sourceId,_that.amount,_that.dueDate,_that.balance);case _:
@@ -209,7 +209,7 @@ return $default(_that.id,_that.date,_that.kind,_that.description,_that.reference
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String date,  String kind,  String description,  String? reference,  String sourceType,  String sourceId,  int amount,  String? dueDate,  int balance)?  $default,) {final _that = this;
 switch (_that) {
 case _Entries() when $default != null:
 return $default(_that.id,_that.date,_that.kind,_that.description,_that.reference,_that.sourceType,_that.sourceId,_that.amount,_that.dueDate,_that.balance);case _:
@@ -228,7 +228,7 @@ class _Entries implements Entries {
   factory _Entries.fromJson(Map<String, dynamic> json) => _$EntriesFromJson(json);
 
 @override final  String id;
-@override final  DateTime date;
+@override final  String date;
 @override final  String kind;
 @override final  String description;
 @override final  String? reference;
@@ -273,7 +273,7 @@ abstract mixin class _$EntriesCopyWith<$Res> implements $EntriesCopyWith<$Res> {
   factory _$EntriesCopyWith(_Entries value, $Res Function(_Entries) _then) = __$EntriesCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime date, String kind, String description, String? reference, String sourceType, String sourceId, int amount, String? dueDate, int balance
+ String id, String date, String kind, String description, String? reference, String sourceType, String sourceId, int amount, String? dueDate, int balance
 });
 
 
@@ -294,7 +294,7 @@ class __$EntriesCopyWithImpl<$Res>
   return _then(_Entries(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,reference: freezed == reference ? _self.reference : reference // ignore: cast_nullable_to_non_nullable
 as String?,sourceType: null == sourceType ? _self.sourceType : sourceType // ignore: cast_nullable_to_non_nullable

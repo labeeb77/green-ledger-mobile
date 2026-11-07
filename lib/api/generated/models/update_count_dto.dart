@@ -11,9 +11,7 @@ part 'update_count_dto.g.dart';
 
 @Freezed()
 abstract class UpdateCountDto with _$UpdateCountDto {
-  const factory UpdateCountDto({
-    required List<Lines11> lines,
-  }) = _UpdateCountDto;
-  
+  const factory UpdateCountDto({required List<Lines11> lines}) = _UpdateCountDto;
+
   factory UpdateCountDto.fromJson(Map<String, Object?> json) => _$UpdateCountDtoFromJson(json);
 }

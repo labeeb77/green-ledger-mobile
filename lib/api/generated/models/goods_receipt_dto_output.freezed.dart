@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GoodsReceiptDtoOutput {
 
- String get id; String get number; DateTime get receiptDate; Supplier get supplier; String? get vehicleNo; String? get notes; String? get slipPhotoUrl; GoodsReceiptDtoOutputStatus get status; GoodsReceiptDtoOutputBilling get billing; List<Lines> get lines; CreatedBy? get createdBy; DateTime get createdAt; String? get cancelReason;
+ String get id; String get number; String get receiptDate; Supplier get supplier; String? get vehicleNo; String? get notes; String? get slipPhotoUrl; GoodsReceiptDtoOutputStatus get status; GoodsReceiptDtoOutputBilling get billing; List<Lines> get lines; CreatedBy? get createdBy; DateTime get createdAt; String? get cancelReason;
 /// Create a copy of GoodsReceiptDtoOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $GoodsReceiptDtoOutputCopyWith<$Res>  {
   factory $GoodsReceiptDtoOutputCopyWith(GoodsReceiptDtoOutput value, $Res Function(GoodsReceiptDtoOutput) _then) = _$GoodsReceiptDtoOutputCopyWithImpl;
 @useResult
 $Res call({
- String id, String number, DateTime receiptDate, Supplier supplier, String? vehicleNo, String? notes, String? slipPhotoUrl, GoodsReceiptDtoOutputStatus status, GoodsReceiptDtoOutputBilling billing, List<Lines> lines, CreatedBy? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, String receiptDate, Supplier supplier, String? vehicleNo, String? notes, String? slipPhotoUrl, GoodsReceiptDtoOutputStatus status, GoodsReceiptDtoOutputBilling billing, List<Lines> lines, CreatedBy? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -76,7 +76,7 @@ class _$GoodsReceiptDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
+as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,slipPhotoUrl: freezed == slipPhotoUrl ? _self.slipPhotoUrl : slipPhotoUrl // ignore: cast_nullable_to_non_nullable
@@ -192,7 +192,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  DateTime receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String number,  String receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GoodsReceiptDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.receiptDate,_that.supplier,_that.vehicleNo,_that.notes,_that.slipPhotoUrl,_that.status,_that.billing,_that.lines,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -213,7 +213,7 @@ return $default(_that.id,_that.number,_that.receiptDate,_that.supplier,_that.veh
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  DateTime receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String number,  String receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)  $default,) {final _that = this;
 switch (_that) {
 case _GoodsReceiptDtoOutput():
 return $default(_that.id,_that.number,_that.receiptDate,_that.supplier,_that.vehicleNo,_that.notes,_that.slipPhotoUrl,_that.status,_that.billing,_that.lines,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -233,7 +233,7 @@ return $default(_that.id,_that.number,_that.receiptDate,_that.supplier,_that.veh
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  DateTime receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String number,  String receiptDate,  Supplier supplier,  String? vehicleNo,  String? notes,  String? slipPhotoUrl,  GoodsReceiptDtoOutputStatus status,  GoodsReceiptDtoOutputBilling billing,  List<Lines> lines,  CreatedBy? createdBy,  DateTime createdAt,  String? cancelReason)?  $default,) {final _that = this;
 switch (_that) {
 case _GoodsReceiptDtoOutput() when $default != null:
 return $default(_that.id,_that.number,_that.receiptDate,_that.supplier,_that.vehicleNo,_that.notes,_that.slipPhotoUrl,_that.status,_that.billing,_that.lines,_that.createdBy,_that.createdAt,_that.cancelReason);case _:
@@ -253,7 +253,7 @@ class _GoodsReceiptDtoOutput implements GoodsReceiptDtoOutput {
 
 @override final  String id;
 @override final  String number;
-@override final  DateTime receiptDate;
+@override final  String receiptDate;
 @override final  Supplier supplier;
 @override final  String? vehicleNo;
 @override final  String? notes;
@@ -306,7 +306,7 @@ abstract mixin class _$GoodsReceiptDtoOutputCopyWith<$Res> implements $GoodsRece
   factory _$GoodsReceiptDtoOutputCopyWith(_GoodsReceiptDtoOutput value, $Res Function(_GoodsReceiptDtoOutput) _then) = __$GoodsReceiptDtoOutputCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String number, DateTime receiptDate, Supplier supplier, String? vehicleNo, String? notes, String? slipPhotoUrl, GoodsReceiptDtoOutputStatus status, GoodsReceiptDtoOutputBilling billing, List<Lines> lines, CreatedBy? createdBy, DateTime createdAt, String? cancelReason
+ String id, String number, String receiptDate, Supplier supplier, String? vehicleNo, String? notes, String? slipPhotoUrl, GoodsReceiptDtoOutputStatus status, GoodsReceiptDtoOutputBilling billing, List<Lines> lines, CreatedBy? createdBy, DateTime createdAt, String? cancelReason
 });
 
 
@@ -328,7 +328,7 @@ class __$GoodsReceiptDtoOutputCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,number: null == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as String,receiptDate: null == receiptDate ? _self.receiptDate : receiptDate // ignore: cast_nullable_to_non_nullable
-as DateTime,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
+as String,supplier: null == supplier ? _self.supplier : supplier // ignore: cast_nullable_to_non_nullable
 as Supplier,vehicleNo: freezed == vehicleNo ? _self.vehicleNo : vehicleNo // ignore: cast_nullable_to_non_nullable
 as String?,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as String?,slipPhotoUrl: freezed == slipPhotoUrl ? _self.slipPhotoUrl : slipPhotoUrl // ignore: cast_nullable_to_non_nullable

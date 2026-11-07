@@ -18,11 +18,11 @@ abstract class RequestPdfDto with _$RequestPdfDto {
     required RequestPdfDtoTemplate template,
     String? id,
     RequestPdfDtoFormat? format,
-    DateTime? from,
-    DateTime? to,
+    String? from,
+    String? to,
     RequestPdfDtoReport? report,
     RequestPdfDtoGroupBy? groupBy,
   }) = _RequestPdfDto;
-  
+
   factory RequestPdfDto.fromJson(Map<String, Object?> json) => _$RequestPdfDtoFromJson(json);
 }

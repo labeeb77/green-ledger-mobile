@@ -23,6 +23,6 @@ abstract class StockRowDtoOutput with _$StockRowDtoOutput {
     required bool lowStock,
     required String wastageToday,
   }) = _StockRowDtoOutput;
-  
+
   factory StockRowDtoOutput.fromJson(Map<String, Object?> json) => _$StockRowDtoOutputFromJson(json);
 }

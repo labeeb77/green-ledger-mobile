@@ -18,6 +18,6 @@ abstract class UserPermissionsDtoOutput with _$UserPermissionsDtoOutput {
     required List<Overrides> overrides,
     required Map<String, EffectiveEffective> effective,
   }) = _UserPermissionsDtoOutput;
-  
+
   factory UserPermissionsDtoOutput.fromJson(Map<String, Object?> json) => _$UserPermissionsDtoOutputFromJson(json);
 }

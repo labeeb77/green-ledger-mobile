@@ -9,10 +9,7 @@ part 'user4.g.dart';
 
 @Freezed()
 abstract class User4 with _$User4 {
-  const factory User4({
-    required String id,
-    required String name,
-  }) = _User4;
-  
+  const factory User4({required String id, required String name}) = _User4;
+
   factory User4.fromJson(Map<String, Object?> json) => _$User4FromJson(json);
 }

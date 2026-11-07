@@ -9,9 +9,7 @@ part of 'lines15.dart';
 _Lines15 _$Lines15FromJson(Map<String, dynamic> json) => _Lines15(
   productId: json['productId'] as String,
   rate: (json['rate'] as num).toInt(),
-  ratePer: json['ratePer'] == null
-      ? RatePer.stockUnit
-      : RatePer.fromJson(json['ratePer'] as String),
+  ratePer: json['ratePer'] == null ? RatePer.stockUnit : RatePer.fromJson(json['ratePer'] as String),
   packUnitId: json['packUnitId'] as String?,
   packCount: json['packCount'],
   quantity: json['quantity'],

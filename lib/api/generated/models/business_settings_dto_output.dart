@@ -25,6 +25,6 @@ abstract class BusinessSettingsDtoOutput with _$BusinessSettingsDtoOutput {
     required String? logoFileId,
     required String? logoUrl,
   }) = _BusinessSettingsDtoOutput;
-  
+
   factory BusinessSettingsDtoOutput.fromJson(Map<String, Object?> json) => _$BusinessSettingsDtoOutputFromJson(json);
 }

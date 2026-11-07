@@ -7,13 +7,9 @@ part of 'change_password_dto.dart';
 // **************************************************************************
 
 _ChangePasswordDto _$ChangePasswordDtoFromJson(Map<String, dynamic> json) =>
-    _ChangePasswordDto(
-      currentPassword: json['currentPassword'] as String,
-      newPassword: json['newPassword'],
-    );
+    _ChangePasswordDto(currentPassword: json['currentPassword'] as String, newPassword: json['newPassword']);
 
-Map<String, dynamic> _$ChangePasswordDtoToJson(_ChangePasswordDto instance) =>
-    <String, dynamic>{
-      'currentPassword': instance.currentPassword,
-      'newPassword': instance.newPassword,
-    };
+Map<String, dynamic> _$ChangePasswordDtoToJson(_ChangePasswordDto instance) => <String, dynamic>{
+  'currentPassword': instance.currentPassword,
+  'newPassword': instance.newPassword,
+};

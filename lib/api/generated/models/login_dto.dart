@@ -11,11 +11,7 @@ part 'login_dto.g.dart';
 
 @Freezed()
 abstract class LoginDto with _$LoginDto {
-  const factory LoginDto({
-    required String phone,
-    required String password,
-    required Device device,
-  }) = _LoginDto;
-  
+  const factory LoginDto({required String phone, required String password, required Device device}) = _LoginDto;
+
   factory LoginDto.fromJson(Map<String, Object?> json) => _$LoginDtoFromJson(json);
 }

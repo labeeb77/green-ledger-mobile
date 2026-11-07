@@ -7,10 +7,9 @@ part of 'clear_cheque_dto.dart';
 // **************************************************************************
 
 _ClearChequeDto _$ClearChequeDtoFromJson(Map<String, dynamic> json) =>
-    _ClearChequeDto(
-      accountId: json['accountId'] as String,
-      note: json['note'] as String?,
-    );
+    _ClearChequeDto(accountId: json['accountId'] as String, note: json['note'] as String?);
 
-Map<String, dynamic> _$ClearChequeDtoToJson(_ClearChequeDto instance) =>
-    <String, dynamic>{'accountId': instance.accountId, 'note': instance.note};
+Map<String, dynamic> _$ClearChequeDtoToJson(_ClearChequeDto instance) => <String, dynamic>{
+  'accountId': instance.accountId,
+  'note': instance.note,
+};
