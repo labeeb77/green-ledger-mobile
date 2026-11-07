@@ -6,6 +6,9 @@ abstract final class Paths {
   static const login = '/login';
   static const changePassword = '/change-password';
   static const noMobileAccess = '/no-mobile-access';
+
+  /// Entries kept on the phone (the top-bar ⏳); open to every signed-in user.
+  static const drafts = '/drafts';
 }
 
 /// Where [location] should go for [auth]; `null` keeps it. Pure, so it is unit tested.
@@ -21,6 +24,7 @@ String? redirectFor(AuthState auth, String location) {
       }
       final tabs = tabsFor(session);
       if (tabs.isEmpty) return location == Paths.noMobileAccess ? null : Paths.noMobileAccess;
+      if (location == Paths.drafts) return null;
       final tab = AppTab.values.where((t) => location == t.path || location.startsWith('${t.path}/')).firstOrNull;
       if (tab == null || !tabs.contains(tab)) return AppTab.home.path;
       return null;

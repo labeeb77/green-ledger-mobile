@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shop.dart';
@@ -8,15 +9,17 @@ import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart'
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shops_page.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../helpers/drafts.dart';
+
 class _MockRepository extends Mock implements ShopsRepository;
 
-Future<void> _pump(WidgetTester tester, List<Shop> shops) async {
+Future<void> _pump(WidgetTester tester, List<Shop> shops, {DateTime? updatedAt}) async {
   final repository = _MockRepository();
-  when(repository.shops).thenAnswer((_) async => Ok(shops));
+  when(repository.shops).thenAnswer((_) async => Ok(ShopList(shops, updatedAt: updatedAt)));
   await tester.pumpWidget(
     RepositoryProvider<ShopsRepository>.value(
       value: repository,
-      child: MaterialApp(theme: AppTheme.light(), home: const ShopsPage()),
+      child: withDrafts(MaterialApp(theme: AppTheme.light(), home: const ShopsPage())),
     ),
   );
   await tester.pumpAndSettle();
@@ -40,5 +43,13 @@ void main() {
   testWidgets('says so when no shop is assigned', (tester) async {
     await _pump(tester, const []);
     expect(find.text('No shops assigned — ask your manager'), findsOneWidget);
+  });
+
+  testWidgets('offline, the kept list says when it was loaded', (tester) async {
+    final at = DateTime.now();
+    await _pump(tester, const [
+      Shop(id: 's1', name: 'Malabar Traders', area: 'Palayam', outstanding: 0, overdue: 0, creditLimit: 0),
+    ], updatedAt: at);
+    expect(find.text(updatedText(at)), findsOneWidget);
   });
 }

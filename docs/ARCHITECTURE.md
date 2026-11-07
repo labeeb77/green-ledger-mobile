@@ -40,6 +40,8 @@ lib/
     failure.dart          AppFailure: error envelope → plain-words message + support code
     network/              ApiClient (Dio + generated WmApi), AuthInterceptor, TokenStore
     storage/              SecureStore (refresh token, device id)
+    local/                LocalDatabase (Drift: drafts, read caches), CurrentUser scope
+    drafts/               Draft, DraftStore, DraftsCubit (⏳ badge, SEND AGAIN)
     permissions/          Permissions from /auth/me (canRead / canWrite / canSeePrices)
     connectivity/         ConnectivityCubit (offline banner)
     format/               money, quantity, date formatters; milli-unit maths
@@ -81,7 +83,7 @@ tool/sync_openapi.dart    copies and fixes the backend contract into api/openapi
 
 1. **Check screen before every save** (posted entries are never edited, D10).
 2. **One idempotency key per user action.** Create it when the user starts the action (e.g. opens Collect), pass it to the generated client's required `idempotencyKey` parameter, and reuse it on every retry of that action. Generate a new one only after the server refused the request (it is final) or after success.
-3. **Failed by network → draft** (M1): the entry and its key are kept on the phone; **SEND AGAIN** resends with the same key, so it never posts twice. Drafts count in the top-bar badge.
+3. **Failed by network → draft** (M1): the repository keeps the request body and its key on the phone (`DraftStore.keep`, kinds registered in `di.dart`); **SEND AGAIN** resends them unchanged, so it never posts twice. The server hashes the body with the key (a different body → `IDEMPOTENCY_KEY_REUSED`), so anything that could change later, such as the business date, is fixed when the action starts and sent on every try (`receiptDate`, `visitDate`). Drafts and read caches belong to the signed-in user (`CurrentUser`); they count in the top-bar ⏳ badge.
 4. **Money is `int` paise.** Quantities are 3-decimal strings; do maths with `toMilli`/`fromMilli` (`core/format/units.dart`, same as the backend's `common/units.ts`). Never use `double` for money or weight.
 5. The server computes totals, allocations and approvals; the app may preview (e.g. `allocation-preview`) but shows the server's result on the Saved screen.
 6. Business dates are Indian dates (`indianToday()`); staff may backdate 2 days, the owner any date, never future (the server checks).

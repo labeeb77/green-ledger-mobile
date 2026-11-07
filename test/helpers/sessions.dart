@@ -13,6 +13,7 @@ Session sessionFor(Role role, {bool mustChangePassword = false, SubscriptionAcce
       'approvals.decide': _a,
       'customers': _a,
       'collections': _a,
+      'visits': _a,
       'cash_handovers.confirm': _a,
       'goods_receipts': _a,
       'products': _a,
@@ -22,6 +23,7 @@ Session sessionFor(Role role, {bool mustChangePassword = false, SubscriptionAcce
       'approvals.decide': _a,
       'customers': _a,
       'collections': _a,
+      'visits': _a,
       'cash_handovers.confirm': _a,
       'goods_receipts': _a,
       'products': _a,
@@ -29,7 +31,7 @@ Session sessionFor(Role role, {bool mustChangePassword = false, SubscriptionAcce
     },
     Role.billing => {'customers': _a, 'collections': _a, 'sales': _a, 'products': _v},
     Role.godown => {'goods_receipts': _a, 'products': _v, 'suppliers': _v},
-    Role.agent => {'customers': _ap, 'collections': _o, 'sales': _o, 'products': _v},
+    Role.agent => {'customers': _ap, 'collections': _o, 'visits': _o, 'sales': _o, 'products': _v},
   };
   return Session(
     user: SessionUser(id: 'u-${role.name}', name: 'Ravi Kumar', phone: '9000000005', role: role),

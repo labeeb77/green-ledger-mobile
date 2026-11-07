@@ -66,18 +66,39 @@ class ShopDetailPage extends StatelessWidget {
                 ),
             ],
           ),
-          bottomNavigationBar: _canCollect(context)
+          bottomNavigationBar: _canCollect(context) || _canVisit(context)
               ? BottomActionBar(
-                  child: MainButton(
-                    label: 'COLLECT',
-                    onPressed: () async {
-                      final cubit = context.read<ShopDetailCubit>();
-                      final saved = await context.push<bool>(
-                        '/shops/${shop.id}/collect',
-                        extra: CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
-                      );
-                      if (saved ?? false) await cubit.load();
-                    },
+                  child: Row(
+                    children: [
+                      if (_canVisit(context))
+                        Expanded(
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(Touch.mainButton)),
+                            onPressed: () async {
+                              final cubit = context.read<ShopDetailCubit>();
+                              final saved = await context.push<bool>('/shops/${shop.id}/visit', extra: shop.name);
+                              if (saved ?? false) await cubit.load();
+                            },
+                            child: const Text('VISIT'),
+                          ),
+                        ),
+                      if (_canCollect(context) && _canVisit(context)) const SizedBox(width: Space.sm),
+                      if (_canCollect(context))
+                        Expanded(
+                          flex: 2,
+                          child: MainButton(
+                            label: 'COLLECT',
+                            onPressed: () async {
+                              final cubit = context.read<ShopDetailCubit>();
+                              final saved = await context.push<bool>(
+                                '/shops/${shop.id}/collect',
+                                extra: CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
+                              );
+                              if (saved ?? false) await cubit.load();
+                            },
+                          ),
+                        ),
+                    ],
                   ),
                 )
               : null,
@@ -107,6 +128,12 @@ class ShopDetailPage extends StatelessWidget {
 /// Collect is for users who may record collections while entries aren't paused.
 bool _canCollect(BuildContext context) => switch (context.read<AuthBloc>().state) {
   AuthSignedIn(:final session) => session.permissions.canWrite('collections') && !session.readOnly,
+  _ => false,
+};
+
+/// Visit notes are for users who may write `visits` (agents: their own shops).
+bool _canVisit(BuildContext context) => switch (context.read<AuthBloc>().state) {
+  AuthSignedIn(:final session) => session.permissions.canWrite('visits') && !session.readOnly,
   _ => false,
 };
 

@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:green_ledger_mobile/core/failure.dart';
 import 'package:green_ledger_mobile/core/result.dart';
+import 'package:green_ledger_mobile/features/shops/domain/shop.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/bloc/shop_detail_cubit.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/bloc/shops_cubit.dart';
@@ -20,8 +21,12 @@ void main() {
   blocTest<ShopsCubit, ShopsState>(
     'loads, then filters by name, area or phone on the phone',
     setUp: () => when(() => repository.shops()).thenAnswer(
-      (_) async =>
-          Ok([shop('Malabar Traders', area: 'Palayam'), shop('Fresh Mart', area: 'Kallai', phone: '+919847100001')]),
+      (_) async => Ok(
+        ShopList([
+          shop('Malabar Traders', area: 'Palayam'),
+          shop('Fresh Mart', area: 'Kallai', phone: '+919847100001'),
+        ]),
+      ),
     ),
     build: () => ShopsCubit(repository),
     act: (cubit) async {
@@ -36,7 +41,7 @@ void main() {
 
   blocTest<ShopsCubit, ShopsState>(
     'a failed refresh keeps the list on screen',
-    setUp: () => when(() => repository.shops()).thenAnswer((_) async => Ok([shop('Malabar Traders')])),
+    setUp: () => when(() => repository.shops()).thenAnswer((_) async => Ok(ShopList([shop('Malabar Traders')]))),
     build: () => ShopsCubit(repository),
     act: (cubit) async {
       await cubit.load();

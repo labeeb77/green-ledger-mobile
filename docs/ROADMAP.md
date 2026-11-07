@@ -7,7 +7,7 @@ Milestones for the Phase 1 mobile app (spec section 5, flows in `green-ledger/do
 | Milestone | Status |
 | --- | --- |
 | M0 Foundation | Done 2026-11-07 (iOS simulator run against the local backend: role tabs, forced password change, "No internet") |
-| M1 Agent collections | In progress (2026-11-07, checked on a moto g04s): Shops tab + shop detail, agent Home card, Collect → Check → Saved (acceptance step 5 shape run on the phone: R-0001, ₹5,000 cash + ₹3,000 UPI). Share on WhatsApp (receipt PDF → share sheet) after saving and from each payment on the shop detail. Next: visit note, drafts, owner/manager "Change" allocation |
+| M1 Agent collections | In progress (2026-11-07, checked on a moto g04s): Shops tab + shop detail, agent Home card, Collect → Check → Saved (acceptance step 5 shape run on the phone: R-0001, ₹5,000 cash + ₹3,000 UPI). Share on WhatsApp (receipt PDF → share sheet) after saving and from each payment on the shop detail. Visit note (VISIT on the shop detail → outcome chips → promise date: Tomorrow / This week = coming Saturday / pick → note → SAVE; no Check step, as ux-design 4.7). Drafts (Drift `core/local/`): a collection or visit that fails for lack of network is kept with its key and body, ⏳ count in the top bar, Not sent screen with SEND AGAIN / Delete; Shops list read cache with "Updated 10:42". Owner/manager "Change" on Check: amount per open bill (opening balance included), Full, Oldest first; sent as `allocations`, the rest stays advance. Visit note, drafts and Change not yet run on a phone. Next: the M1 "Done when" check on the iPhone (airplane-mode draft posts once) |
 | M2 Orders, approvals, cash | Not started |
 | M3 Godown | Not started |
 | M4 Owner, search, lock, push | Not started |
@@ -40,6 +40,8 @@ Project setup and the shell every feature plugs into.
 **Done when:** acceptance step 5 (collect ₹8,000 = ₹5,000 cash + ₹3,000 UPI) works on the phone and the receipt is shared; a save in airplane mode becomes a draft and posts once after SEND AGAIN.
 
 ## M2 Orders, approvals, cash (ux-design 4.2, 4.5, 4.6)
+
+Status (2026-11-07): **Cash done** (agent Cash tab: bag, today's cash receipts, HAND OVER the full bag, own counted handovers with short/extra; owner/manager "Cash handovers" from the Home card: Counted ₹ → CONFIRM, difference in red). **Approvals done** (tab + Home card: cards with reason and numbers, APPROVE, REJECT with a required note: chips or text). Not yet run on a phone. Next: Take order.
 
 - Take order: product search with recent items, repeat last order, unit from shop history, rate auto-filled (`GET /pricing/quote`), "≈" amounts, note chips (`POST /orders`); "Waiting for approval ⏳" when over limit or below minimum.
 - Approvals tab (owner/manager): cards with the reason and numbers; approve, or reject with a required note (`GET /approvals`, `POST /approvals/{id}/approve|reject`, `GET /approvals/count`, `GET /approvals/mine` for requesters).

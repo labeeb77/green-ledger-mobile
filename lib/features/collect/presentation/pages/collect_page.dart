@@ -12,6 +12,8 @@ import 'package:green_ledger_mobile/core/widgets/amount_text.dart';
 import 'package:green_ledger_mobile/core/widgets/app_numpad.dart';
 import 'package:green_ledger_mobile/core/widgets/check_screen.dart';
 import 'package:green_ledger_mobile/core/widgets/chip_group.dart';
+import 'package:green_ledger_mobile/core/widgets/main_button.dart';
+import 'package:green_ledger_mobile/core/widgets/paise_field.dart';
 import 'package:green_ledger_mobile/core/widgets/saved_screen.dart';
 import 'package:green_ledger_mobile/core/widgets/states.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
@@ -31,10 +33,14 @@ class CollectPage extends StatelessWidget {
     required this.target,
     this.pickImage = _pickFromGallery,
     this.share = const ShareService(),
+    this.canChangeAllocation = false,
     super.key,
   });
 
   final CollectTarget target;
+
+  /// Owner/manager: a "Change" link on Check to choose which bills are settled.
+  final bool canChangeAllocation;
   final PickImage pickImage;
   final ShareService share;
 
@@ -63,7 +69,8 @@ class CollectPage extends StatelessWidget {
             appBar: AppBar(title: Text(target.name), automaticallyImplyLeading: state.step != CollectStep.saved),
             body: switch (state.step) {
               CollectStep.form => _Form(target: target, state: state, pickImage: pickImage),
-              CollectStep.check => _Check(target: target, state: state),
+              CollectStep.check => _Check(target: target, state: state, canChangeAllocation: canChangeAllocation),
+              CollectStep.allocate => _Allocate(state: state),
               CollectStep.saved => SavedScreen(
                 title: 'Saved ${state.saved!.number}',
                 subtitle: '${formatMoney(state.saved!.total)} from ${target.name}',
@@ -296,7 +303,7 @@ class _PaymentRow extends StatelessWidget {
                       lastDate: today.add(const Duration(days: 180)),
                     );
                     if (picked != null) {
-                      cubit.update(index, (l) => l.copyWith(chequeDate: () => _iso(picked)));
+                      cubit.update(index, (l) => l.copyWith(chequeDate: () => isoDate(picked)));
                     }
                   },
                   child: const Text('Change'),
@@ -308,21 +315,19 @@ class _PaymentRow extends StatelessWidget {
       ),
     );
   }
-
-  static String _iso(DateTime d) =>
-      '${d.year.toString().padLeft(4, '0')}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 }
 
 class _Check extends StatelessWidget {
-  const _Check({required this.target, required this.state});
+  const _Check({required this.target, required this.state, required this.canChangeAllocation});
 
   final CollectTarget target;
   final CollectState state;
+  final bool canChangeAllocation;
 
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<CollectCubit>();
-    final preview = state.preview!;
+    final preview = state.settles!;
     final dueAfter = target.due - state.total;
     final network = state.failure?.kind == FailureKind.network;
     return CheckScreen(
@@ -341,6 +346,11 @@ class _Check extends StatelessWidget {
             bill.full ? 'Settles ${bill.number} in full' : 'Settles ${bill.number} ${formatMoney(bill.amount)} part',
           ),
         if (preview.advance > 0) _CheckLine('${formatMoney(preview.advance)} extra kept as advance'),
+        if (canChangeAllocation && preview.openBills.isNotEmpty)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton(onPressed: state.busy ? null : cubit.changeAllocation, child: const Text('Change')),
+          ),
         const SizedBox(height: Space.md),
         Row(
           children: [
@@ -364,6 +374,86 @@ class _Check extends StatelessWidget {
       if (line.chequeDate case final d?) parts.add('dated ${formatDate(d)}');
     }
     return parts.join(' · ');
+  }
+}
+
+/// "Change" on Check (owner/manager): how much goes to each open bill, oldest first;
+/// what is left stays as advance.
+class _Allocate extends StatelessWidget {
+  const _Allocate({required this.state});
+
+  final CollectState state;
+
+  @override
+  Widget build(BuildContext context) {
+    final cubit = context.read<CollectCubit>();
+    final c = context.colors;
+    final settled = state.editing.values.fold(0, (sum, v) => sum + v);
+    final problem = state.allocationProblem;
+    return Column(
+      children: [
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.all(Space.lg),
+            children: [
+              Text('Settle ${formatMoney(state.total)}', style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: Space.lg),
+              for (final bill in state.preview!.openBills)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: Space.md),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(bill.number, style: const TextStyle(fontWeight: FontWeight.w600)),
+                            Text('${formatMoney(bill.open)} open', style: TextStyle(fontSize: 14, color: c.muted)),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 120,
+                        child: PaiseField(
+                          key: ValueKey(bill.id),
+                          value: state.editing[bill.id] ?? 0,
+                          onChanged: (paise) => cubit.setAllocation(bill.id, paise),
+                        ),
+                      ),
+                      TextButton(onPressed: () => cubit.settleInFull(bill.id), child: const Text('Full')),
+                    ],
+                  ),
+                ),
+              const Divider(height: Space.xl),
+              Row(
+                children: [
+                  const Expanded(child: Text('Kept as advance')),
+                  AmountText(state.total - settled < 0 ? 0 : state.total - settled),
+                ],
+              ),
+              if (problem != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: Space.md),
+                  child: Text(
+                    problem,
+                    style: TextStyle(color: c.due, fontWeight: FontWeight.w600),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        BottomActionBar(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              MainButton(label: 'DONE', onPressed: problem == null ? cubit.applyAllocation : null),
+              const SizedBox(height: Space.sm),
+              TextButton(onPressed: cubit.resetAllocation, child: const Text('Oldest first')),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
 

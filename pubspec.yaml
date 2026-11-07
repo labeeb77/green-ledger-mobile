@@ -9,6 +9,7 @@ environment:
 dependencies:
   connectivity_plus: ^7.3.2
   dio: ^5.11.1
+  drift: ^2.35.3
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
@@ -28,6 +29,7 @@ dependencies:
 dev_dependencies:
   bloc_test: ^10.0.0
   build_runner: ^2.16.1
+  drift_dev: ^2.35.2
   flutter_test:
     sdk: flutter
   freezed: ^4.0.1

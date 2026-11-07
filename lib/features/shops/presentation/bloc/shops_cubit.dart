@@ -13,10 +13,13 @@ final class ShopsLoading extends ShopsState {
 }
 
 final class ShopsLoaded extends ShopsState {
-  const ShopsLoaded(this.shops, {this.query = ''});
+  const ShopsLoaded(this.shops, {this.query = '', this.updatedAt});
 
   final List<Shop> shops;
   final String query;
+
+  /// Set when the list is the copy kept on the phone ("Updated 10:42").
+  final DateTime? updatedAt;
 
   /// Shops matching [query] (name, area or phone), grouped by area.
   List<AreaGroup> get groups {
@@ -50,13 +53,17 @@ class ShopsCubit extends Cubit<ShopsState> {
     if (previous is! ShopsLoaded) emit(const ShopsLoading());
     switch (await _repository.shops()) {
       case Ok(:final value):
-        emit(ShopsLoaded(value, query: previous is ShopsLoaded ? previous.query : ''));
+        emit(
+          ShopsLoaded(value.shops, query: previous is ShopsLoaded ? previous.query : '', updatedAt: value.updatedAt),
+        );
       case Err(:final failure):
         if (previous is! ShopsLoaded) emit(ShopsFailed(failure));
     }
   }
 
   void search(String query) {
-    if (state case ShopsLoaded(:final shops)) emit(ShopsLoaded(shops, query: query));
+    if (state case ShopsLoaded(:final shops, :final updatedAt)) {
+      emit(ShopsLoaded(shops, query: query, updatedAt: updatedAt));
+    }
   }
 }

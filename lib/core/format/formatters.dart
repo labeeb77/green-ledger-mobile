@@ -50,6 +50,10 @@ DateTime indianToday([DateTime? now]) {
   return DateTime.utc(india.year, india.month, india.day);
 }
 
+/// `2026-11-07`, the date-only string the API takes.
+String isoDate(DateTime date) =>
+    '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+
 /// `Today`, `Yesterday`, `Mon 24 Oct` (this year) or `24 Oct 2025`. [date] is an ISO
 /// date (`2026-10-24`), as the API sends business dates.
 String formatDate(String date, {DateTime? now}) {
@@ -67,3 +71,26 @@ String formatTime(DateTime instant) {
   final india = instant.toUtc().add(const Duration(hours: 5, minutes: 30));
   return DateFormat('h:mm a').format(india).toLowerCase();
 }
+
+/// `Updated 10:42 am` for a copy kept on the phone; `Updated Yesterday, 10:42 am` from an
+/// earlier day.
+String updatedText(DateTime at, {DateTime? now}) {
+  final day = indianToday(at);
+  final time = formatTime(at);
+  return day == indianToday(now) ? 'Updated $time' : 'Updated ${formatDate(isoDate(day), now: now)}, $time';
+}
+
+/// Rupees typed with up to 2 decimals → paise (`'1240.5'` → 124050, empty → 0); null
+/// when it isn't an amount.
+int? parseRupees(String text) {
+  final t = text.trim().replaceAll(',', '');
+  if (t.isEmpty) return 0;
+  final match = RegExp(r'^(\d+)(?:\.(\d{0,2}))?$').firstMatch(t);
+  if (match == null) return null;
+  return int.parse(match[1]!) * 100 + int.parse((match[2] ?? '').padRight(2, '0'));
+}
+
+/// Paise → the text an amount field starts with (`124050` → `'1240.50'`, 0 → empty).
+String paiseToText(int paise) => paise == 0
+    ? ''
+    : (paise % 100 == 0 ? '${paise ~/ 100}' : '${paise ~/ 100}.${(paise % 100).toString().padLeft(2, '0')}');

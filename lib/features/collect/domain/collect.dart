@@ -1,3 +1,4 @@
+import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 
 enum PaymentMethod {
@@ -93,12 +94,47 @@ class SettledBill {
   final bool full;
 }
 
+/// A bill the shop still owes on, oldest first (the unsettled opening balance is one
+/// too, with the shop's id). [open] is paise.
+class OpenBill {
+  const OpenBill({required this.id, required this.number, required this.open});
+
+  final String id;
+  final String number;
+  final int open;
+}
+
 /// How the server would settle the amount: oldest bills first, any extra as advance.
 class AllocationPreview {
-  const AllocationPreview({required this.bills, required this.advance});
+  const AllocationPreview({required this.bills, required this.advance, this.openBills = const []});
 
   final List<SettledBill> bills;
   final int advance;
+
+  /// Every open bill, for changing the allocation.
+  final List<OpenBill> openBills;
+}
+
+/// What the Check screen shows for an allocation the owner/manager changed: the bills in
+/// [openBills] order, the rest of [total] as advance. [manual] is bill id → paise.
+AllocationPreview manualPreview(List<OpenBill> openBills, Map<String, int> manual, int total) {
+  final bills = [
+    for (final b in openBills)
+      if ((manual[b.id] ?? 0) > 0) SettledBill(number: b.number, amount: manual[b.id]!, full: manual[b.id]! >= b.open),
+  ];
+  final settled = bills.fold(0, (sum, b) => sum + b.amount);
+  return AllocationPreview(bills: bills, advance: total - settled, openBills: openBills);
+}
+
+/// What blocks DONE on the allocation, in plain words (the server's rules: no bill
+/// above its open amount, no more than collected).
+String? allocationProblemFor(List<OpenBill> openBills, Map<String, int> manual, int total) {
+  for (final b in openBills) {
+    if ((manual[b.id] ?? 0) > b.open) return 'More than the ${formatMoney(b.open)} open on ${b.number}';
+  }
+  final settled = manual.values.fold(0, (sum, v) => sum + v);
+  if (settled > total) return 'Settles ${formatMoney(settled)}, more than the ${formatMoney(total)} collected';
+  return null;
 }
 
 class SavedReceipt {
@@ -116,11 +152,19 @@ abstract interface class CollectRepository {
   Future<Result<AllocationPreview>> preview({required String customerId, required int amount});
 
   /// Uploads the screenshots, then posts the receipt with [idempotencyKey] (reused on
-  /// every retry of this collection, so it never posts twice).
+  /// every retry of this collection, so it never posts twice). [receiptDate] is fixed
+  /// when the collection starts, so a later SEND AGAIN sends the same request. A network
+  /// failure keeps the collection as a draft.
+  ///
+  /// [allocations] (bill id → paise) is the owner/manager's own allocation; null lets the
+  /// server settle oldest first.
   Future<Result<SavedReceipt>> save({
     required String customerId,
+    required String shopName,
+    required String receiptDate,
     required List<PaymentLine> lines,
     required String idempotencyKey,
+    Map<String, int>? allocations,
   });
 }
 

@@ -65,6 +65,13 @@ void main() {
       expect(redirectFor(agent, '/cash'), isNull);
     });
 
+    test('the Drafts screen is open to every signed-in user with tabs', () {
+      for (final role in [Role.agent, Role.owner, Role.godown]) {
+        expect(redirectFor(AuthSignedIn(sessionFor(role)), Paths.drafts), isNull);
+      }
+      expect(redirectFor(AuthSignedIn(sessionFor(Role.billing)), Paths.drafts), Paths.noMobileAccess);
+    });
+
     test('billing is told to use the admin panel', () {
       final billing = AuthSignedIn(sessionFor(Role.billing));
       expect(redirectFor(billing, '/home'), Paths.noMobileAccess);

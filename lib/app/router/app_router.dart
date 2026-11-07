@@ -1,14 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/app/router/redirect.dart';
+import 'package:green_ledger_mobile/features/approvals/presentation/pages/approvals_page.dart';
+import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/pages/change_password_page.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/pages/login_page.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/pages/splash_page.dart';
+import 'package:green_ledger_mobile/features/cash/presentation/pages/cash_page.dart';
+import 'package:green_ledger_mobile/features/cash/presentation/pages/handovers_page.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
 import 'package:green_ledger_mobile/features/collect/presentation/pages/collect_page.dart';
+import 'package:green_ledger_mobile/features/drafts/presentation/pages/drafts_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/coming_soon_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_page.dart';
@@ -17,6 +23,7 @@ import 'package:green_ledger_mobile/features/home/presentation/pages/no_mobile_a
 import 'package:green_ledger_mobile/features/more/presentation/more_page.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shop_detail_page.dart';
 import 'package:green_ledger_mobile/features/shops/presentation/pages/shops_page.dart';
+import 'package:green_ledger_mobile/features/visits/presentation/pages/visit_page.dart';
 
 /// All routes. Redirects follow the [AuthBloc] (see [redirectFor]); each tab is a branch
 /// of one [StatefulShellRoute] so it keeps its own navigation stack.
@@ -29,6 +36,7 @@ GoRouter buildRouter(AuthBloc auth) => GoRouter(
     GoRoute(path: Paths.login, builder: (_, _) => const LoginPage()),
     GoRoute(path: Paths.changePassword, builder: (_, _) => const ChangePasswordPage()),
     GoRoute(path: Paths.noMobileAccess, builder: (_, _) => const NoMobileAccessPage()),
+    GoRoute(path: Paths.drafts, builder: (_, _) => const DraftsPage()),
     StatefulShellRoute.indexedStack(
       builder: (_, _, shell) => HomeShell(shell: shell),
       branches: [
@@ -45,14 +53,16 @@ Widget _tabPage(AppTab tab) => switch (tab) {
   AppTab.home => const HomePage(),
   AppTab.more => const MorePage(),
   AppTab.shops => const ShopsPage(),
-  AppTab.cash => const ComingSoonPage(title: 'Cash', milestone: 'M2'),
-  AppTab.approvals => const ComingSoonPage(title: 'Approvals', milestone: 'M2'),
+  AppTab.cash => const CashPage(),
+  AppTab.approvals => const ApprovalsPage(),
   AppTab.customers => const ComingSoonPage(title: 'Customers', milestone: 'M4'),
   AppTab.stock => const ComingSoonPage(title: 'Stock', milestone: 'M3'),
 };
 
 /// Screens pushed inside a tab, so the bottom bar stays.
 List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
+  // Opened from the Home card "Cash handovers" (owner/manager).
+  AppTab.home => [GoRoute(path: 'handovers', builder: (_, _) => const HandoversPage())],
   AppTab.shops => [
     GoRoute(
       path: ':id',
@@ -61,7 +71,18 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
         // Opened from the shop detail, which passes the shop as `extra`.
         GoRoute(
           path: 'collect',
-          builder: (_, state) => CollectPage(target: state.extra! as CollectTarget),
+          builder: (context, state) => CollectPage(
+            target: state.extra! as CollectTarget,
+            canChangeAllocation: switch (context.read<AuthBloc>().state) {
+              AuthSignedIn(:final session) => session.user.role == Role.owner || session.user.role == Role.manager,
+              _ => false,
+            },
+          ),
+        ),
+        // `extra` is the shop name.
+        GoRoute(
+          path: 'visit',
+          builder: (_, state) => VisitPage(customerId: state.pathParameters['id']!, shopName: state.extra! as String),
         ),
       ],
     ),

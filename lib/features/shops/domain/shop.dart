@@ -60,6 +60,14 @@ class Shop {
 }
 
 /// Shops of one area, for the Shops tab.
+/// The shops list; [updatedAt] is set when it is the copy kept on the phone (offline).
+class ShopList {
+  const ShopList(this.shops, {this.updatedAt});
+
+  final List<Shop> shops;
+  final DateTime? updatedAt;
+}
+
 class AreaGroup {
   const AreaGroup(this.area, this.shops);
 

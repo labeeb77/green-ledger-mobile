@@ -1,20 +1,26 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_ledger_mobile/core/drafts/draft.dart';
 import 'package:green_ledger_mobile/core/failure.dart';
+import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
 import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
 import 'package:uuid/uuid.dart';
 
-enum CollectStep { form, check, saved }
+/// [allocate] is the owner/manager's "Change" of which bills the amount settles.
+enum CollectStep { form, check, allocate, saved }
 
 final class CollectState {
   const CollectState({
     required this.lines,
     required this.idempotencyKey,
+    required this.receiptDate,
     this.accounts = const [],
     this.selected = 0,
     this.step = CollectStep.form,
     this.preview,
+    this.manual,
+    this.editing = const {},
     this.busy = false,
     this.failure,
     this.saved,
@@ -30,6 +36,12 @@ final class CollectState {
   final int selected;
   final CollectStep step;
   final AllocationPreview? preview;
+
+  /// The owner/manager's allocation (bill id → paise); null = the server's oldest first.
+  final Map<String, int>? manual;
+
+  /// The allocation being changed on the allocate step.
+  final Map<String, int> editing;
   final bool busy;
   final AppFailure? failure;
   final SavedReceipt? saved;
@@ -41,9 +53,21 @@ final class CollectState {
   /// One key per collection, reused on every retry (ARCHITECTURE "Saving entries").
   final String idempotencyKey;
 
+  /// The Indian date the collection was started, sent with every try (the server hashes
+  /// the request with the key, so a draft sent tomorrow must send the same date).
+  final String receiptDate;
+
   int get total => lines.fold(0, (sum, l) => sum + l.amount);
 
   String? get problem => collectProblem(lines);
+
+  /// What Check shows: the changed allocation, or the server's preview.
+  AllocationPreview? get settles => switch ((preview, manual)) {
+    (final p?, final m?) => manualPreview(p.openBills, m, total),
+    (final p, _) => p,
+  };
+
+  String? get allocationProblem => preview == null ? null : allocationProblemFor(preview!.openBills, editing, total);
 
   List<MoneyAccount> accountsFor(PaymentMethod method) => [
     for (final a in accounts)
@@ -58,6 +82,8 @@ final class CollectState {
     int? selected,
     CollectStep? step,
     AllocationPreview? Function()? preview,
+    Map<String, int>? Function()? manual,
+    Map<String, int>? editing,
     bool? busy,
     AppFailure? Function()? failure,
     SavedReceipt? saved,
@@ -70,10 +96,13 @@ final class CollectState {
     selected: selected ?? this.selected,
     step: step ?? this.step,
     preview: preview == null ? this.preview : preview(),
+    manual: manual == null ? this.manual : manual(),
+    editing: editing ?? this.editing,
     busy: busy ?? this.busy,
     failure: failure == null ? this.failure : failure(),
     saved: saved ?? this.saved,
     idempotencyKey: idempotencyKey ?? this.idempotencyKey,
+    receiptDate: receiptDate,
     sharing: sharing ?? this.sharing,
     shareFailure: shareFailure == null ? this.shareFailure : shareFailure(),
   );
@@ -82,7 +111,7 @@ final class CollectState {
 /// Collect → Check → Saved (ux-design 4.1). The server settles bills and keeps any extra
 /// as advance; the app only previews it.
 class CollectCubit extends Cubit<CollectState> {
-  CollectCubit(this._repository, this._documents, this.target, {String? idempotencyKey})
+  CollectCubit(this._repository, this._documents, this.target, {String? idempotencyKey, DateTime? now})
     : super(
         CollectState(
           lines: const [
@@ -90,6 +119,7 @@ class CollectCubit extends Cubit<CollectState> {
             PaymentLine(method: PaymentMethod.upi),
           ],
           idempotencyKey: idempotencyKey ?? const Uuid().v4(),
+          receiptDate: isoDate(indianToday(now)),
         ),
       );
 
@@ -146,21 +176,62 @@ class CollectCubit extends Cubit<CollectState> {
     emit(state.copyWith(busy: true, failure: () => null));
     switch (await _repository.preview(customerId: target.customerId, amount: state.total)) {
       case Ok(:final value):
-        emit(state.copyWith(busy: false, step: CollectStep.check, preview: () => value));
+        emit(state.copyWith(busy: false, step: CollectStep.check, preview: () => value, manual: () => null));
       case Err(:final failure):
         emit(state.copyWith(busy: false, failure: () => failure));
     }
   }
 
-  void back() => emit(state.copyWith(step: CollectStep.form, failure: () => null));
+  /// Back from Check to the form, or from the allocation to Check (unchanged).
+  void back() => emit(
+    state.copyWith(
+      step: state.step == CollectStep.allocate ? CollectStep.check : CollectStep.form,
+      failure: () => null,
+    ),
+  );
+
+  /// "Change" on Check (owner/manager): starts from what Check shows now.
+  void changeAllocation() {
+    final settles = state.settles;
+    if (settles == null) return;
+    final byNumber = {for (final b in settles.bills) b.number: b.amount};
+    emit(
+      state.copyWith(
+        step: CollectStep.allocate,
+        editing: {for (final b in settles.openBills) b.id: byNumber[b.number] ?? 0},
+      ),
+    );
+  }
+
+  void setAllocation(String billId, int paise) => emit(state.copyWith(editing: {...state.editing, billId: paise}));
+
+  /// Fills [billId] with its open amount, or what is left of the total if less.
+  void settleInFull(String billId) {
+    final bill = state.preview!.openBills.firstWhere((b) => b.id == billId);
+    final others = state.editing.entries.where((e) => e.key != billId).fold(0, (sum, e) => sum + e.value);
+    final left = state.total - others;
+    setAllocation(billId, left < bill.open ? (left < 0 ? 0 : left) : bill.open);
+  }
+
+  /// DONE: Check now shows (and SAVE sends) this allocation.
+  void applyAllocation() {
+    if (state.allocationProblem != null) return;
+    emit(state.copyWith(step: CollectStep.check, manual: () => {...state.editing}));
+  }
+
+  /// "Oldest first" again: the server's allocation.
+  void resetAllocation() => emit(state.copyWith(step: CollectStep.check, manual: () => null));
 
   Future<void> save() async {
     if (state.busy) return;
     emit(state.copyWith(busy: true, failure: () => null));
     final result = await _repository.save(
       customerId: target.customerId,
+      shopName: target.name,
+      receiptDate: state.receiptDate,
       lines: state.lines,
       idempotencyKey: state.idempotencyKey,
+      allocations: state.manual,
     );
     switch (result) {
       case Ok(:final value):
@@ -172,7 +243,7 @@ class CollectCubit extends Cubit<CollectState> {
         emit(
           state.copyWith(
             busy: false,
-            failure: () => failure,
+            failure: () => keptIfOffline(failure),
             idempotencyKey: failure.kind == FailureKind.rejected ? const Uuid().v4() : null,
           ),
         );

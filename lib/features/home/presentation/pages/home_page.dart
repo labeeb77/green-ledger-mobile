@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/features/auth/domain/session.dart';
@@ -72,25 +73,38 @@ class _HomeCardTile extends StatelessWidget {
       HomeCard.rates => (Icons.sell_outlined, 'Daily rates', 'Set today’s rates'),
     };
     final c = context.colors;
+    // Cards whose screen is built so far; the rest arrive with their milestone.
+    final path = switch (card) {
+      HomeCard.approvals => '/approvals',
+      HomeCard.cash => '/home/handovers',
+      _ => null,
+    };
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(Space.lg),
-        child: Row(
-          children: [
-            Icon(icon, color: c.brand, size: 28),
-            const SizedBox(width: Space.lg),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: Theme.of(context).textTheme.titleSmall),
-                  const SizedBox(height: Space.xs),
-                  Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
-                ],
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: path == null ? null : () => unawaited(context.push(path)),
+        child: Padding(
+          padding: const EdgeInsets.all(Space.lg),
+          child: Row(
+            children: [
+              Icon(icon, color: c.brand, size: 28),
+              const SizedBox(width: Space.lg),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: Theme.of(context).textTheme.titleSmall),
+                    const SizedBox(height: Space.xs),
+                    Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
+                  ],
+                ),
               ),
-            ),
-            Text('Soon', style: Theme.of(context).textTheme.labelSmall),
-          ],
+              if (path == null)
+                Text('Soon', style: Theme.of(context).textTheme.labelSmall)
+              else
+                const Icon(Icons.chevron_right),
+            ],
+          ),
         ),
       ),
     );

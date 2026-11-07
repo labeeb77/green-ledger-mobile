@@ -47,6 +47,8 @@ void main() {
     when(
       () => repository.save(
         customerId: any(named: 'customerId'),
+        shopName: any(named: 'shopName'),
+        receiptDate: any(named: 'receiptDate'),
         lines: any(named: 'lines'),
         idempotencyKey: any(named: 'idempotencyKey'),
       ),
@@ -95,6 +97,8 @@ void main() {
         verify(
               () => repository.save(
                 customerId: 'c1',
+                shopName: any(named: 'shopName'),
+                receiptDate: any(named: 'receiptDate'),
                 lines: captureAny(named: 'lines'),
                 idempotencyKey: any(named: 'idempotencyKey'),
               ),
@@ -104,5 +108,79 @@ void main() {
       (PaymentMethod.cash, 500000, null),
       (PaymentMethod.upi, 300000, 'upi1'),
     ]);
+  });
+
+  testWidgets('owner/manager: Change on Check moves the amount to another bill', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.6;
+    addTearDown(tester.view.reset);
+    final repository = _MockRepository();
+    when(repository.accounts).thenAnswer((_) async => const Ok([shopUpi]));
+    when(
+      () => repository.preview(
+        customerId: any(named: 'customerId'),
+        amount: any(named: 'amount'),
+      ),
+    ).thenAnswer((_) async => const Ok(preview));
+    when(
+      () => repository.save(
+        customerId: any(named: 'customerId'),
+        shopName: any(named: 'shopName'),
+        receiptDate: any(named: 'receiptDate'),
+        lines: any(named: 'lines'),
+        idempotencyKey: any(named: 'idempotencyKey'),
+        allocations: any(named: 'allocations'),
+      ),
+    ).thenAnswer((_) async => const Ok(SavedReceipt(id: 'r1', number: 'R-0042', total: 800000)));
+
+    Future<void> open({required bool canChange}) async {
+      await tester.pumpWidget(
+        MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider<CollectRepository>.value(value: repository),
+            RepositoryProvider<DocumentsRepository>.value(value: _MockDocuments()),
+          ],
+          child: MaterialApp(
+            theme: AppTheme.light(),
+            home: CollectPage(key: UniqueKey(), target: target, canChangeAllocation: canChange),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await _type(tester, '8000');
+      await tester.tap(find.text('NEXT ▸ UPI'));
+      await tester.pump();
+      await tester.tap(find.text('NEXT'));
+      await tester.pumpAndSettle();
+    }
+
+    await open(canChange: false);
+    expect(find.text('Change'), findsNothing); // agents: read-only
+
+    await open(canChange: true);
+    await tester.tap(find.text('Change'));
+    await tester.pumpAndSettle();
+    expect(find.text('Settle ₹8,000'), findsOneWidget);
+    await tester.enterText(find.byType(TextField).first, '0');
+    await tester.tap(find.text('Full').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DONE'));
+    await tester.pumpAndSettle();
+    expect(find.text('Settles B-0015 in full'), findsOneWidget);
+    expect(find.text('Settles B-0012 in full'), findsNothing);
+
+    await tester.tap(find.text('SAVE'));
+    await tester.pumpAndSettle();
+    final sent = verify(
+      () => repository.save(
+        customerId: any(named: 'customerId'),
+        shopName: any(named: 'shopName'),
+        receiptDate: any(named: 'receiptDate'),
+        lines: any(named: 'lines'),
+        idempotencyKey: any(named: 'idempotencyKey'),
+        allocations: captureAny(named: 'allocations'),
+      ),
+    ).captured.single;
+    expect(sent, {'b1': 0, 'b2': 800000});
   });
 }

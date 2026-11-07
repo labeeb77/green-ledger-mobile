@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/widgets/amount_text.dart';
@@ -58,6 +59,11 @@ class _ShopsView extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.only(bottom: Space.xl),
               children: [
+                if (loaded.updatedAt case final at?)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(Space.lg, Space.md, Space.lg, 0),
+                    child: Text(updatedText(at), style: TextStyle(color: context.colors.muted)),
+                  ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(Space.lg, Space.md, Space.lg, Space.sm),
                   child: TextField(

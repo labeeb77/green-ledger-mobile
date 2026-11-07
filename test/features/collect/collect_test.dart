@@ -21,6 +21,10 @@ const preview = AllocationPreview(
     SettledBill(number: 'B-0015', amount: 300000, full: false),
   ],
   advance: 0,
+  openBills: [
+    OpenBill(id: 'b1', number: 'B-0012', open: 500000),
+    OpenBill(id: 'b2', number: 'B-0015', open: 800000),
+  ],
 );
 const _offline = AppFailure(kind: FailureKind.network, message: 'No internet');
 const _refused = AppFailure(kind: FailureKind.rejected, message: 'Payment 2: choose a valid account for upi');
@@ -151,6 +155,8 @@ void main() {
       when(
         () => repository.save(
           customerId: any(named: 'customerId'),
+          shopName: any(named: 'shopName'),
+          receiptDate: any(named: 'receiptDate'),
           lines: any(named: 'lines'),
           idempotencyKey: any(named: 'idempotencyKey'),
         ),
@@ -160,6 +166,8 @@ void main() {
       when(
         () => repository.save(
           customerId: any(named: 'customerId'),
+          shopName: any(named: 'shopName'),
+          receiptDate: any(named: 'receiptDate'),
           lines: any(named: 'lines'),
           idempotencyKey: any(named: 'idempotencyKey'),
         ),
@@ -172,6 +180,8 @@ void main() {
       verify(
         () => repository.save(
           customerId: 'c1',
+          shopName: any(named: 'shopName'),
+          receiptDate: any(named: 'receiptDate'),
           lines: any(named: 'lines'),
           idempotencyKey: 'key-1',
         ),
@@ -189,6 +199,8 @@ void main() {
       when(
         () => repository.save(
           customerId: any(named: 'customerId'),
+          shopName: any(named: 'shopName'),
+          receiptDate: any(named: 'receiptDate'),
           lines: any(named: 'lines'),
           idempotencyKey: any(named: 'idempotencyKey'),
         ),
@@ -200,4 +212,96 @@ void main() {
       expect(cubit.state.saved?.number, 'R-0042');
     },
   );
+
+  group('changing the allocation (owner/manager)', () {
+    const bills = [
+      OpenBill(id: 'c1', number: 'Opening balance', open: 100000),
+      OpenBill(id: 'b1', number: 'B-0012', open: 500000),
+    ];
+
+    test('Check shows the chosen bills; the rest is advance', () {
+      final p = manualPreview(bills, {'c1': 0, 'b1': 250000}, 300000);
+      expect(p.bills.map((b) => (b.number, b.amount, b.full)), [('B-0012', 250000, false)]);
+      expect(p.advance, 50000);
+    });
+
+    test('no bill above its open amount, no more than collected', () {
+      expect(allocationProblemFor(bills, {'b1': 600000}, 900000), 'More than the ₹5,000 open on B-0012');
+      expect(
+        allocationProblemFor(bills, {'c1': 100000, 'b1': 300000}, 300000),
+        'Settles ₹4,000, more than the ₹3,000 collected',
+      );
+      expect(allocationProblemFor(bills, {'b1': 300000}, 300000), isNull);
+    });
+
+    blocTest<CollectCubit, CollectState>(
+      'Change → Full on the newer bill → DONE; SAVE sends that allocation',
+      build: build,
+      act: (cubit) async {
+        await cubit.start();
+        cubit.setAmount(0, 800000);
+        await cubit.check();
+        cubit.changeAllocation();
+        expect(cubit.state.step, CollectStep.allocate);
+        expect(cubit.state.editing, {'b1': 500000, 'b2': 300000}); // starts from the preview
+        cubit
+          ..setAllocation('b1', 0)
+          ..settleInFull('b2') // capped at what is left of ₹8,000
+          ..applyAllocation();
+        when(
+          () => repository.save(
+            customerId: any(named: 'customerId'),
+            shopName: any(named: 'shopName'),
+            receiptDate: any(named: 'receiptDate'),
+            lines: any(named: 'lines'),
+            idempotencyKey: any(named: 'idempotencyKey'),
+            allocations: any(named: 'allocations'),
+          ),
+        ).thenAnswer((_) async => const Ok(SavedReceipt(id: 'r1', number: 'R-0042', total: 800000)));
+        await cubit.save();
+      },
+      verify: (cubit) {
+        final sent = verify(
+          () => repository.save(
+            customerId: any(named: 'customerId'),
+            shopName: any(named: 'shopName'),
+            receiptDate: any(named: 'receiptDate'),
+            lines: any(named: 'lines'),
+            idempotencyKey: any(named: 'idempotencyKey'),
+            allocations: captureAny(named: 'allocations'),
+          ),
+        ).captured.single;
+        expect(sent, {'b1': 0, 'b2': 800000});
+      },
+    );
+
+    blocTest<CollectCubit, CollectState>(
+      'DONE is refused above the total; Oldest first and a new amount go back to the server',
+      build: build,
+      act: (cubit) async {
+        await cubit.start();
+        cubit.setAmount(0, 800000);
+        await cubit.check();
+        cubit
+          ..changeAllocation()
+          ..setAllocation('b2', 800000)
+          ..applyAllocation();
+        expect(cubit.state.step, CollectStep.allocate);
+        expect(cubit.state.allocationProblem, 'Settles ₹13,000, more than the ₹8,000 collected');
+        cubit
+          ..setAllocation('b1', 0)
+          ..applyAllocation();
+        expect(cubit.state.settles?.bills.single.number, 'B-0015');
+        cubit.resetAllocation();
+        expect(cubit.state.manual, isNull);
+        cubit
+          ..changeAllocation()
+          ..setAllocation('b1', 0)
+          ..applyAllocation()
+          ..back(); // to the form
+        await cubit.check();
+      },
+      verify: (cubit) => expect(cubit.state.manual, isNull),
+    );
+  });
 }

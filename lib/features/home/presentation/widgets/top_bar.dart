@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:green_ledger_mobile/core/drafts/drafts_badge.dart';
 
-/// The top bar of every screen: title and search (ux-design section 3). Search arrives
-/// in M4; until then it says so.
+/// The top bar of every screen: title, the ⏳ count of unsent entries and search
+/// (ux-design section 3). Search arrives in M4; until then it says so.
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   const TopBar({required this.title, super.key});
 
@@ -14,6 +15,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) => AppBar(
     title: Text(title),
     actions: [
+      const DraftsBadge(),
       IconButton(
         tooltip: 'Search',
         icon: const Icon(Icons.search),

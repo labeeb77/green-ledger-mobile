@@ -15,6 +15,7 @@ import 'package:green_ledger_mobile/features/home/presentation/bloc/agent_home_c
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_page.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../helpers/drafts.dart';
 import '../../helpers/sessions.dart';
 
 class _MockHome extends Mock implements HomeRepository;
@@ -53,7 +54,7 @@ Future<_MockHome> _pumpHome(WidgetTester tester, Role role, {Result<AgentHome> r
       value: home,
       child: BlocProvider.value(
         value: auth,
-        child: MaterialApp(theme: AppTheme.light(), home: const HomePage()),
+        child: withDrafts(MaterialApp(theme: AppTheme.light(), home: const HomePage())),
       ),
     ),
   );
