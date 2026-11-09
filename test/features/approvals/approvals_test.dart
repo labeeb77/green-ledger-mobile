@@ -52,7 +52,7 @@ void main() {
     expect(orderApproval.amount, 990000);
   });
 
-  test('rate issues in plain words; other types fall back to the reason', () {
+  test('rate issues in plain words; wastage lists its lines, then the reason', () {
     expect(
       issueLines([
         {'type': 'rate_below_minimum', 'product': 'Onion', 'rate': 2800, 'minimum': 3000},
@@ -69,7 +69,13 @@ void main() {
         'entityId': 's1',
         'amount': 30000,
         'reason': 'Wastage ₹300 above the ₹200 limit',
-        'payload': <String, Object?>{},
+        'payload': <String, Object?>{
+          'name': 'Wastage',
+          'lines': [
+            {'product': 'Tomato', 'quantity': '-12.500', 'unit': 'kg', 'reason': 'rotten'},
+            {'product': 'Onion', 'quantity': '-2.000', 'reason': null},
+          ],
+        },
         'decidedBy': null,
         'decidedAt': null,
         'decisionNote': null,
@@ -77,7 +83,7 @@ void main() {
       }),
     );
     expect(wastage.title, 'Wastage · Godown');
-    expect(wastage.details, ['Wastage ₹300 above the ₹200 limit']);
+    expect(wastage.details, ['Tomato 12.5 kg · Rotten', 'Onion 2', 'Wastage ₹300 above the ₹200 limit']);
   });
 
   group('ApprovalsCubit', () {

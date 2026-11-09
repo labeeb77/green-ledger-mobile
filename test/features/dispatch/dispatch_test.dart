@@ -153,7 +153,7 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('NEXT'));
     await tester.pumpAndSettle();
-    expect(find.text('40 kg was left'), findsOneWidget);
+    expect(find.text('10 kg left'), findsOneWidget); // 40 kg pending, 30 kg sent
     expect(find.text('Not sent now: Onion'), findsOneWidget);
     final segmented = tester.widget<SegmentedButton<bool>>(find.byType(SegmentedButton<bool>));
     expect(segmented.selected, {false}); // Close – no more

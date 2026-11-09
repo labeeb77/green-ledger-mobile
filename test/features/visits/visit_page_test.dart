@@ -38,8 +38,11 @@ void main() {
     await tester.tap(find.text('Promised'));
     await tester.pump();
     expect(find.text('When will they pay?'), findsOneWidget);
+    expect(find.text('Choose when they will pay'), findsNothing);
+    await tester.tap(find.text('SAVE'));
+    await tester.pump();
     expect(find.text('Choose when they will pay'), findsOneWidget);
-    expect(saveEnabled(tester), isFalse);
+    expect(find.text('Visit saved'), findsNothing);
 
     await tester.tap(find.text('This week'));
     await tester.pump();

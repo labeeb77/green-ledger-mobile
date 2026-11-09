@@ -96,6 +96,8 @@ class _RatesViewState extends State<_RatesView> {
         Padding(
           padding: const EdgeInsets.fromLTRB(Space.lg, Space.md, Space.lg, Space.sm),
           child: TextField(
+            autocorrect: false,
+            enableSuggestions: false,
             decoration: const InputDecoration(prefixIcon: Icon(Icons.search), hintText: 'Search products'),
             textInputAction: TextInputAction.search,
             onChanged: (text) => setState(() => _query = text),

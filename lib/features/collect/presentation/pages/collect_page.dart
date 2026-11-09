@@ -106,7 +106,6 @@ class _Form extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<CollectCubit>();
-    final c = context.colors;
     final typing = MediaQuery.viewInsetsOf(context).bottom > 0;
     final last = state.selected == state.lines.length - 1;
     final dueAfter = target.due - state.total;
@@ -124,7 +123,10 @@ class _Form extends StatelessWidget {
               ),
               const SizedBox(height: Space.lg),
               for (final (i, line) in state.lines.indexed) ...[
-                _PaymentRow(index: i, line: line, state: state, pickImage: pickImage),
+                _ScrollIntoView(
+                  active: state.selected == i,
+                  child: _PaymentRow(index: i, line: line, state: state, pickImage: pickImage),
+                ),
                 const SizedBox(height: Space.md),
               ],
               Wrap(
@@ -139,32 +141,12 @@ class _Form extends StatelessWidget {
                       ),
                 ],
               ),
-              const Divider(height: Space.xl),
-              Row(
-                children: [
-                  const Expanded(child: Text('Total')),
-                  AmountText(state.total, large: true),
-                ],
-              ),
-              const SizedBox(height: Space.xs),
-              Row(
-                children: [
-                  const Expanded(child: Text('Due after')),
-                  AmountText(dueAfter < 0 ? 0 : dueAfter, tone: dueAfter > 0 ? AmountTone.due : AmountTone.paid),
-                ],
-              ),
-              if (state.total > 0 && state.problem != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: Space.md),
-                  child: Text(
-                    state.problem!,
-                    style: TextStyle(color: c.due, fontWeight: FontWeight.w600),
-                  ),
-                ),
               if (state.failure case final f?) ...[const SizedBox(height: Space.md), FailureMessage(f)],
             ],
           ),
         ),
+        // Total and Due after stay above the numpad, so the keys never hide them.
+        _Summary(total: state.total, dueAfter: dueAfter, problem: state.total > 0 ? state.problem : null),
         if (!typing)
           SafeArea(
             top: false,
@@ -176,6 +158,78 @@ class _Form extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+/// Scrolls [child] into view when it becomes [active], so the selected payment row (and its
+/// UPI/bank chips) is never left under the numpad.
+class _ScrollIntoView extends StatefulWidget {
+  const _ScrollIntoView({required this.active, required this.child});
+
+  final bool active;
+  final Widget child;
+
+  @override
+  State<_ScrollIntoView> createState() => _ScrollIntoViewState();
+}
+
+class _ScrollIntoViewState extends State<_ScrollIntoView> {
+  @override
+  void didUpdateWidget(_ScrollIntoView old) {
+    super.didUpdateWidget(old);
+    if (widget.active && !old.active) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) Scrollable.ensureVisible(context, duration: const Duration(milliseconds: 200));
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
+}
+
+class _Summary extends StatelessWidget {
+  const _Summary({required this.total, required this.dueAfter, required this.problem});
+
+  final int total;
+  final int dueAfter;
+  final String? problem;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: c.border)),
+      ),
+      padding: const EdgeInsets.fromLTRB(Space.lg, Space.sm, Space.lg, Space.sm),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Expanded(child: Text('Total')),
+              AmountText(total, large: true),
+            ],
+          ),
+          const SizedBox(height: Space.xs),
+          Row(
+            children: [
+              const Expanded(child: Text('Due after')),
+              AmountText(dueAfter < 0 ? 0 : dueAfter, tone: dueAfter > 0 ? AmountTone.due : AmountTone.paid),
+            ],
+          ),
+          if (problem case final p?)
+            Padding(
+              padding: const EdgeInsets.only(top: Space.xs),
+              child: Text(
+                p,
+                style: TextStyle(color: c.due, fontWeight: FontWeight.w600),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

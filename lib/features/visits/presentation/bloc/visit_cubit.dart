@@ -17,6 +17,7 @@ final class VisitState {
     this.busy = false,
     this.failure,
     this.saved = false,
+    this.tried = false,
   });
 
   /// The Indian date the visit is for.
@@ -28,6 +29,9 @@ final class VisitState {
   final bool busy;
   final AppFailure? failure;
   final bool saved;
+
+  /// SAVE was pressed while [problem] blocked it; only then is the problem shown.
+  final bool tried;
 
   /// One key per visit, reused on every retry (ARCHITECTURE "Saving entries").
   final String idempotencyKey;
@@ -42,6 +46,7 @@ final class VisitState {
     bool? busy,
     AppFailure? Function()? failure,
     bool? saved,
+    bool? tried,
     String? idempotencyKey,
   }) => VisitState(
     today: today,
@@ -52,6 +57,7 @@ final class VisitState {
     busy: busy ?? this.busy,
     failure: failure == null ? this.failure : failure(),
     saved: saved ?? this.saved,
+    tried: tried ?? this.tried,
     idempotencyKey: idempotencyKey ?? this.idempotencyKey,
   );
 }
@@ -98,7 +104,8 @@ class VisitCubit extends Cubit<VisitState> {
 
   Future<void> save() async {
     final outcome = state.outcome;
-    if (outcome == null || state.problem != null || state.busy) return;
+    if (outcome == null || state.busy) return;
+    if (state.problem != null) return emit(state.copyWith(tried: true));
     emit(state.copyWith(busy: true, failure: () => null));
     final result = await _repository.save(
       customerId: customerId,

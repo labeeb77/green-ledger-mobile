@@ -49,6 +49,8 @@ class _ItemSheetState extends State<ItemSheet> {
             children: [
               TextField(
                 autofocus: true,
+                autocorrect: false,
+                enableSuggestions: false,
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.search), hintText: 'Search product'),
                 onChanged: (v) => setState(() => _search = v),
               ),

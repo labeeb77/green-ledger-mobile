@@ -134,6 +134,8 @@ class _Form extends StatelessWidget {
               ],
               const SizedBox(height: Space.md),
               TextField(
+                autocorrect: false,
+                enableSuggestions: false,
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.search), hintText: 'Search product'),
                 onChanged: cubit.search,
               ),

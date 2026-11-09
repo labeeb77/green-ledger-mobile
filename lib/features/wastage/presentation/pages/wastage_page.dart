@@ -99,6 +99,8 @@ class _Products extends StatelessWidget {
       padding: const EdgeInsets.all(Space.lg),
       children: [
         TextField(
+          autocorrect: false,
+          enableSuggestions: false,
           decoration: const InputDecoration(prefixIcon: Icon(Icons.search), hintText: 'Search product'),
           onChanged: cubit.search,
         ),
@@ -139,28 +141,37 @@ class _Form extends StatelessWidget {
                 selected: state.reason,
                 onSelected: cubit.chooseReason,
               ),
-              const SizedBox(height: Space.md),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: state.photoPath == null
-                    ? OutlinedButton.icon(
-                        onPressed: () async => cubit.setPhoto(await takePhoto()),
-                        icon: const Icon(Icons.photo_camera_outlined),
-                        label: const Text('Photo'),
-                      )
-                    : InputChip(
-                        avatar: Icon(Icons.check_circle, color: c.paid),
-                        label: const Text('Photo added'),
-                        onDeleted: () => cubit.setPhoto(null),
-                      ),
-              ),
+            ],
+          ),
+        ),
+        // The photo button stays above the numpad, so the keys never hide it.
+        Container(
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: c.border)),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: Space.lg, vertical: Space.sm),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               if (state.amount != null && state.problem != null)
                 Padding(
-                  padding: const EdgeInsets.only(top: Space.md),
+                  padding: const EdgeInsets.only(bottom: Space.xs),
                   child: Text(
                     state.problem!,
                     style: TextStyle(color: c.due, fontWeight: FontWeight.w600),
                   ),
+                ),
+              if (state.photoPath == null)
+                OutlinedButton.icon(
+                  onPressed: () async => cubit.setPhoto(await takePhoto()),
+                  icon: const Icon(Icons.photo_camera_outlined),
+                  label: const Text('Photo'),
+                )
+              else
+                InputChip(
+                  avatar: Icon(Icons.check_circle, color: c.paid),
+                  label: const Text('Photo added'),
+                  onDeleted: () => cubit.setPhoto(null),
                 ),
             ],
           ),

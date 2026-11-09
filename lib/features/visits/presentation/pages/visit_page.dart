@@ -121,7 +121,7 @@ class _Form extends StatelessWidget {
                 minLines: 1,
                 onChanged: cubit.setNote,
               ),
-              if (state.outcome != null && state.problem != null)
+              if (state.tried && state.problem != null)
                 Padding(
                   padding: const EdgeInsets.only(top: Space.md),
                   child: Text(
@@ -137,7 +137,7 @@ class _Form extends StatelessWidget {
           child: MainButton(
             label: network ? 'SEND AGAIN' : 'SAVE',
             loading: state.busy,
-            onPressed: state.problem == null ? cubit.save : null,
+            onPressed: state.outcome == null ? null : cubit.save,
           ),
         ),
       ],

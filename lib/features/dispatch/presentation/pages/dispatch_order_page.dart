@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/failure.dart';
 import 'package:green_ledger_mobile/core/format/formatters.dart';
+import 'package:green_ledger_mobile/core/format/units.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/widgets/check_screen.dart';
@@ -170,7 +171,11 @@ class _Check extends StatelessWidget {
               ),
             ),
             if (cubit.isShort(line)) ...[
-              Text('${plain(line.pending)} ${line.stockUnit} was left', style: TextStyle(color: context.colors.muted)),
+              // What stays on the order after this dispatch (48 of 50 kg → "2 kg left").
+              Text(
+                '${plain(fromMilli(toMilli(line.pending) - toMilli(s.quantity)))} ${line.stockUnit} left',
+                style: TextStyle(color: context.colors.muted),
+              ),
               const SizedBox(height: Space.xs),
               SegmentedButton<bool>(
                 segments: const [

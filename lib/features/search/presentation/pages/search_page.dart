@@ -33,6 +33,8 @@ class _SearchView extends StatelessWidget {
         titleSpacing: 0,
         title: TextField(
           autofocus: true,
+          autocorrect: false,
+          enableSuggestions: false,
           maxLength: SearchCubit.maxLength,
           textInputAction: TextInputAction.search,
           decoration: const InputDecoration(
