@@ -13,9 +13,17 @@ import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:uuid/uuid.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl({required this._client, required this._tokens, required this._secure});
+  AuthRepositoryImpl({
+    required this._client,
+    required this._tokens,
+    required this._secure,
+    api.AuthClient? refreshClient,
+  }) : _refreshClient = refreshClient ?? _client;
 
   final api.AuthClient _client;
+
+  /// Used for the token refresh: a client without the auth interceptor (see `ApiClient`).
+  final api.AuthClient _refreshClient;
   final TokenStore _tokens;
   final SecureStore _secure;
   final _expired = StreamController<void>.broadcast();
@@ -34,7 +42,7 @@ class AuthRepositoryImpl implements AuthRepository {
     final refreshToken = await _tokens.readRefreshToken();
     if (refreshToken == null) return false;
     try {
-      final tokens = await _client.authControllerRefresh(body: api.RefreshDto(refreshToken: refreshToken));
+      final tokens = await _refreshClient.authControllerRefresh(body: api.RefreshDto(refreshToken: refreshToken));
       await _tokens.save(accessToken: tokens.accessToken, refreshToken: tokens.refreshToken);
       return true;
     } on DioException catch (e) {

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/features/auth/domain/session.dart';
@@ -42,23 +43,26 @@ class HomePage extends StatelessWidget {
     final scaffold = Scaffold(
       appBar: TopBar(title: 'Hi $firstName'),
       body: Builder(
-        builder: (context) => RefreshIndicator(
-          onRefresh: () => refresh(context),
-          child: ListView(
-            padding: const EdgeInsets.all(Space.lg),
-            children: [
-              Text(session.businessName, style: text.bodySmall),
-              const SizedBox(height: Space.lg),
-              for (final card in cards) ...[
-                switch (card) {
-                  HomeCard.owner => OwnerHomeCard(canSetRates: p.canWrite('products')),
-                  HomeCard.agent when agent => const AgentHomeCard(),
-                  HomeCard.godown => const GodownHomeCard(),
-                  _ => _HomeCardTile(card),
-                },
-                const SizedBox(height: Space.md),
+        builder: (context) => ReloadOnDataChange(
+          onChange: (context) => unawaited(refresh(context)),
+          child: RefreshIndicator(
+            onRefresh: () => refresh(context),
+            child: ListView(
+              padding: const EdgeInsets.all(Space.lg),
+              children: [
+                Text(session.businessName, style: text.bodySmall),
+                const SizedBox(height: Space.lg),
+                for (final card in cards) ...[
+                  switch (card) {
+                    HomeCard.owner => OwnerHomeCard(canSetRates: p.canWrite('products')),
+                    HomeCard.agent when agent => const AgentHomeCard(),
+                    HomeCard.godown => const GodownHomeCard(),
+                    _ => _HomeCardTile(card),
+                  },
+                  const SizedBox(height: Space.md),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),

@@ -8,7 +8,7 @@ part of 'request.dart';
 
 _Request _$RequestFromJson(Map<String, dynamic> json) => _Request(
   id: json['id'] as String,
-  status: Status8.fromJson(json['status'] as String),
+  status: Status9.fromJson(json['status'] as String),
   reason: json['reason'] as String?,
   createdAt: DateTime.parse(json['createdAt'] as String),
   closedAt: json['closedAt'] == null ? null : DateTime.parse(json['closedAt'] as String),

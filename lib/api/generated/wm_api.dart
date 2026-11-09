@@ -32,6 +32,7 @@ import 'clients/imports_client.dart';
 import 'clients/visit_notes_client.dart';
 import 'clients/home_client.dart';
 import 'clients/account_client.dart';
+import 'clients/mistake_reports_client.dart';
 
 /// Wholesale Manager API `v1.0`.
 ///
@@ -77,6 +78,7 @@ class WmApi {
   VisitNotesClient? _visitNotes;
   HomeClient? _home;
   AccountClient? _account;
+  MistakeReportsClient? _mistakeReports;
 
   HealthClient get health => _health ??= HealthClient(_dio, baseUrl: _baseUrl);
 
@@ -134,4 +136,6 @@ class WmApi {
   HomeClient get home => _home ??= HomeClient(_dio, baseUrl: _baseUrl);
 
   AccountClient get account => _account ??= AccountClient(_dio, baseUrl: _baseUrl);
+
+  MistakeReportsClient get mistakeReports => _mistakeReports ??= MistakeReportsClient(_dio, baseUrl: _baseUrl);
 }

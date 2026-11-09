@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:green_ledger_mobile/api/generated/export.dart' as api;
 import 'package:green_ledger_mobile/core/failure.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/features/auth/domain/auth_repository.dart';
@@ -63,7 +64,12 @@ const _ownerHome = OwnerHome(
   handoversWaiting: 2,
 );
 
-Future<_MockHome> _pumpHome(WidgetTester tester, Role role, {Result<AgentHome> result = const Ok(_home)}) async {
+Future<_MockHome> _pumpHome(
+  WidgetTester tester,
+  Role role, {
+  Result<AgentHome> result = const Ok(_home),
+  DataChanges? changes,
+}) async {
   final home = _MockHome();
   when(home.agentHome).thenAnswer((_) async => result);
   when(home.godownHome).thenAnswer((_) async => const Ok(godownHome));
@@ -76,15 +82,14 @@ Future<_MockHome> _pumpHome(WidgetTester tester, Role role, {Result<AgentHome> r
   final authRepository = _MockAuth();
   when(() => authRepository.sessionExpired).thenAnswer((_) => const Stream.empty());
   final auth = AuthBloc(authRepository)..emit(AuthSignedIn(sessionFor(role)));
-  await tester.pumpWidget(
-    RepositoryProvider<HomeRepository>.value(
-      value: home,
-      child: BlocProvider.value(
-        value: auth,
-        child: withDrafts(MaterialApp(theme: AppTheme.light(), home: const HomePage())),
-      ),
+  final page = RepositoryProvider<HomeRepository>.value(
+    value: home,
+    child: BlocProvider.value(
+      value: auth,
+      child: withDrafts(MaterialApp(theme: AppTheme.light(), home: const HomePage())),
     ),
   );
+  await tester.pumpWidget(changes == null ? page : RepositoryProvider.value(value: changes, child: page));
   await tester.pumpAndSettle();
   return home;
 }
@@ -148,6 +153,16 @@ void main() {
     expect(find.text('Overdue'), findsOneWidget);
   });
 
+  testWidgets('reloads when data changes elsewhere (a save, another tab, back to the app)', (tester) async {
+    final changes = DataChanges();
+    addTearDown(changes.close);
+    final home = await _pumpHome(tester, Role.agent, changes: changes);
+    verify(home.agentHome).called(1);
+    changes.notify();
+    await tester.pumpAndSettle();
+    verify(home.agentHome).called(1);
+  });
+
   testWidgets('says so when nothing is due', (tester) async {
     await _pumpHome(
       tester,
@@ -186,6 +201,15 @@ void main() {
       expect(find.text(action), findsOneWidget);
     }
     expect(find.text('Soon'), findsNothing);
+  });
+
+  testWidgets('owner: SALE · COLLECT · RATES stay on one line on a 393 pt phone', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(393, 852));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await _pumpHome(tester, Role.owner);
+    final sale = tester.getSize(find.text('SALE')).height;
+    expect(tester.getSize(find.text('COLLECT')).height, sale);
+    expect(tester.takeException(), isNull);
   });
 
   test('maps the dashboard and agents today', () {

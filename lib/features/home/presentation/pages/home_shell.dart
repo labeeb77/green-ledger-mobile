@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/connectivity/connectivity_cubit.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/widgets/states.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/home/presentation/home_tabs.dart';
@@ -44,8 +45,10 @@ class HomeShell extends StatelessWidget {
         selectedIndex: selected < 0 ? 0 : selected,
         onDestinationSelected: (i) {
           final tab = tabs[i];
-          // Tapping the current tab again goes back to its first screen.
+          // Tapping the current tab again goes back to its first screen; another tab
+          // reloads, since its screens were kept alive with the figures they last had.
           shell.goBranch(AppTab.values.indexOf(tab), initialLocation: tab == current);
+          if (tab != current) DataChanges.maybeOf(context)?.notify();
         },
         destinations: [
           for (final tab in tabs)

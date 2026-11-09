@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'status7.dart';
+import 'status8.dart';
 
 part 'due_soon.freezed.dart';
 part 'due_soon.g.dart';
@@ -14,7 +14,7 @@ abstract class DueSoon with _$DueSoon {
   const factory DueSoon({
     required String id,
     required String name,
-    required Status7 status,
+    required Status8 status,
     required DateTime expiresAt,
   }) = _DueSoon;
 

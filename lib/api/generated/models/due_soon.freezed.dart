@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DueSoon {
 
- String get id; String get name; Status7 get status; DateTime get expiresAt;
+ String get id; String get name; Status8 get status; DateTime get expiresAt;
 /// Create a copy of DueSoon
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $DueSoonCopyWith<$Res>  {
   factory $DueSoonCopyWith(DueSoon value, $Res Function(DueSoon) _then) = _$DueSoonCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, Status7 status, DateTime expiresAt
+ String id, String name, Status8 status, DateTime expiresAt
 });
 
 
@@ -76,7 +76,7 @@ class _$DueSoonCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status7,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as Status8,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
 }
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  Status7 status,  DateTime expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  Status8 status,  DateTime expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DueSoon() when $default != null:
 return $default(_that.id,_that.name,_that.status,_that.expiresAt);case _:
@@ -183,7 +183,7 @@ return $default(_that.id,_that.name,_that.status,_that.expiresAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  Status7 status,  DateTime expiresAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  Status8 status,  DateTime expiresAt)  $default,) {final _that = this;
 switch (_that) {
 case _DueSoon():
 return $default(_that.id,_that.name,_that.status,_that.expiresAt);case _:
@@ -203,7 +203,7 @@ return $default(_that.id,_that.name,_that.status,_that.expiresAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  Status7 status,  DateTime expiresAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  Status8 status,  DateTime expiresAt)?  $default,) {final _that = this;
 switch (_that) {
 case _DueSoon() when $default != null:
 return $default(_that.id,_that.name,_that.status,_that.expiresAt);case _:
@@ -223,7 +223,7 @@ class _DueSoon implements DueSoon {
 
 @override final  String id;
 @override final  String name;
-@override final  Status7 status;
+@override final  Status8 status;
 @override final  DateTime expiresAt;
 
 /// Create a copy of DueSoon
@@ -261,7 +261,7 @@ abstract mixin class _$DueSoonCopyWith<$Res> implements $DueSoonCopyWith<$Res> {
   factory _$DueSoonCopyWith(_DueSoon value, $Res Function(_DueSoon) _then) = __$DueSoonCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, Status7 status, DateTime expiresAt
+ String id, String name, Status8 status, DateTime expiresAt
 });
 
 
@@ -283,7 +283,7 @@ class __$DueSoonCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status7,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as Status8,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
 }

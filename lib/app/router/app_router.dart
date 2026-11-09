@@ -25,6 +25,7 @@ import 'package:green_ledger_mobile/features/home/presentation/pages/agents_toda
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_page.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/home_shell.dart';
 import 'package:green_ledger_mobile/features/home/presentation/pages/no_mobile_access_page.dart';
+import 'package:green_ledger_mobile/features/mistakes/presentation/pages/my_reports_page.dart';
 import 'package:green_ledger_mobile/features/more/presentation/more_page.dart';
 import 'package:green_ledger_mobile/features/notifications/presentation/pages/notifications_page.dart';
 import 'package:green_ledger_mobile/features/orders/domain/order.dart';
@@ -124,6 +125,7 @@ List<RouteBase> _tabRoutes(AppTab tab) => switch (tab) {
   AppTab.shops || AppTab.customers => _shopRoutes(tab.path),
   AppTab.more => [
     GoRoute(path: 'help', builder: (_, _) => const HelpPage()),
+    GoRoute(path: 'mistakes', builder: (_, _) => const MyReportsPage()),
     GoRoute(
       path: 'delete-account',
       builder: (context, _) => DeleteAccountPage(

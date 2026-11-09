@@ -9628,6 +9628,196 @@
           "account"
         ]
       }
+    },
+    "/api/v1/mistake-reports": {
+      "get": {
+        "operationId": "MistakeReportsController_list",
+        "parameters": [
+          {
+            "explode": false,
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          {
+            "explode": false,
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageMistakeReport"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "mistake-reports"
+        ]
+      },
+      "post": {
+        "operationId": "MistakeReportsController_create",
+        "parameters": [
+          {
+            "description": "Client-generated UUID; retries with the same key never post twice.",
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMistakeReportBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MistakeReport"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "mistake-reports"
+        ]
+      }
+    },
+    "/api/v1/mistake-reports/{id}/close": {
+      "post": {
+        "operationId": "MistakeReportsController_close",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated UUID; retries with the same key never post twice.",
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloseMistakeReportBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MistakeReport"
+                }
+              }
+            },
+            "description": ""
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "mistake-reports"
+        ]
+      }
     }
   },
   "info": {
@@ -19101,6 +19291,378 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "PageMistakeReport": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "document": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "sales_bill",
+                        "receipt",
+                        "customer_return"
+                      ],
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "number": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "enum": [
+                        "posted",
+                        "cancelled",
+                        "pending_approval",
+                        "pending_cancellation",
+                        "rejected"
+                      ],
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "customer": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "id",
+                    "number",
+                    "status",
+                    "total",
+                    "customer"
+                  ],
+                  "type": "object"
+                },
+                "reason": {
+                  "enum": [
+                    "wrong_amount",
+                    "wrong_shop",
+                    "wrong_product",
+                    "wrong_payment",
+                    "duplicate",
+                    "other"
+                  ],
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "status": {
+                  "enum": [
+                    "open",
+                    "closed"
+                  ],
+                  "type": "string"
+                },
+                "reporter": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "createdAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "closedBy": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "type": "object",
+                  "nullable": true
+                },
+                "closedAt": {
+                  "format": "date-time",
+                  "type": "string",
+                  "nullable": true
+                },
+                "closeNote": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "required": [
+                "id",
+                "document",
+                "reason",
+                "note",
+                "status",
+                "reporter",
+                "createdAt",
+                "closedBy",
+                "closedAt",
+                "closeNote"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "type": "object"
+      },
+      "CreateMistakeReportBody": {
+        "additionalProperties": false,
+        "properties": {
+          "documentType": {
+            "enum": [
+              "sales_bill",
+              "receipt",
+              "customer_return"
+            ],
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reason": {
+            "enum": [
+              "wrong_amount",
+              "wrong_shop",
+              "wrong_product",
+              "wrong_payment",
+              "duplicate",
+              "other"
+            ],
+            "type": "string"
+          },
+          "note": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "documentType",
+          "documentId",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "MistakeReport": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "document": {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "sales_bill",
+                  "receipt",
+                  "customer_return"
+                ],
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "number": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "posted",
+                  "cancelled",
+                  "pending_approval",
+                  "pending_cancellation",
+                  "rejected"
+                ],
+                "type": "string"
+              },
+              "total": {
+                "type": "integer"
+              },
+              "customer": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "type",
+              "id",
+              "number",
+              "status",
+              "total",
+              "customer"
+            ],
+            "type": "object"
+          },
+          "reason": {
+            "enum": [
+              "wrong_amount",
+              "wrong_shop",
+              "wrong_product",
+              "wrong_payment",
+              "duplicate",
+              "other"
+            ],
+            "type": "string"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ],
+            "type": "string"
+          },
+          "reporter": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "type": "object"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "closedBy": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "type": "object",
+            "nullable": true
+          },
+          "closedAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+          },
+          "closeNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "document",
+          "reason",
+          "note",
+          "status",
+          "reporter",
+          "createdAt",
+          "closedBy",
+          "closedAt",
+          "closeNote"
+        ],
+        "type": "object"
+      },
+      "CloseMistakeReportBody": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
         "type": "object"
       },
       "ErrorResponse": {

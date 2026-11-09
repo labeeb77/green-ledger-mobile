@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'status7.dart';
+import 'status8.dart';
 import 'access.dart';
 
 part 'subscription.freezed.dart';
@@ -13,7 +13,7 @@ part 'subscription.g.dart';
 @Freezed()
 abstract class Subscription with _$Subscription {
   const factory Subscription({
-    required Status7 status,
+    required Status8 status,
     required DateTime expiresAt,
     required int userLimit,
     required Access access,

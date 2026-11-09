@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Subscription {
 
- Status7 get status; DateTime get expiresAt; int get userLimit; Access get access;
+ Status8 get status; DateTime get expiresAt; int get userLimit; Access get access;
 /// Create a copy of Subscription
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SubscriptionCopyWith<$Res>  {
   factory $SubscriptionCopyWith(Subscription value, $Res Function(Subscription) _then) = _$SubscriptionCopyWithImpl;
 @useResult
 $Res call({
- Status7 status, DateTime expiresAt, int userLimit, Access access
+ Status8 status, DateTime expiresAt, int userLimit, Access access
 });
 
 
@@ -74,7 +74,7 @@ class _$SubscriptionCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? expiresAt = null,Object? userLimit = null,Object? access = null,}) {
   return _then(Subscription(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status7,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as Status8,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime,userLimit: null == userLimit ? _self.userLimit : userLimit // ignore: cast_nullable_to_non_nullable
 as int,access: null == access ? _self.access : access // ignore: cast_nullable_to_non_nullable
 as Access,
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Status7 status,  DateTime expiresAt,  int userLimit,  Access access)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Status8 status,  DateTime expiresAt,  int userLimit,  Access access)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Subscription() when $default != null:
 return $default(_that.status,_that.expiresAt,_that.userLimit,_that.access);case _:
@@ -183,7 +183,7 @@ return $default(_that.status,_that.expiresAt,_that.userLimit,_that.access);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Status7 status,  DateTime expiresAt,  int userLimit,  Access access)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Status8 status,  DateTime expiresAt,  int userLimit,  Access access)  $default,) {final _that = this;
 switch (_that) {
 case _Subscription():
 return $default(_that.status,_that.expiresAt,_that.userLimit,_that.access);case _:
@@ -203,7 +203,7 @@ return $default(_that.status,_that.expiresAt,_that.userLimit,_that.access);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Status7 status,  DateTime expiresAt,  int userLimit,  Access access)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Status8 status,  DateTime expiresAt,  int userLimit,  Access access)?  $default,) {final _that = this;
 switch (_that) {
 case _Subscription() when $default != null:
 return $default(_that.status,_that.expiresAt,_that.userLimit,_that.access);case _:
@@ -221,7 +221,7 @@ class _Subscription implements Subscription {
   const _Subscription({required this.status, required this.expiresAt, required this.userLimit, required this.access});
   factory _Subscription.fromJson(Map<String, dynamic> json) => _$SubscriptionFromJson(json);
 
-@override final  Status7 status;
+@override final  Status8 status;
 @override final  DateTime expiresAt;
 @override final  int userLimit;
 @override final  Access access;
@@ -261,7 +261,7 @@ abstract mixin class _$SubscriptionCopyWith<$Res> implements $SubscriptionCopyWi
   factory _$SubscriptionCopyWith(_Subscription value, $Res Function(_Subscription) _then) = __$SubscriptionCopyWithImpl;
 @override @useResult
 $Res call({
- Status7 status, DateTime expiresAt, int userLimit, Access access
+ Status8 status, DateTime expiresAt, int userLimit, Access access
 });
 
 
@@ -281,7 +281,7 @@ class __$SubscriptionCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? expiresAt = null,Object? userLimit = null,Object? access = null,}) {
   return _then(_Subscription(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status7,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
+as Status8,expiresAt: null == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as DateTime,userLimit: null == userLimit ? _self.userLimit : userLimit // ignore: cast_nullable_to_non_nullable
 as int,access: null == access ? _self.access : access // ignore: cast_nullable_to_non_nullable
 as Access,

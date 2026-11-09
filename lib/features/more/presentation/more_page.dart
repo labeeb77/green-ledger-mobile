@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/theme/theme_cubit.dart';
+import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/home/presentation/widgets/top_bar.dart';
 
@@ -94,6 +95,14 @@ class MorePage extends StatelessWidget {
               onTap: () => unawaited(_chooseTheme(context, mode)),
             ),
           ),
+          if (user.role == Role.agent)
+            ListTile(
+              leading: const Icon(Icons.flag_outlined),
+              title: const Text('My reports'),
+              subtitle: const Text('Mistakes you reported'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => unawaited(context.push('/more/mistakes')),
+            ),
           ListTile(
             leading: const Icon(Icons.support_agent_outlined),
             title: const Text('Help & support'),

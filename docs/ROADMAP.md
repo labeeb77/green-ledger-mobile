@@ -41,7 +41,7 @@ Project setup and the shell every feature plugs into.
 
 ## M2 Orders, approvals, cash (ux-design 4.2, 4.5, 4.6)
 
-Status (2026-11-07): **Cash done** (agent Cash tab: bag, today's cash receipts, HAND OVER the full bag, own counted handovers with short/extra; owner/manager "Cash handovers" from the Home card: Counted ₹ → CONFIRM, difference in red). **Approvals done** (tab + Home card: cards with reason and numbers, APPROVE, REJECT with a required note: chips or text). **Take order done** (ORDER on the shop detail: Recent chips, product search, Repeat last order at today's rates, line sheet with unit chips, quantity and ≈ stock units, rate from `GET /pricing/quote` shown as text for agents and editable for owner/manager with an amber note below the minimum; note chips + text; Check with "Final amount after weighing" and, for agents, "Needs approval: over limit by ₹X"; Sent or Waiting for approval; kept as a draft offline). A variable bag's kg is estimated from the shop's last order of it (packs × kg per bag), else typed. Not yet run on a phone. Phone checks for M1 and M2 are planned in [DEVICE-TEST.md](DEVICE-TEST.md) (iPhone, later). Next: M3.
+Status (2026-11-07): **Cash done** (agent Cash tab: bag, today's cash receipts, HAND OVER the full bag, own counted handovers with short/extra; owner/manager "Cash handovers" from the Home card: Counted ₹ → CONFIRM, difference in red). **Approvals done** (tab + Home card: cards with reason and numbers, APPROVE, REJECT with a required note: chips or text). **Take order done** (ORDER on the shop detail: Recent chips, product search, Repeat last order at today's rates, line sheet with unit chips, quantity and ≈ stock units, rate from `GET /pricing/quote` shown as text for agents and editable for owner/manager with an amber note below the minimum; note chips + text; Check with "Final amount after weighing" and, for agents, "Needs approval: over limit by ₹X"; Sent or Waiting for approval; kept as a draft offline). A variable bag's kg is estimated from the shop's last order of it (packs × kg per bag), else typed. **Report a mistake** (CR 2, 2026-11-07, `lib/features/mistakes/`): ⋯ on the agent's own posted bills and payments on the shop detail → reason chips + note (required for Other) → SEND → "Reported"; More → My reports (Open/Closed, the office's note); a `mistake_closed` tap opens My reports, `mistake_reported` opens Approvals for owners/managers (reviewing and closing stay in the admin panel). Returns aren't reportable in the app (agents have no return screen). Not yet run on a phone. Phone checks for M1 and M2 are planned in [DEVICE-TEST.md](DEVICE-TEST.md) (iPhone, later). Next: M3.
 
 - Take order: product search with recent items, repeat last order, unit from shop history, rate auto-filled (`GET /pricing/quote`), "≈" amounts, note chips (`POST /orders`); "Waiting for approval ⏳" when over limit or below minimum.
 - Approvals tab (owner/manager): cards with the reason and numbers; approve, or reject with a required note (`GET /approvals`, `POST /approvals/{id}/approve|reject`, `GET /approvals/count`, `GET /approvals/mine` for requesters).
@@ -93,8 +93,8 @@ These screens need backend work first (in the Go API, `green-ledger/backend-go`;
 | Agent / godown Home summaries, "Agents today" | M1–M4 Home cards |
 | ~~Account deletion request, support contact~~ (done 2026-11-07) | M5 |
 | Shop WhatsApp number (if `phone` doesn't fit) | M1 share |
-| Agent rate lock on the server (ux-design CR 3) | M2 take order |
-| "Report a mistake" for agents (ux-design CR 2) | M2+ |
+| ~~Agent rate lock on the server (ux-design CR 3)~~ (done 2026-11-07) | M2 take order |
+| ~~"Report a mistake" for agents (ux-design CR 2)~~ (done 2026-11-07; app built, see M2) | M2+ |
 
 Until a gap is filled, the screen uses what the API has (e.g. Home cards built from `GET /dashboard` and list endpoints) and the missing part is left out rather than faked.
 

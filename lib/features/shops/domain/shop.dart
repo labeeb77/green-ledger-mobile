@@ -105,6 +105,7 @@ class ShopBill {
     required this.open,
     required this.state,
     this.number,
+    this.byId,
   });
 
   final String id;
@@ -115,6 +116,9 @@ class ShopBill {
   final int total;
   final int open;
   final BillState state;
+
+  /// Who entered the bill; null for old bills without one.
+  final String? byId;
 }
 
 /// A recent payment (receipt) on the shop detail.
@@ -125,6 +129,7 @@ class ShopPayment {
     required this.date,
     required this.total,
     required this.cancelled,
+    this.byId,
   });
 
   final String id;
@@ -132,6 +137,9 @@ class ShopPayment {
   final String date;
   final int total;
   final bool cancelled;
+
+  /// Who collected the payment.
+  final String? byId;
 }
 
 /// The shop's latest bills and payments, newest first.

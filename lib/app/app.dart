@@ -8,6 +8,7 @@ import 'package:green_ledger_mobile/app/router/app_router.dart';
 import 'package:green_ledger_mobile/core/connectivity/connectivity_cubit.dart';
 import 'package:green_ledger_mobile/core/drafts/drafts_cubit.dart';
 import 'package:green_ledger_mobile/core/local/local_database.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/theme/theme_cubit.dart';
 import 'package:green_ledger_mobile/features/account/domain/account.dart';
@@ -21,6 +22,7 @@ import 'package:green_ledger_mobile/features/documents/domain/documents.dart';
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
 import 'package:green_ledger_mobile/features/lock/presentation/bloc/lock_cubit.dart';
 import 'package:green_ledger_mobile/features/lock/presentation/widgets/lock_gate.dart';
+import 'package:green_ledger_mobile/features/mistakes/domain/mistakes.dart';
 import 'package:green_ledger_mobile/features/notifications/presentation/bloc/notifications_cubit.dart';
 import 'package:green_ledger_mobile/features/orders/domain/order.dart';
 import 'package:green_ledger_mobile/features/rates/domain/rates.dart';
@@ -59,7 +61,10 @@ class _AppState extends State<App> {
       onPause: _lock.paused,
       onResume: () {
         unawaited(_lock.resumed());
-        if (_auth.state is AuthSignedIn) unawaited(_notifications.load());
+        if (_auth.state is AuthSignedIn) {
+          unawaited(_notifications.load());
+          getIt<DataChanges>().notify();
+        }
       },
     );
     var previous = _auth.state;
@@ -98,6 +103,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
     providers: [
+      RepositoryProvider<DataChanges>.value(value: getIt<DataChanges>()),
       RepositoryProvider<AccountRepository>.value(value: getIt<AccountRepository>()),
       RepositoryProvider<AuthRepository>.value(value: getIt<AuthRepository>()),
       RepositoryProvider<ApprovalsRepository>.value(value: getIt<ApprovalsRepository>()),
@@ -106,6 +112,7 @@ class _AppState extends State<App> {
       RepositoryProvider<DispatchRepository>.value(value: getIt<DispatchRepository>()),
       RepositoryProvider<DocumentsRepository>.value(value: getIt<DocumentsRepository>()),
       RepositoryProvider<HomeRepository>.value(value: getIt<HomeRepository>()),
+      RepositoryProvider<MistakesRepository>.value(value: getIt<MistakesRepository>()),
       RepositoryProvider<OrdersRepository>.value(value: getIt<OrdersRepository>()),
       RepositoryProvider<RatesRepository>.value(value: getIt<RatesRepository>()),
       RepositoryProvider<SearchRepository>.value(value: getIt<SearchRepository>()),

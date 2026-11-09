@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'status8.dart';
+import 'status9.dart';
 import 'handled_by.dart';
 
 part 'request.freezed.dart';
@@ -14,7 +14,7 @@ part 'request.g.dart';
 abstract class Request with _$Request {
   const factory Request({
     required String id,
-    required Status8 status,
+    required Status9 status,
     required String? reason,
     required DateTime createdAt,
     required DateTime? closedAt,

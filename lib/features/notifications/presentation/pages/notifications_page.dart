@@ -20,6 +20,9 @@ String? notificationPath(String type, Session session) {
     'approval_requested' when tabs.contains(AppTab.approvals) => AppTab.approvals.path,
     'handover_requested' when session.permissions.canWrite('cash_handovers.confirm') => '/home/handovers',
     'handover_decided' when tabs.contains(AppTab.cash) => AppTab.cash.path,
+    // Reviewing happens in the admin panel; Approvals is where the fix (a cancel) lands.
+    'mistake_reported' when tabs.contains(AppTab.approvals) => AppTab.approvals.path,
+    'mistake_closed' when session.user.role == Role.agent => '/more/mistakes',
     _ => null,
   };
 }

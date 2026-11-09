@@ -45,7 +45,12 @@ class _Loaded extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     void push(String path) => unawaited(context.push(path));
-    final style = ButtonStyle(minimumSize: WidgetStateProperty.all(const Size.fromHeight(Touch.mainButton)));
+    // Three buttons share a row: small side padding, and labels shrink rather than wrap.
+    final style = ButtonStyle(
+      minimumSize: WidgetStateProperty.all(const Size.fromHeight(Touch.mainButton)),
+      padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: Space.sm)),
+    );
+    Widget label(String text) => FittedBox(fit: BoxFit.scaleDown, child: Text(text, maxLines: 1));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -109,7 +114,7 @@ class _Loaded extends StatelessWidget {
               child: FilledButton(
                 style: style,
                 onPressed: () => context.go('/customers?then=order'),
-                child: const Text('SALE'),
+                child: label('SALE'),
               ),
             ),
             const SizedBox(width: Space.sm),
@@ -117,13 +122,13 @@ class _Loaded extends StatelessWidget {
               child: FilledButton(
                 style: style,
                 onPressed: () => context.go('/customers?then=collect'),
-                child: const Text('COLLECT'),
+                child: label('COLLECT'),
               ),
             ),
             if (canSetRates) ...[
               const SizedBox(width: Space.sm),
               Expanded(
-                child: OutlinedButton(style: style, onPressed: () => push('/home/rates'), child: const Text('RATES')),
+                child: OutlinedButton(style: style, onPressed: () => push('/home/rates'), child: label('RATES')),
               ),
             ],
           ],

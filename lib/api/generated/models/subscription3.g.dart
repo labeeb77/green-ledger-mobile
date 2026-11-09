@@ -7,7 +7,7 @@ part of 'subscription3.dart';
 // **************************************************************************
 
 _Subscription3 _$Subscription3FromJson(Map<String, dynamic> json) => _Subscription3(
-  status: Status7.fromJson(json['status'] as String),
+  status: Status8.fromJson(json['status'] as String),
   expiresAt: DateTime.parse(json['expiresAt'] as String),
   userLimit: (json['userLimit'] as num).toInt(),
   notes: json['notes'] as String?,

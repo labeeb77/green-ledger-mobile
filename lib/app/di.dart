@@ -5,6 +5,7 @@ import 'package:green_ledger_mobile/core/drafts/draft.dart';
 import 'package:green_ledger_mobile/core/local/local_database.dart';
 import 'package:green_ledger_mobile/core/local/local_stores.dart';
 import 'package:green_ledger_mobile/core/network/api_client.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/network/token_store.dart';
 import 'package:green_ledger_mobile/core/storage/secure_store.dart';
 import 'package:green_ledger_mobile/core/theme/theme_cubit.dart';
@@ -26,6 +27,8 @@ import 'package:green_ledger_mobile/features/home/data/home_repository_impl.dart
 import 'package:green_ledger_mobile/features/home/domain/agent_home.dart';
 import 'package:green_ledger_mobile/features/lock/data/pin_store_impl.dart';
 import 'package:green_ledger_mobile/features/lock/domain/pin.dart';
+import 'package:green_ledger_mobile/features/mistakes/data/mistakes_repository_impl.dart';
+import 'package:green_ledger_mobile/features/mistakes/domain/mistakes.dart';
 import 'package:green_ledger_mobile/features/notifications/data/notifications_repository_impl.dart';
 import 'package:green_ledger_mobile/features/notifications/domain/notifications.dart';
 import 'package:green_ledger_mobile/features/orders/data/orders_repository_impl.dart';
@@ -55,13 +58,15 @@ void configureDependencies(FlavorConfig config) {
   final secure = SecureStore();
   final tokens = TokenStore(secure);
   late final AuthRepositoryImpl auth;
+  final changes = DataChanges();
   final client = ApiClient(
     baseUrl: config.apiBaseUrl,
     tokens: tokens,
     refresh: () => auth.refresh(),
     onSessionExpired: () => auth.expire(),
+    changes: changes,
   );
-  auth = AuthRepositoryImpl(client: client.api.auth, tokens: tokens, secure: secure);
+  auth = AuthRepositoryImpl(client: client.api.auth, refreshClient: client.refreshAuth, tokens: tokens, secure: secure);
   final db = LocalDatabase.open();
   final user = CurrentUser();
   final drafts = LocalDraftStore(db, user);
@@ -99,6 +104,7 @@ void configureDependencies(FlavorConfig config) {
     ..registerSingleton(secure)
     ..registerSingleton(tokens)
     ..registerSingleton(client)
+    ..registerSingleton(changes)
     ..registerSingleton(Connectivity())
     ..registerSingleton<AuthRepository>(auth)
     ..registerSingleton(user)
@@ -136,6 +142,7 @@ void configureDependencies(FlavorConfig config) {
     ..registerSingleton<OrdersRepository>(orders)
     ..registerSingleton<ThemeStore>(secure)
     ..registerSingleton<AccountRepository>(AccountRepositoryImpl(client.api.account))
+    ..registerSingleton<MistakesRepository>(MistakesRepositoryImpl(client.api.mistakeReports))
     ..registerSingleton<NotificationsRepository>(NotificationsRepositoryImpl(client.api.notifications))
     ..registerSingleton<PinStore>(SecurePinStore())
     ..registerSingleton<Biometrics>(LocalBiometrics())

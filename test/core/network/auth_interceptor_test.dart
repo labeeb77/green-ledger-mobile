@@ -3,9 +3,11 @@ import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:green_ledger_mobile/core/network/api_client.dart';
 import 'package:green_ledger_mobile/core/network/auth_interceptor.dart';
 import 'package:green_ledger_mobile/core/network/token_store.dart';
 import 'package:green_ledger_mobile/core/storage/secure_store.dart';
+import 'package:green_ledger_mobile/features/auth/data/auth_repository_impl.dart';
 import 'package:mocktail/mocktail.dart';
 
 class _MockSecure extends Mock implements SecureStore;
@@ -116,5 +118,34 @@ void main() {
     await expectLater(dio.post<dynamic>('/api/v1/auth/login'), throwsA(isA<DioException>()));
     expect(refreshes, 0);
     expect(server.seen.single, isNull);
+  });
+
+  test('a refused refresh through the real client signs out (it once deadlocked the queue)', () async {
+    final secure = _MockSecure();
+    when(secure.readRefreshToken).thenAnswer((_) async => 'revoked');
+    when(() => secure.writeRefreshToken(any())).thenAnswer((_) async {});
+    final store = TokenStore(secure)..accessToken = 'old';
+    late final AuthRepositoryImpl auth;
+    // The server refuses every token, the refresh included (a deactivated login).
+    final client = ApiClient(
+      baseUrl: 'http://test',
+      tokens: store,
+      refresh: () => auth.refresh(),
+      onSessionExpired: () => auth.expire(),
+      adapter: _Server('none'),
+    );
+    auth = AuthRepositoryImpl(
+      client: client.api.auth,
+      refreshClient: client.refreshAuth,
+      tokens: store,
+      secure: secure,
+    );
+    final signedOut = auth.sessionExpired.first;
+    await expectLater(
+      client.api.home.homeControllerAgent().timeout(const Duration(seconds: 2)),
+      throwsA(isA<DioException>()),
+    );
+    await signedOut.timeout(const Duration(seconds: 1));
+    expect(store.accessToken, isNull);
   });
 }

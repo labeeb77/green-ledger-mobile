@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/format/formatters.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/widgets/amount_text.dart';
@@ -41,7 +42,10 @@ class ShopsPage extends StatelessWidget {
       unawaited(cubit.load());
       return cubit;
     },
-    child: _ShopsView(title: title, basePath: basePath, pick: pick),
+    child: ReloadOnDataChange(
+      onChange: (context) => unawaited(context.read<ShopsCubit>().load()),
+      child: _ShopsView(title: title, basePath: basePath, pick: pick),
+    ),
   );
 }
 

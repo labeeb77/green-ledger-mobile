@@ -5,14 +5,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/launch/contact_launcher.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/widgets/amount_text.dart';
 import 'package:green_ledger_mobile/core/widgets/main_button.dart';
 import 'package:green_ledger_mobile/core/widgets/states.dart';
 import 'package:green_ledger_mobile/core/widgets/status_chip.dart';
+import 'package:green_ledger_mobile/features/auth/domain/session.dart';
 import 'package:green_ledger_mobile/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:green_ledger_mobile/features/collect/domain/collect.dart';
+import 'package:green_ledger_mobile/features/mistakes/domain/mistakes.dart';
+import 'package:green_ledger_mobile/features/mistakes/presentation/widgets/report_mistake_sheet.dart';
 import 'package:green_ledger_mobile/features/orders/domain/order.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shop.dart';
 import 'package:green_ledger_mobile/features/shops/domain/shops_repository.dart';
@@ -44,108 +48,111 @@ class ShopDetailPage extends StatelessWidget {
       unawaited(cubit.load());
       return cubit;
     },
-    child: BlocBuilder<ShopDetailCubit, ShopDetailState>(
-      builder: (context, state) => switch (state) {
-        ShopDetailLoading() => Scaffold(appBar: AppBar(), body: const SkeletonList()),
-        ShopDetailFailed(:final failure) => Scaffold(
-          appBar: AppBar(),
-          body: ListView(
-            padding: const EdgeInsets.all(Space.lg),
-            children: [
-              FailureMessage(failure),
-              const SizedBox(height: Space.md),
-              OutlinedButton(onPressed: context.read<ShopDetailCubit>().load, child: const Text('TRY AGAIN')),
-            ],
-          ),
-        ),
-        ShopDetailLoaded(:final shop, :final activity) => Scaffold(
-          appBar: AppBar(
-            title: Text(shop.name),
-            actions: [
-              // Statements are shared from the Customers tab (owner, manager).
-              if (basePath != '/shops') ShareStatementButton(customerId: shop.id, name: shop.name),
-              if (shop.phone case final phone?)
-                IconButton(
-                  tooltip: 'Call',
-                  icon: const Icon(Icons.call_outlined),
-                  onPressed: () => unawaited(launcher.call(phone)),
-                ),
-              if (shop.whatsappNumber case final number?)
-                IconButton(
-                  tooltip: 'WhatsApp',
-                  icon: const Icon(Icons.chat_outlined),
-                  onPressed: () => unawaited(launcher.whatsApp(number)),
-                ),
-            ],
-          ),
-          bottomNavigationBar: _canCollect(context) || _canVisit(context) || _canOrder(context)
-              ? BottomActionBar(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (_canCollect(context))
-                        MainButton(
-                          label: 'COLLECT',
-                          onPressed: () => _open(
-                            context,
-                            '$basePath/${shop.id}/collect',
-                            CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
-                          ),
-                        ),
-                      if (_canOrder(context) || _canVisit(context)) ...[
-                        if (_canCollect(context)) const SizedBox(height: Space.sm),
-                        Row(
-                          children: [
-                            if (_canOrder(context))
-                              Expanded(
-                                child: _SecondaryButton(
-                                  'ORDER',
-                                  () => _open(
-                                    context,
-                                    '$basePath/${shop.id}/order',
-                                    OrderTarget(
-                                      customerId: shop.id,
-                                      name: shop.name,
-                                      outstanding: shop.outstanding,
-                                      creditLimit: shop.creditLimit,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            if (_canOrder(context) && _canVisit(context)) const SizedBox(width: Space.sm),
-                            if (_canVisit(context))
-                              Expanded(
-                                child: _SecondaryButton(
-                                  'VISIT',
-                                  () => _open(context, '$basePath/${shop.id}/visit', shop.name),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ],
-                    ],
-                  ),
-                )
-              : null,
-          body: RefreshIndicator(
-            onRefresh: context.read<ShopDetailCubit>().load,
-            child: ListView(
+    child: ReloadOnDataChange(
+      onChange: (context) => unawaited(context.read<ShopDetailCubit>().load()),
+      child: BlocBuilder<ShopDetailCubit, ShopDetailState>(
+        builder: (context, state) => switch (state) {
+          ShopDetailLoading() => Scaffold(appBar: AppBar(), body: const SkeletonList()),
+          ShopDetailFailed(:final failure) => Scaffold(
+            appBar: AppBar(),
+            body: ListView(
               padding: const EdgeInsets.all(Space.lg),
               children: [
-                _Balances(shop),
-                const SizedBox(height: Space.xl),
-                const _SectionTitle('Bills'),
-                if (activity.bills.isEmpty) const _None('No bills yet'),
-                for (final bill in activity.bills) _BillRow(bill),
-                const SizedBox(height: Space.xl),
-                const _SectionTitle('Payments'),
-                if (activity.payments.isEmpty) const _None('No payments yet'),
-                for (final payment in activity.payments) _PaymentRow(payment, shopName: shop.name),
+                FailureMessage(failure),
+                const SizedBox(height: Space.md),
+                OutlinedButton(onPressed: context.read<ShopDetailCubit>().load, child: const Text('TRY AGAIN')),
               ],
             ),
           ),
-        ),
-      },
+          ShopDetailLoaded(:final shop, :final activity) => Scaffold(
+            appBar: AppBar(
+              title: Text(shop.name),
+              actions: [
+                // Statements are shared from the Customers tab (owner, manager).
+                if (basePath != '/shops') ShareStatementButton(customerId: shop.id, name: shop.name),
+                if (shop.phone case final phone?)
+                  IconButton(
+                    tooltip: 'Call',
+                    icon: const Icon(Icons.call_outlined),
+                    onPressed: () => unawaited(launcher.call(phone)),
+                  ),
+                if (shop.whatsappNumber case final number?)
+                  IconButton(
+                    tooltip: 'WhatsApp',
+                    icon: const Icon(Icons.chat_outlined),
+                    onPressed: () => unawaited(launcher.whatsApp(number)),
+                  ),
+              ],
+            ),
+            bottomNavigationBar: _canCollect(context) || _canVisit(context) || _canOrder(context)
+                ? BottomActionBar(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (_canCollect(context))
+                          MainButton(
+                            label: 'COLLECT',
+                            onPressed: () => _open(
+                              context,
+                              '$basePath/${shop.id}/collect',
+                              CollectTarget(customerId: shop.id, name: shop.name, due: shop.outstanding),
+                            ),
+                          ),
+                        if (_canOrder(context) || _canVisit(context)) ...[
+                          if (_canCollect(context)) const SizedBox(height: Space.sm),
+                          Row(
+                            children: [
+                              if (_canOrder(context))
+                                Expanded(
+                                  child: _SecondaryButton(
+                                    'ORDER',
+                                    () => _open(
+                                      context,
+                                      '$basePath/${shop.id}/order',
+                                      OrderTarget(
+                                        customerId: shop.id,
+                                        name: shop.name,
+                                        outstanding: shop.outstanding,
+                                        creditLimit: shop.creditLimit,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              if (_canOrder(context) && _canVisit(context)) const SizedBox(width: Space.sm),
+                              if (_canVisit(context))
+                                Expanded(
+                                  child: _SecondaryButton(
+                                    'VISIT',
+                                    () => _open(context, '$basePath/${shop.id}/visit', shop.name),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ],
+                    ),
+                  )
+                : null,
+            body: RefreshIndicator(
+              onRefresh: context.read<ShopDetailCubit>().load,
+              child: ListView(
+                padding: const EdgeInsets.all(Space.lg),
+                children: [
+                  _Balances(shop),
+                  const SizedBox(height: Space.xl),
+                  const _SectionTitle('Bills'),
+                  if (activity.bills.isEmpty) const _None('No bills yet'),
+                  for (final bill in activity.bills) _BillRow(bill),
+                  const SizedBox(height: Space.xl),
+                  const _SectionTitle('Payments'),
+                  if (activity.payments.isEmpty) const _None('No payments yet'),
+                  for (final payment in activity.payments) _PaymentRow(payment, shopName: shop.name),
+                ],
+              ),
+            ),
+          ),
+        },
+      ),
     ),
   );
 }
@@ -186,6 +193,12 @@ bool _canCollect(BuildContext context) => switch (context.read<AuthBloc>().state
 /// Visit notes are for users who may write `visits` (agents: their own shops).
 bool _canVisit(BuildContext context) => switch (context.read<AuthBloc>().state) {
   AuthSignedIn(:final session) => session.permissions.canWrite('visits') && !session.readOnly,
+  _ => false,
+};
+
+/// Agents report mistakes in their own entries (ux-design CR 2); the server checks again.
+bool _canReport(BuildContext context, String? byId) => switch (context.read<AuthBloc>().state) {
+  AuthSignedIn(:final session) => session.user.role == Role.agent && byId != null && byId == session.user.id,
   _ => false,
 };
 
@@ -299,6 +312,14 @@ class _BillRow extends StatelessWidget {
         tone: bill.state == BillState.cancelled ? AmountTone.cancelled : AmountTone.normal,
       ),
       status: StatusChip(status, label: label),
+      trailing: switch (bill.number) {
+        final number?
+            when bill.state != BillState.waiting &&
+                bill.state != BillState.cancelled &&
+                _canReport(context, bill.byId) =>
+          _ReportMenu(MistakeTarget(entry: MistakeEntry.bill, id: bill.id, number: number, total: bill.total)),
+        _ => null,
+      },
     );
   }
 }
@@ -317,10 +338,43 @@ class _PaymentRow extends StatelessWidget {
     status: payment.cancelled ? const StatusChip(EntryStatus.cancelled) : null,
     trailing: payment.cancelled
         ? null
-        : ShareReceiptButton(
-            receiptId: payment.id,
-            text: 'Receipt ${payment.number} · ${formatMoney(payment.total)} · $shopName',
+        : Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ShareReceiptButton(
+                receiptId: payment.id,
+                text: 'Receipt ${payment.number} · ${formatMoney(payment.total)} · $shopName',
+              ),
+              if (_canReport(context, payment.byId))
+                _ReportMenu(
+                  MistakeTarget(
+                    entry: MistakeEntry.receipt,
+                    id: payment.id,
+                    number: payment.number,
+                    total: payment.total,
+                  ),
+                ),
+            ],
           ),
+  );
+}
+
+/// ⋯ on an agent's own posted entry: Report a mistake.
+class _ReportMenu extends StatelessWidget {
+  const _ReportMenu(this.target);
+
+  final MistakeTarget target;
+
+  @override
+  Widget build(BuildContext context) => PopupMenuButton<void>(
+    tooltip: 'More',
+    icon: const Icon(Icons.more_vert),
+    itemBuilder: (_) => [
+      PopupMenuItem(
+        onTap: () => unawaited(showReportMistakeSheet(context, target)),
+        child: const Text('Report a mistake'),
+      ),
+    ],
   );
 }
 

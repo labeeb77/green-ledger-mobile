@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Request {
 
- String get id; Status8 get status; String? get reason; DateTime get createdAt; DateTime? get closedAt; String? get closedNote; HandledBy get handledBy;
+ String get id; Status9 get status; String? get reason; DateTime get createdAt; DateTime? get closedAt; String? get closedNote; HandledBy get handledBy;
 /// Create a copy of Request
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $RequestCopyWith<$Res>  {
   factory $RequestCopyWith(Request value, $Res Function(Request) _then) = _$RequestCopyWithImpl;
 @useResult
 $Res call({
- String id, Status8 status, String? reason, DateTime createdAt, DateTime? closedAt, String? closedNote, HandledBy handledBy
+ String id, Status9 status, String? reason, DateTime createdAt, DateTime? closedAt, String? closedNote, HandledBy handledBy
 });
 
 
@@ -75,7 +75,7 @@ class _$RequestCopyWithImpl<$Res>
   return _then(Request(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status8,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as Status9,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,closedAt: freezed == closedAt ? _self.closedAt : closedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,closedNote: freezed == closedNote ? _self.closedNote : closedNote // ignore: cast_nullable_to_non_nullable
@@ -165,7 +165,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Status8 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  Status9 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Request() when $default != null:
 return $default(_that.id,_that.status,_that.reason,_that.createdAt,_that.closedAt,_that.closedNote,_that.handledBy);case _:
@@ -186,7 +186,7 @@ return $default(_that.id,_that.status,_that.reason,_that.createdAt,_that.closedA
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Status8 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  Status9 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)  $default,) {final _that = this;
 switch (_that) {
 case _Request():
 return $default(_that.id,_that.status,_that.reason,_that.createdAt,_that.closedAt,_that.closedNote,_that.handledBy);case _:
@@ -206,7 +206,7 @@ return $default(_that.id,_that.status,_that.reason,_that.createdAt,_that.closedA
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Status8 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  Status9 status,  String? reason,  DateTime createdAt,  DateTime? closedAt,  String? closedNote,  HandledBy handledBy)?  $default,) {final _that = this;
 switch (_that) {
 case _Request() when $default != null:
 return $default(_that.id,_that.status,_that.reason,_that.createdAt,_that.closedAt,_that.closedNote,_that.handledBy);case _:
@@ -225,7 +225,7 @@ class _Request implements Request {
   factory _Request.fromJson(Map<String, dynamic> json) => _$RequestFromJson(json);
 
 @override final  String id;
-@override final  Status8 status;
+@override final  Status9 status;
 @override final  String? reason;
 @override final  DateTime createdAt;
 @override final  DateTime? closedAt;
@@ -267,7 +267,7 @@ abstract mixin class _$RequestCopyWith<$Res> implements $RequestCopyWith<$Res> {
   factory _$RequestCopyWith(_Request value, $Res Function(_Request) _then) = __$RequestCopyWithImpl;
 @override @useResult
 $Res call({
- String id, Status8 status, String? reason, DateTime createdAt, DateTime? closedAt, String? closedNote, HandledBy handledBy
+ String id, Status9 status, String? reason, DateTime createdAt, DateTime? closedAt, String? closedNote, HandledBy handledBy
 });
 
 
@@ -288,7 +288,7 @@ class __$RequestCopyWithImpl<$Res>
   return _then(_Request(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status8,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as Status9,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,closedAt: freezed == closedAt ? _self.closedAt : closedAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,closedNote: freezed == closedNote ? _self.closedNote : closedNote // ignore: cast_nullable_to_non_nullable

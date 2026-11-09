@@ -9,7 +9,7 @@ part of 'due_soon.dart';
 _DueSoon _$DueSoonFromJson(Map<String, dynamic> json) => _DueSoon(
   id: json['id'] as String,
   name: json['name'] as String,
-  status: Status7.fromJson(json['status'] as String),
+  status: Status8.fromJson(json['status'] as String),
   expiresAt: DateTime.parse(json['expiresAt'] as String),
 );
 

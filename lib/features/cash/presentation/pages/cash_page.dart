@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_ledger_mobile/core/format/formatters.dart';
+import 'package:green_ledger_mobile/core/network/data_changes.dart';
 import 'package:green_ledger_mobile/core/theme/app_colors.dart';
 import 'package:green_ledger_mobile/core/theme/app_theme.dart';
 import 'package:green_ledger_mobile/core/widgets/amount_text.dart';
@@ -27,7 +28,10 @@ class CashPage extends StatelessWidget {
       unawaited(cubit.load());
       return cubit;
     },
-    child: const _CashView(),
+    child: ReloadOnDataChange(
+      onChange: (context) => unawaited(context.read<AgentCashCubit>().load()),
+      child: const _CashView(),
+    ),
   );
 }
 

@@ -44,6 +44,7 @@ ShopBill billFromDto(api.SalesBillSummaryDtoOutput b, {DateTime? now}) => ShopBi
     _ when b.dueDate.compareTo(isoDate(indianToday(now))) < 0 => BillState.overdue,
     _ => BillState.due,
   },
+  byId: b.createdBy?.id,
 );
 
 ShopPayment paymentFromDto(api.CustomerReceiptDtoOutput r) => ShopPayment(
@@ -52,4 +53,5 @@ ShopPayment paymentFromDto(api.CustomerReceiptDtoOutput r) => ShopPayment(
   date: r.receiptDate,
   total: r.total,
   cancelled: r.status == api.CustomerReceiptDtoOutputStatus.cancelled,
+  byId: r.collectedBy.id,
 );

@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'status7.dart';
+import 'status8.dart';
 
 part 'subscription3.freezed.dart';
 part 'subscription3.g.dart';
@@ -12,7 +12,7 @@ part 'subscription3.g.dart';
 @Freezed()
 abstract class Subscription3 with _$Subscription3 {
   const factory Subscription3({
-    required Status7 status,
+    required Status8 status,
     required DateTime expiresAt,
     required int userLimit,
     required String? notes,

@@ -78,6 +78,12 @@ Planned 2026-11-07, to run on the iPhone against the local backend. M1 slices A�
 - [ ] More → Help & support lists only the contacts set in the server `.env`; Call and WhatsApp open the dialer / chat; the app version shows.
 - [ ] Agent: More → Delete account → reason → REQUEST DELETION → confirm: "Request sent". The owner's bell shows it and the admin Users page has the red badge; deactivating the agent signs the phone out.
 
+## 6d. Report a mistake (agent login, then owner)
+
+- [ ] Agent: shop detail → ⋯ on own posted bill → Report a mistake → Wrong amount → SEND: "Reported". Bills by others and cancelled bills have no ⋯; Other needs a note.
+- [ ] Owner: the bell shows it; the tap opens Approvals; admin Approvals → Mistakes → close with a note.
+- [ ] Agent: the bell's `mistake_closed` opens More → My reports: Closed with the office's note.
+
 ## 7. General
 
 - [ ] Light and dark mode; text size at the largest setting (capped at 130%) doesn't cut off the Check and Saved screens.
@@ -88,4 +94,24 @@ Planned 2026-11-07, to run on the iPhone against the local backend. M1 slices A�
 
 | Step | What happened | Fix / issue |
 | --- | --- | --- |
-| | | |
+| Run 2026-11-07 | iOS Simulator (iPhone 16, iOS 26.3), not the iPhone: device signing blocked (team PLA not accepted). No camera, no airplane mode (API stopped instead), Face ID not enrolled, hardware keyboard. | Repeat on the iPhone once signing works |
+| 2 Collect / Home | Agent Home stays at ₹0 after a collection and on tab switch; only pull-to-refresh updates it. Order screen's "Credit left" also stale (₹45,000 after R-0002 made it ₹45,500). | Fixed 2026-11-07: `core/network/data_changes.dart` (fired after every successful save, on tab switch and on resume; Home, Shops, shop detail and Cash reload). Checked: owner COLLECT ₹100 → Home tab shows ₹8,600 without a pull |
+| 2 Collect | Total / Due after and the UPI card's extra fields sit under the keypad until you scroll. | UX |
+| 2 Visit | "Choose when they will pay" shows in red as soon as Promised is picked. | UX: show only on SAVE |
+| 6b Owner/manager Home | COLLECT button label wraps to "COLLEC / T" (three buttons per row at 393 pt). | Fixed 2026-11-07: smaller side padding, labels scale down instead of wrapping (`owner_home_card.dart`); checked on the simulator |
+| 6 Dispatch | Check says "50 kg was left" for a 48 kg dispatch of 50 kg ordered; reads as if 50 kg remain. | Copy |
+| 6 Dispatch (D4) | ORD-0001 2 Crate @ ₹625/Crate, 48 kg dispatched → B-0003 ₹1,250 (packs × rate), quantity 48 kg. | Question: should a pack-rated line be billed by dispatched weight? |
+| 5 Orders | ORD-0002/0003 got numbers while `pending_approval`; ORD-0002 rejected keeps its number. HANDOFF says pending orders have no number. | Question: doc or code (`internal/sales/orders.go:157`)? |
+| Receipt PDF | "AMOUNT" header left-aligned, values right-aligned. | Cosmetic (server template) |
+| Notifications | "Cash handover: ₹5,500.00" (paise) vs ₹5,500 elsewhere. | Cosmetic (server text) |
+| Passed | Login, PIN set, agent Home (after refresh), Shops, shop detail, Collect cash+UPI → R-0001 settles oldest first, receipt PDF + share sheet, visit Promised "This week" = Sun 8 Nov on a Saturday, draft offline → ⏳ 1 → SEND AGAIN posts once (R-0002), Cash bag ₹5,500 → handover → manager counts ₹5,300 → "₹200 short", agent order at locked quote rate (ORD-0001), over-limit approval card + reject (chip required) + approve, report a mistake (Other needs a note) → owner/manager bell → Approvals, Help & support contacts + version, godown Home (no ₹), dispatch with Close – no more → B-0003 by the agent. | |
+| 6c Delete account | Deactivating a signed-in agent left the app on stale data: every call 401, the refresh 401 too, never signed out. `/auth/refresh` went through the same Dio as the `QueuedInterceptor`, so a refused refresh waited on itself (deadlock); a successful one never hit the error queue. | Fixed 2026-11-07: refresh uses `ApiClient.refreshAuth` (no interceptor); regression test through the real client in `auth_interceptor_test.dart` (times out on the old wiring). Checked: deactivate → "You were signed out. Sign in again." |
+| 6 Receive / Wastage | Photo buttons open the camera only (no Photos choice); the simulator has no camera, so slip and wastage photo upload is untested. | Run on the iPhone |
+| 6 Wastage | Numpad slides up over half the Photo button once a digit is typed. | UX (same as Collect) |
+| 6 Wastage approval | Owner's card reads "Wastage · Biju (Godown) → Wastage ₹250" without product or quantity. | UX: show "Tomato 10 kg · Rotten" |
+| 6 Stock | Pack count in brackets is the sum of pack movements: "250 kg (10 Bag)", "−298 kg (−2 Crate)" after loose-kg sales. | Question: derive from kg ÷ pack size, or hide when mixed? |
+| 7 Expired | Owner sees "Contact the owner." | Copy: owner/manager wording ("Renew in …" / contact support) |
+| Search | iOS autocorrect is on in the search field ("mal" + space → "map"). | Turn off autocorrect/suggestions on search fields |
+| Tabs | A tab left from a Saved screen (without Done) reopens on that Saved screen. | Minor |
+| Passed (2nd run) | Rates (copy, edit, SAVE 6 RATES = server), statement share Last month (PDF correct), search "mal" / "B-0", theme Dark kept after restart, PIN after restart, 5 wrong PINs → sign-in ("1 try left" on the 4th), Agents today, Receive → GRN-0001 (stock +500), wastage → approval → owner APPROVE (stock −10), return inspection (only saleable line adds stock; other line stays), godown offline dispatch (SEND AGAIN ×2 → one bill B-0004, order partly dispatched), godown Home reloads by itself, mistake closed → agent bell → My reports Closed with note, delete account request → owner notified + Users list, deactivating closes the request, expired subscription banner + COLLECT/ORDER/VISIT hidden, largest text (130%) on Home and Check. | |
+| Not run | Slip/wastage/UPI photos (no camera), Face ID, Call/WhatsApp, real offline (airplane mode), background > 5 min lock. | iPhone run |

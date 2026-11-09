@@ -77,6 +77,9 @@ void main() {
     expect(notificationPath('handover_decided', agent), '/cash');
     expect(notificationPath('approval_requested', agent), isNull);
     expect(notificationPath('subscription_expiry', owner), isNull);
+    expect(notificationPath('mistake_reported', owner), '/approvals');
+    expect(notificationPath('mistake_closed', agent), '/more/mistakes');
+    expect(notificationPath('mistake_closed', owner), isNull);
   });
 
   test('marking read drops the count at once; a failed call keeps it read on screen', () async {
