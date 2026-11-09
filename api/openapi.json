@@ -14207,12 +14207,16 @@
                 },
                 "count": {
                   "type": "string"
+                },
+                "estimated": {
+                  "type": "boolean"
                 }
               },
               "required": [
                 "packUnitId",
                 "name",
-                "count"
+                "count",
+                "estimated"
               ],
               "type": "object"
             },

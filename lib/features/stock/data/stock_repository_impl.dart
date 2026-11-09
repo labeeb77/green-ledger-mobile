@@ -30,7 +30,7 @@ StockItem stockItemFromDto(api.StockRowDtoOutput r) => StockItem(
   nameMl: r.nameMl,
   unit: r.stockUnit,
   quantity: r.quantity,
-  packs: [for (final p in r.packs) PackCount(name: p.name, count: p.count)],
+  packs: [for (final p in r.packs) PackCount(name: p.name, count: p.count, estimated: p.estimated)],
   lowStock: r.lowStock,
   wastageToday: r.wastageToday,
 );

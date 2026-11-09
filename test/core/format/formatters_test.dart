@@ -15,11 +15,12 @@ void main() {
   });
 
   group('formatQuantity', () {
-    test('at most 2 decimals, trailing zeros dropped', () {
+    test('3 decimals, trailing zeros dropped', () {
       expect(formatQuantity('248.500', 'kg'), '248.5 kg');
       expect(formatQuantity('25.000', 'pcs'), '25 pcs');
-      expect(formatQuantity('1.125'), '1.13');
-      expect(formatQuantity('0.004'), '0');
+      expect(formatQuantity('1.125'), '1.125');
+      expect(formatQuantity('0.004'), '0.004');
+      expect(formatQuantity('-0.250'), '-0.25');
       expect(formatQuantity('-2.250'), '-2.25');
     });
 

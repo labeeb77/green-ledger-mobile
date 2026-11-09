@@ -25,14 +25,13 @@ String _indianGrouping(String digits) {
   return [head, ...groups, tail].join(',');
 }
 
-/// `248.5 kg`: at most 2 decimals (rounded half up), trailing zeros dropped. [quantity]
-/// is the API's 3-decimal string.
+/// `248.5 kg`, `48.125 kg`: the API's 3 decimals with trailing zeros dropped, so screen figures
+/// add up to the bill. [quantity] is the API's 3-decimal string.
 String formatQuantity(String quantity, [String? unit]) {
   final value = toMilli(quantity);
-  final hundredths = (value.abs() + 5) ~/ 10 * (value < 0 ? -1 : 1);
-  final whole = hundredths.abs() ~/ 100;
-  final fraction = (hundredths.abs() % 100).toString().padLeft(2, '0').replaceFirst(RegExp(r'0+$'), '');
-  final number = '${hundredths < 0 ? '-' : ''}$whole${fraction.isEmpty ? '' : '.$fraction'}';
+  final whole = value.abs() ~/ 1000;
+  final fraction = (value.abs() % 1000).toString().padLeft(3, '0').replaceFirst(RegExp(r'0+$'), '');
+  final number = '${value < 0 ? '-' : ''}$whole${fraction.isEmpty ? '' : '.$fraction'}';
   return unit == null ? number : '$number $unit';
 }
 

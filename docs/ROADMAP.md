@@ -100,5 +100,5 @@ Until a gap is filled, the screen uses what the API has (e.g. Home cards built f
 
 ## Open decisions
 
-- ux-design change requests 1–3 still need the owner's sign-off; the app is built online-first (CR 1) as agreed for this phase.
-- Weight display: 2 decimals on screen vs 3 stored (ux-design section 11).
+- ux-design CR 1 (online-first + drafts) signed off by the owner as built (2026-11-09); CR 2 and CR 3 are done.
+- Weight display: up to 3 decimals, trailing zeros dropped (owner, 2026-11-09; `formatQuantity`).

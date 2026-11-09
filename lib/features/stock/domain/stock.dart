@@ -1,12 +1,16 @@
 import 'package:green_ledger_mobile/core/format/formatters.dart';
 import 'package:green_ledger_mobile/core/result.dart';
 
-/// A pack count in stock, e.g. 7 Bag.
+/// A pack count in stock, e.g. 7 Bag; `estimated` counts (variable bags
+/// mixed with loose stock) show as `≈ 7 Bag`.
 class PackCount {
-  const PackCount({required this.name, required this.count});
+  const PackCount({required this.name, required this.count, this.estimated = false});
 
   final String name;
   final String count;
+  final bool estimated;
+
+  String get label => '${estimated ? '≈ ' : ''}${formatQuantity(count)} $name';
 }
 
 /// Stock on hand of one product (ux-design 4.7): quantity and packs, never cost.
@@ -31,11 +35,11 @@ class StockItem {
   final bool lowStock;
   final String wastageToday;
 
-  /// `340 kg (7 Bag)`; negative stock (D8) shows as it is.
+  /// `340 kg (7 Bag)` or `340 kg (≈ 7 Bag)`; negative stock (D8) shows as it is.
   String get onHand {
     final q = formatQuantity(quantity, unit);
     if (packs.isEmpty) return q;
-    return '$q (${packs.map((p) => '${formatQuantity(p.count)} ${p.name}').join(', ')})';
+    return '$q (${packs.map((p) => p.label).join(', ')})';
   }
 
   bool get negative => quantity.startsWith('-');

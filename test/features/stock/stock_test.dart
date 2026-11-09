@@ -22,9 +22,24 @@ final StockItem onion = stockItemFromDto(
     'active': true,
     'quantity': '340.000',
     'packs': [
-      {'packUnitId': 'bag', 'name': 'Bag', 'count': '7.000'},
+      {'packUnitId': 'bag', 'name': 'Bag', 'count': '7.000', 'estimated': false},
     ],
     'lowStockLevel': '100.000',
+    'lowStock': false,
+    'wastageToday': '0.000',
+  }),
+);
+
+final StockItem potato = stockItemFromDto(
+  api.StockRowDtoOutput.fromJson({
+    'productId': 'p3',
+    'name': 'Potato',
+    'stockUnit': 'kg',
+    'active': true,
+    'quantity': '350.000',
+    'packs': [
+      {'packUnitId': 'bag', 'name': 'Bag', 'count': '7.000', 'estimated': true},
+    ],
     'lowStock': false,
     'wastageToday': '0.000',
   }),
@@ -41,8 +56,9 @@ const garlic = StockItem(
 );
 
 void main() {
-  test('on hand reads "340 kg (7 Bag)"; negative stock shows as it is', () {
+  test('on hand reads "340 kg (7 Bag)", estimated packs "≈ 7 Bag"; negative stock shows as it is', () {
     expect(onion.onHand, '340 kg (7 Bag)');
+    expect(potato.onHand, '350 kg (≈ 7 Bag)');
     expect(garlic.onHand, '-8.5 kg');
     expect(garlic.negative, isTrue);
   });
